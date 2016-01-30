@@ -8,5 +8,9 @@
 	# Themes
 	RewriteCond %{REQUEST_URI} ^/controller/themes$
     RewriteRule ^(.*)$ themes.php [QSA,L]
+
+	# Projets
+	RewriteCond %{REQUEST_URI} ^/controller/projets/(.*)$
+	RewriteRule ^projets/([0-9]*)-(.*)$ project.php?id=$1&name=$2 [QSA,L]
 </IfModule>
 
