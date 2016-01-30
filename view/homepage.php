@@ -1,4 +1,5 @@
 <?php 
+/* View */
 
 function show_homepage() {
 	?>
