@@ -7,6 +7,8 @@ function show_themes($themes) {
 	
 	<h1>Voici les thèmes du site !</h1>
 	
+	<a href="/">Accueil</a>
+	
 	<?php
 	
 	foreach ($themes as $theme) {
