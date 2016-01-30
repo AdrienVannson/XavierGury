@@ -1,7 +1,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    #RewriteCond %{REQUEST_FILENAME} !-f
+
+	# Accueil
 	RewriteCond %{REQUEST_URI} ^/controller/$
-    RewriteRule ^(.*)$ homepage.php [QSA,L]
+    RewriteRule ^(.*)$ homepage.php [QSA,L]	
+
+	# Themes
+	RewriteCond %{REQUEST_URI} ^/controller/themes$
+    RewriteRule ^(.*)$ themes.php [QSA,L]
 </IfModule>
 
