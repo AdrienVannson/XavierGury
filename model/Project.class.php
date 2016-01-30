@@ -20,12 +20,18 @@ class Project {
 	public function get_id() {
 		return $this->_id;
 	}
+	
 	public function get_id_theme() {
 		return $this->id_theme;
 	}
+	
 	public function get_name() {
 		return $this->_name;
 	}
+	public function get_name_formatted() {
+		return urlencode($this->_name);
+	}
+	
 	public function get_description() {
 		return $this->_description;
 	}

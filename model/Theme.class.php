@@ -1,15 +1,16 @@
 <?php
 /* Model */
-include_once("../model/connect.php");
+include_once("connect.php");
+include_once("Project.class.php");
 
 class Theme {
 	
 	public function __construct($id) {
 		$db = get_db();
 		
-		$result = $db->prepare("SELECT * FROM themes WHERE id=?");
-		$result->execute(array($id));
-		$datas = $result->fetch();
+		$results = $db->prepare("SELECT * FROM themes WHERE id=?");
+		$results->execute(array($id));
+		$datas = $results->fetch();
 		
 		$this->_id = $datas["id"];
 		$this->_name = $datas["name"];
@@ -34,6 +35,24 @@ class Theme {
 	
 	public function get_color() {
 		return $this->_color;
+	}
+	
+	public function get_projects() {
+		$request = "
+			SELECT id
+			FROM projects
+			WHERE id_theme = ?
+		";
+		
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array($this->_id));
+		
+		$projects = [];
+		while($datas = $results->fetch()) {
+			$projects[] = new Project($datas["id"]);
+		}
+		return $projects;
 	}
 	
 	private $_id;
