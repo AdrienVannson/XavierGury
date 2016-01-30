@@ -4,7 +4,14 @@
 function show_homepage() {
 	?>
 	
-	Page d'accueil
+	<p>Bienvenu !</p>
+	
+	<ul>
+		<li><a href="/themes">Mots</a></li>
+		<li><a href="/grille-images">Images</a></li>
+		<li><a href="/journal">Journal</a></li>
+	</ul>
+
 	
 	<?php
 }
