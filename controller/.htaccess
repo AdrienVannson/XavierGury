@@ -10,12 +10,12 @@
     RewriteRule ^(.*)$ themes.php [QSA,L]
 
 	# Theme
-	RewriteCond %{REQUEST_URI} ^/controller/projets/([0-9]*)-([^/]*)/?$
-	RewriteRule ^projets/([0-9]*)-(.*)$ theme.php?theme_id=$1&theme_name=$2 [QSA,L]
+	RewriteCond %{REQUEST_URI} ^/controller/([0-9]*)-([^/]*)/?$
+	RewriteRule ^([0-9]*)-(.*)$ theme.php?theme_id=$1&theme_name=$2 [QSA,L]
 
 	# Projet
-	RewriteCond %{REQUEST_URI} ^/controller/projets/(.*)/(.*)$
-	RewriteRule ^projets/([0-9]*)-(.*)/([0-9]*)-(.*)$ project.php?theme_id=$1&theme_name=$2&project_id=$3&project_name=$4 [QSA,L]
+	RewriteCond %{REQUEST_URI} ^/controller/(.*)/(.*)$
+	RewriteRule ^([0-9]*)-(.*)/([0-9]*)-(.*)$ project.php?theme_id=$1&theme_name=$2&project_id=$3&project_name=$4 [QSA,L]
 
 </IfModule>
 
