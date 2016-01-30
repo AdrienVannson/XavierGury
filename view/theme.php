@@ -1,6 +1,7 @@
 <?php
 /* View */
 include_once("../model/Theme.class.php");
+include_once("color_menu.php");
 include_once("head.php");
 
 function show_theme($theme) {
@@ -20,6 +21,7 @@ body {
 
 
 #menu {
+	float: left;
 	color: #FFF;
 	width: 18%;
 }
@@ -50,6 +52,8 @@ a {
 					}
 					?>
 				</ul>
+				
+				<?php show_color_menu($theme->get_id()); ?>
 			</div>
 			
 			<div id="contents">
