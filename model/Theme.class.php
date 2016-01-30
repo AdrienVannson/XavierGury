@@ -20,12 +20,18 @@ class Theme {
 	public function get_id() {
 		return $this->_id;
 	}
+	
 	public function get_name() {
 		return $this->_name;
 	}
+	public function get_name_formatted() {
+		return urlencode($this->_name);
+	}
+	
 	public function get_description() {
 		return $this->_description;
 	}
+	
 	public function get_color() {
 		return $this->_color;
 	}
@@ -34,19 +40,4 @@ class Theme {
 	private $_name;
 	private $_description;
 	private $_color;
-}
-
-function get_themes() { /* Retourne la liste des thèmes */
-	
-	$db = get_db();
-	$result = $db->query("SELECT id FROM themes");
-	
-	$themes = [];
-	
-	while($datas = $result->fetch()) {
-		$id = $datas["id"];
-		$themes[] = new Theme($id);
-	}
-	
-	return $themes;
 }

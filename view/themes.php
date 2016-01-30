@@ -1,6 +1,6 @@
 <?php
 /* View */
-include_once("../model/Themes.class.php");
+include_once("../model/Theme.class.php");
 include_once("head.php");
 
 function show_themes($themes) {
@@ -19,7 +19,7 @@ function show_themes($themes) {
 			foreach ($themes as $theme) {
 				?>
 				
-				<h2 style="color:#<?php echo $theme->get_color();?>;"><?php echo $theme->get_name();?></h2>
+				<h2> <a href="/projets/<?php echo $theme->get_id();?>-<?php echo $theme->get_name_formatted();?>" style="color:#<?php echo $theme->get_color();?>;"> <?php echo $theme->get_name();?> </a> </h2>
 				<p>
 					<?php echo $theme->get_description();?>
 				</p>

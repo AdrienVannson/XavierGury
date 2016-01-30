@@ -1,5 +1,6 @@
 <?php
 /* View */
+include_once("../model/Project.class.php");
 
 function show_project($project) {
 	?>
