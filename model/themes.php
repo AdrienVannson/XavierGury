@@ -2,6 +2,7 @@
 /* Model */
 include_once("Theme.class.php");
 
+
 function get_themes() { /* Retourne la liste des thèmes */
 
 	$db = get_db();
@@ -15,4 +16,12 @@ function get_themes() { /* Retourne la liste des thèmes */
 	}
 
 	return $themes;
+}
+
+function get_nb_themes() {
+	
+	$db = get_db();
+	$result = $db->query("SELECT COUNT(id) FROM themes");
+	$datas = $result->fetch();
+	return $datas[0];
 }

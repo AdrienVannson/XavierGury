@@ -1,5 +1,6 @@
 <?php
 /* View */
+include_once("../../model/themes.php");
 
 function show_project_styles() {
 	?>
@@ -30,10 +31,10 @@ function show_project_styles() {
 	
 	.color_item {
 		display: block;
-		margin-top: 50px;
+		margin-top: <?php echo 30/get_nb_themes();?>vw;
 		float: left;
-		width: 50px;
-		height: 50px;
+		width: <?php echo 15/get_nb_themes();?>vw;
+		height: <?php echo 30/get_nb_themes();?>vw;
 	}
 	
 	#color_item_activate {
