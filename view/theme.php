@@ -1,6 +1,6 @@
 <?php
 /* View */
-include_once("../model/Theme.class.php");
+include_once("model/Theme.class.php");
 include_once("left_menu.php");
 include_once("head.php");
 

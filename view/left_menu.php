@@ -1,7 +1,7 @@
 <?php
 /* View */
-include_once("../model/Theme.class.php");
-include_once("../model/themes.php");
+include_once("model/Theme.class.php");
+include_once("model/themes.php");
 
 function show_left_menu($currentTheme) {
 	

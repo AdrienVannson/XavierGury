@@ -1,6 +1,6 @@
 <?php
 /* View */
-include_once("../../model/themes.php");
+include_once("model/themes.php");
 
 function show_project_styles() {
 	?>

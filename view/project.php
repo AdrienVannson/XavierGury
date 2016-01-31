@@ -1,9 +1,10 @@
 <?php
 /* View */
-include_once("../model/Project.class.php");
-include_once("../model/Theme.class.php");
+include_once("model/Project.class.php");
+include_once("model/Theme.class.php");
 include_once("head.php");
 include_once("left_menu.php");
+
 
 function show_project($project) {
 	$theme = $project->get_theme();
