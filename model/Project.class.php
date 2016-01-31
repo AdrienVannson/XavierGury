@@ -1,6 +1,7 @@
 <?php
 /* Model */
-include_once("../model/connect.php");
+include_once("connect.php");
+include_once("Theme.class.php");
 
 class Project {
 
@@ -12,7 +13,7 @@ class Project {
 		$datas = $result->fetch();
 
 		$this->_id = $datas["id"];
-		$this->id_theme = $datas["id_theme"];
+		$this->_id_theme = $datas["id_theme"];
 		$this->_name = $datas["name"];
 		$this->_description = $datas["description"];
 	}
@@ -22,7 +23,10 @@ class Project {
 	}
 	
 	public function get_id_theme() {
-		return $this->id_theme;
+		return $this->_id_theme;
+	}
+	public function get_theme() {
+		return new Theme( $this->_id_theme );
 	}
 	
 	public function get_name() {
