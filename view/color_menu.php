@@ -16,6 +16,7 @@ function show_color_menu($id_activate=-1) {
 }
 
 .color_item {
+	display: block;
 	margin-top: 50px;
 	float: left;
 	width: 50px;
@@ -33,11 +34,12 @@ function show_color_menu($id_activate=-1) {
 		<?php 
 		foreach($themes as $theme) {
 			?>
-			<div 
+			<a
 				<?php if($theme->get_id()==$id_activate){?>id="color_item_activate"<?php }?>
 				class="color_item"
 				style="background-color: #<?php echo $theme->get_color();?>;"
-			></div>
+				href="/<?php echo $theme->get_id();?>-<?php echo $theme->get_name_formatted();?>"
+			></a>
 			<?php
 		}
 		?>
