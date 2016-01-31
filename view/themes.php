@@ -11,7 +11,94 @@ function show_themes($themes) {
 	<?php show_head("Thèmes", array("themes-styles.css"), array("themes-scripts.js")); ?>
 	<body>
 		
-		
+		<div id="themes">
+			
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			<div class="line">
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+				<div class="column"></div>
+			</div>
+			
+		</div>
 		
 	</body>
 </html>
