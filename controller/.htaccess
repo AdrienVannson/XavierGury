@@ -18,7 +18,8 @@
 	RewriteRule ^([0-9]*)-(.*)/([0-9]*)-(.*)$ project.php?theme_id=$1&theme_name=$2&project_id=$3&project_name=$4 [QSA,L]
 
 	# Style
-	RewriteCond %{REQUEST_URI} ^/controller/styles/left-menu.css$
-	RewriteRule ^(.*)$ left_menu/left_menu_styles.php [QSA,L]
+	RewriteCond %{REQUEST_URI} ^/controller/styles/project.css$
+	RewriteRule ^(.*)$ project/project_styles.php [QSA,L]
+
 </IfModule>
 

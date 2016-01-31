@@ -12,7 +12,7 @@ function show_project($project) {
 	<!DOCTYPE HTML>
 	<html lang="fr">
 		
-		<?php show_head($project->get_name(), array("/styles/left-menu.css")); ?>
+		<?php show_head($project->get_name(), array("/styles/project.css")); ?>
 		
 		<body>
 				
