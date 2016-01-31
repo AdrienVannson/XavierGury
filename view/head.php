@@ -1,7 +1,7 @@
 <?php
 /* View */
 
-function show_head($title, $styles=array()) {
+function show_head($title, $styles=array(), $scripts=array()) {
 	?>
 	
 	<head>
@@ -12,7 +12,12 @@ function show_head($title, $styles=array()) {
 		<?php
 		foreach($styles as $style) {
 			?>
-			<link rel="stylesheet" type="text/css" href="<?php echo $style;?>"/>
+			<link rel="stylesheet" type="text/css" href="/styles/<?php echo $style;?>"/>
+			<?php
+		}
+		foreach($scripts as $script) {
+			?>
+			<script type="text/javascript" src="/scripts/<?php echo $script;?>"> </script>
 			<?php
 		}
 		?>

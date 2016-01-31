@@ -40,6 +40,18 @@ if($size == 2) {
 			include("controller/project/project_styles.php");
 			exit();
 		}
+		if($request[1] == "themes-styles.css") {
+			include("controller/themes/themes_styles.php");
+			exit();
+		}
+		
+	}
+	if($request[0] == "scripts") { // Scripts
+		
+		if($request[1] == "themes-scripts.js") {
+			include("controller/themes/themes_scripts.php");
+			exit();
+		}
 		
 	}
 	if(preg_match("#[0-9]*-.*#", $request[0]) && preg_match("#[0-9]*-.*#", $request[1])) { // Page de projet

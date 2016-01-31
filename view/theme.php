@@ -10,7 +10,7 @@ function show_theme($theme) {
 	<!DOCTYPE HTML>
 	<html lang="fr">
 		
-		<?php show_head($theme->get_name(), array("/styles/project.css")); ?>
+		<?php show_head($theme->get_name(), array("project.css")); ?>
 		
 		<body>
 				
