@@ -16,7 +16,7 @@ function show_theme($theme) {
 			
 			<style>
 body {
-	background-color: #111;
+	background-color: #2B2E34;
 }
 
 
