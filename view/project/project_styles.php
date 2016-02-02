@@ -6,6 +6,7 @@ function show_project_styles() {
 	?>
 	body {
 		background-color: #2B2E34;
+		margin: 0;
 	}
 	
 	
@@ -40,5 +41,18 @@ function show_project_styles() {
 	#color_item_activate {
 		margin-top: 0;
 	}
+	
+	.separator {
+		position: absolute;
+		background-color: #FFF;
+	}
+	#separator-menu {
+		top: 1vw;
+		left: 15vw;
+		bottom: 0;
+		
+		width: 1px;
+	}
+	
 	<?php
 }

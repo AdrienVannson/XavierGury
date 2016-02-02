@@ -42,7 +42,9 @@ function show_left_menu($currentTheme) {
 			?>
 			
 		</div>
-	
+		
+		<div class="separator" id="separator-menu"></div>
+		
 	</div>
 	
 	<?php
