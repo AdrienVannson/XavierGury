@@ -23,6 +23,16 @@ function show_project_styles() {
 	
 	a {
 		color: #FFF;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	ul {
+		list-style-type: none;
+	}
+	li {
+		margin-bottom: 20px;
 	}
 	
 	#color_menu {
