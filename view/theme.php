@@ -17,7 +17,7 @@ function show_theme($theme) {
 			<?php show_left_menu($theme); ?>
 			
 			<div id="contents">
-				<a href="/">Accueil</a>
+				
 				<h1><?php echo $theme->get_name();?></h1>
 				<p><?php echo $theme->get_description();?></p>
 				

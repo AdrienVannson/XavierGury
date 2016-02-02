@@ -42,16 +42,35 @@ function show_project_styles() {
 		margin-top: 0;
 	}
 	
+	#white-item {
+		position: absolute;
+		left: <?php echo 31-(15/get_nb_themes());?>vw;
+		bottom: 0;
+		
+		display: block;
+		width: <?php echo 15/get_nb_themes();?>vw;
+		height: <?php echo 30/get_nb_themes();?>vw;
+		background-color: #FFF;
+	}
+	
 	.separator {
 		position: absolute;
 		background-color: #FFF;
 	}
+	
 	#separator-menu {
 		top: 1vw;
 		left: 15vw;
 		bottom: 0;
 		
 		width: 1px;
+	}
+	#separator-bottom {
+		left: 0;
+		bottom: <?php echo 30/get_nb_themes();?>vw;
+		
+		width: 33vw;
+		height: 1px;
 	}
 	
 	<?php

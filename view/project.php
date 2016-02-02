@@ -20,7 +20,6 @@ function show_project($project) {
 			<?php show_left_menu($theme); ?>
 			
 			<div id="contents">
-				<a href="/">Accueil</a>
 				
 				<h1><?php echo $project->get_name();?></h1>
 				<p><?php echo $project->get_description();?></p>
