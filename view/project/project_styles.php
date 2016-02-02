@@ -53,24 +53,38 @@ function show_project_styles() {
 		background-color: #FFF;
 	}
 	
-	.separator {
+	.line {
 		position: absolute;
 		background-color: #FFF;
 	}
 	
-	#separator-menu {
+	#line-menu {
 		top: 1vw;
 		left: 15vw;
 		bottom: 0;
 		
 		width: 1px;
 	}
-	#separator-bottom {
+	#line-bottom {
 		left: 0;
 		bottom: <?php echo 30/get_nb_themes();?>vw;
 		
 		width: 33vw;
 		height: 1px;
+	}
+	#line-white-item-1 {
+		left: <?php echo 31-(15/get_nb_themes());?>vw;
+		bottom: 0;
+		
+		width: 1px;
+		height: <?php echo 33/get_nb_themes();?>vw;
+	}
+	#line-white-item-2 {
+		left: <?php echo 31-(15/get_nb_themes()) + 15/get_nb_themes();?>vw;
+		bottom: 0;
+		
+		width: 1px;
+		height: <?php echo 36/get_nb_themes();?>vw;
 	}
 	
 	<?php

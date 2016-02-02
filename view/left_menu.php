@@ -45,8 +45,10 @@ function show_left_menu($currentTheme) {
 		
 		<a id="white-item" href="/"></a>
 		
-		<div class="separator" id="separator-menu"></div>
-		<div class="separator" id="separator-bottom"></div>
+		<div class="line" id="line-menu"></div>
+		<div class="line" id="line-bottom"></div>
+		<div class="line" id="line-white-item-1"></div>
+		<div class="line" id="line-white-item-2"></div>
 		
 	</div>
 	
