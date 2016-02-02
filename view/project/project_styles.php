@@ -13,7 +13,7 @@ function show_project_styles() {
 	#menu {
 		float: left;
 		color: #FFF;
-		width: 18%;
+		width: 15vw;
 	}
 	
 	#contents {
@@ -21,18 +21,22 @@ function show_project_styles() {
 		color: #EEE;
 	}
 	
-	a {
+	li a {
+		background-color: #2B2E34;
 		color: #FFF;
 		text-decoration: none;
+		
+		display:block;
+		padding: 20px;
+		
+		transition: background-color .3s;
 	}
-	a:hover {
-		text-decoration: underline;
+	li a:hover {
+		background-color: #000;
 	}
 	ul {
 		list-style-type: none;
-	}
-	li {
-		margin-bottom: 20px;
+		padding-left: 0;
 	}
 	
 	#color_menu {
