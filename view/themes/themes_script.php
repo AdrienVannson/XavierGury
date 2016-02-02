@@ -9,7 +9,7 @@ function show_theme_script() {
 $(document).ready(function() {
 	
 	var width = $(document).width();
-	var nbColumns = Math.floor(width / 100);
+	var nbColumns = Math.floor(width / 200);
 	
 	for(var iLine=0; iLine<10; iLine++) {
 

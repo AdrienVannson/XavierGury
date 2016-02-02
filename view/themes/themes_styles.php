@@ -10,7 +10,7 @@ body {
 }
 
 .line {
-	height: 100px;
+	height: 70px;
 	background-color: white;
 }
 .line:last-child .column {
@@ -26,7 +26,6 @@ body {
 	margin-top: 1px;
 	margin-right: 1px;
 	height: calc(100% - 1px);
-	width: calc(10% - 1px);
 	background-color: #2B2E34;
 }
 
