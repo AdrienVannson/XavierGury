@@ -3,7 +3,7 @@
 include_once("model/Theme.class.php");
 include_once("head.php");
 
-function show_themes($themes) {
+function show_themes() {
 	?>
 	
 <!DOCTYPE HTML>
