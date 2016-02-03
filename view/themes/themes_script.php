@@ -37,8 +37,19 @@ function isPossible(iLine, iColumn) {
 }
 
 $(document).ready(function() {
-
-	var themes = [new Theme('Azerty', 'blue'), new Theme('Other', 'green')];
+	
+	var themes = [
+	<?php
+	$iTheme = 0;
+	foreach($themes as $theme) {
+		echo "new Theme('".$theme->get_name()."', '#".$theme->get_color()."')";
+		
+		if($iTheme < sizeof($themes)-1) {
+			echo ",";
+		}
+	}
+	?>
+	];
 	
 	var width = $(document).width();
 	var nbColumns = Math.floor(width / 200);
