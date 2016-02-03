@@ -41,14 +41,31 @@ $(document).ready(function() {
 	
 	var themes = [
 	<?php
+	class ThemeShowed {
+		public function __construct($name, $url, $color) {
+			$this->name = $name;
+			$this->url = $url;
+			$this->color = $color;
+		}
+		public $name, $url, $color;
+	}
+	$themesShowed = [];
+	
 	$iTheme = 0;
 	foreach($themes as $theme) {
-		echo "new Theme('".strtoupper($theme->get_name())."', '".$theme->get_url()."', '#".$theme->get_color()."')";
+		$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
+	}
+	$themesShowed[] = new ThemeShowed("", "/", "FFF");
+	shuffle($themesShowed);
+	
+	foreach($themesShowed as $theme) {
+		echo "new Theme('".strtoupper($theme->name)."', '".$theme->url."', '#".$theme->color."')";
 		
 		if($iTheme < sizeof($themes)-1) {
 			echo ",";
 		}
 	}
+	
 	?>
 	];
 	
