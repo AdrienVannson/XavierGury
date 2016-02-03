@@ -5,6 +5,8 @@ function show_themes_styles() {
 	?>
 /* <style>*/
 
+/* TODO : Traits de 2px */
+
 body {
 	background-color: #2B2E34;
 }
