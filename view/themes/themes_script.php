@@ -7,6 +7,11 @@ function show_theme_script($themes) {
 <script>
 // */
 
+var Theme = function(_name="", _color="") {
+	this.name = _name;
+    this.color = _color;
+}
+
 function addLine(iLine, nbColumns) {
 	$('#themes').append('<div class="line" id="line-'+iLine+'"></div>');
 
@@ -32,22 +37,35 @@ function isPossible(iLine, iColumn) {
 }
 
 $(document).ready(function() {
+
+	var themes = [new Theme('Azerty', 'blue'), new Theme('Other', 'green')];
 	
 	var width = $(document).width();
 	var nbColumns = Math.floor(width / 200);
-	
-	for(var iLine=0; iLine<10; iLine++) {
+
+	var iLine=0;
+	while(themes.length>0 && iLine<100) {
 		addLine(iLine, nbColumns);
 		
 		for(var iColumn=0; iColumn<nbColumns; iColumn++) {
 
 			if(isPossible(iLine, iColumn)) {
-				$('#column-'+iLine+'-'+iColumn).addClass('theme');
-				$('#column-'+iLine+'-'+iColumn).css('backgroundColor', 'red');
+				var last = themes.pop();
+				
+				$('#column-'+iLine+'-'+iColumn)
+					.addClass('theme')
+					.css('backgroundColor', last.color)
+					.html(last.name);
+				
+
+				if(themes.length == 0) {
+					break;
+				}
 			}
 			
 		}
-		
+
+		iLine++;
 	}
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
