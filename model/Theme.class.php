@@ -28,6 +28,9 @@ class Theme {
 	public function get_name_formatted() {
 		return urlencode($this->_name);
 	}
+	public function get_url() {
+		return "/".$this->get_id()."-".$this->get_name_formatted();
+	}
 	
 	public function get_description() {
 		return $this->_description;

@@ -36,6 +36,8 @@ body {
 .theme a {
 	color: #000;
 	text-decoration: none;
+	
+	display: block;
 }
 
 /* Div utilisé pour centrer le nom du thème */
