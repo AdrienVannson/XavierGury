@@ -29,5 +29,24 @@ body {
 	background-color: #2B2E34;
 }
 
+.theme {
+	text-align: center;
+}
+
+.theme a {
+	color: #000;
+	text-decoration: none;
+}
+
+/* Div utilisé pour centrer le nom du thème */
+.theme div {
+	height: 100%;
+}
+
+.theme a, .theme div {
+	display: inline-block;
+	vertical-align: middle;
+} 
+
 	<?php
 }

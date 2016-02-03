@@ -7,7 +7,7 @@ function show_theme_script($themes) {
 <script>
 // */
 
-var Theme = function(_name="", _color="") {
+var Theme = function (_name, _color) {
 	this.name = _name;
     this.color = _color;
 }
@@ -42,7 +42,7 @@ $(document).ready(function() {
 	<?php
 	$iTheme = 0;
 	foreach($themes as $theme) {
-		echo "new Theme('".$theme->get_name()."', '#".$theme->get_color()."')";
+		echo "new Theme('".strtoupper($theme->get_name())."', '#".$theme->get_color()."')";
 		
 		if($iTheme < sizeof($themes)-1) {
 			echo ",";
@@ -66,7 +66,7 @@ $(document).ready(function() {
 				$('#column-'+iLine+'-'+iColumn)
 					.addClass('theme')
 					.css('backgroundColor', last.color)
-					.html(last.name);
+					.html('<div></div><a href="/">'+last.name+'</a>');
 				
 
 				if(themes.length == 0) {
