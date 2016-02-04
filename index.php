@@ -22,7 +22,7 @@ if($size == 1) {
 		include("controller/themes.php");
 		exit();
 	}
-	if( preg_match("#[0-9]*-.*#", $request[0]) ) { // Page de thème
+	if( preg_match("#[0-9]+-.*#", $request[0]) ) { // Page de thème
 		$datas = explode("-", $request[0]);
 		
 		$_GET["theme_id"] = $datas[0]; // TODO : faire propre !
@@ -54,7 +54,7 @@ if($size == 2) {
 		}
 		
 	}
-	if(preg_match("#[0-9]*-.*#", $request[0]) && preg_match("#[0-9]*-.*#", $request[1])) { // Page de projet
+	if(preg_match("#[0-9]+-.*#", $request[0]) && preg_match("#[0-9]+-.*#", $request[1])) { // Page de projet
 		$datas = explode("-", $request[1]);
 		
 		$_GET["project_id"] = $datas[0];
