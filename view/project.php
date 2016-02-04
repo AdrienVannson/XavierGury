@@ -17,7 +17,7 @@ function show_project($project) {
 		
 		<body>
 				
-			<?php show_left_menu($theme); ?>
+			<?php show_left_menu($theme, $project->get_id()); ?>
 			
 			<div id="contents">
 				

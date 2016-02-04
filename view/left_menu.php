@@ -3,7 +3,7 @@
 include_once("model/Theme.class.php");
 include_once("model/themes.php");
 
-function show_left_menu($currentTheme) {
+function show_left_menu($currentTheme, $id_project=-1) {
 	
 	$themes = get_themes();
 	?>
@@ -17,7 +17,10 @@ function show_left_menu($currentTheme) {
 			foreach($projects as $project) {
 				?>
 				<li>
-					<a href="/<?php echo $currentTheme->get_id();?>-<?php echo $currentTheme->get_name_formatted();?>/<?php echo $project->get_id();?>-<?php echo $project->get_name_formatted();?>">
+					<a 
+						href="/<?php echo $currentTheme->get_id();?>-<?php echo $currentTheme->get_name_formatted();?>/<?php echo $project->get_id();?>-<?php echo $project->get_name_formatted();?>"
+						<?php if($project->get_id()==$id_project){?>class="active"<?php }?>
+					>
 						<?php echo strtoupper($project->get_name());?>
 					</a>
 				</li>
@@ -25,7 +28,7 @@ function show_left_menu($currentTheme) {
 			}
 			?>
 		</ul>
-	
+		
 		<div id="color_menu">
 			
 			<?php 
