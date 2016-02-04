@@ -22,6 +22,10 @@ if($size == 1) {
 		include("controller/themes.php");
 		exit();
 	}
+	if($request[0] == "robots.txt") { // Fichier robots_txt.txt
+		include("controller/robots_txt.php");
+		exit();
+	}
 	if( preg_match("#[0-9]+-.*#", $request[0]) ) { // Page de thème
 		$datas = explode("-", $request[0]);
 		
