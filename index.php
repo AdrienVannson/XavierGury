@@ -64,4 +64,4 @@ if($size == 2) {
 }
 
 // La page n'existe pas
-echo "404";
+include_once("controller/errors/404.php");
