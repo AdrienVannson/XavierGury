@@ -11,7 +11,9 @@ body {
 
 
 #menu {
-	float: left;
+	position: absolute;
+	top: 0;
+	bottom: 0;
 	color: #FFF;
 	width: 15vw;
 }
@@ -103,6 +105,19 @@ ul {
 	
 	width: 1px;
 	height: <?php echo 36/get_nb_themes();?>vw;
+}
+
+/* Description */
+.description {
+	clear: left;
+}
+
+
+/* Image */
+.image_project {
+	margin: 1vw;
+	width: 25vw;
+	float: left;
 }
 	
 	<?php

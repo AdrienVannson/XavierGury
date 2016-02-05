@@ -27,13 +27,15 @@ function show_project($project) {
 				<p>
 					<?php
 					$resources = $project->get_resources();
-					foreach($resources as $resources) {
-						echo $resources->get_name()."<br/>";
+					foreach($resources as $resource) {
+						?>
+						<img src="<?php echo $resource->get_url_resource();?>" class="image_project"/>
+						<?php
 					}
 					?>
 				</p>
 				
-				<p><?php echo $project->get_description();?></p>
+				<p class="description"><?php echo $project->get_description();?></p>
 				
 				
 			</div>

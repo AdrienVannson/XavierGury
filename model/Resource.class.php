@@ -34,11 +34,11 @@ class Resource {
 		return $this->description;
 	}
 	
-	public function get_url_resource($whithoutFirstSlash=false) {
-		if(!$whithoutFirstSlash) {
-			echo "/";
-		}
+	public function get_path_resource() {
 		return "resources/".$this->id."/image.jpg";
+	}
+	public function get_url_resource() {
+		return "/ressources/".$this->id."-image.jpg";
 	}
 	
 	private $id;
