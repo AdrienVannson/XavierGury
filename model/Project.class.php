@@ -2,6 +2,7 @@
 /* Model */
 include_once("connect.php");
 include_once("Theme.class.php");
+include_once("Resource.class.php");
 
 class Project {
 
@@ -38,6 +39,24 @@ class Project {
 	
 	public function get_description() {
 		return $this->_description;
+	}
+	
+	public function get_resources() {
+		$request = "
+			SELECT id
+			FROM resources
+			WHERE id_project = ?
+		";
+	
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array($this->_id));
+	
+		$resources = [];
+		while($datas = $results->fetch()) {
+			$resources[] = new Resource($datas["id"]);
+		}
+		return $resources;
 	}
 
 	private $_id;

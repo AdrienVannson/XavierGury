@@ -26,8 +26,10 @@ function show_project($project) {
 				
 				<p>
 					<?php
-					$img = new Resource(1);
-					echo $img->get_description() . "<br/>";
+					$resources = $project->get_resources();
+					foreach($resources as $resources) {
+						echo $resources->get_name()."<br/>";
+					}
 					?>
 				</p>
 				
