@@ -7,6 +7,7 @@ function show_project_styles() {
 body {
 	background-color: #2B2E34;
 	margin: 0;
+	padding-right: 2vw;
 }
 
 
@@ -110,6 +111,9 @@ ul {
 /* Description */
 .description {
 	clear: left;
+	
+	text-indent: 3em;
+	text-align: justify;
 }
 
 
