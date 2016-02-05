@@ -10,7 +10,7 @@ if($request[$size-1] == "") {
 	$size = count($request);
 }
 
-
+// TODO : verifier dans les regex que l'url commence et se termine par la regex !
 if($size == 0 ) { // Homepage
 	include("controller/homepage.php");
 	exit();
@@ -54,6 +54,17 @@ if($size == 2) {
 		
 		if($request[1] == "themes-scripts.js") {
 			include("controller/themes/themes_scripts.php");
+			exit();
+		}
+		
+	}
+	if($request[0] == "ressources") { // Ressources
+		
+		if( preg_match("#[0-9]+-.*.jpg#", $request[1]) ) {
+			$datas = explode("-", $request[1]);
+			
+			$_GET["resource_id"] = $datas[0];
+			include("controller/resource.php");
 			exit();
 		}
 		
