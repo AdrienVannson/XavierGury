@@ -2,6 +2,7 @@
 /* View */
 include_once("model/Project.class.php");
 include_once("model/Theme.class.php");
+include_once("model/Resource.class.php");
 include_once("head.php");
 include_once("left_menu.php");
 
@@ -22,6 +23,14 @@ function show_project($project) {
 			<div id="contents">
 				
 				<h1><?php echo $project->get_name();?></h1>
+				
+				<p>
+					<?php
+					$img = new Resource(1);
+					echo $img->get_description() . "<br/>";
+					?>
+				</p>
+				
 				<p><?php echo $project->get_description();?></p>
 				
 				
