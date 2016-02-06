@@ -113,6 +113,17 @@ ul {
 	height: <?php echo 36/$nbThemes;?>vw;
 }
 
+#separator-bottom {
+	z-index: -1;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: <?php echo 30/$nbThemes;?>vw;
+	
+	background-color: #2B2E34;
+}
+
 /* Description */
 .description {
 	clear: left;

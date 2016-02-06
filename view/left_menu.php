@@ -53,6 +53,8 @@ function show_left_menu($currentTheme, $id_project=-1) {
 		<div class="line" id="line-white-item-1"></div>
 		<div class="line" id="line-white-item-2"></div>
 		
+		<div id="separator-bottom"></div>
+		
 	</div>
 	
 	<?php
