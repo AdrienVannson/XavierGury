@@ -10,7 +10,7 @@ if($request[$size-1] == "") {
 	$size = count($request);
 }
 
-// TODO : verifier dans les regex que l'url commence et se termine par la regex !
+
 if($size == 0 ) { // Homepage
 	include("controller/homepage.php");
 	exit();
@@ -22,7 +22,7 @@ if($size == 1) {
 		include("controller/themes.php");
 		exit();
 	}
-	if($request[0] == "robots.txt") { // Fichier robots_txt.txt
+	if($request[0] == "robots.txt") { // Fichier robots.txt
 		include("controller/robots_txt.php");
 		exit();
 	}
@@ -71,9 +71,16 @@ if($size == 2) {
 		
 	}
 	if(preg_match("#^[0-9]+-.*$#", $request[0]) && preg_match("#^[0-9]+-.*$#", $request[1])) { // Page de projet
-		$datas = explode("-", $request[1]);
+		$datasTheme = explode("-", $request[0]);
+		$datasProject = explode("-", $request[1]);
 		
-		$_GET["project_id"] = $datas[0];
+		
+		$_GET["theme_id"] = $datasTheme[0];
+		$_GET["theme_name"] = $datasTheme[1];
+		
+		$_GET["project_id"] = $datasProject[0];
+		$_GET["project_name"] = $datasProject[1];
+		
 		include("controller/project.php");
 		exit();
 	}
