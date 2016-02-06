@@ -29,7 +29,7 @@ function show_project($project) {
 					$resources = $project->get_resources();
 					foreach($resources as $resource) {
 						?>
-						<img src="<?php echo $resource->get_url_resource("medium");?>" class="image_project"/>
+						<img src="<?php echo $resource->get_url_resource("medium");?>" class="image_project" title="<?php echo $resource->get_name();?>" alt="<?php echo $resource->get_description();?>"/>
 						<?php
 					}
 					?>
