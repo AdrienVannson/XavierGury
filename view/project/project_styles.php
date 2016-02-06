@@ -3,12 +3,13 @@
 include_once("model/themes.php");
 
 function show_project_styles() {
+	$nbThemes = get_nb_themes();
 	?>
 /* <style> /* */
 
 body {
 	margin: 0;
-	padding-bottom: <?php echo 40/get_nb_themes();?>vw;
+	padding-bottom: <?php echo 40/$nbThemes;?>vw;
 	padding-right: 2vw;
 	
 	background-color: #2B2E34;
@@ -57,10 +58,10 @@ ul {
 
 .color_item {
 	display: block;
-	margin-top: <?php echo 30/get_nb_themes();?>vw;
+	margin-top: <?php echo 30/$nbThemes;?>vw;
 	float: left;
-	width: <?php echo 15/get_nb_themes();?>vw;
-	height: <?php echo 30/get_nb_themes();?>vw;
+	width: <?php echo 15/$nbThemes;?>vw;
+	height: <?php echo 30/$nbThemes;?>vw;
 }
 
 #color_item_activate {
@@ -69,12 +70,12 @@ ul {
 
 #white-item {
 	position: absolute;
-	left: <?php echo 31-(15/get_nb_themes());?>vw;
+	left: <?php echo 31-(15/$nbThemes);?>vw;
 	bottom: 0;
 	
 	display: block;
-	width: <?php echo 15/get_nb_themes();?>vw;
-	height: <?php echo 30/get_nb_themes();?>vw;
+	width: <?php echo 15/$nbThemes;?>vw;
+	height: <?php echo 30/$nbThemes;?>vw;
 	background-color: #FFF;
 }
 
@@ -92,24 +93,24 @@ ul {
 }
 #line-bottom {
 	left: 0;
-	bottom: <?php echo 30/get_nb_themes();?>vw;
+	bottom: <?php echo 30/$nbThemes;?>vw;
 	
 	width: 33vw;
 	height: 1px;
 }
 #line-white-item-1 {
-	left: <?php echo 31-(15/get_nb_themes());?>vw;
+	left: <?php echo 31-(15/$nbThemes);?>vw;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 33/get_nb_themes();?>vw;
+	height: <?php echo 33/$nbThemes;?>vw;
 }
 #line-white-item-2 {
-	left: <?php echo 31-(15/get_nb_themes()) + 15/get_nb_themes();?>vw;
+	left: <?php echo 31-(15/$nbThemes) + 15/$nbThemes;?>vw;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 36/get_nb_themes();?>vw;
+	height: <?php echo 36/$nbThemes;?>vw;
 }
 
 /* Description */
