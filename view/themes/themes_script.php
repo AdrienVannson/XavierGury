@@ -96,6 +96,7 @@ function createGride() {
 
 		iLine++;
     }
+    addLine(iLine, nbColumns);
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
