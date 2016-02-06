@@ -29,7 +29,8 @@ if($size == 1) {
 	if( preg_match("#^[0-9]+-.*$#", $request[0]) ) { // Page de thème
 		$datas = explode("-", $request[0]);
 		
-		$_GET["theme_id"] = $datas[0]; // TODO : faire propre !
+		$_GET["theme_id"] = $datas[0];
+		$_GET["theme_name"] = $datas[1];
 		include("controller/theme.php");
 		exit();
 	}

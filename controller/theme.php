@@ -6,4 +6,10 @@ include_once("view/theme.php");
 
 $theme_id = $_GET["theme_id"];
 $theme = new Theme($theme_id);
-show_theme($theme);
+
+if($_GET["theme_name"] == $theme->get_name_formatted()) {
+	show_theme($theme);
+}
+else {
+	include("controller/errors/404.php");
+}
