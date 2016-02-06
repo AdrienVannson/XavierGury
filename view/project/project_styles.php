@@ -120,7 +120,7 @@ ul {
 /* Image */
 .image_project {
 	margin: 1vw;
-	width: 25vw;
+	height: 33vh;
 	float: left;
 }
 	
