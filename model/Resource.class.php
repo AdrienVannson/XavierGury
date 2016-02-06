@@ -38,7 +38,7 @@ class Resource {
 		return "resources/".$this->id."/".$size.".jpg";
 	}
 	public function get_url_resource($size) {
-		return "/ressources/".$this->id."-".$size."jpg";
+		return "/ressources/".$this->id."-".$size.".jpg";
 	}
 	
 	private $id;

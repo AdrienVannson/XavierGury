@@ -60,7 +60,7 @@ if($size == 2) {
 	}
 	if($request[0] == "ressources") { // Ressources
 		
-		if( preg_match("#^[0-9]+-.*.jpg$#", $request[1]) ) {
+		if( preg_match("#^[0-9]+-.*\.jpg$#", $request[1]) ) {
 			$datas = explode("-", $request[1]);
 			
 			$_GET["resource_id"] = $datas[0];
