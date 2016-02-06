@@ -34,11 +34,11 @@ class Resource {
 		return $this->description;
 	}
 	
-	public function get_path_resource() {
-		return "resources/".$this->id."/image.jpg";
+	public function get_path_resource($size) {
+		return "resources/".$this->id."/".$size.".jpg";
 	}
-	public function get_url_resource() {
-		return "/ressources/".$this->id."-image.jpg";
+	public function get_url_resource($size) {
+		return "/ressources/".$this->id."-".$size."jpg";
 	}
 	
 	private $id;
