@@ -4,10 +4,14 @@ include_once("model/themes.php");
 
 function show_project_styles() {
 	?>
+/* <style> /* */
+
 body {
-	background-color: #2B2E34;
 	margin: 0;
+	padding-bottom: <?php echo 40/get_nb_themes();?>vw;
 	padding-right: 2vw;
+	
+	background-color: #2B2E34;
 }
 
 
