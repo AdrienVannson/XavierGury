@@ -9,7 +9,7 @@ class Theme {
 		$db = get_db();
 		
 		if($id == -1) { /* Ajout d'un nouveau thème */
-			$results = $db->prepare("INSERT INTO themes (name, description, color) VALUES ('Rien', 'Description', 'FF0000');");
+			$results = $db->prepare("INSERT INTO themes () VALUES ();");
 			$results->execute(array($id));
 			
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
