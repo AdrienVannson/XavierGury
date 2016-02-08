@@ -33,6 +33,7 @@ body {
 
 .theme {
 	text-align: center;
+	cursor: pointer;
 }
 
 .theme a {

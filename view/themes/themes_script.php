@@ -70,7 +70,7 @@ function createGride() {
 	}
     ?>
     ];
-          	
+  	
     var width = $(document).width();
     var nbColumns = Math.floor(width / 200);
 
@@ -86,8 +86,7 @@ function createGride() {
 				$('#column-'+iLine+'-'+iColumn)
 					.addClass('theme')
 					.css('backgroundColor', last.color)
-					.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');
-          				
+					.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');	
 
 				if(themes.length == 0) {
 					break;
@@ -98,6 +97,18 @@ function createGride() {
 		iLine++;
     }
     addLine(iLine, nbColumns);
+
+    $('.theme').click( function(event) {
+    	event.preventDefault();
+		
+		var target = $(event.target);
+		if(event.target.nodeName == 'DIV') {
+			target = target.children().last();
+		}
+    	
+		var location = $(target).attr('href');
+		window.location = location;
+    });
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
