@@ -10,3 +10,17 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+/* Formulaires */
+label {
+	display: inline-block;
+	width: 300px;
+}
+
+
+/* Résultats */
+#message {
+	display: inline-block;
+	margin-left: 30px;
+	font-style: italic;
+}
