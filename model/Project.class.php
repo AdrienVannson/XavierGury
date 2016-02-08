@@ -11,7 +11,7 @@ class Project {
 		
 		if($id == -1) { /* Ajout d'un nouveau projet */
 			$results = $db->prepare("INSERT INTO projects () VALUES ();");
-			$results->execute(array($id));
+			$results->execute(array());
 			
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
 			$datas = $results->fetch();

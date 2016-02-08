@@ -10,7 +10,7 @@ class Theme {
 		
 		if($id == -1) { /* Ajout d'un nouveau thème */
 			$results = $db->prepare("INSERT INTO themes () VALUES ();");
-			$results->execute(array($id));
+			$results->execute(array());
 			
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
 			$datas = $results->fetch();

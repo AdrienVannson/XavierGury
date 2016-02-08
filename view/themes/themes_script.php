@@ -63,9 +63,10 @@ function createGride() {
 	foreach($themesShowed as $theme) {
 		echo "new Theme('".mb_strtoupper($theme->name)."', '".$theme->url."', '#".$theme->color."')";
 		
-		if($iTheme < sizeof($themes)-1) {
+		if($iTheme < sizeof($themesShowed)-1) {
 			echo ",";
 		}
+		$iTheme++;
 	}
     ?>
     ];
