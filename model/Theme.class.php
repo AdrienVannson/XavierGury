@@ -8,6 +8,15 @@ class Theme {
 	public function __construct($id) {
 		$db = get_db();
 		
+		if($id == -1) { /* Ajout d'un nouveau thème */
+			$results = $db->prepare("INSERT INTO themes (name, description, color) VALUES ('Rien', 'Description', 'FF0000');");
+			$results->execute(array($id));
+			
+			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
+			$datas = $results->fetch();
+			$id = $datas["id"];
+		}
+		
 		$results = $db->prepare("SELECT * FROM themes WHERE id=?");
 		$results->execute(array($id));
 		$datas = $results->fetch();
@@ -22,6 +31,13 @@ class Theme {
 		return $this->_id;
 	}
 	
+	public function set_name($name) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE themes SET name=? WHERE id=?;");
+		$results->execute(array($name, $this->_id));
+		
+		$this->_name = $name;
+	}
 	public function get_name() {
 		return $this->_name;
 	}
@@ -32,10 +48,24 @@ class Theme {
 		return "/".$this->get_id()."-".$this->get_name_formatted();
 	}
 	
+	public function set_description($description) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE themes SET description=? WHERE id=?;");
+		$results->execute(array($description, $this->_id));
+	
+		$this->_description = $description;
+	}
 	public function get_description() {
 		return $this->_description;
 	}
 	
+	public function set_color($color) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE themes SET color=? WHERE id=?;");
+		$results->execute(array($color, $this->_id));
+	
+		$this->_color = $color;
+	}
 	public function get_color() {
 		return $this->_color;
 	}

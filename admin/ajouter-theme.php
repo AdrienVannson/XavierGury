@@ -4,14 +4,19 @@ $message = "";
 /* Traitement du formulaire */
 if(isset($_POST["ajouter"])) {
 	
+	include_once("../model/Theme.class.php");
+	
 	$name = $_POST["name"];
 	$description = $_POST["description"];
 	$color = substr($_POST["color"], 1);
 	
+	$theme = new Theme(-1);
+	$theme->set_name($name);
+	$theme->set_description($description);
+	$theme->set_color($color);
 	
+	$message = "Le thème a bien été ajouté à la base de données";
 }
-
-
 ?>
 <!DOCTYPE HTML>
 <html lang="fr">
@@ -22,10 +27,14 @@ if(isset($_POST["ajouter"])) {
 	</head>
 	
 	<body>
-	
+		
 		<h1>Ajouter un thème</h1>
 		
-		<p id="message"><?php echo $message;?></p>
+		<?php
+		if($message != "") {
+			echo '<p id="message">'.$message.'</p>';
+		}
+		?>
 		
 		<p>Sur cette page, vous pouvez ajouter un nouveau thème au site.
 		Ensuite, il faudra ajouter des projets dans ce thème, afin de ne pas le laisser vide.
