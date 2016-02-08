@@ -8,6 +8,15 @@ class Project {
 
 	public function __construct($id) {
 		$db = get_db();
+		
+		if($id == -1) { /* Ajout d'un nouveau projet */
+			$results = $db->prepare("INSERT INTO projects () VALUES ();");
+			$results->execute(array($id));
+			
+			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
+			$datas = $results->fetch();
+			$id = $datas["id"];
+		}
 
 		$result = $db->prepare("SELECT * FROM projects WHERE id=?");
 		$result->execute(array($id));
@@ -23,6 +32,13 @@ class Project {
 		return $this->_id;
 	}
 	
+	public function set_id_theme($id_theme) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE projects SET id_theme=? WHERE id=?;");
+		$results->execute(array($id_theme, $this->_id));
+		
+		$this->_id_theme = $id_theme;
+	}
 	public function get_id_theme() {
 		return $this->_id_theme;
 	}
@@ -30,6 +46,13 @@ class Project {
 		return new Theme( $this->_id_theme );
 	}
 	
+	public function set_name($name) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE projects SET name=? WHERE id=?;");
+		$results->execute(array($name, $this->_id));
+	
+		$this->_name = $name;
+	}
 	public function get_name() {
 		return $this->_name;
 	}
@@ -37,6 +60,13 @@ class Project {
 		return urlencode($this->_name);
 	}
 	
+	public function set_description($description) {
+		$db = get_db();
+		$results = $db->prepare("UPDATE projects SET description=? WHERE id=?;");
+		$results->execute(array($description, $this->_id));
+	
+		$this->_description = $description;
+	}
 	public function get_description() {
 		return $this->_description;
 	}

@@ -36,9 +36,12 @@ if(isset($_POST["ajouter"])) {
 		}
 		?>
 		
-		<p>Sur cette page, vous pouvez ajouter un nouveau thème au site.
-		Ensuite, il faudra ajouter des projets dans ce thème, afin de ne pas le laisser vide.
+		<p>Sur cette page, vous pouvez ajouter un nouveau thème au site.<br/>
+		Ensuite, il faudra ajouter des projets dans ce thème, afin de ne pas le laisser vide.<br/>
 		Attention, après la validation du formulaire, le contenu est immédiatement publié sur Internet, sans possibilité de modification.</p>
+		
+		<p><a href="/">Accueil</a><br/>
+		<a href="/admin/">Accueil de l'espace administration</a></p>
 		
 		<form method="POST" action="/admin/ajouter-theme.php">
 			
@@ -62,5 +65,4 @@ if(isset($_POST["ajouter"])) {
 		</form>
 	
 	</body>
-
 </html>
