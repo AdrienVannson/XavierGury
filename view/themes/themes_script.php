@@ -61,7 +61,7 @@ function createGride() {
 	shuffle($themesShowed);
 	
 	foreach($themesShowed as $theme) {
-		echo "new Theme('".mb_strtoupper($theme->name)."', '".$theme->url."', '#".$theme->color."')";
+		echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name))."', '".$theme->url."', '#".$theme->color."')";
 		
 		if($iTheme < sizeof($themesShowed)-1) {
 			echo ",";
