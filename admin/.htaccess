@@ -1,0 +1,4 @@
+AuthName "Veuillez vous connecter pour acceder a l'interface d'administration"
+AuthType Basic
+AuthUserFile "/var/www/html/XavierGury/admin/.htpasswd"
+Require valid-user

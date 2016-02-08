@@ -2,7 +2,7 @@
     RewriteEngine On
 
 	RewriteCond %{REQUEST_URI} !^/?index.php(.*)?$
+	RewriteCond %{REQUEST_URI} !^/?admin/(.*)?$
 	RewriteRule ^([^&]*)$ index.php?request=$1
 
 </IfModule>
-
