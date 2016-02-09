@@ -3,7 +3,7 @@ $message = "";
 
 /* Traitement du formulaire */
 if(isset($_POST["add"])) {
-	
+	include_once("save-image.php");
 	include_once("../model/Resource.class.php");
 	
 	$resource = new Resource(-1);
@@ -16,7 +16,9 @@ if(isset($_POST["add"])) {
 	$dir = dirname(__DIR__)."/resources/".$resource->get_id();
 	mkdir($dir, 0777);
 	
-	move_uploaded_file($_FILES["file"]["tmp_name"], $dir."/medium.jpg");
+	save_image($_FILES["file"]["tmp_name"], $dir."/", "small");
+	save_image($_FILES["file"]["tmp_name"], $dir."/", "medium");
+	save_image($_FILES["file"]["tmp_name"], $dir."/", "large");
 	
 	$message = "La ressource a bien été ajoutée";
 }
