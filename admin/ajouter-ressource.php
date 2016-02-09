@@ -20,9 +20,6 @@ if(isset($_POST["add"])) {
 	
 	$message = "La ressource a bien été ajoutée";
 }
-else {
-	echo "c";
-}
 ?>
 <!DOCTYPE HTML>
 <html lang="fr">
