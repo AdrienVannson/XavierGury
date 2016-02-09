@@ -1,0 +1,4 @@
+AuthName "Veuillez vous connecter pour acceder a l'interface d'administration"
+AuthType Basic
+AuthUserFile "/home/u138164097/public_html/admin/.htpasswd"
+Require valid-user
