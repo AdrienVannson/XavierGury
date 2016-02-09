@@ -35,8 +35,5 @@ function save_image($src, $destination, $size) {
 			break;
 	}
 	
-	imagejpeg($img, $destination.$size.".jpg", $quality);
-	
-	$infos = getimagesize($destination.$size.".jpg");
-	print_r($infos);
+	return imagejpeg($img, $destination.$size.".jpg", $quality);
 }
