@@ -65,6 +65,7 @@ if($size == 2) {
 			$datas = explode("-", $request[1]);
 			
 			$_GET["resource_id"] = $datas[0];
+			$_GET["resource_size"] = substr($datas[1], 0, sizeof($datas[1])-5);
 			include("controller/resource.php");
 			exit();
 		}
