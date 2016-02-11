@@ -22,6 +22,19 @@ if($size == 1) {
 		exit();
 	}
 	
+	if($request[0] == "themes") {
+		include("controller/themes.php");
+		exit();
+	}
+	
+}
+if($size == 2) {
+	
+	if($request[0] == "themes" && is_numeric($request[1])) {
+		echo "Theme"; // TODO
+		exit();
+	}
+	
 }
 
 // La page n'existe pas
