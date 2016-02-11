@@ -30,7 +30,7 @@ class Theme {
 	public function save() {
 		$db = get_db();
 		
-		if($id == -1) {
+		if($this->id == -1) {
 			$results = $db->prepare("INSERT INTO themes (name, description, color) VALUES (?, ?, ?);");
 			$results->execute(array(
 					$this->name,
@@ -40,7 +40,7 @@ class Theme {
 			
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
 			$datas = $results->fetch();
-			$id = $datas["id"];
+			$this->id = $datas["id"];
 		}
 		else {
 			$results = $db->prepare("UPDATE themes SET name=?, description=?, color=? WHERE id=?;");
@@ -52,6 +52,17 @@ class Theme {
 			));
 		}
 		
+	}
+	
+	public function delete() {
+		if($this->id == -1) {
+			return;
+		}
+		
+		$db = get_db();
+		
+		$results = $db->prepare("DELETE FROM themes WHERE id=?");
+		$results->execute(array($this->id));
 	}
 	
 	
@@ -80,6 +91,9 @@ class Theme {
 	}
 	
 	public function set_color($color) {
+		if($color[0] == "#") {
+			$color = substr($color, 1);
+		}
 		$this->color = $color;
 	}
 	public function get_color() {

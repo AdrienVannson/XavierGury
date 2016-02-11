@@ -7,18 +7,20 @@ include_once(__DIR__."/../view/theme.php");
 $theme = new Theme($_GET["id_theme"]); 
 
 /* Traitement du formulaire */
-if(isset($_POST["ajouter"])) {
+if(isset($_POST["save"])) {
 	
-	$name = $_POST["name"];
-	$description = $_POST["description"];
-	$color = substr($_POST["color"], 1);
+	$theme->set_name( $_POST["name"] );
+	$theme->set_description( $_POST["description"] );
+	$theme->set_color( $_POST["color"] );
 	
-	$theme = new Theme(-1);
-	$theme->set_name($name);
-	$theme->set_description($description);
-	$theme->set_color($color);
+	$theme->save();
 	
-	$message = "Le thème a bien été ajouté à la base de données";
+	header("Location: /admin/themes/".$theme->get_id());
+}
+if(isset($_POST["delete"])) {
+	$theme->delete();
+	
+	header("Location: /admin/themes");
 }
 
 
