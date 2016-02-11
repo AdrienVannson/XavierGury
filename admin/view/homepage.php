@@ -21,9 +21,7 @@ function show_admin_homepage() {
 		Si vous n'êtes pas l'administrateur du site, veuiller fermer cette page IMMEDIATEMENT.</p>
 		
 		<ul>
-			<li><a href="/admin/ajouter-theme.php">Ajouter un thème</a></li>
-			<li><a href="/admin/ajouter-projet.php">Ajouter un projet</a></li>
-			<li><a href="/admin/ajouter-ressource.php">Ajouter une ressource</a></li>
+			<li><a href="/admin/themes">Afficher les thèmes</a></li>
 		</ul>
 		
 	</body>
