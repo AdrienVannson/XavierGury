@@ -27,6 +27,8 @@ function show_admin_themes($themes) {
 			?>
 		</ul>
 		
+		<p><a href="/admin/themes/-1">Nouveau thème</a></p>
+		
 	</body>
 	
 </html>
