@@ -14,7 +14,8 @@ function show_admin_themes($themes) {
 		
 		<h1>Thèmes</h1>
 		
-		<p>Sur cette page, vous pouvez consulter les thèmes du site</p>
+		<p>Consulter les thèmes du site.</p>
+		<p><a href="/admin/">Accueil</a></p>
 		
 		<ul>
 			<?php 
