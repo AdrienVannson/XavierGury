@@ -31,7 +31,8 @@ if($size == 1) {
 if($size == 2) {
 	
 	if($request[0] == "themes" && is_numeric($request[1])) {
-		echo "Theme"; // TODO
+		$_GET["id_theme"] = intval($request[1]);
+		include("controller/theme.php");
 		exit();
 	}
 	

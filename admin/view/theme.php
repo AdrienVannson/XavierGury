@@ -1,47 +1,25 @@
 <?php
-$message = "";
+/* View */
+include_once(__DIR__."/../../view/head.php");
 
-/* Traitement du formulaire */
-if(isset($_POST["ajouter"])) {
-	
-	include_once("../model/Theme.class.php");
-	
-	$name = $_POST["name"];
-	$description = $_POST["description"];
-	$color = substr($_POST["color"], 1);
-	
-	$theme = new Theme(-1);
-	$theme->set_name($name);
-	$theme->set_description($description);
-	$theme->set_color($color);
-	
-	$message = "Le thème a bien été ajouté à la base de données";
-}
-?>
+function show_admin_theme($theme) {
+	?>
+
 <!DOCTYPE HTML>
 <html lang="fr">
 	<head>
-		<meta charset="utf-8">
-		<title>Ajouter un thème - Xavier Gury</title>
-		<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
+		<?php show_head("Ajouter un thème", array("/admin/styles.css"));?>
 	</head>
 	
 	<body>
 		
 		<h1>Ajouter un thème</h1>
 		
-		<?php
-		if($message != "") {
-			echo '<p id="message">'.$message.'</p>';
-		}
-		?>
-		
 		<p>Sur cette page, vous pouvez ajouter un nouveau thème au site.<br/>
 		Ensuite, il faudra ajouter des projets dans ce thème, afin de ne pas le laisser vide.<br/>
 		Attention, après la validation du formulaire, le contenu est immédiatement publié sur Internet, sans possibilité de modification.</p>
 		
-		<p><a href="/">Accueil</a><br/>
-		<a href="/admin/">Accueil de l'espace administration</a></p>
+		<p><a href="/admin/">Accueil</a></p>
 		
 		<form method="POST" action="/admin/ajouter-theme.php">
 			
@@ -66,3 +44,6 @@ if(isset($_POST["ajouter"])) {
 	
 	</body>
 </html>
+
+	<?php
+}
