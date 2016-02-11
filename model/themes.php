@@ -1,6 +1,6 @@
 <?php
 /* Model */
-include_once("Theme.class.php");
+include_once(__DIR__."/Theme.class.php");
 
 
 function get_themes() { /* Retourne la liste des thèmes */

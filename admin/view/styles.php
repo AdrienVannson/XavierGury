@@ -1,3 +1,8 @@
+<?php
+/* View */
+
+function show_admin_styles() {
+	?>
 body {
 	background-color: #2B2E34;
 	color: #FFF;
@@ -23,4 +28,7 @@ label {
 	display: inline-block;
 	margin-left: 30px;
 	font-style: italic;
+}
+
+	<?php
 }

@@ -1,8 +1,8 @@
 <?php
 /* Controller */
-include_once("model/Theme.class.php");
-include_once("model/themes.php");
-include("view/themes/themes_script.php");
+include_once(__DIR__."/../../model/Theme.class.php");
+include_once(__DIR__."/../../model/themes.php");
+include_once(__DIR__."/../../view/themes/themes_script.php");
 
 header("Content-Type: text/js");
 

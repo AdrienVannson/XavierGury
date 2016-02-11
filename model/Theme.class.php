@@ -1,7 +1,7 @@
 <?php
 /* Model */
-include_once("connect.php");
-include_once("Project.class.php");
+include_once(__DIR__."/connect.php");
+include_once(__DIR__."/Project.class.php");
 
 class Theme {
 	

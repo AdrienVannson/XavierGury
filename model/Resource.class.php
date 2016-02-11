@@ -1,6 +1,6 @@
 <?php
 /* Model */
-include_once("connect.php");
+include_once(__DIR__."/connect.php");
 
 class Resource {
 	

@@ -1,6 +1,6 @@
 <?php
 /* View */
-include_once("model/themes.php");
+include_once(__DIR__."/../../model/themes.php");
 
 function show_project_styles() {
 	$nbThemes = get_nb_themes();

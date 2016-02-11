@@ -1,7 +1,7 @@
 <?php
 /* View */
-include_once("model/Theme.class.php");
-include_once("model/themes.php");
+include_once(__DIR__."/../model/Theme.class.php");
+include_once(__DIR__."/../model/themes.php");
 
 function show_left_menu($currentTheme, $id_project=-1) {
 	

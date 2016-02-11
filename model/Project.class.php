@@ -1,8 +1,8 @@
 <?php
 /* Model */
-include_once("connect.php");
-include_once("Theme.class.php");
-include_once("Resource.class.php");
+include_once(__DIR__."/connect.php");
+include_once(__DIR__."/Theme.class.php");
+include_once(__DIR__."/Resource.class.php");
 
 class Project {
 

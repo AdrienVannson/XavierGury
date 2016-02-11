@@ -1,7 +1,7 @@
 <?php
 /* View */
-include_once("view/head.php");
-include_once("view/left_menu.php");
+include_once(__DIR__."/head.php");
+include_once(__DIR__."/left_menu.php");
 
 function show_error($message) {
 	?>

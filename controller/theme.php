@@ -1,7 +1,7 @@
 <?php
 /* Controller */
-include_once("model/Project.class.php");
-include_once("view/theme.php");
+include_once(__DIR__."/../model/Project.class.php");
+include_once(__DIR__."/../view/theme.php");
 
 
 $theme_id = $_GET["theme_id"];
