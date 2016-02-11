@@ -5,10 +5,10 @@ include_once(__DIR__."/../../view/head.php");
 function show_admin_theme($theme) {
 	
 	if($theme->get_id() == -1) {
-		$title = "Ajouter un thème";
+		$action = "Ajouter";
 	}
 	else {
-		$title = "Modifier un thème";
+		$action = "Modifier";
 	}
 	
 	?>
@@ -16,12 +16,12 @@ function show_admin_theme($theme) {
 <!DOCTYPE HTML>
 <html lang="fr">
 	<head>
-		<?php show_head($title, array("/admin/styles.css"));?>
+		<?php show_head($action." un thème", array("/admin/styles.css"));?>
 	</head>
 	
 	<body>
 		
-		<h1><?php echo $title;?></h1>
+		<h1><?php echo $action;?> un thème</h1>
 		
 		<p><a href="/admin/">Accueil</a></p>
 		
@@ -43,7 +43,7 @@ function show_admin_theme($theme) {
 				<input type="color" name="color" id="color" value="#<?php echo $theme->get_color();?>"/>
 			</p>
 			
-			<input type="submit" value="<?php echo $title;?>" name="save">
+			<input type="submit" value="<?php echo $action;?> le thème" name="save">
 			
 			<?php
 			if($theme->get_id() != -1) {
