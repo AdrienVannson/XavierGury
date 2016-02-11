@@ -8,7 +8,7 @@ function show_admin_themes($themes) {
 <!DOCTYPE HTML>
 <html lang="fr">
 	
-	<?php show_head("Thèmes - Administration");?>
+	<?php show_head("Thèmes - Administration", array("/admin/styles.css"));?>
 	
 	<body>
 		

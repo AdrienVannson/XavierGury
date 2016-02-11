@@ -12,12 +12,12 @@ function show_head($title, $styles=array(), $scripts=array()) {
 		<?php
 		foreach($styles as $style) {
 			?>
-			<link rel="stylesheet" type="text/css" href="/styles/<?php echo $style;?>"/>
+			<link rel="stylesheet" type="text/css" href="<?php echo $style;?>"/>
 			<?php
 		}
 		foreach($scripts as $script) {
 			?>
-			<script type="text/javascript" src="/scripts/<?php echo $script;?>"> </script>
+			<script type="text/javascript" src="<?php echo $script;?>"> </script>
 			<?php
 		}
 		?>
