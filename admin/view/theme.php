@@ -15,10 +15,7 @@ function show_admin_theme($theme) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<head>
-		<?php show_head($action." un thème", array("/admin/styles.css"));?>
-	</head>
-	
+	<?php show_head($action." un thème", array("/admin/styles.css"), array("/ckeditor/ckeditor.js"));?>
 	<body>
 		
 		<h1><?php echo $action;?> un thème</h1>
@@ -35,7 +32,7 @@ function show_admin_theme($theme) {
 			
 			<p>
 				<label for="description">Description du thème</label>
-				<textarea name="description" id="description"><?php echo $theme->get_description();?></textarea>
+				<textarea id="description" name="description"><?php echo $theme->get_description();?></textarea>
 			</p>
 			
 			<p>
@@ -52,7 +49,12 @@ function show_admin_theme($theme) {
 			?>
 			
 		</form>
-	
+		
+		
+		<script>
+			CKEDITOR.replace("description");
+		</script>
+		
 	</body>
 </html>
 

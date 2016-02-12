@@ -3,6 +3,7 @@
 
 	RewriteCond %{REQUEST_URI} !^/?index.php(.*)?$
 	RewriteCond %{REQUEST_URI} !^/?admin/(.*)?$
+	RewriteCond %{REQUEST_URI} !^/?ckeditor/(.*)?$
 	RewriteRule ^([^&]*)$ index.php?request=$1
 
 </IfModule>
