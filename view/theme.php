@@ -19,8 +19,7 @@ function show_theme($theme) {
 			<div id="contents">
 				
 				<h1><?php echo $theme->get_name();?></h1>
-				<p class="description"><?php echo $theme->get_description();?></p>
-				
+				<div class="description"><?php echo $theme->get_description();?></div>
 				
 			</div>
 			
