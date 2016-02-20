@@ -22,53 +22,53 @@ class Project {
 		$result->execute(array($id));
 		$datas = $result->fetch();
 
-		$this->_id = $datas["id"];
-		$this->_id_theme = $datas["id_theme"];
-		$this->_name = $datas["name"];
-		$this->_description = $datas["description"];
+		$this->id = $datas["id"];
+		$this->id_theme = $datas["id_theme"];
+		$this->name = $datas["name"];
+		$this->description = $datas["description"];
 	}
 
 	public function get_id() {
-		return $this->_id;
+		return $this->id;
 	}
 	
 	public function set_id_theme($id_theme) {
 		$db = get_db();
 		$results = $db->prepare("UPDATE projects SET id_theme=? WHERE id=?;");
-		$results->execute(array($id_theme, $this->_id));
+		$results->execute(array($id_theme, $this->id));
 		
-		$this->_id_theme = $id_theme;
+		$this->id_theme = $id_theme;
 	}
 	public function get_id_theme() {
-		return $this->_id_theme;
+		return $this->id_theme;
 	}
 	public function get_theme() {
-		return new Theme( $this->_id_theme );
+		return new Theme( $this->id_theme );
 	}
 	
 	public function set_name($name) {
 		$db = get_db();
 		$results = $db->prepare("UPDATE projects SET name=? WHERE id=?;");
-		$results->execute(array($name, $this->_id));
+		$results->execute(array($name, $this->id));
 	
-		$this->_name = $name;
+		$this->name = $name;
 	}
 	public function get_name() {
-		return $this->_name;
+		return $this->name;
 	}
 	public function get_name_formatted() {
-		return urlencode($this->_name);
+		return urlencode($this->name);
 	}
 	
 	public function set_description($description) {
 		$db = get_db();
 		$results = $db->prepare("UPDATE projects SET description=? WHERE id=?;");
-		$results->execute(array($description, $this->_id));
+		$results->execute(array($description, $this->id));
 	
-		$this->_description = $description;
+		$this->description = $description;
 	}
 	public function get_description() {
-		return $this->_description;
+		return $this->description;
 	}
 	
 	public function get_resources() {
@@ -80,7 +80,7 @@ class Project {
 	
 		$db = get_db();
 		$results = $db->prepare($request);
-		$results->execute(array($this->_id));
+		$results->execute(array($this->id));
 	
 		$resources = [];
 		while($datas = $results->fetch()) {
@@ -89,8 +89,8 @@ class Project {
 		return $resources;
 	}
 
-	private $_id;
-	private $_id_theme;
-	private $_name;
-	private $_description;
+	private $id;
+	private $id_theme;
+	private $name;
+	private $description;
 }
