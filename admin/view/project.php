@@ -4,9 +4,9 @@ include_once(__DIR__."/../../view/head.php");
 include_once(__DIR__."/menus.php");
 
 
-function show_admin_theme($theme) {
+function show_admin_project($project) {
 	
-	if($theme->get_id() == -1) {
+	if($project->get_id() == -1) {
 		$action = "Ajouter";
 	}
 	else {
@@ -17,7 +17,7 @@ function show_admin_theme($theme) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action." un thème",
+	<?php show_head($action." un projet",
 			array(
 				"/admin/styles.css",
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
@@ -34,39 +34,26 @@ function show_admin_theme($theme) {
 		<main>
 			<div class="container">
 			
-				<h1><?php echo $action;?> un thème</h1>
-				
-				<?php
-				$projects = $theme->get_projects();
-				if(sizeof($projects) > 0) {
-					echo "<ul>";
-					
-					foreach($projects as $project) {
-						echo '<li><a href="/admin/themes/'.$project->get_id_theme().'/projets/'.$project->get_id().'">'.$project->get_name().'</a></li>';
-					}
-					
-					echo "</ul>";
-				}
-				?>
+				<h1><?php echo $action;?> un projet</h1>
 				
 				
-				<form method="POST" action="/admin/themes/<?php echo $theme->get_id();?>">
+				<form method="POST" action="/admin/projets/<?php echo $project->get_id();?>">
 					
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="name">Nom du thème</label>
-							<input type="text" name="name" id="name" value="<?php echo $theme->get_name();?>"/>
+							<input type="text" name="name" id="name" value="<?php echo $project->get_name();?>"/>
 						</div>
 					</div>
 					
 					<p>
 						<label for="description">Description du thème</label>
-						<textarea id="description" name="description"><?php echo $theme->get_description();?></textarea>
+						<textarea id="description" name="description"><?php echo $project->get_description();?></textarea>
 					</p>
 					
 					<p>
 						<label for="color">Couleur du thème</label>
-						<input type="color" name="color" id="color" value="#<?php echo $theme->get_color();?>"/>
+						<input type="color" name="color" id="color" value="#<?php echo $project->get_color();?>"/>
 					</p>
 					
 					<!--<input type="submit" value="<?php echo $action;?> le thème" name="save">-->

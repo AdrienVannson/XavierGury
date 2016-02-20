@@ -37,6 +37,20 @@ if($size == 2) {
 	}
 	
 }
+if($size == 4) {
+	
+	if($request[0] == "themes" && is_numeric($request[1])) {
+		if($request[2] == "projets" && is_numeric($request[3])) {
+			
+			$_GET["id_theme"] = intval($request[1]);
+			$_GET["id_project"] = intval($request[3]);
+			include("controller/project.php");
+			exit();
+			
+		}
+	}
+	
+}
 
 // La page n'existe pas
 include_once(__DIR__."/../controller/errors/404.php");
