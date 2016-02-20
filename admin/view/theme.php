@@ -20,6 +20,19 @@ function show_admin_theme($theme) {
 		
 		<h1><?php echo $action;?> un thème</h1>
 		
+		<?php
+		$projects = $theme->get_projects();
+		if(sizeof($projects) > 0) {
+			echo "<ul>";
+			
+			foreach($projects as $project) {
+				echo '<li><a href="/admin/projets/'.$project->get_id().'">'.$project->get_name()."</a></li>";
+			}
+			
+			echo "</ul>";
+		}
+		?>
+		
 		<p><a href="/admin/">Accueil</a></p>
 		
 		
