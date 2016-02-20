@@ -6,6 +6,11 @@ function show_admin_styles() {
 header, main, footer, nav {
 	padding-left: 240px;
 }
+@media only screen and (max-width : 992px) {
+	header, main, footer, nav {
+		padding-left: 0;
+	}
+}
 
 /*body {
 	background-color: #2B2E34;
