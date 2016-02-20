@@ -90,6 +90,7 @@ function show_admin_theme($theme) {
 				
 				<script>
 					CKEDITOR.replace("description");
+					$(".button-collapse").sideNav();
 				</script>
 				
 			</div>

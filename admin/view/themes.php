@@ -37,11 +37,14 @@ function show_admin_themes($themes) {
 					?>
 				</ul>
 				
-				<p><a href="/admin/themes/-1">Nouveau thème</a></p>
+				<p><a href="/admin/themes/-1" class="btn waves-effect waves-light">Nouveau thème</a></p>
 		
 			</div>
 		</main>
 		
+		<script type="text/javascript">
+		$(".button-collapse").sideNav();
+		</script>
 	</body>
 	
 </html>
