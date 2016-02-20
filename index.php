@@ -87,28 +87,5 @@ if($size == 2) {
 	}
 }
 
-/* Materialize */
-if($size == 2) {
-	
-	if($request[0] == "css") {
-		if($request[1] == "materialize.min.css") {
-			header('Content-Type: text/css');
-			$contents = file_get_contents(__DIR__."/materialize/materialize.min.css");
-			echo $contents;
-			exit();
-		}
-	}
-	
-	if($request[0] == "js") {
-		if($request[1] == "materialize.min.js") {
-			header('Content-Type: text/js');
-			$contents = file_get_contents(__DIR__."/materialize/materialize.min.js");
-			echo $contents;
-			exit();
-		}
-	}
-	
-}
-
 // La page n'existe pas
 include_once("controller/errors/404.php");
