@@ -32,54 +32,67 @@ function show_admin_theme($theme) {
 		
 		
 		<main>
-			<h1><?php echo $action;?> un thème</h1>
+			<div class="container">
 			
-			<?php
-			$projects = $theme->get_projects();
-			if(sizeof($projects) > 0) {
-				echo "<ul>";
-				
-				foreach($projects as $project) {
-					echo '<li><a href="/admin/projets/'.$project->get_id().'">'.$project->get_name()."</a></li>";
-				}
-				
-				echo "</ul>";
-			}
-			?>
-			
-			
-			<form method="POST" action="/admin/themes/<?php echo $theme->get_id();?>">
-				
-				<p>
-					<label for="name">Nom du thème</label>
-					<input type="text" name="name" id="name" value="<?php echo $theme->get_name();?>"/>
-				</p>
-				
-				<p>
-					<label for="description">Description du thème</label>
-					<textarea id="description" name="description"><?php echo $theme->get_description();?></textarea>
-				</p>
-				
-				<p>
-					<label for="color">Couleur du thème</label>
-					<input type="color" name="color" id="color" value="#<?php echo $theme->get_color();?>"/>
-				</p>
-				
-				<input type="submit" value="<?php echo $action;?> le thème" name="save">
+				<h1><?php echo $action;?> un thème</h1>
 				
 				<?php
-				if($theme->get_id() != -1) {
-					echo '<input type="submit" value="Supprimer le thème" name="delete">';	
+				$projects = $theme->get_projects();
+				if(sizeof($projects) > 0) {
+					echo "<ul>";
+					
+					foreach($projects as $project) {
+						echo '<li><a href="/admin/projets/'.$project->get_id().'">'.$project->get_name()."</a></li>";
+					}
+					
+					echo "</ul>";
 				}
 				?>
 				
-			</form>
-			
-			
-			<script>
-				CKEDITOR.replace("description");
-			</script>
-		
+				
+				<form method="POST" action="/admin/themes/<?php echo $theme->get_id();?>">
+					
+					<div class="row">
+						<div class="input-field col s12">
+							<label for="name">Nom du thème</label>
+							<input type="text" name="name" id="name" value="<?php echo $theme->get_name();?>"/>
+						</div>
+					</div>
+					
+					<p>
+						<label for="description">Description du thème</label>
+						<textarea id="description" name="description"><?php echo $theme->get_description();?></textarea>
+					</p>
+					
+					<p>
+						<label for="color">Couleur du thème</label>
+						<input type="color" name="color" id="color" value="#<?php echo $theme->get_color();?>"/>
+					</p>
+					
+					<!--<input type="submit" value="<?php echo $action;?> le thème" name="save">-->
+					
+					<button class="btn waves-effect waves-light green" type="submit" name="save">
+						<?php echo $action;?> le thème
+					</button>
+					
+					<?php
+					if($theme->get_id() != -1) {
+						?>
+						<button class="btn waves-effect waves-light red" type="submit" name="delete">
+							Supprimer le thème
+						</button>
+						<?php
+					}
+					?>
+					
+				</form>
+				
+				
+				<script>
+					CKEDITOR.replace("description");
+				</script>
+				
+			</div>
 		</main>
 		
 	</body>
