@@ -16,12 +16,12 @@ if(isset($_POST["save"])) {
 	$theme->save();
 	
 	header("Location: /admin/themes/".$theme->get_id());
-}
+}*/
 if(isset($_POST["delete"])) {
-	$theme->delete();
+	$project->delete();
 	
-	header("Location: /admin/themes");
+	header("Location: /admin/themes/".$_GET["id_theme"]);
 }
-*/
+
 
 show_admin_project($project);

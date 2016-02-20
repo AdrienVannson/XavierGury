@@ -9,34 +9,52 @@ class Project {
 	public function __construct($id) {
 		$db = get_db();
 		
-		if($id == -1) { /* Ajout d'un nouveau projet */
-			$results = $db->prepare("INSERT INTO projects () VALUES ();");
+		if($id == -1) {
+			/*$results = $db->prepare("INSERT INTO projects () VALUES ();");
 			$results->execute(array());
 			
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
 			$datas = $results->fetch();
-			$id = $datas["id"];
+			$id = $datas["id"];*/
+			
+			$this->id = -1;
+			$this->name = "";
+			$this->description = "";
 		}
-
-		$result = $db->prepare("SELECT * FROM projects WHERE id=?");
-		$result->execute(array($id));
-		$datas = $result->fetch();
-
-		$this->id = $datas["id"];
-		$this->id_theme = $datas["id_theme"];
-		$this->name = $datas["name"];
-		$this->description = $datas["description"];
+		else {
+			$result = $db->prepare("SELECT * FROM projects WHERE id=?");
+			$result->execute(array($id));
+			$datas = $result->fetch();
+	
+			$this->id = $datas["id"];
+			$this->id_theme = $datas["id_theme"];
+			$this->name = $datas["name"];
+			$this->description = $datas["description"];
+		}
 	}
+	
+	public function save() {
+		
+	}
+	
+	public function delete() {
+		if($this->id == -1) {
+			return;
+		}
+		
+		$db = get_db();
+		
+		$results = $db->prepare("DELETE FROM projects WHERE id=?");
+		$results->execute(array($this->id));
+	}
+	
+	
 
 	public function get_id() {
 		return $this->id;
 	}
 	
 	public function set_id_theme($id_theme) {
-		$db = get_db();
-		$results = $db->prepare("UPDATE projects SET id_theme=? WHERE id=?;");
-		$results->execute(array($id_theme, $this->id));
-		
 		$this->id_theme = $id_theme;
 	}
 	public function get_id_theme() {
@@ -47,10 +65,6 @@ class Project {
 	}
 	
 	public function set_name($name) {
-		$db = get_db();
-		$results = $db->prepare("UPDATE projects SET name=? WHERE id=?;");
-		$results->execute(array($name, $this->id));
-	
 		$this->name = $name;
 	}
 	public function get_name() {
@@ -61,10 +75,6 @@ class Project {
 	}
 	
 	public function set_description($description) {
-		$db = get_db();
-		$results = $db->prepare("UPDATE projects SET description=? WHERE id=?;");
-		$results->execute(array($description, $this->id));
-	
 		$this->description = $description;
 	}
 	public function get_description() {
@@ -77,7 +87,7 @@ class Project {
 			FROM resources
 			WHERE id_project = ?
 		";
-	
+		
 		$db = get_db();
 		$results = $db->prepare($request);
 		$results->execute(array($this->id));
