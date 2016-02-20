@@ -1,16 +1,13 @@
 <?php
 /* View */
+include_once(__DIR__."/../../view/head.php");
 
 function show_admin_homepage() {
 	?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<title>Administration - Xavier Gury</title>
-		<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
-	</head>
+	<?php show_head("Administration", array("/admin/styles.css"));?>
 	
 	<body>
 		
