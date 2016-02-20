@@ -37,36 +37,29 @@ function show_admin_project($project) {
 				<h1><?php echo $action;?> un projet</h1>
 				
 				
-				<form method="POST" action="/admin/projets/<?php echo $project->get_id();?>">
+				<form method="POST" action="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>">
 					
 					<div class="row">
 						<div class="input-field col s12">
-							<label for="name">Nom du thème</label>
+							<label for="name">Nom du projet</label>
 							<input type="text" name="name" id="name" value="<?php echo $project->get_name();?>"/>
 						</div>
 					</div>
 					
 					<p>
-						<label for="description">Description du thème</label>
+						<label for="description">Description du projet</label>
 						<textarea id="description" name="description"><?php echo $project->get_description();?></textarea>
 					</p>
 					
-					<p>
-						<label for="color">Couleur du thème</label>
-						<input type="color" name="color" id="color" value="#<?php echo $project->get_color();?>"/>
-					</p>
-					
-					<!--<input type="submit" value="<?php echo $action;?> le thème" name="save">-->
-					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
-						<?php echo $action;?> le thème
+						<?php echo $action;?> le projet
 					</button>
 					
 					<?php
-					if($theme->get_id() != -1) {
+					if($project->get_id() != -1) {
 						?>
 						<button class="btn waves-effect waves-light red" type="submit" name="delete">
-							Supprimer le thème
+							Supprimer le projet
 						</button>
 						<?php
 					}

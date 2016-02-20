@@ -69,7 +69,6 @@ function show_admin_theme($theme) {
 						<input type="color" name="color" id="color" value="#<?php echo $theme->get_color();?>"/>
 					</p>
 					
-					<!--<input type="submit" value="<?php echo $action;?> le thème" name="save">-->
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
 						<?php echo $action;?> le thème

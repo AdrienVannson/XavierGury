@@ -4,7 +4,7 @@ include_once(__DIR__."/../../model/Project.class.php");
 include_once(__DIR__."/../view/project.php");
 
 
-$theme = new Project($_GET["id_project"]);
+$project = new Project($_GET["id_project"]);
 
 /* Traitement du formulaire *//*
 if(isset($_POST["save"])) {
@@ -24,4 +24,4 @@ if(isset($_POST["delete"])) {
 }
 */
 
-show_admin_project($theme);
+show_admin_project($project);
