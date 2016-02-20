@@ -8,7 +8,15 @@ function show_admin_homepage() {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head("Administration", array("/admin/styles.css", "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"), array("http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js", "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"));?>
+	<?php show_head("Administration",
+			array(
+				"/admin/styles.css",
+				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
+			
+			array(
+				"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js",
+				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+	);?>
 	
 	<body>
 		<?php show_admin_menus();?>
