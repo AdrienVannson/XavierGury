@@ -7,7 +7,7 @@ function show_admin_homepage() {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head("Administration", array("/admin/styles.css"));?>
+	<?php show_head("Administration", array("/admin/styles.css", "/css/materialize.min.css"), array("/js/materialize.min.js"));?>
 	
 	<body>
 		

@@ -3,7 +3,7 @@
 
 function show_admin_styles() {
 	?>
-body {
+/*body {
 	background-color: #2B2E34;
 	color: #FFF;
 }
@@ -16,19 +16,19 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* Formulaires */
+/* Formulaires *//*
 label {
 	display: inline-block;
 	width: 300px;
 }
 
 
-/* Résultats */
+/* Résultats *//*
 #message {
 	display: inline-block;
 	margin-left: 30px;
 	font-style: italic;
-}
+}*/
 
 	<?php
 }
