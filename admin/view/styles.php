@@ -3,6 +3,10 @@
 
 function show_admin_styles() {
 	?>
+header, main, footer, nav {
+	padding-left: 240px;
+}
+
 /*body {
 	background-color: #2B2E34;
 	color: #FFF;
