@@ -3,6 +3,7 @@
 
 function show_admin_styles() {
 	?>
+
 header, main, footer, nav {
 	padding-left: 240px;
 }

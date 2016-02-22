@@ -27,15 +27,17 @@ function show_admin_themes($themes) {
 				
 				<p>Consulter les thèmes du site.</p>
 				
-				<ul>
+				<div class="row">
 					<?php 
 					foreach ($themes as $theme) {
 						?>
-						<li><a href="/admin/themes/<?php echo $theme->get_id();?>"><?php echo $theme->get_name();?></a></li>
+						<div class="col s2">
+							<a class="btn-large waves-effect waves-light" href="/admin/themes/<?php echo $theme->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $theme->get_color();?>;"><?php echo $theme->get_name();?></a>
+						</div>
 						<?php
 					}
 					?>
-				</ul>
+				</div>
 				
 				<p><a href="/admin/themes/-1" class="btn waves-effect waves-light">Nouveau thème</a></p>
 		
