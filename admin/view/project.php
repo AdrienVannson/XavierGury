@@ -41,6 +41,13 @@ function show_admin_project($project) {
 					
 					<div class="row">
 						<div class="input-field col s12">
+							<label for="id_theme">Id du thème</label>
+							<input type="text" name="id_theme" id="id_theme" value="<?php echo $project->get_id_theme();?>"/>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="input-field col s12">
 							<label for="name">Nom du projet</label>
 							<input type="text" name="name" id="name" value="<?php echo $project->get_name();?>"/>
 						</div>

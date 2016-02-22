@@ -6,17 +6,18 @@ include_once(__DIR__."/../view/project.php");
 
 $project = new Project($_GET["id_project"]);
 
-/* Traitement du formulaire *//*
+/* Traitement du formulaire */
 if(isset($_POST["save"])) {
+	print_r($_POST);
 	
-	$theme->set_name( $_POST["name"] );
-	$theme->set_description( $_POST["description"] );
-	$theme->set_color( $_POST["color"] );
+	$project->set_id_theme( $_POST["id_theme"] );
+	$project->set_name( $_POST["name"] );
+	$project->set_description( $_POST["description"] );
 	
-	$theme->save();
+	$project->save();
 	
-	header("Location: /admin/themes/".$theme->get_id());
-}*/
+	header("Location: /admin/themes/".$project->get_id_theme()."/projets/".$project->get_id());
+}
 if(isset($_POST["delete"])) {
 	$project->delete();
 	

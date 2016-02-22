@@ -34,6 +34,29 @@ class Project {
 	}
 	
 	public function save() {
+		$db = get_db();
+		
+		if($this->id == -1) {
+			$results = $db->prepare("INSERT INTO projects (id_theme, name, description) VALUES (?, ?, ?);");
+			$results->execute(array(
+					$this->id_theme,
+					$this->name,
+					$this->description
+			));
+				
+			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
+			$datas = $results->fetch();
+			$this->id = $datas["id"];
+		}
+		else {
+			$results = $db->prepare("UPDATE projects SET id_theme=?, name=?, description=? WHERE id=?;");
+			$results->execute(array(
+					$this->id_theme,
+					$this->name,
+					$this->description,
+					$this->id
+			));
+		}
 		
 	}
 	
