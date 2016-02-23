@@ -36,20 +36,6 @@ function show_admin_theme($theme) {
 			
 				<h1><?php echo $action;?> un thème</h1>
 				
-				<?php
-				$projects = $theme->get_projects();
-				if(sizeof($projects) > 0) {
-					echo "<ul>";
-					
-					foreach($projects as $project) {
-						echo '<li><a href="/admin/themes/'.$project->get_id_theme().'/projets/'.$project->get_id().'">'.$project->get_name().'</a></li>';
-					}
-					
-					echo "</ul>";
-				}
-				?>
-				
-				
 				<form method="POST" action="/admin/themes/<?php echo $theme->get_id();?>">
 					
 					<div class="row">
@@ -85,6 +71,29 @@ function show_admin_theme($theme) {
 					?>
 					
 				</form>
+				
+				
+				<hr style="margin-top:20px;margin-bottom:20px;"/>
+				
+				<div class="row">
+					<?php
+					$projects = $theme->get_projects();
+					if(sizeof($projects) > 0) {
+						echo "<ul>";
+						
+						foreach($projects as $project) {
+							?>
+							<div class="col s4">
+								<a class="btn-large waves-effect waves-light" href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $project->get_name();?></a>
+							</div>
+							<?php
+						}
+						
+						echo "</ul>";
+					}
+					?>
+				</div>
+				
 				
 				
 				<script>
