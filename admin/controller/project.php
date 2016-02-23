@@ -6,6 +6,12 @@ include_once(__DIR__."/../view/project.php");
 
 $project = new Project($_GET["id_project"]);
 
+
+if($_GET["id_project"] == -1) {
+	$project->set_id_theme($_GET["id_theme"]);
+}
+
+
 /* Traitement du formulaire */
 if(isset($_POST["save"])) {
 	print_r($_POST);
