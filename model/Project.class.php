@@ -10,13 +10,6 @@ class Project {
 		$db = get_db();
 		
 		if($id == -1) {
-			/*$results = $db->prepare("INSERT INTO projects () VALUES ();");
-			$results->execute(array());
-			
-			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
-			$datas = $results->fetch();
-			$id = $datas["id"];*/
-			
 			$this->id = -1;
 			$this->name = "";
 			$this->description = "";
@@ -107,14 +100,14 @@ class Project {
 	public function get_resources() {
 		$request = "
 			SELECT id
-			FROM resources
+			FROM pictures
 			WHERE id_project = ?
 		";
 		
 		$db = get_db();
 		$results = $db->prepare($request);
 		$results->execute(array($this->id));
-	
+		
 		$resources = [];
 		while($datas = $results->fetch()) {
 			$resources[] = new Picture($datas["id"]);
