@@ -26,10 +26,10 @@ function show_project($project) {
 				
 				<p>
 					<?php
-					$resources = $project->get_resources();
-					foreach($resources as $resource) {
+					$pictures = $project->get_resources();
+					foreach($pictures as $picture) {
 						?>
-						<img src="<?php echo $resource->get_url_resource("medium");?>" class="image_project" title="<?php echo $resource->get_name();?>" alt="<?php echo $resource->get_description();?>"/>
+						<img src="<?php echo $picture->get_url_resource("medium");?>" class="image_project" title="<?php echo $picture->get_name();?>" alt="<?php echo $picture->get_description();?>"/>
 						<?php
 					}
 					?>
