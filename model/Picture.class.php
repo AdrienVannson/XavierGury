@@ -2,7 +2,7 @@
 /* Model */
 include_once(__DIR__."/connect.php");
 
-class Resource {
+class Picture {
 	
 	public function __construct($id) {
 		$db = get_db();

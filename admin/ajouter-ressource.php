@@ -4,7 +4,7 @@ $message = "";
 /* Traitement du formulaire */
 if(isset($_POST["add"])) {
 	include_once("save-image.php");
-	include_once("../model/Resource.class.php");
+	include_once("../model/Picture.class.php");
 	
 	$resource = new Resource(-1);
 	$resource->set_id_project( $_POST["id_project"] );

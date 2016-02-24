@@ -2,7 +2,7 @@
 /* View */
 include_once(__DIR__."/../model/Project.class.php");
 include_once(__DIR__."/../model/Theme.class.php");
-include_once(__DIR__."/../model/Resource.class.php");
+include_once(__DIR__."/../model/Picture.class.php");
 include_once(__DIR__."/head.php");
 include_once(__DIR__."/left_menu.php");
 

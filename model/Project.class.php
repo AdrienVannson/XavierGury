@@ -2,7 +2,7 @@
 /* Model */
 include_once(__DIR__."/connect.php");
 include_once(__DIR__."/Theme.class.php");
-include_once(__DIR__."/Resource.class.php");
+include_once(__DIR__."/Picture.class.php");
 
 class Project {
 
@@ -117,7 +117,7 @@ class Project {
 	
 		$resources = [];
 		while($datas = $results->fetch()) {
-			$resources[] = new Resource($datas["id"]);
+			$resources[] = new Picture($datas["id"]);
 		}
 		return $resources;
 	}
