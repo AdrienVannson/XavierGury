@@ -76,7 +76,7 @@ class Picture {
 	}
 	
 	public function get_path_resource($size) {
-		return "resources/".$this->id."/".$size.".jpg";
+		return "resources/pictures/".$this->id."/".$size.".jpg";
 	}
 	public function get_url_resource($size) {
 		return "/ressources/".$this->id."-".$size.".jpg";
