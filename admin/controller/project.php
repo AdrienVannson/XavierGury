@@ -8,7 +8,6 @@ session_start();
 
 $project = new Project($_GET["id_project"]);
 
-
 if($_GET["id_project"] == -1 && isset($_SESSION["last_theme_id"])) {
 	$project->set_id_theme( $_SESSION["last_theme_id"] );
 }
