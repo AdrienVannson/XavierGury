@@ -5,7 +5,6 @@ include_once(__DIR__."/../view/picture.php");
 
 session_start();
 
-
 $picture = new Picture($_GET["id_picture"]);
 
 
