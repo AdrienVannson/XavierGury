@@ -113,7 +113,7 @@ function show_admin_project($project) {
 				}
 				?>
 				
-				<p><a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/pictures/-1" class="btn waves-effect waves-light green right">Nouvelle image</a></p>
+				<p><a href="/admin/images/-1" class="btn waves-effect waves-light green right">Nouvelle image</a></p>
 				
 				
 				<script>
