@@ -4,19 +4,20 @@ include_once(__DIR__."/../../view/head.php");
 include_once(__DIR__."/menus.php");
 
 
-function show_admin_project($project) {
+function show_admin_picture($picture) {
 	
-	if($project->get_id() == -1) {
+	if($picture->get_id() == -1) {
 		$action = "Ajouter";
 	}
 	else {
 		$action = "Modifier";
 	}
+	
 	?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action." un projet",
+	<?php show_head($action." une image",
 			array(
 				"/admin/styles.css",
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
@@ -29,18 +30,17 @@ function show_admin_project($project) {
 	<body>
 		<?php show_admin_menus();?>
 		
-		
 		<main>
 			<div class="container">
 			
-				<h1><?php echo $action;?> un projet</h1>
+				<h1><?php echo $action;?> une image</h1>
 				
 				
 				<form method="POST" action="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>">
 					
 					<div class="row">
 						<div class="input-field col s12">
-							<label for="id_theme">Id du thème</label>
+							<label for="id_theme">Id du projet</label>
 							<input type="text" name="id_theme" id="id_theme" value="<?php echo $project->get_id_theme();?>"/>
 						</div>
 					</div>
@@ -72,49 +72,6 @@ function show_admin_project($project) {
 					?>
 					
 				</form>
-				
-				
-				<hr style="margin-top:20px;margin-bottom:20px;"/>
-				
-				
-				<?php
-				$pictures = $project->get_pictures();
-				if(sizeof($pictures) > 0) {
-					?>
-					<div class="row">
-						<ul>
-							<?php
-							foreach($pictures as $picture) {
-								?>
-								<div class="col s3">
-									
-									<div class="card hoverable">
-										<div class="card-image">
-											<div style="overflow:hidden;max-height:400px;">
-												<img src="<?php echo $picture->get_url_resource("medium");?>">
-											</div>
-											<span class="card-title"><?php echo $picture->get_name();?></span>
-										</div>
-										<div class="card-content">
-											<?php echo $picture->get_description();?>
-										</div>
-										<div class="card-action">
-											<a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
-										</div>
-									</div>
-
-								</div>
-								<?php
-							}
-							?>
-						</ul>
-					</div>
-					<?php
-				}
-				?>
-				
-				<p><a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/pictures/-1" class="btn waves-effect waves-light green right">Nouvelle image</a></p>
-				
 				
 				<script>
 					CKEDITOR.replace("description");
