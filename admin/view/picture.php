@@ -62,7 +62,7 @@ function show_admin_picture($picture) {
 					</button>
 					
 					<?php
-					if($picture->get_id() != -1) {
+					if($project->get_id() != -1) {
 						?>
 						<button class="btn waves-effect waves-light red" type="submit" name="delete">
 							Supprimer l'image

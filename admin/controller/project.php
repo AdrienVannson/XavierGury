@@ -3,12 +3,14 @@
 include_once(__DIR__."/../../model/Project.class.php");
 include_once(__DIR__."/../view/project.php");
 
+session_start();
+
 
 $project = new Project($_GET["id_project"]);
 
 
-if($_GET["id_project"] == -1) {
-	$project->set_id_theme($_GET["id_theme"]);
+if($_GET["id_project"] == -1 && isset($_SESSION["last_theme_id"])) {
+	$project->set_id_theme( $_SESSION["last_theme_id"] );
 }
 
 
@@ -32,3 +34,4 @@ if(isset($_POST["delete"])) {
 
 
 show_admin_project($project);
+$_SESSION["last_project_id"] = $project->get_id();

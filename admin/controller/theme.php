@@ -3,6 +3,8 @@
 include_once(__DIR__."/../../model/Theme.class.php");
 include_once(__DIR__."/../view/theme.php");
 
+session_start();
+
 
 $theme = new Theme($_GET["id_theme"]); 
 
@@ -25,3 +27,4 @@ if(isset($_POST["delete"])) {
 
 
 show_admin_theme($theme);
+$_SESSION["last_theme_id"] = $theme->get_id();
