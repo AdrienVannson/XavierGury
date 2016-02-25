@@ -85,7 +85,7 @@ function show_admin_theme($theme) {
 						foreach($projects as $project) {
 							?>
 							<div class="col s4">
-								<a class="btn-large waves-effect waves-light" href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $project->get_name();?></a>
+								<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $project->get_name();?></a>
 							</div>
 							<?php
 						}

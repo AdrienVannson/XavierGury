@@ -22,7 +22,7 @@ if(isset($_POST["save"])) {
 	
 	$project->save();
 	
-	header("Location: /admin/themes/".$project->get_id_theme()."/projets/".$project->get_id());
+	header("Location: /admin/projets/".$project->get_id());
 }
 if(isset($_POST["delete"])) {
 	$project->delete();

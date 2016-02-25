@@ -36,7 +36,7 @@ function show_admin_project($project) {
 				<h1><?php echo $action;?> un projet</h1>
 				
 				
-				<form method="POST" action="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>">
+				<form method="POST" action="/admin/projets/<?php echo $project->get_id();?>">
 					
 					<div class="row">
 						<div class="input-field col s12">
@@ -99,7 +99,7 @@ function show_admin_project($project) {
 											<?php echo $picture->get_description();?>
 										</div>
 										<div class="card-action">
-											<a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
+											<a href="/admin/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
 										</div>
 									</div>
 
