@@ -39,7 +39,7 @@ function show_admin_themes($themes) {
 					?>
 				</div>
 				
-				<p><a href="/admin/themes/-1" class="btn waves-effect waves-light">Nouveau thème</a></p>
+				<p><a href="/admin/themes/-1" class="btn waves-effect waves-light green right">Nouveau thème</a></p>
 		
 			</div>
 		</main>
