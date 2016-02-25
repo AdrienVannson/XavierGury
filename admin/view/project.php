@@ -75,6 +75,48 @@ function show_admin_project($project) {
 				</form>
 				
 				
+				<hr style="margin-top:20px;margin-bottom:20px;"/>
+				
+				
+				<?php
+				$pictures = $project->get_pictures();
+				if(sizeof($pictures) > 0) {
+					?>
+					<div class="row">
+						<ul>
+							<?php
+							foreach($pictures as $picture) {
+								?>
+								<div class="col s3">
+									
+									<div class="card hoverable">
+										<div class="card-image">
+											<div style="overflow:hidden;max-height:400px;">
+												<img src="<?php echo $picture->get_url_resource("medium");?>">
+											</div>
+											<span class="card-title"><?php echo $picture->get_name();?></span>
+										</div>
+										<div class="card-content">
+											<?php echo $picture->get_description();?>
+										</div>
+										<div class="card-action">
+											<a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
+										</div>
+									</div>
+
+								</div>
+								<?php
+							}
+							?>
+						</ul>
+					</div>
+					<?php
+				}
+				?>
+				
+				<p><a href="/admin/themes/<?php echo $project->get_id_theme();?>/projets/<?php echo $project->get_id();?>/pictures/-1" class="btn waves-effect waves-light green right">Nouvelle image</a></p>
+				
+				
 				<script>
 					CKEDITOR.replace("description");
 					$(".button-collapse").sideNav();

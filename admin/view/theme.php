@@ -75,6 +75,7 @@ function show_admin_theme($theme) {
 				
 				<hr style="margin-top:20px;margin-bottom:20px;"/>
 				
+				
 				<div class="row">
 					<?php
 					$projects = $theme->get_projects();

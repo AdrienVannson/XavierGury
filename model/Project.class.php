@@ -114,6 +114,26 @@ class Project {
 		}
 		return $resources;
 	}
+	
+	
+	public function get_pictures() {
+		$request = "
+			SELECT id
+			FROM pictures
+			WHERE id_project = ?
+		";
+		
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array($this->id));
+		
+		$pictures = [];
+		while($datas = $results->fetch()) {
+			$pictures[] = new Picture($datas["id"]);
+		}
+		return $pictures;
+	}
+	
 
 	private $id;
 	private $id_theme;

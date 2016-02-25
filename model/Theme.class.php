@@ -100,6 +100,7 @@ class Theme {
 		return $this->color;
 	}
 	
+	
 	public function get_projects() {
 		$request = "
 			SELECT id
