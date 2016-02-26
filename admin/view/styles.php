@@ -13,6 +13,11 @@ header, main, footer, nav {
 	}
 }
 
+.breadcrumb::before {
+	content: '→' !important;
+	font-family: ;
+}
+
 /*body {
 	background-color: #2B2E34;
 	color: #FFF;
