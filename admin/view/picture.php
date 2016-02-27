@@ -12,7 +12,6 @@ function show_admin_picture($picture) {
 	else {
 		$action = "Modifier";
 	}
-	
 	?>
 
 <!DOCTYPE HTML>
@@ -35,8 +34,7 @@ function show_admin_picture($picture) {
 			
 				<h1><?php echo $action;?> une image</h1>
 				
-				
-				<form method="POST" action="/admin/images/<?php echo $picture->get_id();?>">
+				<form method="POST" action="/admin/images/<?php echo $picture->get_id();?>" enctype="multipart/form-data">
 					
 					<div class="row">
 						<div class="input-field col s12">
@@ -56,6 +54,17 @@ function show_admin_picture($picture) {
 						<label for="description">Description de l'image</label>
 						<textarea id="description" name="description"><?php echo $picture->get_description();?></textarea>
 					</p>
+					
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Image</span>
+							<input type="file" name="image">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+					</div>
+					
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
 						<?php echo $action;?> l'image
