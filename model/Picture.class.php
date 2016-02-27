@@ -8,13 +8,6 @@ class Picture {
 		$db = get_db();
 		
 		if($id == -1) {
-			/*$results = $db->prepare("INSERT INTO pictures () VALUES ();");
-			$results->execute(array());
-			
-			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
-			$datas = $results->fetch();
-			$id = $datas["id"];*/
-			
 			$this->id = -1;
 			$this->idProject;
 			$this->name = "";
