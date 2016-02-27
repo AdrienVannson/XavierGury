@@ -29,11 +29,18 @@ function show_admin_project($project) {
 				"/ckeditor/ckeditor.js")
 	);?>
 	<body>
-		<?php show_admin_menus(array(
+		<?php
+		$name = $project->get_name();
+		if($project->get_id() == -1) {
+			$name = "Nouveau projet";
+		}
+		
+		show_admin_menus(array(
 			array("Thèmes", "/admin/themes"),
 			array($theme->get_name(), $theme->get_url_admin()),
-			array($project->get_name(), $project->get_url_admin())
-		));?>
+			array($name, $project->get_url_admin())
+		));
+		?>
 		
 		
 		<main>

@@ -28,10 +28,17 @@ function show_admin_theme($theme) {
 				"/ckeditor/ckeditor.js")
 	);?>
 	<body>
-		<?php show_admin_menus(array(
+		<?php
+		$name = $theme->get_name();
+		if($theme->get_id() == -1) {
+			$name = "Nouveau thème";
+		}
+		
+		show_admin_menus(array(
 			array("Thèmes", "/admin/themes"),
-			array($theme->get_name(), $theme->get_url_admin())
-		));?>
+			array($name, $theme->get_url_admin())
+		));
+		?>
 		
 		
 		<main>
