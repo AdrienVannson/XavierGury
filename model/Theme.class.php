@@ -82,6 +82,9 @@ class Theme {
 	public function get_url() {
 		return "/".$this->get_id()."-".$this->get_name_formatted();
 	}
+	public function get_url_admin() {
+		return "/admin/themes/".$this->get_id();
+	}
 	
 	public function set_description($description) {
 		$this->description = $description;

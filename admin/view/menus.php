@@ -29,7 +29,6 @@ function show_admin_menus($path=array()) {
 <nav style="background-color: rgba(238, 110, 115, 0.85);">
 	<div class="container nav-wrapper">
 		<div class="col s12">
-			<a href="/admin/" class="breadcrumb">Administration</a>
 			<?php
 			foreach($path as $name) {
 				?>

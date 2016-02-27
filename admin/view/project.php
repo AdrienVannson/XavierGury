@@ -12,6 +12,9 @@ function show_admin_project($project) {
 	else {
 		$action = "Modifier";
 	}
+	
+	$theme = $project->get_theme();
+	
 	?>
 
 <!DOCTYPE HTML>
@@ -28,7 +31,9 @@ function show_admin_project($project) {
 	);?>
 	<body>
 		<?php show_admin_menus(array(
-			array("Thèmes", "/admin/themes")
+			array("Thèmes", "/admin/themes"),
+			array($theme->get_name(), $theme->get_url_admin()),
+			array($project->get_name(), "")
 		));?>
 		
 		
