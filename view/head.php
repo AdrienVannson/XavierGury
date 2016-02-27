@@ -21,6 +21,8 @@ function show_head($title, $styles=array(), $scripts=array()) {
 		<?php
 	}
 	?>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 	<?php
