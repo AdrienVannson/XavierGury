@@ -23,6 +23,11 @@ if(isset($_POST["save"])) {
 	
 	header("Location: /admin/images/".$picture->get_id());
 }
+if(isset($_POST["delete"])) {
+	$picture->delete();
+	
+	header("Location: /admin/projets/".$picture->get_id_project());
+}
 
 
 show_admin_picture($picture);
