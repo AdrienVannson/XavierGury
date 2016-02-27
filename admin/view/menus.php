@@ -1,7 +1,7 @@
 <?php
 /* View */
 
-function show_admin_menus($categories=array()) {
+function show_admin_menus($path=array()) {
 	?>
 
 <!-- Menu haut  -->
@@ -16,9 +16,14 @@ function show_admin_menus($categories=array()) {
 		<nav>
 			<div class="nav-wrapper">
 				<div class="col s12">
-					<a href="#!" class="breadcrumb">First</a>
-					<a href="#!" class="breadcrumb">Second</a>
-					<a href="#!" class="breadcrumb">Third</a>
+					<a href="/admin/" class="breadcrumb">Administration</a>
+					<?php
+					foreach($path as $name) {
+						?>
+						<a href="<?php echo $name[1];?>" class="breadcrumb"><?php echo $name[0];?></a>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 		</nav>

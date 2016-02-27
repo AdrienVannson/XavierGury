@@ -27,7 +27,9 @@ function show_admin_project($project) {
 				"/ckeditor/ckeditor.js")
 	);?>
 	<body>
-		<?php show_admin_menus();?>
+		<?php show_admin_menus(array(
+			array("Thèmes", "/admin/themes")
+		));?>
 		
 		
 		<main>
