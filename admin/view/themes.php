@@ -18,7 +18,9 @@ function show_admin_themes($themes) {
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
 	);?>
 	<body>
-		<?php show_admin_menus();?>
+		<?php show_admin_menus(array(
+			array("Thèmes", "/admin/themes")
+		));?>
 		
 		<main>
 			<div class="container">
