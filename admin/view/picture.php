@@ -12,6 +12,9 @@ function show_admin_picture($picture) {
 	else {
 		$action = "Modifier";
 	}
+	
+	$project = $picture->get_project();
+	$theme = $project->get_theme();
 	?>
 
 <!DOCTYPE HTML>
@@ -27,7 +30,19 @@ function show_admin_picture($picture) {
 				"/ckeditor/ckeditor.js")
 	);?>
 	<body>
-		<?php show_admin_menus();?>
+		<?php
+		$name = $picture->get_name();
+		if($picture->get_id() == -1) {
+			$name = "Nouvelle image";
+		}
+		
+		show_admin_menus(array(
+			array("Thèmes", "/admin/themes"),
+			array($theme->get_name(), $theme->get_url_admin()),
+			array($project->get_name(), $project->get_url_admin()),
+			array($name, $picture->get_admin_url())
+		));
+		?>
 		
 		<main>
 			<div class="container">

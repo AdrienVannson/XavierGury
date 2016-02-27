@@ -1,6 +1,7 @@
 <?php
 /* Model */
 include_once(__DIR__."/connect.php");
+include_once(__DIR__."/Project.class.php");
 
 class Picture {
 	
@@ -74,6 +75,9 @@ class Picture {
 	public function get_id_project() {
 		return $this->idProject;
 	}
+	public function get_project() {
+		return new Project($this->get_id_project());
+	}
 	
 	public function set_name($name) {
 		$this->name = $name;
@@ -95,6 +99,10 @@ class Picture {
 	}
 	public function get_url_resource($size) {
 		return "/ressources/".$this->id."-".$size.".jpg";
+	}
+	
+	public function get_admin_url() {
+		return "/admin/images/".$this->get_id();
 	}
 	
 	private $id;
