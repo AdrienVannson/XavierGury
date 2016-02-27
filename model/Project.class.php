@@ -134,6 +134,11 @@ class Project {
 		return $pictures;
 	}
 	
+	
+	public function get_url_admin() {
+		return "/admin/projets/".$this->get_id();
+	}
+	
 
 	private $id;
 	private $id_theme;
