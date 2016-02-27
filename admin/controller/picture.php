@@ -13,5 +13,17 @@ if($_GET["id_picture"] == -1 && isset($_SESSION["last_project_id"])) {
 }
 
 
+/* Traitement du formulaire */
+if(isset($_POST["save"])) {
+	$picture->set_id_project( $_POST["id_project"] );
+	$picture->set_name( $_POST["name"] );
+	$picture->set_description( $_POST["description"] );
+	
+	$picture->save();
+	
+	header("Location: /admin/images/".$picture->get_id());
+}
+
+
 show_admin_picture($picture);
 $_SESSION["last_picture_id"] = $picture->get_id();
