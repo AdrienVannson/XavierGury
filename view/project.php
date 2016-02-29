@@ -35,8 +35,7 @@ function show_project($project) {
 					?>
 				</p>
 				
-				<p class="description"><?php echo $project->get_description();?></p>
-				
+				<div class="description"><?php echo $project->get_description();?></div>
 				
 			</div>
 			
