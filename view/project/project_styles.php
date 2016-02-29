@@ -51,8 +51,10 @@ ul {
 	background-color: #000;
 }
 
+/* Menu coloré */
 #color_menu {
 	position: absolute;
+	z-index: 99999999999999999999999999;
 	bottom: 0;
 }
 
@@ -62,10 +64,23 @@ ul {
 	float: left;
 	width: <?php echo 15/$nbThemes;?>vw;
 	height: <?php echo 30/$nbThemes;?>vw;
+	
+	transition: height .5s, margin-top .5s;
+}
+.color_item:hover {
+	height: <?php echo 45/$nbThemes;?>vw;
+	margin-top: <?php echo 15/$nbThemes;?>vw;
+}
+.color_item:focus {
+	height: <?php echo 60/$nbThemes;?>vw;
+	margin-top: 0;
 }
 
 #color_item_activate {
 	margin-top: 0;
+}
+#color_item_activate:hover {
+	height: <?php echo 60/$nbThemes;?>vw;
 }
 
 #white-item {
