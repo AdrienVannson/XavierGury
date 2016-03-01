@@ -2,6 +2,7 @@
 /* View */
 include_once(__DIR__."/../../view/head.php");
 include_once(__DIR__."/menus.php");
+include_once(__DIR__."/errors.php");
 
 
 function show_admin_picture($picture) {
@@ -48,6 +49,9 @@ function show_admin_picture($picture) {
 			<div class="container">
 			
 				<h1><?php echo $action;?> une image</h1>
+				
+				<?php show_admin_errors();?>
+				
 				
 				<form method="POST" action="/admin/images/<?php echo $picture->get_id();?>" enctype="multipart/form-data">
 					

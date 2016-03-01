@@ -1,5 +1,6 @@
 <?php
 /* Fichier principal : inclut les controllers de l'espace d'administration */
+session_start();
 
 $request = explode("/", $_GET["request"]);
 $size = count($request);
