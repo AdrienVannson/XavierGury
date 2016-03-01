@@ -3,9 +3,6 @@
 include_once(__DIR__."/../../model/Theme.class.php");
 include_once(__DIR__."/../view/theme.php");
 
-session_start();
-
-
 $theme = new Theme($_GET["id_theme"]); 
 
 /* Traitement du formulaire */
