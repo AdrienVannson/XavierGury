@@ -23,6 +23,5 @@ function show_admin_errors() {
 
 	<?php
 	}
-	
 	$_SESSION["errors"] = array();
 }

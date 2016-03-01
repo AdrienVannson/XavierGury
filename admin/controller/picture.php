@@ -3,43 +3,6 @@
 include_once(__DIR__."/../../model/Picture.class.php");
 include_once(__DIR__."/../view/picture.php");
 
-function save_image($src, $destination, $size) {
-
-	$infos = getimagesize($src);
-	$width = $infos[0];
-	$height = $infos[1];
-
-	if($infos["mime"] == "image/jpeg") {
-		$img = imagecreatefromjpeg($src);
-	}
-	elseif($infos["mime"] == "image/gif") {
-		$img = imagecreatefromgif($src);
-	}
-	elseif($infos["mime"] == "image/png") {
-		$img = imagecreatefrompng($src);
-	}
-	else {
-		return false;
-	}
-
-	$quality = 100;
-	switch ($size) {
-		case "small":
-			$img = imagescale($img, floor(128*$width/$height));
-			$quality = 75;
-			break;
-
-		case "medium":
-			$img = imagescale($img, floor(512*$width/$height));
-			$quality = 80;
-			break;
-
-		case "large":
-			break;
-	}
-
-	return imagejpeg($img, $destination.$size.".jpg", $quality);
-}
 
 $picture = new Picture($_GET["id_picture"]);
 
@@ -67,6 +30,7 @@ if(isset($_POST["save"])) {
 		$_SESSION["errors"][] = "Une erreur s'est produite lors de l'enregistrement du fichier sur le disque.";
 	}
 	if(isset($_FILES["image"]) && $_FILES["image"]["error"]==UPLOAD_ERR_OK) {
+		
 		$dirName = dirname(dirname(__DIR__))."/resources/pictures/".$picture->get_id();
 		
 		// Création du dossier si il n'existe pas
@@ -101,18 +65,22 @@ if(isset($_POST["save"])) {
 		}
 		else {
 			$_SESSION["errors"][] = "Le format de fichier n'est pas pris en charge";
-			$_SESSION["errors"][] = $_FILES["image"]["error"];
-			echo "a";
+			goto end;
 		}
 		
-		/*save_image($_FILES["image"]["tmp_name"], $dirName."/", "small");
-		save_image($_FILES["image"]["tmp_name"], $dirName."/", "medium");
-		save_image($_FILES["image"]["tmp_name"], $dirName."/", "large");*/
+		$small = imagescale($img, floor(128*$width/$height));
+		$medium = imagescale($img, floor(512*$width/$height));
+		
+		imagejpeg($small, $dirName."/small.jpg", 75);
+		imagejpeg($medium, $dirName."/medium.jpg", 80);
+		imagejpeg($img, $dirName."/large.jpg", 100);
 	}
 	
 	$picture->save();
 	
-	//header("Location: /admin/images/".$picture->get_id());
+	end:
+	header("Location: /admin/images/".$picture->get_id());
+	exit();
 }
 if(isset($_POST["delete"])) {
 	$picture->delete();
