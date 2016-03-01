@@ -95,32 +95,30 @@ function show_admin_project($project) {
 				if(sizeof($pictures) > 0) {
 					?>
 					<div class="row">
-						<ul>
-							<?php
-							foreach($pictures as $picture) {
-								?>
-								<div class="col s3">
-									
-									<div class="card hoverable">
-										<div class="card-image">
-											<div style="overflow:hidden;max-height:400px;">
-												<img src="<?php echo $picture->get_url_resource("medium");?>">
-											</div>
-											<span class="card-title"><?php echo $picture->get_name();?></span>
-										</div>
-										<div class="card-content">
-											<?php echo $picture->get_description();?>
-										</div>
-										<div class="card-action">
-											<a href="/admin/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
-										</div>
-									</div>
-
-								</div>
-								<?php
-							}
+						<?php
+						foreach($pictures as $picture) {
 							?>
-						</ul>
+							<div class="col s3">
+								
+								<div class="card hoverable">
+									<div class="card-image">
+										<div style="overflow:hidden;max-height:400px;">
+											<img src="<?php echo $picture->get_url_resource("medium");?>">
+										</div>
+										<span class="card-title"><?php echo $picture->get_name();?></span>
+									</div>
+									<div class="card-content">
+										<?php echo $picture->get_description();?>
+									</div>
+									<div class="card-action">
+										<a href="/admin/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
+									</div>
+								</div>
+
+							</div>
+							<?php
+						}
+						?>
 					</div>
 					<?php
 				}
