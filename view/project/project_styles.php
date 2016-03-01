@@ -54,7 +54,7 @@ ul {
 /* Menu coloré */
 #color_menu {
 	position: absolute;
-	z-index: 99999999999999999999999999;
+	z-index: 999;
 	bottom: 0;
 }
 
