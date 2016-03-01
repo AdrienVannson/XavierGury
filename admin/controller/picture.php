@@ -57,10 +57,9 @@ if(isset($_POST["save"])) {
 	$picture->set_name( $_POST["name"] );
 	$picture->set_description( $_POST["description"] );
 	
-	$picture->save();
 	
 	/* Envoi de l'image */
-	if(isset( $_FILES["image"] )) {
+	if(isset($_FILES["image"]) && $_FILES["image"]["error"]!=UPLOAD_ERR_NO_FILE) {
 		$dirName = dirname(dirname(__DIR__))."/resources/pictures/".$picture->get_id();
 		
 		// Création du dossier si il n'existe pas
@@ -84,7 +83,9 @@ if(isset($_POST["save"])) {
 		
 	}
 	
-	//header("Location: /admin/images/".$picture->get_id());
+	$picture->save();
+	
+	header("Location: /admin/images/".$picture->get_id());
 }
 if(isset($_POST["delete"])) {
 	$picture->delete();
