@@ -4,6 +4,10 @@
 function show_admin_styles() {
 	?>
 
+.right-btn {
+	margin-bottom: 20px;
+}
+
 header, main, footer, nav {
 	padding-left: 240px;
 }

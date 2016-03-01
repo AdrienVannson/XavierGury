@@ -105,7 +105,7 @@ function show_admin_theme($theme) {
 					?>
 				</div>
 				
-				<p><a href="/admin/projets/-1" class="btn waves-effect waves-light green right">Nouveau projet</a></p>
+				<p><a href="/admin/projets/-1" class="btn waves-effect waves-light green right right-btn">Nouveau projet</a></p>
 				
 				
 				
