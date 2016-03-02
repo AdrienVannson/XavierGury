@@ -211,29 +211,6 @@ ul {
 	
 }
 
-@media (max-width: 600px) { /* Petits écrans */
-	
-	/*#menu {
-		width: 90vw;
-		left: -95vw;
-	}
-	
-	.color_item {
-		margin-top: <?php echo 180/$nbThemes;?>vw;
-		width: <?php echo 90/$nbThemes;?>vw;
-		height: <?php echo 180/$nbThemes;?>vw;
-	}
-	.color_item:hover {
-		height: <?php echo 270/$nbThemes;?>vw;
-		margin-top: <?php echo 90/$nbThemes;?>vw;
-	}
-	.color_item:focus {
-		height: <?php echo 120/$nbThemes;?>vw;
-		margin-top: 0;
-	}*/
-	
-}
-
 
 /* Description */
 .description {
