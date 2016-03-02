@@ -23,6 +23,7 @@ body {
 	left: 0;
 	bottom: 0;
 	color: #FFF;
+	background-color: #2B2E34;
 	width: 15vw;
 	
 	transition: left .5s;
@@ -156,6 +157,10 @@ ul {
 
 @media (max-width: 992px) { /* Petits et moyens écrans */
 	
+	body {
+		padding-top: 25px;
+	}
+	
 	#menu-btn {
 		left: 0;
 	}
@@ -165,8 +170,11 @@ ul {
 	}
 	
 	#menu {
-		left: -66vw;
+		left: -70vw;
 		width: 66vw;
+		padding-top: 30px;
+		
+		border-right: 1px solid #FFF;
 	}
 	
 	#contents {
@@ -188,7 +196,7 @@ ul {
 	
 	#menu {
 		width: 90vw;
-		left: -90vw;
+		left: -95vw;
 	}
 	
 }
