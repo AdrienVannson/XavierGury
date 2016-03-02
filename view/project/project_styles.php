@@ -171,7 +171,7 @@ ul {
 	
 	#menu {
 		left: -70vw;
-		width: 66vw;
+		width: 45vw;
 		padding-top: 30px;
 		
 		border-right: 1px solid #FFF;
@@ -188,6 +188,20 @@ ul {
 	/* Menu déplié */
 	#deplie #menu {
 		left: 0;
+	}
+	
+	.color_item {
+		margin-top: <?php echo 90/$nbThemes;?>vw;
+		width: <?php echo 45/$nbThemes;?>vw;
+		height: <?php echo 90/$nbThemes;?>vw;
+	}
+	.color_item:hover {
+		height: <?php echo 135/$nbThemes;?>vw;
+		margin-top: <?php echo 45/$nbThemes;?>vw;
+	}
+	.color_item:focus {
+		height: <?php echo 60/$nbThemes;?>vw;
+		margin-top: 0;
 	}
 	
 }
