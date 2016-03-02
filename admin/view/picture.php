@@ -101,9 +101,44 @@ function show_admin_picture($picture) {
 					
 				</form>
 				
+				<!--<hr/>
+				<p>Aperçu de l'image</p>
+				<div class="row">
+					<div class="col s3">
+						
+						<div class="card">
+							<div class="card-image">
+								<img src="<?php echo $picture->get_url_resource("medium");?>">
+								<span class="card-title"><?php echo $picture->get_name();?></span>
+							</div>
+							<div class="card-content">
+								<?php echo $picture->get_description();?>
+							</div>
+						</div>
+
+					</div>
+				</div>-->
+				
+				<hr style="margin:30px;"/>
+				
+				<a class="waves-effect waves-light btn modal-trigger" href="#apercu">Aperçu de l'image</a>
+				
+				<!-- Aperçu de l'image -->
+				<div id="apercu" class="modal">
+					<div class="modal-content">
+						<img src="<?php echo $picture->get_url_resource("medium");?>">
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="modal-action modal-close waves-effect btn-flat">Fermer</a>
+					</div>
+				</div>
+				
 				<script>
+				$(document).ready(function(){
+					$('.modal-trigger').leanModal();
 					CKEDITOR.replace("description");
 					$(".button-collapse").sideNav();
+				});
 				</script>
 				
 			</div>

@@ -4,6 +4,10 @@
 function show_admin_styles() {
 	?>
 
+body {
+	padding-bottom: 20px;
+}
+
 .right-btn {
 	margin-bottom: 20px;
 }
