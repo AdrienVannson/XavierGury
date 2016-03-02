@@ -154,7 +154,7 @@ ul {
 	background-color: #2B2E34;
 }
 
-@media (max-width: 992px) { /* Petits écrans */
+@media (max-width: 992px) { /* Petits et moyens écrans */
 	
 	#menu-btn {
 		left: 0;
@@ -165,7 +165,8 @@ ul {
 	}
 	
 	#menu {
-		left: -15vw;
+		left: -66vw;
+		width: 66vw;
 	}
 	
 	#contents {
@@ -179,6 +180,15 @@ ul {
 	/* Menu déplié */
 	#deplie #menu {
 		left: 0;
+	}
+	
+}
+
+@media (max-width: 600px) { /* Petits écrans */
+	
+	#menu {
+		width: 90vw;
+		left: -90vw;
 	}
 	
 }
