@@ -18,6 +18,7 @@ body {
 
 #menu {
 	position: fixed;
+	overflow: hidden;
 	top: 0;
 	bottom: 0;
 	color: #FFF;
@@ -54,7 +55,7 @@ ul {
 /* Menu coloré */
 #color_menu {
 	position: absolute;
-	z-index: 999;
+	z-index: 10;
 	bottom: 0;
 }
 
@@ -97,9 +98,11 @@ ul {
 .line {
 	position: absolute;
 	background-color: #FFF;
+	z-index: -1;
 }
 
 #line-menu {
+	z-index: 100;
 	top: 1vw;
 	left: 15vw;
 	bottom: 0;

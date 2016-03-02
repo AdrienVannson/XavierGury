@@ -45,17 +45,16 @@ function show_left_menu($currentTheme, $id_project=-1) {
 			?>
 			
 		</div>
-		
-		<a id="white-item" href="/"></a>
-		
-		<div class="line" id="line-menu"></div>
-		<div class="line" id="line-bottom"></div>
-		<div class="line" id="line-white-item-1"></div>
-		<div class="line" id="line-white-item-2"></div>
-		
-		<div id="separator-bottom"></div>
-		
 	</div>
+	
+	<div class="line" id="line-menu"></div>
+	<div class="line" id="line-bottom"></div>
+	<div class="line" id="line-white-item-1"></div>
+	<div class="line" id="line-white-item-2"></div>
+	
+	<div id="separator-bottom"></div>
+	
+	<a id="white-item" href="/"></a>
 	
 	<?php
 }
