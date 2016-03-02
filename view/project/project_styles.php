@@ -31,6 +31,7 @@ body {
 
 #menu-btn {
 	position: fixed;
+	cursor: pointer;
 	top: 0;
 	left: -128px;
 	
