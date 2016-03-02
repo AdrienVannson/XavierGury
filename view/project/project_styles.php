@@ -95,6 +95,7 @@ ul {
 	background-color: #FFF;
 }
 
+/* Traits */
 .line {
 	position: absolute;
 	background-color: #FFF;
@@ -142,6 +143,27 @@ ul {
 	background-color: #2B2E34;
 }
 
+@media (max-width: 992px) { /* Petits écrans */
+	
+	.line {
+		display:none;
+	}
+	
+	#menu {
+		left: -15vw;
+	}
+	
+	#contents {
+		margin-left: 2vw;	
+	}
+	
+	#white-item {
+		display: none;
+	}
+	
+}
+
+
 /* Description */
 .description {
 	clear: left;
@@ -157,6 +179,6 @@ ul {
 	height: 33vh;
 	float: left;
 }
-	
+
 	<?php
 }
