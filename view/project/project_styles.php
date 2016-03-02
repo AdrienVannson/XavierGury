@@ -20,9 +20,20 @@ body {
 	position: fixed;
 	overflow: hidden;
 	top: 0;
+	left: 0;
 	bottom: 0;
 	color: #FFF;
 	width: 15vw;
+	
+	transition: left .5s;
+}
+
+#menu-btn {
+	position: fixed;
+	top: 0;
+	left: -128px;
+	
+	color: #FFF;
 }
 
 #contents {
@@ -145,6 +156,10 @@ ul {
 
 @media (max-width: 992px) { /* Petits écrans */
 	
+	#menu-btn {
+		left: 0;
+	}
+	
 	.line {
 		display:none;
 	}
@@ -159,6 +174,11 @@ ul {
 	
 	#white-item {
 		display: none;
+	}
+	
+	/* Menu déplié */
+	#deplie #menu {
+		left: 0;
 	}
 	
 }
