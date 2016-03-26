@@ -9,8 +9,8 @@ function show_project_styles() {
 
 body {
 	margin: 0;
-	padding-bottom: <?php echo 40/$nbThemes;?>vw;
-	padding-right: 2vw;
+	padding-bottom: <?php echo 20 + 480/$nbThemes;?>px;
+	padding-right: 20px;
 	
 	background-color: #2B2E34;
 }
@@ -24,7 +24,7 @@ body {
 	left: 0;
 	bottom: 0;
 	color: #FFF;
-	width: 15vw;
+	width: 240px;
 	
 	transition: left .5s;
 }
@@ -40,12 +40,11 @@ body {
 }
 
 #contents {
-	margin-left: 20%;
+	margin-left: 270px;
 	color: #EEE;
 }
 
 li a {
-	background-color: #2B2E34;
 	color: #FFF;
 	text-decoration: none;
 	
@@ -75,19 +74,19 @@ ul {
 
 .color_item {
 	display: block;
-	margin-top: <?php echo 30/$nbThemes;?>vw;
+	margin-top: <?php echo 480/$nbThemes;?>px;
 	float: left;
-	width: <?php echo 15/$nbThemes;?>vw;
-	height: <?php echo 30/$nbThemes;?>vw;
+	width: <?php echo 240/$nbThemes;?>px;
+	height: <?php echo 480/$nbThemes;?>px;
 	
 	transition: height .5s, margin-top .5s;
 }
 .color_item:hover {
-	height: <?php echo 45/$nbThemes;?>vw;
-	margin-top: <?php echo 15/$nbThemes;?>vw;
+	height: <?php echo 720/$nbThemes;?>px;
+	margin-top: <?php echo 240/$nbThemes;?>px;
 }
 .color_item:focus {
-	height: <?php echo 60/$nbThemes;?>vw;
+	height: <?php echo 960/$nbThemes;?>px;
 	margin-top: 0;
 }
 
@@ -95,18 +94,18 @@ ul {
 	margin-top: 0;
 }
 #color_item_activate:hover {
-	height: <?php echo 60/$nbThemes;?>vw;
+	height: <?php echo 960/$nbThemes;?>px;
 }
 
 #white-item {
 	position: fixed;
     z-index: 5;
-	left: <?php echo 31-(15/$nbThemes);?>vw;
+	left: 480px;
 	bottom: 0;
 	
 	display: block;
-	width: <?php echo 15/$nbThemes;?>vw;
-	height: <?php echo 30/$nbThemes;?>vw;
+	width: <?php echo 240/$nbThemes;?>px;
+	height: <?php echo 480/$nbThemes;?>px;
 	background-color: #FFF;
 }
 
@@ -119,32 +118,32 @@ ul {
 
 #line-menu {
 	z-index: 100;
-	top: 1vw;
-	left: 15vw;
+	top: 20px;
+	left: 240px;
 	bottom: 0;
 	
 	width: 1px;
 }
 #line-bottom {
 	left: 0;
-	bottom: <?php echo 30/$nbThemes;?>vw;
+	bottom: <?php echo 480/$nbThemes;?>px;
 	
-	width: 33vw;
+	width: <?php echo 500 + 240/$nbThemes;?>px;
 	height: 1px;
 }
 #line-white-item-1 {
-	left: <?php echo 31-(15/$nbThemes);?>vw;
+	left: 480px;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 33/$nbThemes;?>vw;
+	height: <?php echo 10 + 480/$nbThemes;?>px;
 }
 #line-white-item-2 {
-	left: <?php echo 31-(15/$nbThemes) + 15/$nbThemes;?>vw;
+	left: <?php echo 480 + 240/$nbThemes;?>px;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 36/$nbThemes;?>vw;
+	height: <?php echo 15 + 480/$nbThemes;?>px;
 }
 
 #separator-bottom {
@@ -153,7 +152,7 @@ ul {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: <?php echo 30/$nbThemes;?>vw;
+	height: <?php echo 480/$nbThemes;?>px;
 	
 	background-color: #2B2E34;
 }
@@ -162,7 +161,16 @@ ul {
 	
 	body {
 		padding-top: 25px;
+        
+        padding-left: 10px;
+        padding-right: 10px;
+        
+        padding-bottom: 10px;
 	}
+    
+    #contents {
+        margin-left: 0;
+    }
 	
 	#menu-btn {
 		left: 0;
@@ -179,10 +187,6 @@ ul {
 		
 		border-right: 1px solid #FFF;
         background-color: #2B2E34;
-	}
-	
-	#contents {
-		margin-left: 2vw;	
 	}
 	
 	#white-item {
@@ -211,6 +215,10 @@ ul {
 	#color_item_activate:hover {
 		height: <?php echo 960/$nbThemes;?>px;
 	}
+    
+    #separator-bottom {
+        display: none;
+    }
 	
 }
 
