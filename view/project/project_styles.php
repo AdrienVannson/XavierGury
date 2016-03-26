@@ -18,8 +18,8 @@ body {
 
 #menu {
 	position: fixed;
-    z-index: 100;
-	overflow: hidden;
+	z-index: 100;
+    overflow: hidden;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -67,7 +67,7 @@ ul {
 
 /* Menu coloré */
 #color_menu {
-	position: fixed;
+	position: absolute;
 	z-index: 10;
 	bottom: 0;
 }
