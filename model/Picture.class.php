@@ -87,7 +87,7 @@ class Picture {
 		$this->type = $type;
 	}
 	public function get_type() {
-		return $type;
+		return strtolower($this->type);
 	}
 	
 	public function set_name($name) {
@@ -106,14 +106,18 @@ class Picture {
 	
 	
 	public function get_path_resource($size) {
-		return "resources/pictures/".$this->id."/".$size.".jpg";
+		return "resources/pictures/".$this->id."/".$size.".".$this->get_type();
 	}
 	public function get_url_resource($size) {
-		return "/ressources/".$this->id."-".$size.".jpg";
+		return "/ressources/".$this->id."-".$size.".".$this->get_type();
 	}
 	
 	public function get_admin_url() {
 		return "/admin/images/".$this->get_id();
+	}
+	
+	public function get_html($size) {
+		return '<img src="'.$this->get_url_resource($size).'"/>';
 	}
 	
 	private $id;

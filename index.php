@@ -61,7 +61,7 @@ if($size == 2) {
 	}
 	if($request[0] == "ressources") { // Ressources
 		
-		if( preg_match("#^[0-9]+-.*\.jpg$#", $request[1]) ) {
+		if( preg_match("#^[0-9]+-.*\.*$#", $request[1]) ) { // TODO : vérifier l'extension
 			$datas = explode("-", $request[1]);
 			
 			$_GET["resource_id"] = $datas[0];
