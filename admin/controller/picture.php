@@ -92,9 +92,17 @@ if(isset($_POST["save"])) {
 
 			$small = imagescale($img, floor(128*$width/$height));
 			$medium = imagescale($img, floor(512*$width/$height));
-
+			
+			imagealphablending($img, false);
+			imagesavealpha($img, true);
+			imagealphablending($small, false);
+			imagesavealpha($small, true);
+			imagealphablending($medium, false);
+			imagesavealpha($medium, true);
+			
 			imagepng($small, $dirName."/small.png", 7);
 			imagepng($medium, $dirName."/medium.png", 8);
+			
 			imagepng($img, $dirName."/large.png", 9);
 		}
 		elseif($_FILES["image"]["type"] == "image/svg+xml") {
