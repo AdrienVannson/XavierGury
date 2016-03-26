@@ -16,6 +16,8 @@ if(isset($_POST["save"])) {
 	$picture->set_id_project( $_POST["id_project"] );
 	$picture->set_name( $_POST["name"] );
 	$picture->set_description( $_POST["description"] );
+    
+    $picture->save();
 	
 	
 	/* Envoi de l'image */
@@ -75,8 +77,6 @@ if(isset($_POST["save"])) {
 		imagejpeg($medium, $dirName."/medium.jpg", 80);
 		imagejpeg($img, $dirName."/large.jpg", 100);
 	}
-	
-	$picture->save();
 	
 	end:
 	header("Location: /admin/images/".$picture->get_id());
