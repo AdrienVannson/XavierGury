@@ -178,6 +178,7 @@ ul {
 		padding-top: 30px;
 		
 		border-right: 1px solid #FFF;
+        background-color: #2B2E34;
 	}
 	
 	#contents {
