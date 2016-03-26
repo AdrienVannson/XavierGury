@@ -18,12 +18,12 @@ body {
 
 #menu {
 	position: fixed;
+    z-index: 100;
 	overflow: hidden;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	color: #FFF;
-	background-color: #2B2E34;
 	width: 15vw;
 	
 	transition: left .5s;
@@ -31,6 +31,7 @@ body {
 
 #menu-btn {
 	position: fixed;
+    z-index: 100;
 	cursor: pointer;
 	top: 0;
 	left: -128px;
@@ -48,7 +49,7 @@ li a {
 	color: #FFF;
 	text-decoration: none;
 	
-	display:block;
+	display: block;
 	padding: 20px;
 	
 	transition: background-color .3s;
@@ -67,7 +68,7 @@ ul {
 
 /* Menu coloré */
 #color_menu {
-	position: absolute;
+	position: fixed;
 	z-index: 10;
 	bottom: 0;
 }
@@ -98,7 +99,8 @@ ul {
 }
 
 #white-item {
-	position: absolute;
+	position: fixed;
+    z-index: 5;
 	left: <?php echo 31-(15/$nbThemes);?>vw;
 	bottom: 0;
 	
@@ -110,9 +112,9 @@ ul {
 
 /* Traits */
 .line {
-	position: absolute;
+	position: fixed;
 	background-color: #FFF;
-	z-index: -1;
+	z-index: 70;
 }
 
 #line-menu {
@@ -146,7 +148,7 @@ ul {
 }
 
 #separator-bottom {
-	z-index: -1;
+	z-index: 1;
 	position: fixed;
 	left: 0;
 	right: 0;
