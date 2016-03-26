@@ -31,8 +31,23 @@ function show_admin_homepage() {
 				Ici, vous pouvez ajouter des catégories, des projets ou des ressources au site.<br/>
 				Si vous n'êtes pas l'administrateur du site, veuiller fermer cette page IMMEDIATEMENT.</p>
 				
+				<div class="row">
+					<div class="col s12 m6">
+						<div class="card green">
+							<div class="card-content white-text">
+								<span class="card-title">Changements récents</span>
+								<ul>
+									<li>Correction de problèmes d'affichage du menu de gauche</li>
+									<li>Correction des bugs lors de l'enregistrement de nouvelles images</li>
+									<li>Enregistrement des images en plusieurs formats</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<ul>
-					<li><a href="/admin/themes" class="btn waves-effect waves-light">Afficher les thèmes</a></li>
+					<li><a href="/admin/themes" class="btn waves-effect waves-light right">Afficher les thèmes</a></li>
 				</ul>
 			</div>
 			
