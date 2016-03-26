@@ -50,32 +50,62 @@ if(isset($_POST["save"])) {
 		}
 		closedir($dir);
 		
-		// Tests du type de l'image
 		$tmpName = $_FILES["image"]["tmp_name"];
-		$infos = getimagesize($tmpName);
-		$width = $infos[0];
-		$height = $infos[1];
 		
-		if($infos["mime"] == "image/jpeg") {
+		if($_FILES["image"]["type"] == "image/jpeg") {
 			$img = imagecreatefromjpeg($tmpName);
+			$picture->set_type("JPG");
+			
+			$infos = getimagesize($_FILES["image"]["tmp_name"]);
+			$width = $infos[0];
+			$height = $infos[1];
+
+			$small = imagescale($img, floor(128*$width/$height));
+			$medium = imagescale($img, floor(512*$width/$height));
+
+			imagejpeg($small, $dirName."/small.jpg", 75);
+			imagejpeg($medium, $dirName."/medium.jpg", 80);
+			imagejpeg($img, $dirName."/large.jpg", 100);
 		}
-		elseif($infos["mime"] == "image/gif") {
+		elseif($_FILES["image"]["type"] == "image/gif") {
 			$img = imagecreatefromgif($tmpName);
+			$picture->set_type("GIF");
+			
+			$infos = getimagesize($_FILES["image"]["tmp_name"]);
+			$width = $infos[0];
+			$height = $infos[1];
+
+			$small = imagescale($img, floor(128*$width/$height));
+			$medium = imagescale($img, floor(512*$width/$height));
+
+			imagegif($small, $dirName."/small.gif");
+			imagegif($medium, $dirName."/medium.gif");
+			imagegif($img, $dirName."/large.gif");
 		}
-		elseif($infos["mime"] == "image/png") {
+		elseif($_FILES["image"]["type"] == "image/png") {
 			$img = imagecreatefrompng($tmpName);
+			$picture->set_type("PNG");
+			
+			$infos = getimagesize($_FILES["image"]["tmp_name"]);
+			$width = $infos[0];
+			$height = $infos[1];
+
+			$small = imagescale($img, floor(128*$width/$height));
+			$medium = imagescale($img, floor(512*$width/$height));
+
+			imagepng($small, $dirName."/small.png", 7);
+			imagepng($medium, $dirName."/medium.png", 8);
+			imagepng($img, $dirName."/large.png", 9);
+		}
+		elseif($_FILES["image"]["type"] == "image/svg+xml") {
+			// TODO
 		}
 		else {
 			$_SESSION["errors"][] = "Le format de fichier n'est pas pris en charge";
 			goto end;
 		}
 		
-		$small = imagescale($img, floor(128*$width/$height));
-		$medium = imagescale($img, floor(512*$width/$height));
-		
-		imagejpeg($small, $dirName."/small.jpg", 75);
-		imagejpeg($medium, $dirName."/medium.jpg", 80);
-		imagejpeg($img, $dirName."/large.jpg", 100);
+		$picture->save();
 	}
 	
 	end:
