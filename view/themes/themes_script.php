@@ -7,6 +7,17 @@ function show_theme_script($themes) {
 <script>
 // */
 
+// Shuffle function
+function shuffle(array) {
+    for (var i=array.length-1; i>0; i--) {
+        var j = Math.floor(Math.random() * (i+1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
 var Theme = function (_name, _url, _color) {
 	this.name = _name;
 	this.url = _url;
@@ -30,7 +41,6 @@ foreach($themes as $theme) {
 	$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
 }
 $themesShowed[] = new ThemeShowed("", "/", "FFF");
-shuffle($themesShowed);
 
 foreach($themesShowed as $theme) {
 	echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
@@ -87,6 +97,7 @@ function createGride() {
 		clear();
 		
 		var themeList = themes.slice();
+		shuffle(themeList);
 
 		var nbRestingCels = nbColumns * nbLines - nbLines;
 		
