@@ -35,6 +35,10 @@ function isPossible(iLine, iColumn) {
 	
 	return true;
 }
+	
+function clearGride() {
+	$('#themes').html('');
+}
 
 function createGride() {
 	
@@ -42,7 +46,7 @@ function createGride() {
 	var nbFails = 0;
 	
 	while(!succes && nbFails<10) {
-		$('#themes').html('');
+		clearGride();
 
 		var themes = [
 
@@ -110,7 +114,6 @@ function createGride() {
 		
 		if(iLine <= nbLines) {
 			succes = true;
-			console.log("OK");
 		}
 		else {
 			nbFails++;
@@ -122,7 +125,7 @@ function createGride() {
 	}
 	
 	if (!succes) {
-		alert("Definitly fail");
+		clearGride();
 	}
 
     $('.theme').click( function(event) {
