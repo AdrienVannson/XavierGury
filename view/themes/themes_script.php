@@ -53,6 +53,10 @@ foreach($themesShowed as $theme) {
 ?>
 ];
 
+function clear() {
+	$('#themes').html('');
+}
+
 
 function addLine(iLine, nbColumns) {
 	$('#themes').append('<div class="line" id="line-'+iLine+'"></div>');
@@ -61,6 +65,7 @@ function addLine(iLine, nbColumns) {
 		$('#line-'+iLine).append('<div class="column" id="column-'+iLine+'-'+iColumn+'"></div>');
 	}
 }
+
 
 function isPossible(iLine, iColumn) {
 	
@@ -77,9 +82,6 @@ function isPossible(iLine, iColumn) {
 	return true;
 }
 
-function clear() {
-	$('#themes').html('');
-}
 
 function createGride() {
 	
@@ -157,6 +159,7 @@ function createGride() {
 		createList();
 	}
 }
+
 
 function createList() {
 	clear();
