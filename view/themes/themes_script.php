@@ -66,7 +66,6 @@ function addLine(iLine, nbColumns) {
 	}
 }
 
-
 function isPossible(iLine, iColumn) {
 	
 	for(var iLineNextTo=iLine-1; iLineNextTo<=iLine+1; iLineNextTo++) {
@@ -81,7 +80,6 @@ function isPossible(iLine, iColumn) {
 	
 	return true;
 }
-
 
 function createGride() {
 	
@@ -156,8 +154,10 @@ function createGride() {
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
 	
 	if (!succes) {
-		createList();
+		return false;
 	}
+	
+	return true;
 }
 
 
@@ -172,14 +172,22 @@ function createList() {
 	});
 }
 
+
+function create() {
+	if (!createGride()) {
+		createList();
+	}
+}
+
+
 $(document).ready(function() {
-	createGride();
+	create();
 });
 
 var timeout;
 $(window).resize(function() {
 	clearTimeout(timeout);
-	timeout = setTimeout(createGride, 100);
+	timeout = setTimeout(create, 100);
 });
 
 	<?php
