@@ -33,70 +33,97 @@ function isPossible(iLine, iColumn) {
 		}
 	}
 	
-	var random = Math.random();
-	return random < 0.1; // Environ 1/10 de chance
+	return true;
 }
 
 function createGride() {
-	$('#themes').html('');
 	
-	var themes = [
-	          	
-    <?php
-    class ThemeShowed {
-    	public function __construct($name, $url, $color) {
-    		$this->name = $name;
-    		$this->url = $url;
-    		$this->color = $color;
-    	}
-    	public $name, $url, $color;
-    }
-	$themesShowed = [];
+	var succes = false;
+	var nbFails = 0;
 	
-	$iTheme = 0;
-    foreach($themes as $theme) {
-		$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
-	}
-	$themesShowed[] = new ThemeShowed("", "/", "FFF");
-	shuffle($themesShowed);
-	
-	foreach($themesShowed as $theme) {
-		echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
-		
-		if($iTheme < sizeof($themesShowed)-1) {
-			echo ",";
-		}
-		$iTheme++;
-	}
-    ?>
-    ];
-  	
-    var width = $(document).width();
-    var nbColumns = Math.floor(width / 200);
+	while(!succes && nbFails<10) {
+		$('#themes').html('');
 
-    var iLine=0;
-    while(themes.length>0 && iLine<100) {
-		addLine(iLine, nbColumns);
-    	
-		for(var iColumn=0; iColumn<nbColumns; iColumn++) {
+		var themes = [
 
-			if(isPossible(iLine, iColumn)) {
-				var last = themes.pop();
-          				
-				$('#column-'+iLine+'-'+iColumn)
-					.addClass('theme')
-					.css('backgroundColor', last.color)
-					.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');	
-
-				if(themes.length == 0) {
-					break;
-				}
+		<?php
+		class ThemeShowed {
+			public function __construct($name, $url, $color) {
+				$this->name = $name;
+				$this->url = $url;
+				$this->color = $color;
 			}
+			public $name, $url, $color;
 		}
+		$themesShowed = [];
 
-		iLine++;
-    }
-    addLine(iLine, nbColumns);
+		$iTheme = 0;
+		foreach($themes as $theme) {
+			$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
+		}
+		$themesShowed[] = new ThemeShowed("", "/", "FFF");
+		shuffle($themesShowed);
+
+		foreach($themesShowed as $theme) {
+			echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
+
+			if($iTheme < sizeof($themesShowed)-1) {
+				echo ",";
+			}
+			$iTheme++;
+		}
+		?>
+		];
+
+		var width = $(document).width();
+		var nbColumns = Math.floor(width / 200);
+
+		var height = $(document).height();
+		var nbLines = Math.floor(height / 70);
+
+		var nbRestingCels = nbColumns * nbLines - nbLines;
+		
+		var iLine=0;
+		while (themes.length > 0) {
+			addLine(iLine, nbColumns);
+
+			for (var iColumn=0; iColumn<nbColumns; iColumn++) {
+
+				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(themes.length/nbRestingCels))) {
+					var last = themes.pop();
+
+					$('#column-'+iLine+'-'+iColumn)
+						.addClass('theme')
+						.css('backgroundColor', last.color)
+						.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');	
+
+					if (themes.length == 0) {
+						break;
+					}
+				}
+
+				nbRestingCels--;
+			}
+
+			iLine++;
+		}
+		
+		if(iLine <= nbLines) {
+			succes = true;
+			console.log("OK");
+		}
+		else {
+			nbFails++;
+		}
+		
+		for(var iNewLine=1; iNewLine<nbLines-iLine; iNewLine++) {
+			addLine(iLine+iNewLine, nbColumns);
+		}
+	}
+	
+	if (!succes) {
+		alert("Definitly fail");
+	}
 
     $('.theme').click( function(event) {
     	event.preventDefault();
@@ -118,9 +145,9 @@ $(document).ready(function() {
 	createGride();
 });
 
-$(window).resize(function() {
+/*$(window).resize(function() {
 	createGride();
-});
+});*/
 
 	<?php
 }
