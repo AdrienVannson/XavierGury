@@ -115,9 +115,12 @@ function createGride() {
 }
 
 $(document).ready(function() {
-	
 	createGride();
-
 });
+
+$(window).resize(function() {
+	createGride();
+});
+
 	<?php
 }
