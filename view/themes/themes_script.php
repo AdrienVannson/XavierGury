@@ -13,6 +13,37 @@ var Theme = function (_name, _url, _color) {
     this.color = _color;
 }
 
+var themes = [
+<?php
+class ThemeShowed {
+	public function __construct($name, $url, $color) {
+		$this->name = $name;
+		$this->url = $url;
+		$this->color = $color;
+	}
+	public $name, $url, $color;
+}
+$themesShowed = [];
+
+$iTheme = 0;
+foreach($themes as $theme) {
+	$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
+}
+$themesShowed[] = new ThemeShowed("", "/", "FFF");
+shuffle($themesShowed);
+
+foreach($themesShowed as $theme) {
+	echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
+
+	if($iTheme < sizeof($themesShowed)-1) {
+		echo ",";
+	}
+	$iTheme++;
+}
+?>
+];
+
+
 function addLine(iLine, nbColumns) {
 	$('#themes').append('<div class="line" id="line-'+iLine+'"></div>');
 
@@ -35,7 +66,7 @@ function isPossible(iLine, iColumn) {
 	
 	return true;
 }
-	
+
 function clearGride() {
 	$('#themes').html('');
 }
@@ -45,63 +76,35 @@ function createGride() {
 	var succes = false;
 	var nbFails = 0;
 	
+	var width = $(document).width();
+	var nbColumns = Math.floor(width / 200);
+
+	var height = $(document).height();
+	var nbLines = Math.floor(height / 70);
+	
+	
 	while(!succes && nbFails<10) {
 		clearGride();
-
-		var themes = [
-
-		<?php
-		class ThemeShowed {
-			public function __construct($name, $url, $color) {
-				$this->name = $name;
-				$this->url = $url;
-				$this->color = $color;
-			}
-			public $name, $url, $color;
-		}
-		$themesShowed = [];
-
-		$iTheme = 0;
-		foreach($themes as $theme) {
-			$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
-		}
-		$themesShowed[] = new ThemeShowed("", "/", "FFF");
-		shuffle($themesShowed);
-
-		foreach($themesShowed as $theme) {
-			echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
-
-			if($iTheme < sizeof($themesShowed)-1) {
-				echo ",";
-			}
-			$iTheme++;
-		}
-		?>
-		];
-
-		var width = $(document).width();
-		var nbColumns = Math.floor(width / 200);
-
-		var height = $(document).height();
-		var nbLines = Math.floor(height / 70);
+		
+		var themeList = themes.slice();
 
 		var nbRestingCels = nbColumns * nbLines - nbLines;
 		
 		var iLine=0;
-		while (themes.length > 0) {
+		while (themeList.length > 0) {
 			addLine(iLine, nbColumns);
 
 			for (var iColumn=0; iColumn<nbColumns; iColumn++) {
 
-				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(themes.length/nbRestingCels))) {
-					var last = themes.pop();
+				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(themeList.length/nbRestingCels))) {
+					var last = themeList.pop();
 
 					$('#column-'+iLine+'-'+iColumn)
 						.addClass('theme')
 						.css('backgroundColor', last.color)
 						.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');	
 
-					if (themes.length == 0) {
+					if (themeList.length == 0) {
 						break;
 					}
 				}
