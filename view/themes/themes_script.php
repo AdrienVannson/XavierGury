@@ -162,9 +162,11 @@ $(document).ready(function() {
 	createGride();
 });
 
-/*$(window).resize(function() {
-	createGride();
-});*/
+var timeout;
+$(window).resize(function() {
+	clearTimeout(timeout);
+	timeout = setTimeout(createGride, 100);
+});
 
 	<?php
 }
