@@ -67,7 +67,7 @@ function isPossible(iLine, iColumn) {
 	return true;
 }
 
-function clearGride() {
+function clear() {
 	$('#themes').html('');
 }
 
@@ -84,7 +84,7 @@ function createGride() {
 	
 	
 	while(!succes && nbFails<10) {
-		clearGride();
+		clear();
 		
 		var themeList = themes.slice();
 
@@ -126,10 +126,6 @@ function createGride() {
 			addLine(iLine+iNewLine, nbColumns);
 		}
 	}
-	
-	if (!succes) {
-		clearGride();
-	}
 
     $('.theme').click( function(event) {
     	event.preventDefault();
@@ -145,6 +141,21 @@ function createGride() {
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
+	
+	if (!succes) {
+		createList();
+	}
+}
+
+function createList() {
+	clear();
+	
+	$('#themes').html('<ul></ul>');
+	var list = $('#themes ul');
+	
+	themes.forEach(function(theme) {
+		list.append('<li>'+theme.name+'</li>');
+	});
 }
 
 $(document).ready(function() {
