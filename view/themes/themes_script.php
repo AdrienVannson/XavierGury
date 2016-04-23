@@ -3,7 +3,7 @@
 
 function show_theme_script($themes) {
 	?>
-/* Comment to enable the JS coloration in Eclipse
+/* Comment to enable the JS coloration in IDE
 <script>
 // */
 
