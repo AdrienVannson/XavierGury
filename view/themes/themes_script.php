@@ -83,15 +83,20 @@ function isPossible(iLine, iColumn) {
 
 function createGride() {
 	
+	clear();
+	
 	var succes = false;
 	var nbFails = 0;
 	
-	var width = $(document).width();
+	var width = $('html').width() - 16;
 	var nbColumns = Math.floor(width / 200);
 
-	var height = $(document).height();
+	var height = $('html').height() - 16;
 	var nbLines = Math.floor(height / 70);
 	
+	if (nbColumns == 1) {
+		return false;
+	}
 	
 	while(!succes && nbFails<10) {
 		clear();
@@ -133,7 +138,7 @@ function createGride() {
 			nbFails++;
 		}
 		
-		for(var iNewLine=1; iNewLine<nbLines-iLine; iNewLine++) {
+		for(var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
 			addLine(iLine+iNewLine, nbColumns);
 		}
 	}

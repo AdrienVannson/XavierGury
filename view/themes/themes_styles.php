@@ -5,8 +5,13 @@ function show_themes_styles() {
 	?>
 /* <style>*/
 
+html {
+	height: 100%;
+}
+
 body {
 	background-color: #2B2E34;
+	margin: 8px;
 }
 
 .line {
