@@ -164,11 +164,10 @@ function createGride() {
 function createList() {
 	clear();
 	
-	$('#themes').html('<ul></ul>');
-	var list = $('#themes ul');
+	var list = $('#themes');
 	
 	themes.forEach(function(theme) {
-		list.append('<li>'+theme.name+'</li>');
+		list.append('<div class="line"><div class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="">'+theme.name+'</a></div></div>');
 	});
 }
 
