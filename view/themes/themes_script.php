@@ -57,6 +57,22 @@ function clear() {
 	$('#themes').html('');
 }
 
+function enableLinks() {
+	
+	$('.theme').click( function(event) {
+    	event.preventDefault();
+		
+		var target = $(event.target);
+		if(event.target.nodeName == 'DIV') {
+			target = target.children().last();
+		}
+    	
+		var location = $(target).attr('href');
+		window.location = location;
+    });
+	
+}
+
 
 function addLine(iLine, nbColumns) {
 	$('#themes').append('<div class="line" id="line-'+iLine+'"></div>');
@@ -143,17 +159,7 @@ function createGride() {
 		}
 	}
 
-    $('.theme').click( function(event) {
-    	event.preventDefault();
-		
-		var target = $(event.target);
-		if(event.target.nodeName == 'DIV') {
-			target = target.children().last();
-		}
-    	
-		var location = $(target).attr('href');
-		window.location = location;
-    });
+    enableLinks();
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
@@ -172,8 +178,10 @@ function createList() {
 	var list = $('#themes');
 	
 	themes.forEach(function(theme) {
-		list.append('<div class="line"><div class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="">'+theme.name+'</a></div></div>');
+		list.append('<div class="line"><div class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="'+theme.url+'">'+theme.name+'</a></div></div>');
 	});
+	
+	enableLinks();
 }
 
 
