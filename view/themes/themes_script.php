@@ -110,7 +110,7 @@ function createGride() {
 	var height = $('html').height() - 16;
 	var nbLines = Math.floor(height / 70);
 	
-	if (nbColumns == 1) {
+	if (nbColumns <= 1) {
 		return false;
 	}
 	
