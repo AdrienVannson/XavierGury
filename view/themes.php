@@ -12,7 +12,8 @@ function show_themes() {
 	<?php show_head("Thèmes", array("/styles/themes-styles.css"), array("/scripts/themes-scripts.js")); ?>
 	<body>
 		
-		<div id="themes"></div>
+		<table id="themes">
+		</table>
 		
 	</body>
 </html>

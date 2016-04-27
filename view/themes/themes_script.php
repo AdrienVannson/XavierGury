@@ -63,7 +63,7 @@ function enableLinks() {
     	event.preventDefault();
 		
 		var target = $(event.target);
-		if(event.target.nodeName == 'DIV') {
+		if(event.target.nodeName == 'TD') {
 			target = target.children().last();
 		}
     	
@@ -75,10 +75,10 @@ function enableLinks() {
 
 
 function addLine(iLine, nbColumns) {
-	$('#themes').append('<div class="line" id="line-'+iLine+'"></div>');
+	$('#themes').append('<tr class="line" id="line-'+iLine+'"></tr>');
 
 	for(var iColumn=0; iColumn<nbColumns; iColumn++) {
-		$('#line-'+iLine).append('<div class="column" id="column-'+iLine+'-'+iColumn+'"></div>');
+		$('#line-'+iLine).append('<td class="cel" id="column-'+iLine+'-'+iColumn+'"></td>');
 	}
 }
 
@@ -159,14 +159,14 @@ function createGride() {
 		}
 	}
 
-    enableLinks();
-
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
 	
 	if (!succes) {
 		return false;
 	}
+	
+	enableLinks();
 	
 	return true;
 }

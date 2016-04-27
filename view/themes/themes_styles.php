@@ -14,24 +14,19 @@ body {
 	margin: 8px;
 }
 
-.line {
-	height: 70px;
-	background-color: white;
-}
-.line:last-child .column {
-	margin-bottom: 1px;
-	height: calc(100% - 2px);
-}
-.column:first-child {
-	margin-left: 1px;
+#themes {
+	width: 100%;
+	
+	table-layout: fixed;
+	border-collapse: collapse;
 }
 
-.column {
-	float: left;
-	margin-top: 1px;
-	margin-right: 1px;
-	height: calc(100% - 1px);
-	background-color: #2B2E34;
+.line {
+	height: 70px;
+}
+
+.cel {
+	border: 1px solid #FFF;
 }
 
 .theme {
