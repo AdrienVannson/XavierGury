@@ -104,10 +104,10 @@ function createGride() {
 	var succes = false;
 	var nbFails = 0;
 	
-	var width = $('html').width() - 16;
+	var width = $('html').width() - 17;
 	var nbColumns = Math.floor(width / 200);
 
-	var height = $('html').height() - 16;
+	var height = $('html').height() - 17;
 	var nbLines = Math.floor(height / 70);
 	
 	if (nbColumns <= 1) {
