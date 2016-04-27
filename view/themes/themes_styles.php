@@ -37,9 +37,6 @@ body {
 .theme a {
 	color: #000;
 	text-decoration: none;
-	
-	display: block;
-	margin:0;
 }
 
 	<?php
