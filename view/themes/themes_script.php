@@ -178,7 +178,7 @@ function createList() {
 	var list = $('#themes');
 	
 	themes.forEach(function(theme) {
-		list.append('<div class="line"><div class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="'+theme.url+'">'+theme.name+'</a></div></div>');
+		list.append('<tr class="line"><td class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="'+theme.url+'">'+theme.name+'</a></td></tr>');
 	});
 	
 	enableLinks();
