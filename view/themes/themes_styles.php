@@ -39,17 +39,8 @@ body {
 	text-decoration: none;
 	
 	display: block;
+	margin:0;
 }
-
-/* Div utilisé pour centrer le nom du thème */
-.theme div {
-	height: 100%;
-}
-
-.theme a, .theme div {
-	display: inline-block;
-	vertical-align: middle;
-} 
 
 	<?php
 }

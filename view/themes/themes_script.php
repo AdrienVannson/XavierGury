@@ -134,7 +134,7 @@ function createGride() {
 					$('#column-'+iLine+'-'+iColumn)
 						.addClass('theme')
 						.css('backgroundColor', last.color)
-						.html('<div></div><a href="'+last.url+'">'+last.name+'</a>');	
+						.html('<a href="'+last.url+'">'+last.name+'</a>');	
 
 					if (themeList.length == 0) {
 						break;
@@ -178,7 +178,7 @@ function createList() {
 	var list = $('#themes');
 	
 	themes.forEach(function(theme) {
-		list.append('<tr class="line"><td class="column theme" style="width:100%; background-color:'+theme.color+';"><div></div><a href="'+theme.url+'">'+theme.name+'</a></td></tr>');
+		list.append('<tr class="line"><td class="column theme" style="width:100%; background-color:'+theme.color+';"><a href="'+theme.url+'">'+theme.name+'</a></td></tr>');
 	});
 	
 	enableLinks();
