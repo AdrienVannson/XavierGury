@@ -238,6 +238,9 @@ ul {
 	height: 33vh;
 	float: left;
 }
+.project-picture:hover {
+	cursor: pointer;
+}
 
 /*
  * Aperçu
