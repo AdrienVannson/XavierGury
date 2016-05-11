@@ -254,7 +254,7 @@ ul {
 	background-color: rgba(0, 0, 0, .5);
 	opacity: 0;
 	
-	transition: opacity 1s;
+	transition: opacity .5s;
 }
 
 #frame {
@@ -265,6 +265,15 @@ ul {
 	right: 15%;
 	
 	background-color: #FFF;
+}
+
+#close {
+	position: absolute;
+	height: 48px;
+	width: 48px;
+	right: 0;
+	
+	color: #FFF;
 }
 
 #picture {
