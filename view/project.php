@@ -34,7 +34,7 @@ function show_project($project) {
 						 class="project-picture"
 						 title="<?php echo $picture->get_name();?>"
 						 alt="<?php echo $picture->get_description();?>"
-						 onclick="showPicture(<?php echo $picture->get_id();?>)"
+						 onclick="showPicture(this)"
 					/>
 					<?php
 				}
@@ -46,7 +46,11 @@ function show_project($project) {
 		</div>
 		
 		<div id="picture-preview">
-			<!--<div style="background-color:red;position:absolute;top:10px;bottom:10px; left:0;right:0;"></div>-->
+			<div id="frame">
+				
+				<img id="picture"/>
+				
+			</div>
 		</div>
 
 	</body>

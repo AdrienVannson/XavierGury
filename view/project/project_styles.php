@@ -257,5 +257,19 @@ ul {
 	transition: opacity 1s;
 }
 
+#frame {
+	position: fixed;
+	top: 15%;
+	bottom: 15%;
+	left: 15%;
+	right: 15%;
+	
+	background-color: #FFF;
+}
+
+#picture {
+	max-height: 100%;
+}
+
 	<?php
 }
