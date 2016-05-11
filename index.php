@@ -58,6 +58,11 @@ if($size == 2) {
 			exit();
 		}
 		
+		if($request[1] == "project.js") {
+			include("controller/project/project-script.php");
+			exit();
+		}
+		
 	}
 	if($request[0] == "ressources") { // Ressources
 		

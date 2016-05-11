@@ -233,10 +233,28 @@ ul {
 
 
 /* Image */
-.image_project {
+.project-picture {
 	margin: 1vw;
 	height: 33vh;
 	float: left;
+}
+
+/*
+ * Aperçu
+ */
+#picture-preview {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	
+	background-color: rgba(0, 0, 0, .5);
+	opacity: 0;
+	
+	transition: opacity 1s;
 }
 
 	<?php
