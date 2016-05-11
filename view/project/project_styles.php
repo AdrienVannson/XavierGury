@@ -280,7 +280,9 @@ ul {
 }
 
 #picture {
+	display: block;
 	max-height: 100%;
+	margin: auto;
 }
 
 	<?php
