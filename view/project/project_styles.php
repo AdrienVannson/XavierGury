@@ -267,7 +267,7 @@ ul {
 	left: 120px;
 	right: 120px;
 	
-	background-color: #FFF;
+	background-color: #E9E9EA;
 }
 
 #close {
