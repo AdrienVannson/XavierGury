@@ -262,10 +262,10 @@ ul {
 
 #frame {
 	position: fixed;
-	top: 15%;
-	bottom: 15%;
-	left: 15%;
-	right: 15%;
+	top: 120px;
+	bottom: 120px;
+	left: 120px;
+	right: 120px;
 	
 	background-color: #FFF;
 }
