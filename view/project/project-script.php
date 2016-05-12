@@ -28,7 +28,7 @@ function showPicture (source)
 	
 	picture.src = source.src.replace('medium', 'large');
 	title.innerText = source.title;
-	description.innerHTML += source.alt;
+	description.innerHTML = source.alt;
 }
 
 <?php	
