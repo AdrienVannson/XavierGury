@@ -37,9 +37,7 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
-									<li>Correction de problèmes d'affichage du menu de gauche</li>
-									<li>Correction des bugs lors de l'enregistrement de nouvelles images</li>
-									<li>Enregistrement des images en plusieurs formats</li>
+									<li>Possibilité d'afficher un aperçu des images en cliquant dessus</li>
 								</ul>
 							</div>
 						</div>
