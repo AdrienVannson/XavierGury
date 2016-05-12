@@ -55,7 +55,7 @@ function show_project($project) {
 			<div id="frame">
 				
 				<div id="picture-container">
-					<img id="picture"/>
+					<div><img id="picture"/></div>
 				</div>
 				
 				<div id="informations">

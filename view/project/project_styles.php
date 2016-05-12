@@ -282,20 +282,28 @@ ul {
 
 #picture-container {
 	height: 100%;
-	width: 66.5%;
-	float: left;
+	width: 100%;
+	padding-right: 362px;
+}
+
+#picture-container div {
+	padding-right: 360px;
+	height: 100%;
 }
 
 #picture {
-	max-height: 100%;
-	margin: auto;
+	height: 100%;
 	display: block;
+	margin: auto;
 }
 
 #informations {
-	margin-left: 66.5%;
-	padding-left: 1%;
-	width: 33.5%;
+	position: absolute;
+	
+	padding-left: 4px;
+	width: 360px;
+	right: 0;
+	top: 0;
 	height: 100%;
 	
 	border-left: 2px solid #000;
