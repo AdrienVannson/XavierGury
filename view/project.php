@@ -54,7 +54,14 @@ function show_project($project) {
 			
 			<div id="frame">
 				
-				<img id="picture"/>
+				<div id="picture-container">
+					<img id="picture"/>
+				</div>
+				
+				<div id="informations">
+					<h1 id="title">TITRE</h1>
+					<p id="description"></p>
+				</div>
 				
 			</div>
 		</div>

@@ -277,12 +277,32 @@ ul {
 	right: 0;
 	
 	color: #FFF;
+	cursor: pointer;
+}
+
+#picture-container {
+	height: 100%;
+	width: 66.5%;
+	float: left;
 }
 
 #picture {
-	display: block;
 	max-height: 100%;
 	margin: auto;
+	display: block;
+}
+
+#informations {
+	margin-left: 66.5%;
+	padding-left: 1%;
+	width: 33.5%;
+	height: 100%;
+	
+	border-left: 2px solid #000;
+}
+
+#title {
+	margin: 0;
 }
 
 	<?php
