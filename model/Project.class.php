@@ -109,6 +109,19 @@ class Project {
 	public function get_parent () {
 		return new Project( $this->id_parent );
 	}
+	public function get_children () {
+		$request = "SELECT id FROM projects WHERE id_parent=?";
+		
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array( $this->id ));
+		
+		$children = [];
+		while($datas = $results->fetch()) {
+			$children[] = new Project($datas["id"]);
+		}
+		return $children;
+	}
 	public function get_brothers () {
 		$request = "SELECT id FROM projects WHERE id_parent=?";
 		

@@ -11,7 +11,8 @@ function show_left_menu($id_project) {
 	<div id="menu">
 		<ul>
 			<?php 
-			$projects = $project->get_brothers();
+			//$projects = $project->get_brothers();
+			$projects = $project->get_children();
 			
 			foreach($projects as $currentProject) {
 				?>
