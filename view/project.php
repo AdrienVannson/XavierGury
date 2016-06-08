@@ -25,7 +25,7 @@ function show_project($project) {
 
 			<p>
 				<?php
-				$pictures = $project->get_resources();
+				$pictures = $project->get_pictures();
 				foreach($pictures as $picture) {
 					?>
 					<img 
