@@ -143,7 +143,7 @@ class Project {
 	}
 	
 	public function get_url () {
-		return "/1-a/" . $this->get_id() . "-" . $this->get_name_formatted();
+		return "/" . $this->get_id() . "-" . $this->get_name_formatted();
 	}
 	
 
