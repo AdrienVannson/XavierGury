@@ -12,8 +12,6 @@ function show_admin_project($project) {
 	else {
 		$action = "Modifier";
 	}
-	
-	$theme = $project->get_theme();
 	?>
 
 <!DOCTYPE HTML>
@@ -37,7 +35,7 @@ function show_admin_project($project) {
 		
 		show_admin_menus(array(
 			array("Thèmes", "/admin/themes"),
-			array($theme->get_name(), $theme->get_url_admin()),
+			//array($theme->get_name(), $theme->get_url_admin()),
 			array($name, $project->get_url_admin())
 		));
 		?>
@@ -53,8 +51,8 @@ function show_admin_project($project) {
 					
 					<div class="row">
 						<div class="input-field col s12">
-							<label for="id_theme">Id du thème</label>
-							<input type="text" name="id_theme" id="id_theme" value="<?php echo $project->get_id_theme();?>"/>
+							<label for="id_theme">Id du parent</label>
+							<input type="text" name="id_theme" id="id_theme" value="<?php echo $project->get_id_parent();?>"/>
 						</div>
 					</div>
 					

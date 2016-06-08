@@ -34,7 +34,7 @@ function show_admin_themes($themes) {
 					foreach ($themes as $theme) {
 						?>
 						<div class="col s12 m6 l4">
-							<a class="btn-large waves-effect waves-light" href="/admin/themes/<?php echo $theme->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $theme->get_color();?>;"><?php echo $theme->get_name();?></a>
+							<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $theme->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $theme->get_color();?>;"><?php echo $theme->get_name();?></a>
 						</div>
 						<?php
 					}

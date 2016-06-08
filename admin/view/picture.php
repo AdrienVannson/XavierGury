@@ -15,7 +15,6 @@ function show_admin_picture($picture) {
 	}
 	
 	$project = $picture->get_project();
-	$theme = $project->get_theme();
 	?>
 
 <!DOCTYPE HTML>
@@ -39,7 +38,7 @@ function show_admin_picture($picture) {
 		
 		show_admin_menus(array(
 			array("Thèmes", "/admin/themes"),
-			array($theme->get_name(), $theme->get_url_admin()),
+			//array($theme->get_name(), $theme->get_url_admin()),
 			array($project->get_name(), $project->get_url_admin()),
 			array($name, $picture->get_admin_url())
 		));
