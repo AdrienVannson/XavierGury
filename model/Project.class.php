@@ -98,6 +98,9 @@ class Project {
 	}
 	
 	public function set_color ($color) {
+		if($color[0] == "#") {
+			$color = substr($color, 1);
+		}
 		$this->color = $color;
 	}
 	public function get_color () {

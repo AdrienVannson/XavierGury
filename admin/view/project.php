@@ -68,6 +68,11 @@ function show_admin_project($project) {
 						<textarea id="description" name="description"><?php echo $project->get_description();?></textarea>
 					</p>
 					
+					<p>
+						<label for="color">Couleur du projet</label>
+						<input type="color" name="color" id="color" value="#<?php echo $project->get_color();?>"/>
+					</p>
+					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
 						<?php echo $action;?> le projet
 					</button>
