@@ -37,7 +37,7 @@ function show_left_menu($id_project) {
 					<?php if($project->get_id()==$currentProject->get_id()){?>id="color_item_activate"<?php }?>
 					class="color_item"
 					style="background-color: #<?php echo $project->get_color();?>;"
-					href="/<?php echo $project->get_url();?>"
+					href="<?php echo $project->get_url();?>"
 				></a>
 				<?php
 			}
