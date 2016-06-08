@@ -5,7 +5,7 @@ include_once(__DIR__."/../model/Theme.class.php");
 function show_left_menu($id_project) {
 	
 	$first_level_projects = get_first_level_projects();
-	$project = new Project($id_project);
+	$currentProject = new Project($id_project);
 	
 	?>
 	
@@ -13,16 +13,16 @@ function show_left_menu($id_project) {
 	<div id="menu">
 		<ul>
 			<?php 
-			$projects = $project->get_brothers();
+			$projects = $currentProject->get_brothers();
 			
-			foreach($projects as $project) {
+			foreach($projects as $currentProject) {
 				?>
 				<li>
 					<a 
-						href="<?php echo $project->get_url();?>"
-						<?php if($project->get_id()==$id_project){?>class="active"<?php }?>
+						href="<?php echo $currentProject->get_url();?>"
+						<?php if($currentProject->get_id()==$id_project){?>class="active"<?php }?>
 					>
-						<?php echo mb_strtoupper($project->get_name(), "UTF-8");?>
+						<?php echo mb_strtoupper($currentProject->get_name(), "UTF-8");?>
 					</a>
 				</li>
 				<?php
@@ -33,13 +33,13 @@ function show_left_menu($id_project) {
 		<div id="color_menu">
 			
 			<?php 
-			foreach($themes as $theme) {
+			foreach(get_first_level_projects() as $project) {
 				?>
 				<a
-					<?php if($theme->get_id()==$currentTheme->get_id()){?>id="color_item_activate"<?php }?>
+					<?php if($project->get_id()==$currentProject->get_id()){?>id="color_item_activate"<?php }?>
 					class="color_item"
-					style="background-color: #<?php echo $theme->get_color();?>;"
-					href="/<?php echo $theme->get_id();?>-<?php echo $theme->get_name_formatted();?>"
+					style="background-color: #<?php echo $project->get_color();?>;"
+					href="/<?php echo $project->get_url();?>"
 				></a>
 				<?php
 			}
