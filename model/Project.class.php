@@ -107,25 +107,6 @@ class Project {
 		return $this->color;
 	}
 	
-	public function get_resources() {
-		$request = "
-			SELECT id
-			FROM pictures
-			WHERE id_project = ?
-		";
-		
-		$db = get_db();
-		$results = $db->prepare($request);
-		$results->execute(array($this->id));
-		
-		$resources = [];
-		while($datas = $results->fetch()) {
-			$resources[] = new Picture($datas["id"]);
-		}
-		return $resources;
-	}
-	
-	
 	public function get_pictures() {
 		$request = "
 			SELECT id
