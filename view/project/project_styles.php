@@ -1,15 +1,15 @@
 <?php
 /* View */
-include_once(__DIR__."/../../model/themes.php");
+include_once(__DIR__."/../../model/Project.class.php");
 
 function show_project_styles() {
-	$nbThemes = get_nb_themes();
+	$nbFirstLevelProjects = get_nb_first_level_projects();
 	?>
 /* <style> /* */
 
 body {
 	margin: 0;
-	padding-bottom: <?php echo 20 + 480/$nbThemes;?>px;
+	padding-bottom: <?php echo 20 + 480/$nbFirstLevelProjects;?>px;
 	padding-right: 20px;
 	
 	background-color: #2B2E34;
@@ -74,19 +74,19 @@ ul {
 
 .color_item {
 	display: block;
-	margin-top: <?php echo 480/$nbThemes;?>px;
+	margin-top: <?php echo 480/$nbFirstLevelProjects;?>px;
 	float: left;
-	width: <?php echo 240/$nbThemes;?>px;
-	height: <?php echo 480/$nbThemes;?>px;
+	width: <?php echo 240/$nbFirstLevelProjects;?>px;
+	height: <?php echo 480/$nbFirstLevelProjects;?>px;
 	
 	transition: height .5s, margin-top .5s;
 }
 .color_item:hover {
-	height: <?php echo 720/$nbThemes;?>px;
-	margin-top: <?php echo 240/$nbThemes;?>px;
+	height: <?php echo 720/$nbFirstLevelProjects;?>px;
+	margin-top: <?php echo 240/$nbFirstLevelProjects;?>px;
 }
 .color_item:focus {
-	height: <?php echo 960/$nbThemes;?>px;
+	height: <?php echo 960/$nbFirstLevelProjects;?>px;
 	margin-top: 0;
 }
 
@@ -94,7 +94,7 @@ ul {
 	margin-top: 0;
 }
 #color_item_activate:hover {
-	height: <?php echo 960/$nbThemes;?>px;
+	height: <?php echo 960/$nbFirstLevelProjects;?>px;
 }
 
 #white-item {
@@ -104,8 +104,8 @@ ul {
 	bottom: 0;
 	
 	display: block;
-	width: <?php echo 240/$nbThemes;?>px;
-	height: <?php echo 480/$nbThemes;?>px;
+	width: <?php echo 240/$nbFirstLevelProjects;?>px;
+	height: <?php echo 480/$nbFirstLevelProjects;?>px;
 	background-color: #FFF;
 }
 
@@ -126,9 +126,9 @@ ul {
 }
 #line-bottom {
 	left: 0;
-	bottom: <?php echo 480/$nbThemes;?>px;
+	bottom: <?php echo 480/$nbFirstLevelProjects;?>px;
 	
-	width: <?php echo 500 + 240/$nbThemes;?>px;
+	width: <?php echo 500 + 240/$nbFirstLevelProjects;?>px;
 	height: 1px;
 }
 #line-white-item-1 {
@@ -136,14 +136,14 @@ ul {
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 10 + 480/$nbThemes;?>px;
+	height: <?php echo 10 + 480/$nbFirstLevelProjects;?>px;
 }
 #line-white-item-2 {
-	left: <?php echo 480 + 240/$nbThemes;?>px;
+	left: <?php echo 480 + 240/$nbFirstLevelProjects;?>px;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 15 + 480/$nbThemes;?>px;
+	height: <?php echo 15 + 480/$nbFirstLevelProjects;?>px;
 }
 
 #separator-bottom {
@@ -152,7 +152,7 @@ ul {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: <?php echo 480/$nbThemes;?>px;
+	height: <?php echo 480/$nbFirstLevelProjects;?>px;
 	
 	background-color: #2B2E34;
 }
@@ -199,21 +199,21 @@ ul {
 	}
 	
 	.color_item {
-		margin-top: <?php echo 480/$nbThemes;?>px;
-		width: <?php echo 240/$nbThemes;?>px;
-		height: <?php echo 480/$nbThemes;?>px;
+		margin-top: <?php echo 480/$nbFirstLevelProjects;?>px;
+		width: <?php echo 240/$nbFirstLevelProjects;?>px;
+		height: <?php echo 480/$nbFirstLevelProjects;?>px;
 	}
 	.color_item:hover {
-		height: <?php echo 720/$nbThemes;?>px;
-		margin-top: <?php echo 240/$nbThemes;?>px;
+		height: <?php echo 720/$nbFirstLevelProjects;?>px;
+		margin-top: <?php echo 240/$nbFirstLevelProjects;?>px;
 	}
 	.color_item:focus {
-		height: <?php echo 960/$nbThemes;?>px;
+		height: <?php echo 960/$nbFirstLevelProjects;?>px;
 		margin-top: 0;
 	}
 	
 	#color_item_activate:hover {
-		height: <?php echo 960/$nbThemes;?>px;
+		height: <?php echo 960/$nbFirstLevelProjects;?>px;
 	}
     
     #separator-bottom {

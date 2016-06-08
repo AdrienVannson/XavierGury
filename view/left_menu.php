@@ -1,6 +1,4 @@
 <?php
-/* View */
-include_once(__DIR__."/../model/Theme.class.php");
 
 function show_left_menu($id_project) {
 	
