@@ -3,7 +3,7 @@
 function show_left_menu($id_project) {
 	
 	$first_level_projects = get_first_level_projects();
-	$currentProject = new Project($id_project);
+	$project = new Project($id_project);
 	
 	?>
 	
@@ -11,7 +11,7 @@ function show_left_menu($id_project) {
 	<div id="menu">
 		<ul>
 			<?php 
-			$projects = $currentProject->get_brothers();
+			$projects = $project->get_brothers();
 			
 			foreach($projects as $currentProject) {
 				?>
@@ -31,13 +31,13 @@ function show_left_menu($id_project) {
 		<div id="color_menu">
 			
 			<?php 
-			foreach(get_first_level_projects() as $project) {
+			foreach(get_first_level_projects() as $currentProject) {
 				?>
 				<a
 					<?php if($project->get_id()==$currentProject->get_id()){?>id="color_item_activate"<?php }?>
 					class="color_item"
-					style="background-color: #<?php echo $project->get_color();?>;"
-					href="<?php echo $project->get_url();?>"
+					style="background-color: #<?php echo $currentProject->get_color();?>;"
+					href="<?php echo $currentProject->get_url();?>"
 				></a>
 				<?php
 			}
