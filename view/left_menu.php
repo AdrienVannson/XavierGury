@@ -1,24 +1,25 @@
 <?php
 /* View */
 include_once(__DIR__."/../model/Theme.class.php");
-include_once(__DIR__."/../model/themes.php");
 
-function show_left_menu($currentTheme, $id_project=-1) {
+function show_left_menu($id_project) {
 	
-	$themes = get_themes();
+	$first_level_projects = get_first_level_projects();
+	$project = new Project($id_project);
+	
 	?>
 	
 	
 	<div id="menu">
 		<ul>
 			<?php 
-			$projects = $currentTheme->get_projects();
+			$projects = $project->get_brothers();
 			
 			foreach($projects as $project) {
 				?>
 				<li>
 					<a 
-						href="/<?php echo $currentTheme->get_id();?>-<?php echo $currentTheme->get_name_formatted();?>/<?php echo $project->get_id();?>-<?php echo $project->get_name_formatted();?>"
+						href="<?php echo $project->get_url();?>"
 						<?php if($project->get_id()==$id_project){?>class="active"<?php }?>
 					>
 						<?php echo mb_strtoupper($project->get_name(), "UTF-8");?>

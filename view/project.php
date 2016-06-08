@@ -7,7 +7,7 @@ include_once(__DIR__."/left_menu.php");
 
 
 function show_project($project) {
-	//$theme = $project->get_theme();
+	
 	?>
 	
 <!DOCTYPE HTML>
@@ -17,7 +17,7 @@ function show_project($project) {
 
 	<body>
 
-		<?php /*show_left_menu($theme, $project->get_id());*/ ?>
+		<?php show_left_menu($project->get_id()); ?>
 
 		<div id="contents">
 

@@ -79,9 +79,6 @@ class Project {
 	public function get_id_parent() {
 		return $this->id_parent;
 	}
-	public function get_parent() {
-		return new Project( $this->id_parent );
-	}
 	
 	public function set_name($name) {
 		$this->name = $name;
@@ -107,12 +104,27 @@ class Project {
 		return $this->color;
 	}
 	
-	public function get_pictures() {
-		$request = "
-			SELECT id
-			FROM pictures
-			WHERE id_project = ?
-		";
+	
+	// Get members of the family
+	public function get_parent () {
+		return new Project( $this->id_parent );
+	}
+	public function get_brothers () {
+		$request = "SELECT id FROM projects WHERE id_parent=?";
+		
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array( $this->id_parent ));
+		
+		$brothers = [];
+		while($datas = $results->fetch()) {
+			$brothers[] = new Project($datas["id"]);
+		}
+		return $brothers;
+	}
+	
+	public function get_pictures () {
+		$request = "SELECT id FROM pictures WHERE id_project=?";
 		
 		$db = get_db();
 		$results = $db->prepare($request);
@@ -126,8 +138,12 @@ class Project {
 	}
 	
 	
-	public function get_url_admin() {
+	public function get_url_admin () {
 		return "/admin/projets/".$this->get_id();
+	}
+	
+	public function get_url () {
+		return "/1-a/" . $this->get_id() . " " . $this->get_name_formatted();
 	}
 	
 
