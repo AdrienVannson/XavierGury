@@ -156,3 +156,28 @@ class Project {
 	private $description;
 	private $color;
 }
+
+
+// Easily get the first level projects
+function get_first_level_projects ()
+{
+	$db = get_db();
+	$result = $db->query("SELECT id FROM projects WHERE id_parent=0");
+
+	$projects = [];
+
+	while ($datas = $result->fetch()) {
+		$id = $datas["id"];
+		$projects[] = new Project($id);
+	}
+
+	return $projects;
+}
+
+function get_nb_first_level_projects ()
+{
+	$db = get_db();
+	$result = $db->query("SELECT COUNT(id) FROM projects WHERE id_parent=0");
+	$datas = $result->fetch();
+	return $datas[0];
+}
