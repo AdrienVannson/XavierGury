@@ -1,7 +1,6 @@
 <?php
 /* Model */
 include_once(__DIR__."/connect.php");
-include_once(__DIR__."/Theme.class.php");
 include_once(__DIR__."/Picture.class.php");
 
 class Project {
@@ -20,7 +19,7 @@ class Project {
 			$datas = $result->fetch();
 	
 			$this->id = $datas["id"];
-			$this->id_theme = $datas["id_theme"];
+			$this->id_parent = $datas["id_parent"];
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
 		}
@@ -30,9 +29,9 @@ class Project {
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO projects (id_theme, name, description) VALUES (?, ?, ?);");
+			$results = $db->prepare("INSERT INTO projects (id_parent, name, description) VALUES (?, ?, ?);");
 			$results->execute(array(
-					$this->id_theme,
+					$this->id_parent,
 					$this->name,
 					$this->description
 			));
@@ -42,9 +41,9 @@ class Project {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE projects SET id_theme=?, name=?, description=? WHERE id=?;");
+			$results = $db->prepare("UPDATE projects SET id_parent=?, name=?, description=? WHERE id=?;");
 			$results->execute(array(
-					$this->id_theme,
+					$this->id_parent,
 					$this->name,
 					$this->description,
 					$this->id
@@ -70,14 +69,14 @@ class Project {
 		return $this->id;
 	}
 	
-	public function set_id_theme($id_theme) {
-		$this->id_theme = $id_theme;
+	public function set_id_parent($id_parent) {
+		$this->id_parent = $id_parent;
 	}
-	public function get_id_theme() {
-		return $this->id_theme;
+	public function get_id_parent() {
+		return $this->id_parent;
 	}
-	public function get_theme() {
-		return new Theme( $this->id_theme );
+	public function get_parent() {
+		return new Project( $this->id_parent );
 	}
 	
 	public function set_name($name) {
@@ -141,7 +140,7 @@ class Project {
 	
 
 	private $id;
-	private $id_theme;
+	private $id_parent;
 	private $name;
 	private $description;
 }
