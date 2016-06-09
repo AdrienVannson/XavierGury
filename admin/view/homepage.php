@@ -33,11 +33,22 @@ function show_admin_homepage() {
 				
 				<div class="row">
 					<div class="col s12 m6">
+						<div class="card red">
+							<div class="card-content white-text">
+								<span class="card-title">Avertissement</span>
+								<p>La structure de la base de données a été changée très récement.<br/>
+								Vous ne devez donc ne rien modifier dans l'espace administration, et ce tant que ce message
+								est présent.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col s12 m6">
 						<div class="card green">
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
-									<li>Possibilité d'afficher un aperçu des images en cliquant dessus</li>
+									<li>Modification de la structure de la base de données</li>
 								</ul>
 							</div>
 						</div>
