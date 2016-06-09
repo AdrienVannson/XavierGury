@@ -11,8 +11,12 @@ function show_left_menu($id_project) {
 	<div id="menu">
 		<ul>
 			<?php 
-			//$projects = $project->get_brothers();
-			$projects = $project->get_children();
+			if ($project->get_id_parent() == 0) {
+				$projects = $project->get_children();
+			}
+			else {
+				$projects = $project->get_brothers();
+			}
 			
 			foreach($projects as $currentProject) {
 				?>
