@@ -39,7 +39,7 @@ function show_left_menu($id_project) {
 			foreach(get_first_level_projects() as $currentProject) {
 				?>
 				<a
-					<?php if($project->get_id()==$currentProject->get_id()){?>id="color_item_activate"<?php }?>
+					<?php if($project->get_id()==$currentProject->get_id() || $project->get_id_parent()==$currentProject->get_id()){?>id="color_item_activate"<?php }?>
 					class="color_item"
 					style="background-color: #<?php echo $currentProject->get_color();?>;"
 					href="<?php echo $currentProject->get_url();?>"
