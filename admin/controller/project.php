@@ -19,12 +19,12 @@ if(isset($_POST["save"])) {
 	
 	$project->save();
 	
-	header("Location: /admin/projets/".$project->get_id());
+	header("Location: /admin/projects/".$project->get_id());
 }
 if(isset($_POST["delete"])) {
 	$project->delete();
 	
-	header("Location: /admin/themes/".$_GET["id_theme"]);
+	header("Location: /admin/projects/");
 }
 
 

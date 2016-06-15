@@ -47,7 +47,7 @@ show_admin_menus(array(
 		<h1><?php echo $action;?> un projet</h1>
 
 
-		<form method="POST" action="/admin/projets/<?php echo $project->get_id();?>">
+		<form method="POST" action="/admin/projects/<?php echo $project->get_id();?>">
 
 			<div class="row">
 				<div class="input-field col s12">
@@ -100,7 +100,7 @@ show_admin_menus(array(
 				foreach ($children as $child) {
 					?>
 					<div class="col s4">
-						<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $child->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $child->get_name();?></a>
+						<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $child->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $child->get_name();?></a>
 					</div>
 					<?php
 				}

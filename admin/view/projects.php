@@ -8,7 +8,7 @@ function show_admin_projects($projects) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head("Thèmes - Administration",
+	<?php show_head("Projets - Administration",
 			array(
 				"/admin/styles.css",
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
@@ -34,14 +34,14 @@ function show_admin_projects($projects) {
 					foreach ($projects as $project) {
 						?>
 						<div class="col s12 m6 l4">
-							<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $project->get_color();?>;"><?php echo $project->get_name();?></a>
+							<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $project->get_color();?>;"><?php echo $project->get_name();?></a>
 						</div>
 						<?php
 					}
 					?>
 				</div>
 				
-				<p><a href="/admin/projects/-1" class="btn waves-effect waves-light green right">Nouveau projet</a></p>
+				<p><a href="/admin/projects/new/0" class="btn waves-effect waves-light green right">Nouveau projet</a></p>
 		
 			</div>
 		</main>

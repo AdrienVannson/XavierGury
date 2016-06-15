@@ -31,13 +31,7 @@ if($size == 1) {
 }
 if($size == 2) {
 	
-	if($request[0] == "themes" && is_numeric($request[1])) {
-		$_GET["id_theme"] = intval($request[1]);
-		include("controller/theme.php");
-		exit();
-	}
-	
-	if($request[0] == "projets" && is_numeric($request[1])) {
+	if($request[0] == "projects" && is_numeric($request[1])) {
 		$_GET["id_project"] = intval($request[1]);
 		include("controller/project.php");
 		exit();
