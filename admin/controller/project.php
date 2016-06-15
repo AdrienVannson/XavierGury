@@ -5,8 +5,8 @@ include_once(__DIR__."/../view/project.php");
 
 $project = new Project($_GET["id_project"]);
 
-if($_GET["id_project"] == -1 && isset($_SESSION["last_theme_id"])) {
-	$project->set_id_theme( $_SESSION["last_theme_id"] );
+if($_GET["id_project"] == -1) {
+	$project->set_id_parent( $_GET["id_parent"] );
 }
 
 
