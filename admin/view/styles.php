@@ -3,13 +3,10 @@
 
 function show_admin_styles() {
 	?>
+/*<style>/**/
 
 body {
 	padding-bottom: 20px;
-}
-
-.right-btn {
-	margin-bottom: 20px;
 }
 
 header, main, footer, nav {
