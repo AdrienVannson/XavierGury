@@ -28,7 +28,7 @@ function show_admin_homepage() {
 				<h1>Administration</h1>
 				
 				<p>Bienvenu dans l'interface d'administration du site.<br/>
-				Ici, vous pouvez ajouter des catégories, des projets ou des ressources au site.<br/>
+				Ici, vous pouvez ajouter des projets ou des ressources au site.<br/>
 				Si vous n'êtes pas l'administrateur du site, veuiller fermer cette page IMMEDIATEMENT.</p>
 				
 				<div class="row">
@@ -56,7 +56,7 @@ function show_admin_homepage() {
 				</div>
 				
 				<ul>
-					<li><a href="/admin/themes" class="btn waves-effect waves-light right">Afficher les thèmes</a></li>
+					<li><a href="/admin/projects/" class="btn waves-effect waves-light right">Afficher les projets</a></li>
 				</ul>
 			</div>
 			

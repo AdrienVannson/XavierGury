@@ -3,7 +3,7 @@
 include_once(__DIR__."/../../view/head.php");
 include_once(__DIR__."/menus.php");
 
-function show_admin_themes($themes) {
+function show_admin_projects($projects) {
 	?>
 
 <!DOCTYPE HTML>
@@ -19,29 +19,29 @@ function show_admin_themes($themes) {
 	);?>
 	<body>
 		<?php show_admin_menus(array(
-			array("Thèmes", "/admin/themes")
+			array("Projets", "/admin/projects")
 		));?>
 		
 		<main>
 			<div class="container">
 				
-				<h1>Thèmes</h1>
+				<h1>Projets</h1>
 				
-				<p>Consulter les thèmes du site.</p>
+				<p>Consulter les projets du site</p>
 				
 				<div class="row">
 					<?php 
-					foreach ($themes as $theme) {
+					foreach ($projects as $project) {
 						?>
 						<div class="col s12 m6 l4">
-							<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $theme->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $theme->get_color();?>;"><?php echo $theme->get_name();?></a>
+							<a class="btn-large waves-effect waves-light" href="/admin/projets/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $project->get_color();?>;"><?php echo $project->get_name();?></a>
 						</div>
 						<?php
 					}
 					?>
 				</div>
 				
-				<p><a href="/admin/themes/-1" class="btn waves-effect waves-light green right">Nouveau thème</a></p>
+				<p><a href="/admin/projects/-1" class="btn waves-effect waves-light green right">Nouveau projet</a></p>
 		
 			</div>
 		</main>

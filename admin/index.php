@@ -23,8 +23,8 @@ if($size == 1) {
 		exit();
 	}
 	
-	if($request[0] == "themes") {
-		include("controller/themes.php");
+	if($request[0] == "projects") {
+		include("controller/projects.php");
 		exit();
 	}
 	
