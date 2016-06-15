@@ -12,7 +12,7 @@ if($_GET["id_project"] == -1) {
 
 /* Traitement du formulaire */
 if(isset($_POST["save"])) {
-	$project->set_id_parent( $_POST["id_theme"] );
+	$project->set_id_parent( $_POST["id_parent"] );
 	$project->set_name( $_POST["name"] );
 	$project->set_description( $_POST["description"] );
 	$project->set_color( $_POST["color"] );

@@ -51,8 +51,8 @@ show_admin_menus(array(
 
 			<div class="row">
 				<div class="input-field col s12">
-					<label for="id_theme">Id du parent</label>
-					<input type="text" name="id_theme" id="id_theme" value="<?php echo $project->get_id_parent();?>"/>
+					<label for="id_parent">Id du parent</label>
+					<input type="text" name="id_parent" id="id_parent" value="<?php echo $project->get_id_parent();?>"/>
 				</div>
 			</div>
 
