@@ -6,8 +6,8 @@ include_once(__DIR__."/../view/picture.php");
 
 $picture = new Picture($_GET["id_picture"]);
 
-if($_GET["id_picture"] == -1 && isset($_SESSION["last_project_id"])) {
-	$picture->set_id_project( $_SESSION["last_project_id"] );
+if($_GET["id_picture"] == -1) {
+	$picture->set_id_project( $_GET["id_parent"] );
 }
 
 

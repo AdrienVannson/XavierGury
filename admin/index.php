@@ -46,11 +46,22 @@ if($size == 2) {
 }
 if ($size == 3) {
 	
-	if ($request[0] == "projects" && $request[1] == "new" && is_numeric($request[2])) {
-		$_GET["id_project"] = -1;
-		$_GET["id_parent"] = intval($request[2]);
-		include("controller/project.php");
-		exit();
+	if ($request[1] == "new" && is_numeric($request[2])) {
+		
+		if ($request[0] == "projects") {
+			$_GET["id_project"] = -1;
+			$_GET["id_parent"] = intval($request[2]);
+			include("controller/project.php");
+			exit();
+		}
+		
+		if ($request[0] == "pictures") {
+			$_GET["id_picture"] = -1;
+			$_GET["id_parent"] = intval($request[2]);
+			include("controller/picture.php");
+			exit();
+		}
+		
 	}
 	
 }

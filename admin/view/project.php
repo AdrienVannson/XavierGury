@@ -148,7 +148,7 @@ show_admin_menus(array(
 		}
 		?>
 
-		<p><a href="/admin/images/-1" class="btn waves-effect waves-light green">Nouvelle image</a></p>
+		<p><a href="/admin/pictures/new/<?php echo $project->get_id();?>" class="btn waves-effect waves-light green">Nouvelle image</a></p>
 
 
 		<script>
