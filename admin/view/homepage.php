@@ -38,7 +38,7 @@ function show_admin_homepage() {
 								<span class="card-title">Avertissement</span>
 								<p>La structure de la base de données a été changée récement.<br/>
 								Le site est en principe fonctionnel, mais si vous rencontrez le moindre problème,
-								merci de le signaler au développeur du site.</p>
+								merci de le signaler au développeur.</p>
 							</div>
 						</div>
 					</div>
@@ -48,7 +48,8 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
-									<li>Modification de la structure de la base de données</li>
+									<li>15 juin 2016 : Correction de bugs</li>
+									<li>10 juin 2016 : Modification de la structure de la base de données</li>
 								</ul>
 							</div>
 						</div>
