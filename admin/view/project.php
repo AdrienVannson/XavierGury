@@ -135,7 +135,7 @@ show_admin_menus(array(
 								<?php echo $picture->get_description();?>
 							</div>
 							<div class="card-action">
-								<a href="/admin/images/<?php echo $picture->get_id();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
+								<a href="<?php echo $picture->get_admin_url();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
 							</div>
 						</div>
 

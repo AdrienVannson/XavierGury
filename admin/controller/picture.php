@@ -117,7 +117,7 @@ if(isset($_POST["save"])) {
 	}
 	
 	end:
-	header("Location: /admin/images/".$picture->get_id());
+	header("Location: ".$picture->get_admin_url());
 	exit();
 }
 if(isset($_POST["delete"])) {

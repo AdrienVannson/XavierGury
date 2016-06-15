@@ -37,7 +37,7 @@ if($size == 2) {
 		exit();
 	}
 	
-	if($request[0] == "images" && is_numeric($request[1])) {
+	if($request[0] == "pictures" && is_numeric($request[1])) {
 		$_GET["id_picture"] = intval($request[1]);
 		include("controller/picture.php");
 		exit();

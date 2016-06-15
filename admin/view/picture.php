@@ -51,7 +51,7 @@ function show_admin_picture($picture) {
 				<?php show_admin_errors();?>
 				
 				
-				<form method="POST" action="/admin/images/<?php echo $picture->get_id();?>" enctype="multipart/form-data">
+				<form method="POST" action="<?php echo $picture->get_admin_url();?>" enctype="multipart/form-data">
 					
 					<div class="row">
 						<div class="input-field col s12">

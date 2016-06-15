@@ -155,7 +155,7 @@ class Project {
 	
 	
 	public function get_url_admin () {
-		return "/admin/projets/".$this->get_id();
+		return "/admin/projects/".$this->get_id();
 	}
 	
 	public function get_url () {

@@ -113,7 +113,7 @@ class Picture {
 	}
 	
 	public function get_admin_url() {
-		return "/admin/images/".$this->get_id();
+		return "/admin/pictures/".$this->get_id();
 	}
 	
 	public function get_html($size) {
