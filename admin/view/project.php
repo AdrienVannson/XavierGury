@@ -34,8 +34,7 @@ function show_admin_project($project) {
 		}
 		
 		show_admin_menus(array(
-			array("Thèmes", "/admin/themes"),
-			//array($theme->get_name(), $theme->get_url_admin()),
+			array("Projet", "/admin/projects/"),
 			array($name, $project->get_url_admin())
 		));
 		?>
