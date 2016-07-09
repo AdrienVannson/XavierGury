@@ -35,7 +35,7 @@ if($project->get_id() == -1) {
 }
 
 show_admin_menus(array(
-	array("Projet", "/admin/projects/"),
+	array("Projets", "/admin/projects/"),
 	array($name, $project->get_url_admin())
 ));
 ?>
