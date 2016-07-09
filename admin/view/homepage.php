@@ -33,17 +33,6 @@ function show_admin_homepage() {
 				
 				<div class="row">
 					<div class="col s12 m6">
-						<div class="card orange">
-							<div class="card-content white-text">
-								<span class="card-title">Avertissement</span>
-								<p>La structure de la base de données a été changée récement.<br/>
-								Le site est en principe fonctionnel, mais si vous rencontrez le moindre problème,
-								merci de le signaler au développeur.</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col s12 m6">
 						<div class="card green">
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
