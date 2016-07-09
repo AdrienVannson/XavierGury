@@ -15,6 +15,15 @@ body {
 	background-color: #2B2E34;
 }
 
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 
 #menu {
 	position: fixed;
@@ -327,14 +336,27 @@ ul {
 /*
  * Liens vers les sous-projets
  */
+
 .under-project {
-	background-color: rgba(255, 255, 255, .1);
-	
-	width: 48%;
-	margin: 1%;
+	width: 46%;
 	float: left;
+	margin: 1%;
+	padding: 1%;
+	
+	background-color: rgba(255, 255, 255, .1);
 	border-radius: 16px;
+	
+	transition: box-shadow .3s;
 }
+
+.under-project:hover {
+	box-shadow: 4px 4px 8px #000;
+}
+
+.under-project h2 a {
+	color: #FFF;
+}
+
 
 	<?php
 }

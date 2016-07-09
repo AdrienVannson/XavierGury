@@ -31,10 +31,8 @@ if (sizeof($children)) {
 	foreach ($children as $child) {
 		?>
 		
-			<!--<a href="<?php echo $child->get_url();?>"><?php echo $child->get_name();?></a>-->
-			
 			<div class="under-project">
-				<h2><?php echo $child->get_name();?></h2>
+				<h2><a href="<?php echo $child->get_url();?>"><?php echo $child->get_name();?></a></h2>
 				<p><?php echo $child->get_description();?></p>
 			</div>
 		
