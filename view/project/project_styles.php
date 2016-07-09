@@ -65,7 +65,10 @@ ul {
 	background-color: #000;
 }
 
-/* Menu coloré */
+
+/*
+ * Menu coloré
+ */
 #color_menu {
 	position: absolute;
 	z-index: 10;
@@ -109,7 +112,10 @@ ul {
 	background-color: #FFF;
 }
 
-/* Traits */
+
+/*
+ * Traits
+ */
 .line {
 	position: fixed;
 	background-color: #FFF;
@@ -223,7 +229,9 @@ ul {
 }
 
 
-/* Description */
+/* 
+ * Description
+ */
 .description {
 	clear: left;
 	
@@ -232,7 +240,9 @@ ul {
 }
 
 
-/* Image */
+/*
+ *Image
+ */
 .project-picture {
 	margin: 1vw;
 	height: 33vh;
@@ -311,6 +321,19 @@ ul {
 
 #title {
 	margin: 0;
+}
+
+
+/*
+ * Liens vers les sous-projets
+ */
+.under-project {
+	background-color: rgba(255, 255, 255, .1);
+	
+	width: 48%;
+	margin: 1%;
+	float: left;
+	border-radius: 16px;
 }
 
 	<?php

@@ -7,12 +7,10 @@ include_once(__DIR__."/left_menu.php");
 
 
 function show_project($project) {
-	
 	?>
 	
 <!DOCTYPE HTML>
 <html lang="fr">
-
 	<?php show_head($project->get_name(), array("/styles/project.css")); ?>
 
 	<body>
@@ -23,6 +21,30 @@ function show_project($project) {
 
 			<h1><?php echo $project->get_name();?></h1>
 
+
+<?php
+
+$children = $project->get_children();
+
+if (sizeof($children)) {
+	
+	foreach ($children as $child) {
+		?>
+		
+			<!--<a href="<?php echo $child->get_url();?>"><?php echo $child->get_name();?></a>-->
+			
+			<div class="under-project">
+				<h2><?php echo $child->get_name();?></h2>
+				<p><?php echo $child->get_description();?></p>
+			</div>
+		
+		<?php
+	}
+	
+}
+
+?>
+			
 			<p>
 				<?php
 				$pictures = $project->get_pictures();
@@ -70,6 +92,6 @@ function show_project($project) {
 
 	</body>
 </html>
-	
-	<?php
+
+<?php
 }
