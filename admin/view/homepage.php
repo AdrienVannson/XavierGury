@@ -35,6 +35,15 @@ function show_admin_homepage() {
 					<div class="col s12 m6">
 						<div class="card green">
 							<div class="card-content white-text">
+								<span class="card-title">Contact</span>
+								<p>Voici mon adresse mail : <a class="red-text" href="mailto:adrien.vannson@gmail.com">adrien.vannson@gmail.com</a></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col s12 m6">
+						<div class="card green">
+							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
 									<li>15 juin 2016 : Correction de bugs</li>
