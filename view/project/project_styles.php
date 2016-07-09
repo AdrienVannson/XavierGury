@@ -24,6 +24,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+p {
+	text-indent: 3em;
+	text-align: justify;
+}
+
 
 #menu {
 	position: fixed;
@@ -64,6 +69,7 @@ li a {
 }
 li a:hover {
 	background-color: #000;
+	text-decoration: none;
 }
 ul {
 	list-style-type: none;
@@ -243,9 +249,6 @@ ul {
  */
 .description {
 	clear: left;
-	
-	text-indent: 3em;
-	text-align: justify;
 }
 
 
