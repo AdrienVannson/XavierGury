@@ -25,6 +25,7 @@ function show_left_menu($id_project) {
 		<li style="border-bottom: 1px solid #FFF;">
 			<a
 				href="<?php echo $parent->get_url();?>"
+				<?php if($parent->get_id() == $id_project){?>class="active"<?php }?>
 			>
 				<?php echo mb_strtoupper($parent->get_name(), "UTF-8"); ?>
 			</a>
