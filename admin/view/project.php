@@ -34,10 +34,13 @@ if($project->get_id() == -1) {
 	$name = "Nouveau projet";
 }
 
-show_admin_menus(array(
-	array("Projets", "/admin/projects/"),
-	array($name, $project->get_url_admin())
-));
+$parents = [ array("Projets", "/admin/projects/") ];
+
+foreach ($project->get_parents() as $parent) {
+	$parents[] = array($parent->get_name(), $parent->get_url_admin());
+}
+
+show_admin_menus($parents);
 ?>
 
 
