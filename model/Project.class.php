@@ -127,6 +127,10 @@ class Project {
 		return array_reverse($parents);
 	}
 	
+	public function get_first_level_parent () {
+		return $this->get_parents()[0];
+	}
+	
 	public function get_children () {
 		$request = "SELECT id FROM projects WHERE id_parent=?";
 		
