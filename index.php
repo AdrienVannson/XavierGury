@@ -5,18 +5,18 @@ $request = explode("/", $_GET["request"]);
 $size = count($request);
 
 // On enlève la chaine vide à la fin, si l'URL se termine par un slash
-if($request[$size-1] == "") {
+if ($request[$size-1] == "") {
 	array_pop($request);
 	$size = count($request);
 }
 
 
-if($size == 0 ) { // Homepage
+if ($size == 0) { // Homepage
 	include("controller/homepage.php");
 	exit();
 }
 
-if($size == 1) {
+if ($size == 1) {
 	
 	if($request[0] == "themes") { // Page des thèmes
 		include("controller/themes.php");
@@ -29,9 +29,9 @@ if($size == 1) {
 	
 }
 
-if($size == 2) {
+if ($size == 2) {
 	
-	if($request[0] == "styles") { // Feuilles de styles 
+	if ($request[0] == "styles") { // Feuilles de styles 
 		
 		if($request[1] == "project.css") {
 			include("controller/project/project_styles.php");
@@ -43,7 +43,7 @@ if($size == 2) {
 		}
 		
 	}
-	if($request[0] == "scripts") { // Scripts
+	if ($request[0] == "scripts") { // Scripts
 		
 		if($request[1] == "themes-scripts.js") {
 			include("controller/themes/themes_scripts.php");
@@ -56,7 +56,7 @@ if($size == 2) {
 		}
 		
 	}
-	if($request[0] == "ressources") { // Ressources
+	if ($request[0] == "ressources") { // Ressources
 		
 		if( preg_match("#^[0-9]+-.*\.*$#", $request[1]) ) { // TODO : vérifier l'extension
 			$datas = explode("-", $request[1]);
@@ -72,7 +72,7 @@ if($size == 2) {
 }
 
 
-if( preg_match("#^([0-9]+-.*)+$#", $_GET["request"]) ) { // Page de projet
+if ( preg_match("#^([0-9]+-.*)+$#", $_GET["request"]) ) { // Page de projet
 
 	$path = [];
 	
@@ -81,7 +81,7 @@ if( preg_match("#^([0-9]+-.*)+$#", $_GET["request"]) ) { // Page de projet
 	}
 
 	$_GET["project_id"] = end($path)[0];
-	$_GET["path"] = $path;
+	$_GET["url"] = "/".implode("/", $request);
 
 	include("controller/project.php");
 	exit();

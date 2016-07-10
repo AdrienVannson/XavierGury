@@ -86,9 +86,6 @@ class Project {
 	public function get_name() {
 		return $this->name;
 	}
-	public function get_name_formatted() {
-		return urlencode($this->name);
-	}
 	
 	public function set_description($description) {
 		$this->description = $description;
@@ -184,7 +181,7 @@ class Project {
 		$url = "";
 		
 		foreach ($parents as $parent) {
-			$url .= "/" . $parent->get_id() . "-" . $parent->get_name_formatted();
+			$url .= "/" . $parent->get_id() . "-" . $parent->get_name();
 		}
 		
 		return $url;
