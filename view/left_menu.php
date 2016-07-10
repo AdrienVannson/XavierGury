@@ -13,11 +13,24 @@ function show_left_menu($id_project) {
 		<?php 
 		if ($project->get_id_parent() == 0) {
 			$projects = $project->get_children();
+			$parent = $project;
 		}
 		else {
 			$projects = $project->get_brothers();
+			$parent = $project->get_parent();
 		}
-
+		
+		?>
+		
+		<li style="border-bottom: 1px solid #FFF;">
+			<a
+				href="<?php echo $parent->get_url();?>"
+			>
+				<?php echo mb_strtoupper($parent->get_name(), "UTF-8"); ?>
+			</a>
+		</li>
+		
+		<?php
 		foreach($projects as $currentProject) {
 			?>
 			<li>
