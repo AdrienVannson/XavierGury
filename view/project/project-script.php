@@ -2,7 +2,43 @@
 /* View */
 
 function show_project_scripts() {
-?>
+?>;
+
+/*
+ * Refresh pictures
+ */
+
+var toRefresh = [];
+toRefresh.length = nbPictures;
+toRefresh.fill(0, 0, nbPictures);
+
+var urls = [];
+for (var iPicture=0; iPicture<nbPictures; iPicture++) {
+	urls[iPicture] = document.getElementById("picture-"+iPicture).src;
+}
+
+function refresh ()
+{
+	var succes = true;
+	
+	for (var iPicture=0; iPicture<nbPictures; iPicture++) {
+		if (toRefresh[iPicture] != -1) { // Need a refresh
+			succes = false;
+			toRefresh[iPicture]++;
+			document.getElementById("picture-"+iPicture).src = urls[iPicture] + "?refresh=" + toRefresh[iPicture];
+		}
+	}
+	
+	if (!succes) {
+		setTimeout(refresh, 30*1000);
+	}
+}
+setTimeout(refresh, 30*1000);
+
+
+/*
+ * Preview
+ */
 
 var picturePreview = document.getElementById('picture-preview');
 var picture = document.getElementById('picture');

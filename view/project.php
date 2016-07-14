@@ -46,14 +46,17 @@ function show_project($project) {
 	<p>
 		<?php
 		$pictures = $project->get_pictures();
-		foreach($pictures as $picture) {
+		
+		foreach($pictures as $index=>$picture) {
 			?>
 			<img 
 				 src="<?php echo $picture->get_url_resource("medium");?>"
 				 class="project-picture"
+				 id="picture-<?php echo $index;?>"
 				 title="<?php echo $picture->get_name();?>"
 				 alt="<?php echo $picture->get_description();?>"
 				 onclick="showPicture(this)"
+				 onload="toRefresh[this.id.split('-')[1]]=-1"
 			/>
 			<?php
 		}
@@ -86,6 +89,10 @@ function show_project($project) {
 	</div>
 </div>
 
+
+<script>
+var nbPictures = <?php echo sizeof($pictures)?>;
+</script>
 
 <script type="text/javascript" src="/scripts/project.js"> </script>
 
