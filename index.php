@@ -34,7 +34,7 @@ if ($size == 2) {
 	if ($request[0] == "styles") { // Feuilles de styles 
 		
 		if($request[1] == "project.css") {
-			include("controller/project/project_styles.php");
+			include("controller/project/project-styles.php");
 			exit();
 		}
 		if($request[1] == "themes-styles.css") {
