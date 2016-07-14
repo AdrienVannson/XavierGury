@@ -46,6 +46,11 @@ p {
 	transition: left .5s;
 }
 
+#menu ul {
+	max-height: calc(100% - <?php echo 20 + 2*$heightColorItem;?>px);
+	overflow: auto;
+}
+
 #menu-btn {
 	position: fixed;
     z-index: 100;
