@@ -4,12 +4,15 @@ include_once(__DIR__."/../../model/Project.class.php");
 
 function show_project_styles() {
 	$nbFirstLevelProjects = get_nb_first_level_projects();
+	
+	$widthColorItem = 240 / $nbFirstLevelProjects;
+	$heightColorItem = 480 / $nbFirstLevelProjects;
 	?>
 /* <style> /* */
 
 body {
 	margin: 0;
-	padding-bottom: <?php echo 20 + 480/$nbFirstLevelProjects;?>px;
+	padding-bottom: <?php echo 20 + $heightColorItem;?>px;
 	padding-right: 20px;
 	
 	background-color: #2B2E34;
@@ -92,19 +95,19 @@ ul {
 
 .color_item {
 	display: block;
-	margin-top: <?php echo 480/$nbFirstLevelProjects;?>px;
+	margin-top: <?php echo $heightColorItem;?>px;
 	float: left;
-	width: <?php echo 240/$nbFirstLevelProjects;?>px;
-	height: <?php echo 480/$nbFirstLevelProjects;?>px;
+	width: <?php echo $widthColorItem;?>px;
+	height: <?php echo $heightColorItem;?>px;
 	
 	transition: height .5s, margin-top .5s;
 }
 .color_item:hover {
-	height: <?php echo 720/$nbFirstLevelProjects;?>px;
-	margin-top: <?php echo 240/$nbFirstLevelProjects;?>px;
+	height: <?php echo 1.5 * $heightColorItem;?>px;
+	margin-top: <?php echo $widthColorItem;?>px;
 }
 .color_item:focus {
-	height: <?php echo 960/$nbFirstLevelProjects;?>px;
+	height: <?php echo 2 * $heightColorItem;?>px;
 	margin-top: 0;
 }
 
@@ -112,7 +115,7 @@ ul {
 	margin-top: 0;
 }
 #color_item_activate:hover {
-	height: <?php echo 960/$nbFirstLevelProjects;?>px;
+	height: <?php echo 2 * $heightColorItem;?>px;
 }
 
 #white-item {
@@ -122,8 +125,8 @@ ul {
 	bottom: 0;
 	
 	display: block;
-	width: <?php echo 240/$nbFirstLevelProjects;?>px;
-	height: <?php echo 480/$nbFirstLevelProjects;?>px;
+	width: <?php echo $widthColorItem;?>px;
+	height: <?php echo $heightColorItem?>px;
 	background-color: #FFF;
 }
 
@@ -147,9 +150,9 @@ ul {
 }
 #line-bottom {
 	left: 0;
-	bottom: <?php echo 480/$nbFirstLevelProjects;?>px;
+	bottom: <?php echo $heightColorItem;?>px;
 	
-	width: <?php echo 500 + 240/$nbFirstLevelProjects;?>px;
+	width: <?php echo 500 + $widthColorItem;?>px;
 	height: 1px;
 }
 #line-white-item-1 {
@@ -157,14 +160,14 @@ ul {
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 10 + 480/$nbFirstLevelProjects;?>px;
+	height: <?php echo 10 + $heightColorItem;?>px;
 }
 #line-white-item-2 {
-	left: <?php echo 480 + 240/$nbFirstLevelProjects;?>px;
+	left: <?php echo 480 + $widthColorItem;?>px;
 	bottom: 0;
 	
 	width: 1px;
-	height: <?php echo 15 + 480/$nbFirstLevelProjects;?>px;
+	height: <?php echo 15 + $heightColorItem;?>px;
 }
 
 #separator-bottom {
@@ -173,7 +176,7 @@ ul {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: <?php echo 480/$nbFirstLevelProjects;?>px;
+	height: <?php echo $heightColorItem;?>px;
 	
 	background-color: #2B2E34;
 }
@@ -220,21 +223,21 @@ ul {
 	}
 	
 	.color_item {
-		margin-top: <?php echo 480/$nbFirstLevelProjects;?>px;
-		width: <?php echo 240/$nbFirstLevelProjects;?>px;
-		height: <?php echo 480/$nbFirstLevelProjects;?>px;
+		margin-top: <?php echo $heightColorItem;?>px;
+		width: <?php echo $widthColorItem;?>px;
+		height: <?php echo $heightColorItem;?>px;
 	}
 	.color_item:hover {
-		height: <?php echo 720/$nbFirstLevelProjects;?>px;
-		margin-top: <?php echo 240/$nbFirstLevelProjects;?>px;
+		height: <?php echo 1.5 * $heightColorItem;?>px;
+		margin-top: <?php echo $widthColorItem;?>px;
 	}
 	.color_item:focus {
-		height: <?php echo 960/$nbFirstLevelProjects;?>px;
+		height: <?php echo 2 * $heightColorItem;?>px;
 		margin-top: 0;
 	}
 	
 	#color_item_activate:hover {
-		height: <?php echo 960/$nbFirstLevelProjects;?>px;
+		height: <?php echo 2 * $heightColorItem;?>px;
 	}
     
     #separator-bottom {
