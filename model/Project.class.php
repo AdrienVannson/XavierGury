@@ -61,6 +61,14 @@ class Project {
 			return;
 		}
 		
+		foreach ($this->get_children() as $child) {
+			$child->delete();
+		}
+		
+		foreach ($this->get_pictures() as $picture) {
+			$picture->delete();
+		}
+		
 		$db = get_db();
 		
 		$results = $db->prepare("DELETE FROM projects WHERE id=?");
