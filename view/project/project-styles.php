@@ -263,7 +263,7 @@ ul {
 /*
  *Image
  */
-.project-picture {
+.project-picture, #pictures iframe {
 	margin: 1vw;
 	height: 33vh;
 	float: left;

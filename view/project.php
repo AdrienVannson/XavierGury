@@ -43,22 +43,28 @@ function show_project($project) {
 
 	?>
 
-	<p>
+	<p id="pictures">
 		<?php
 		$pictures = $project->get_pictures();
 		
 		foreach($pictures as $index=>$picture) {
+			
+			if ($picture->get_type() == 'youtube') {
+				echo $picture->get_url();
+			}
+			else {
 			?>
-			<img 
-				 src="<?php echo $picture->get_url_resource("medium");?>"
-				 class="project-picture"
-				 id="picture-<?php echo $index;?>"
-				 title="<?php echo $picture->get_name();?>"
-				 alt="<?php echo $picture->get_description();?>"
-				 onclick="showPicture(this)"
-				 onload="toRefresh[this.id.split('-')[1]]=-1"
-			/>
+				<img 
+					 src="<?php echo $picture->get_url_resource("medium");?>"
+					 class="project-picture"
+					 id="picture-<?php echo $index;?>"
+					 title="<?php echo $picture->get_name();?>"
+					 alt="<?php echo $picture->get_description();?>"
+					 onclick="showPicture(this)"
+					 onload="toRefresh[this.id.split('-')[1]]=-1"
+				/>
 			<?php
+			}
 		}
 		?>
 	</p>
