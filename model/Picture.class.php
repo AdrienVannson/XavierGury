@@ -62,6 +62,18 @@ class Picture {
 			return;
 		}
 		
+		// Delete folder
+		$dirName = dirname(__DIR__)."/resources/pictures/".$this->id."/";
+		$dir = opendir($dirName);
+		while($file = readdir($dir)) {
+			if($file != "." && $file != "..") {
+				$toDel = $dirName."/".$file;
+				unlink($toDel);
+			}
+		}
+		closedir($dir);
+		rmdir($dirName);
+		
 		$db = get_db();
 	
 		$results = $db->prepare("DELETE FROM pictures WHERE id=?");

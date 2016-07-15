@@ -123,7 +123,7 @@ if(isset($_POST["save"])) {
 if(isset($_POST["delete"])) {
 	$picture->delete();
 	
-	header("Location: /admin/projets/".$picture->get_id_project());
+	header("Location: ".$picture->get_project()->get_url_admin());
 }
 
 show_admin_picture($picture);
