@@ -30,10 +30,10 @@ function refresh ()
 	}
 	
 	if (!succes) {
-		setTimeout(refresh, 30*1000);
+		setTimeout(refresh, 32*1000);
 	}
 }
-setTimeout(refresh, 30*1000);
+setTimeout(refresh, 10*1000);
 
 
 /*
