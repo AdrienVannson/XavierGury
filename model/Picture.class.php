@@ -12,6 +12,7 @@ class Picture {
 			$this->id = -1;
 			$this->idProject;
 			$this->type = "JPG";
+			$this->url = "";
 			$this->name = "";
 			$this->description = "";
 		}
@@ -23,6 +24,7 @@ class Picture {
 			$this->id = $datas["id"];
 			$this->idProject = $datas["id_project"];
 			$this->type = $datas["type"];
+			$this->url = $datas["url"];
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
 		}
@@ -33,10 +35,11 @@ class Picture {
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO pictures (id_project, type, name, description) VALUES (?, ?, ?, ?);");
+			$results = $db->prepare("INSERT INTO pictures (id_project, type, url, name, description) VALUES (?, ?, ?, ?, ?);");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
+					$this->url,
 					$this->name,
 					$this->description
 			));
@@ -46,10 +49,11 @@ class Picture {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, name=?, description=? WHERE id=?;");
+			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, url=?, name=?, description=? WHERE id=?;");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
+					$this->url,
 					$this->name,
 					$this->description,
 					$this->id
@@ -102,6 +106,13 @@ class Picture {
 		return strtolower($this->type);
 	}
 	
+	public function set_url($url) {
+		$this->url = $url;
+	}
+	public function get_url() {
+		return $this->url;
+	}
+	
 	public function set_name($name) {
 		$this->name = $name;
 	}
@@ -135,6 +146,7 @@ class Picture {
 	private $id;
 	private $idProject;
 	private $type;
+	private $url;
 	private $name;
 	private $description;
 }
