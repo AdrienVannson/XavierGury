@@ -62,25 +62,49 @@ function show_admin_picture($picture) {
 					
 					<div class="row">
 						<div class="input-field col s12">
-							<label for="name">Nom de l'image</label>
+							<label for="name">Nom</label>
 							<input type="text" name="name" id="name" value="<?php echo $picture->get_name();?>"/>
 						</div>
 					</div>
 					
 					<p>
-						<label for="description">Description de l'image</label>
+						<label for="description">Description</label>
 						<textarea id="description" name="description"><?php echo $picture->get_description();?></textarea>
 					</p>
 					
-					<div class="file-field input-field">
-						<div class="btn">
-							<span>Image</span>
-							<input type="file" name="image">
+					<?php
+					if ($picture->get_type() != 'youtube') {
+					?>
+						<div class="file-field input-field">
+							<div class="btn">
+								<span>Image</span>
+								<input type="file" name="image">
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text">
+							</div>
 						</div>
-						<div class="file-path-wrapper">
-							<input class="file-path validate" type="text">
+					<?php
+					}
+					else {
+						$infos = explode("_", $picture->get_url());
+						?>
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="name">Code</label>
+								<input type="text" name="url" id="url" value="<?php echo $infos[0];?>"/>
+							</div>
 						</div>
-					</div>
+						
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="name">Largeur</label>
+								<input type="text" name="width" id="width" value="<?php echo $infos[1];?>"/>
+							</div>
+						</div>
+						<?php
+					}
+					?>
 					
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">

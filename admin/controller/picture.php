@@ -6,16 +6,20 @@ include_once(__DIR__."/../view/picture.php");
 
 $picture = new Picture($_GET["id_picture"]);
 
-if($_GET["id_picture"] == -1) {
+if ($_GET["id_picture"] == -1) {
 	$picture->set_id_project( $_GET["id_parent"] );
 }
 
 
 /* Traitement du formulaire */
-if(isset($_POST["save"])) {
+if (isset($_POST["save"])) {
 	$picture->set_id_project( $_POST["id_project"] );
 	$picture->set_name( $_POST["name"] );
 	$picture->set_description( $_POST["description"] );
+	
+	if ($picture->get_type() == 'youtube') {
+		$picture->set_url( $_POST["url"] . "_" . $_POST["width"] );
+	}
     
     $picture->save();
 	
