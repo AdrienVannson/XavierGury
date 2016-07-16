@@ -50,7 +50,12 @@ function show_project($project) {
 		foreach($pictures as $index=>$picture) {
 			
 			if ($picture->get_type() == 'youtube') {
-				echo $picture->get_url();
+				$infos = explode("_", $picture->get_url());
+				$infos[1] = intval($infos[1]);
+				
+				$width = $infos[1] * 33 / 315;
+				
+				echo '<iframe src="https://www.youtube.com/embed/'.$infos[0].'" frameborder="0" allowfullscreen style="width:'.$width.'vh;"></iframe>';
 			}
 			else {
 			?>
