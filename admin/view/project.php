@@ -128,13 +128,26 @@ show_admin_menus($parents);
 					<div class="col s3">
 
 						<div class="card hoverable">
-							<div class="card-image">
-								<div style="overflow:hidden;max-height:400px;">
-									<img src="<?php echo $picture->get_url_resource("medium");?>">
+							<?php
+							if ($picture->get_type() != "youtube") {
+							?>
+								<div class="card-image">
+									<div style="overflow:hidden;max-height:400px;">
+										<img src="<?php echo $picture->get_url_resource("medium");?>">
+									</div>
+									<span class="card-title"><?php echo $picture->get_name();?></span>
 								</div>
-								<span class="card-title"><?php echo $picture->get_name();?></span>
-							</div>
+							<?php
+							}
+							?>
+							
+							
 							<div class="card-content">
+								<?php
+								if ($picture->get_type() == 'youtube') {
+									echo '<span class="card-title">'.$picture->get_name().'</span>';
+								}
+								?>
 								<?php echo $picture->get_description();?>
 							</div>
 							<div class="card-action">
