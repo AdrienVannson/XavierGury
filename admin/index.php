@@ -6,38 +6,38 @@ $request = explode("/", $_GET["request"]);
 $size = count($request);
 
 // On enlève la chaine vide à la fin, si l'URL se termine par un slash
-if($request[$size-1] == "") {
+if ($request[$size-1] == "") {
 	array_pop($request);
 	$size = count($request);
 }
 
 
-if($size == 0 ) { // Homepage
+if ($size == 0 ) { // Homepage
 	include("controller/homepage.php");
 	exit();
 }
-if($size == 1) {
+if ($size == 1) {
 	
-	if($request[0] == "styles.css") {
+	if ($request[0] == "styles.css") {
 		include("controller/styles.php");
 		exit();
 	}
 	
-	if($request[0] == "projects") {
+	if ($request[0] == "projects") {
 		include("controller/projects.php");
 		exit();
 	}
 	
 }
-if($size == 2) {
+if ($size == 2) {
 	
-	if($request[0] == "projects" && is_numeric($request[1])) {
+	if ($request[0] == "projects" && is_numeric($request[1])) {
 		$_GET["id_project"] = intval($request[1]);
 		include("controller/project.php");
 		exit();
 	}
 	
-	if($request[0] == "pictures" && is_numeric($request[1])) {
+	if ($request[0] == "pictures" && is_numeric($request[1])) {
 		$_GET["id_picture"] = intval($request[1]);
 		include("controller/picture.php");
 		exit();
