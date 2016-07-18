@@ -130,7 +130,14 @@ function show_admin_picture($picture) {
 				<!-- Aperçu de l'image -->
 				<div id="apercu" class="modal">
 					<div class="modal-content">
-						<?php echo $picture->get_html("medium");?>
+						<?php
+						if ($picture->get_type() == "youtube") {
+							echo $picture->get_html(true);
+						}
+						else {
+							echo $picture->get_html("medium");
+						}
+						?>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="modal-action modal-close waves-effect btn-flat">Fermer</a>

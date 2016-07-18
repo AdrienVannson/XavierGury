@@ -139,9 +139,12 @@ class Picture {
 		return "/admin/pictures/".$this->get_id();
 	}
 	
-	public function get_html($size="") {
+	public function get_html($a=0) {
+		// Picture : a = (int) size
+		// Movie : a = (bool) show dimensions in px
+		
 		if ($this->get_type() != 'youtube') {
-			return '<img src="'.$this->get_url_resource($size).'"/>';
+			return '<img src="'.$this->get_url_resource($a).'"/>';
 		}
 		
 		// Movie
@@ -150,7 +153,18 @@ class Picture {
 
 		$width = $infos[1] * 33 / 315;
 
-		return '<iframe src="https://www.youtube.com/embed/'.$infos[0].'" frameborder="0" allowfullscreen style="width:'.$width.'vh;"></iframe>';
+		$code = '<iframe src="https://www.youtube.com/embed/'.$infos[0].'" frameborder="0" allowfullscreen ';
+		
+		if ($a) {
+			$code .= 'style="width:50vw; height:40vh;"';
+		}
+		else {
+			$code .= 'style="width:'.$width.'vh;"';
+		}
+		
+		$code .= '></iframe>';
+		
+		return $code;
 	}
 	
 	private $id;
