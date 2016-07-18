@@ -12,7 +12,7 @@ class Picture {
 			$this->id = -1;
 			$this->idProject;
 			$this->type = "JPG";
-			$this->url = "";
+			$this->infos = "";
 			$this->name = "";
 			$this->description = "";
 		}
@@ -24,7 +24,7 @@ class Picture {
 			$this->id = $datas["id"];
 			$this->idProject = $datas["id_project"];
 			$this->type = $datas["type"];
-			$this->url = $datas["url"];
+			$this->infos = $datas["infos"];
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
 		}
@@ -35,11 +35,11 @@ class Picture {
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO pictures (id_project, type, url, name, description) VALUES (?, ?, ?, ?, ?);");
+			$results = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description) VALUES (?, ?, ?, ?, ?);");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
-					$this->url,
+					$this->infos,
 					$this->name,
 					$this->description
 			));
@@ -49,11 +49,11 @@ class Picture {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, url=?, name=?, description=? WHERE id=?;");
+			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=? WHERE id=?;");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
-					$this->url,
+					$this->infos,
 					$this->name,
 					$this->description,
 					$this->id
@@ -106,11 +106,11 @@ class Picture {
 		return strtolower($this->type);
 	}
 	
-	public function set_url($url) {
-		$this->url = $url;
+	public function set_infos($infos) {
+		$this->infos = $infos;
 	}
-	public function get_url() {
-		return $this->url;
+	public function get_infos() {
+		return $this->infos;
 	}
 	
 	public function set_name($name) {
@@ -148,10 +148,11 @@ class Picture {
 		}
 		
 		// Movie
-		$infos = explode("_", $this->url);
+		$infos = explode("_", $this->infos);
 		$infos[1] = intval($infos[1]);
+		$infos[2] = intval($infos[2]);
 
-		$width = $infos[1] * 33 / 315;
+		$width = $infos[2] * 33 / $infos[1];
 
 		$code = '<iframe src="https://www.youtube.com/embed/'.$infos[0].'" frameborder="0" allowfullscreen ';
 		
@@ -170,7 +171,7 @@ class Picture {
 	private $id;
 	private $idProject;
 	private $type;
-	private $url;
+	private $infos;
 	private $name;
 	private $description;
 }

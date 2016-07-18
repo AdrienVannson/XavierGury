@@ -18,7 +18,7 @@ if (isset($_POST["save"])) {
 	$picture->set_description( $_POST["description"] );
 	
 	if ($picture->get_type() == 'youtube') {
-		$picture->set_url( $_POST["url"] . "_" . $_POST["width"] );
+		$picture->set_infos( $_POST["url"] . "_" . $_POST["height"] . "_" . $_POST["width"] );
 	}
     
     $picture->save();

@@ -92,7 +92,7 @@ function show_admin_picture($picture) {
 					<?php
 					}
 					else {
-						$infos = explode("_", $picture->get_url());
+						$infos = explode("_", $picture->get_infos());
 						?>
 						<div class="row">
 							<div class="input-field col s12">
@@ -103,8 +103,15 @@ function show_admin_picture($picture) {
 						
 						<div class="row">
 							<div class="input-field col s12">
+								<label for="name">Hauteur</label>
+								<input type="text" name="height" id="height" value="<?php echo $infos[1];?>"/>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="input-field col s12">
 								<label for="name">Largeur</label>
-								<input type="text" name="width" id="width" value="<?php echo $infos[1];?>"/>
+								<input type="text" name="width" id="width" value="<?php echo $infos[2];?>"/>
 							</div>
 						</div>
 						<?php
