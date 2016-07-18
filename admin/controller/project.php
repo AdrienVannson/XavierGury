@@ -29,4 +29,3 @@ if(isset($_POST["delete"])) {
 
 
 show_admin_project($project);
-$_SESSION["last_project_id"] = $project->get_id();
