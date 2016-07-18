@@ -136,6 +136,9 @@ class Picture {
 	}
 	
 	public function get_admin_url() {
+		if ($this->get_id() == -1) {
+			return "/admin/pictures/new/".$this->get_id_project();
+		}
 		return "/admin/pictures/".$this->get_id();
 	}
 	
