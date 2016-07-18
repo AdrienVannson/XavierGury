@@ -33,7 +33,12 @@ function show_admin_picture($picture) {
 		<?php
 		$name = $picture->get_name();
 		if($picture->get_id() == -1) {
-			$name = "Nouvelle image";
+			if ($picture->get_type() == "youtube")  {
+				$name = "Nouvelle vidéo";
+			}
+			else {
+				$name = "Nouvelle image";
+			}	
 		}
 		
 		show_admin_menus(array(
@@ -46,7 +51,7 @@ function show_admin_picture($picture) {
 		<main>
 			<div class="container">
 			
-				<h1><?php echo $action;?> une image</h1>
+				<h1><?php echo $action;?></h1>
 				
 				<?php show_admin_errors();?>
 				
@@ -108,14 +113,14 @@ function show_admin_picture($picture) {
 					
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
-						<?php echo $action;?> l'image
+						<?php echo $action;?>
 					</button>
 					
 					<?php
 					if($picture->get_id() != -1) {
 						?>
 						<button class="btn waves-effect waves-light red" type="submit" name="delete">
-							Supprimer l'image
+							Supprimer
 						</button>
 						<?php
 					}
@@ -125,7 +130,7 @@ function show_admin_picture($picture) {
 				
 				<hr style="margin:30px;"/>
 				
-				<a class="waves-effect waves-light btn modal-trigger" href="#apercu">Aperçu de l'image</a>
+				<a class="waves-effect waves-light btn modal-trigger" href="#apercu">Aperçu</a>
 				
 				<!-- Aperçu de l'image -->
 				<div id="apercu" class="modal">
