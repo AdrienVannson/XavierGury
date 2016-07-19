@@ -58,7 +58,7 @@ if ($size == 3) {
 		if ($request[0] == "pictures") {
 			$_GET["id_picture"] = -1;
 			$_GET["id_parent"] = intval($request[2]);
-			$_GET["type"] = 0;
+			$_GET["type"] = "";
 			include("controller/picture.php");
 			exit();
 		}
