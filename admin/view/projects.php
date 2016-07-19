@@ -19,7 +19,7 @@ function show_admin_projects($projects) {
 	);?>
 	<body>
 		<?php show_admin_menus(array(
-			array("Projets", "/admin/projects")
+			array("Projets", "/admin/projects/")
 		));?>
 		
 		<main>
