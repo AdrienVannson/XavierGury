@@ -19,7 +19,7 @@ function show_admin_picture($picture) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action." une image",
+	<?php show_head($action." une ". ($picture->get_type()=="youtube" ? "vidéo" : "image"),
 			array(
 				"/admin/styles.css",
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
