@@ -80,91 +80,92 @@ show_admin_menus($parents);
 				<?php echo $action;?> le projet
 			</button>
 
-			<?php
-			if($project->get_id() != -1) {
-				?>
+			<?php if($project->get_id() != -1) { ?>
 				<button class="btn waves-effect waves-light red" type="submit" name="delete">
 					Supprimer le projet
 				</button>
-				<?php
-			}
-			?>
+			<?php } ?>
 
 		</form>
 
 
-		<hr style="margin-top:20px;margin-bottom:20px;"/>
-		<?php
-		$children = $project->get_children();
-		if (sizeof($children) > 0) {
-			?>
-			<div class="row">
-				<?php
-				foreach ($children as $child) {
-					?>
-					<div class="col s4">
-						<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $child->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $child->get_name();?></a>
-					</div>
-					<?php
-				}
-				?>
-			</div>
+		<?php if($project->get_id() != -1) { ?>
+		
+			<hr style="margin-top:20px;margin-bottom:20px;"/>
 			<?php
-		}
-		?>
-		
-		<p><a href="/admin/projects/new/<?php echo $project->get_id();?>" class="btn waves-effect waves-light green">Nouveau projet</a></p>
-		
-
-		<hr style="margin-top:20px;margin-bottom:20px;"/>
-		<?php
-		$pictures = $project->get_pictures();
-		if (sizeof($pictures) > 0) {
-			?>
-			<div class="row">
-				<?php
-				foreach ($pictures as $picture) {
+			$children = $project->get_children();
+			if (sizeof($children) > 0) {
+				?>
+				<div class="row">
+					<?php
+					foreach ($children as $child) {
+						?>
+						<div class="col s4">
+							<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $child->get_id();?>" style="width:100%;margin-bottom:20px;"><?php echo $child->get_name();?></a>
+						</div>
+						<?php
+					}
 					?>
-					<div class="col s3">
+				</div>
+				<?php
+			}
+			?>
 
-						<div class="card hoverable">
-							<?php
-							if ($picture->get_type() != "youtube") {
-							?>
-								<div class="card-image">
-									<div style="overflow:hidden;max-height:400px;">
-										<img src="<?php echo $picture->get_url_resource("medium");?>">
-									</div>
-									<span class="card-title"><?php echo $picture->get_name();?></span>
-								</div>
-							<?php
-							}
-							?>
-							
-							
-							<div class="card-content">
+			<p><a href="/admin/projects/new/<?php echo $project->get_id();?>" class="btn waves-effect waves-light green">Nouveau projet</a></p>
+
+
+			<hr style="margin-top:20px;margin-bottom:20px;"/>
+			<?php
+			$pictures = $project->get_pictures();
+			if (sizeof($pictures) > 0) {
+				?>
+				<div class="row">
+					<?php
+					foreach ($pictures as $picture) {
+						?>
+						<div class="col s3">
+
+							<div class="card hoverable">
 								<?php
-								if ($picture->get_type() == 'youtube') {
-									echo '<span class="card-title">'.$picture->get_name().'</span>';
+								if ($picture->get_type() != "youtube") {
+								?>
+									<div class="card-image">
+										<div style="overflow:hidden;max-height:400px;">
+											<img src="<?php echo $picture->get_url_resource("medium");?>">
+										</div>
+										<span class="card-title"><?php echo $picture->get_name();?></span>
+									</div>
+								<?php
 								}
 								?>
-								<?php echo $picture->get_description();?>
+
+
+								<div class="card-content">
+									<?php
+									if ($picture->get_type() == 'youtube') {
+										echo '<span class="card-title">'.$picture->get_name().'</span>';
+									}
+									?>
+									<?php echo $picture->get_description();?>
+								</div>
+								<div class="card-action">
+									<a href="<?php echo $picture->get_admin_url();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
+								</div>
 							</div>
-							<div class="card-action">
-								<a href="<?php echo $picture->get_admin_url();?>" class="btn-flat waves-effect waves-orange">Modifier</a>
-							</div>
+
 						</div>
+						<?php
+					}
+					?>
+				</div>
+				<?php
+			}
+			?>
 
-					</div>
-					<?php
-				}
-				?>
-			</div>
-			<?php
-		}
-		?>
 
-		<p><a href="/admin/pictures/new/<?php echo $project->get_id();?>" class="btn waves-effect waves-light green">Nouvelle image</a></p>
+			<p><a href="/admin/pictures/new/<?php echo $project->get_id();?>" class="btn waves-effect waves-light green">Nouvelle image</a></p>
+		
+		<?php } ?>
 
 
 		<script>
