@@ -28,6 +28,11 @@ if ($size == 1) {
 		exit();
 	}
 	
+	if ($request[0] == "help") {
+		include("controller/help.php");
+		exit();
+	}
+	
 }
 if ($size == 2) {
 	
@@ -74,6 +79,7 @@ if ($size == 3) {
 	}
 	
 }
+
 
 // La page n'existe pas
 include_once(__DIR__."/../controller/errors/404.php");
