@@ -181,6 +181,9 @@ class Project {
 	
 	
 	public function get_url_admin () {
+		if ($this->get_id() == -1) {
+			return "/admin/projects/new/".$this->get_id_parent();
+		}
 		return "/admin/projects/".$this->get_id();
 	}
 	

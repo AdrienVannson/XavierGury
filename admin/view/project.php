@@ -40,6 +40,8 @@ foreach ($project->get_parents() as $parent) {
 	$parents[] = array($parent->get_name(), $parent->get_url_admin());
 }
 
+$parents[sizeof($parents)-1] = array($name, $project->get_url_admin());
+
 show_admin_menus($parents);
 ?>
 
