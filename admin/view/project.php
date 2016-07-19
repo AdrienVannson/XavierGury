@@ -79,7 +79,7 @@ show_admin_menus($parents);
 					<input type="color" name="color" id="color" value="#<?php echo $project->get_color();?>"/>
 				</p>
 			<?php } else { ?>
-				<input type="hidden" name="color" id="color" value="#<?php echo $project->get_color();?>"/>
+				<input type="hidden" name="color" value="#<?php echo $project->get_color();?>"/>
 			<?php } ?>
 
 			<button class="btn waves-effect waves-light green" type="submit" name="save">

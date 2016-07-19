@@ -118,6 +118,8 @@ function show_admin_picture($picture) {
 					}
 					?>
 					
+					<input type="hidden" name="type" value="<?php echo $picture->get_type();?>"/>
+					
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
 						<?php echo $action;?>

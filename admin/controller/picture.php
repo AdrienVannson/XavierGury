@@ -20,6 +20,7 @@ if (isset($_POST["save"])) {
 	$picture->set_id_project( $_POST["id_project"] );
 	$picture->set_name( $_POST["name"] );
 	$picture->set_description( $_POST["description"] );
+	$picture->set_type($_POST["type"]);
 	
 	if ($picture->get_type() == 'youtube') {
 		$picture->set_infos( $_POST["url"] . "_" . $_POST["height"] . "_" . $_POST["width"] );
