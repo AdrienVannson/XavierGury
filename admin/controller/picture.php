@@ -10,6 +10,10 @@ if ($_GET["id_picture"] == -1 && isset($_GET["id_parent"])) {
 	$picture->set_id_project( $_GET["id_parent"] );
 }
 
+if (isset($_GET["type"]) && $_GET["type"] == "youtube") {
+	$picture->set_type("youtube");
+	$picture->set_infos("_3_4");
+}
 
 /* Traitement du formulaire */
 if (isset($_POST["save"])) {
