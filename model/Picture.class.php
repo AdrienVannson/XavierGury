@@ -151,7 +151,7 @@ class Picture {
 		}
 		
 		// Movie
-		$infos = explode("_", $this->infos);
+		$infos = explode("\n", $this->infos);
 		$infos[1] = intval($infos[1]);
 		$infos[2] = intval($infos[2]);
 

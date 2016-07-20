@@ -12,7 +12,7 @@ if ($_GET["id_picture"] == -1 && isset($_GET["id_parent"])) {
 
 if (isset($_GET["type"]) && $_GET["type"] == "youtube") {
 	$picture->set_type("youtube");
-	$picture->set_infos("_3_4");
+	$picture->set_infos("\n3\n4");
 }
 
 /* Traitement du formulaire */
@@ -23,7 +23,7 @@ if (isset($_POST["save"])) {
 	$picture->set_type($_POST["type"]);
 	
 	if ($picture->get_type() == 'youtube') {
-		$picture->set_infos( $_POST["url"] . "_" . $_POST["height"] . "_" . $_POST["width"] );
+		$picture->set_infos( $_POST["url"] . "\n" . $_POST["height"] . "\n" . $_POST["width"] );
 		$picture->save();
 	}
     else {

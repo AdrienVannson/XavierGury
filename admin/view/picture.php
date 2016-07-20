@@ -92,7 +92,7 @@ function show_admin_picture($picture) {
 					<?php
 					}
 					else {
-						$infos = explode("_", $picture->get_infos());
+						$infos = explode("\n", $picture->get_infos());
 						?>
 						<div class="row">
 							<div class="input-field col s12">
