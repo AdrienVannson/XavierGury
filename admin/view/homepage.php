@@ -46,8 +46,8 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
+									<li>19 juillet 2016 : Possibilité d'envoyer des vidéos</li>
 									<li>10 juillet 2016 : Possibilité de définir des sous-projets</li>
-									<li>15 juin 2016 : Correction de bugs</li>
 									<li>10 juin 2016 : Modification de la structure de la base de données</li>
 								</ul>
 							</div>
