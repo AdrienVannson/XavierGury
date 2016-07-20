@@ -89,7 +89,7 @@ class Project {
 	}
 	
 	public function set_name($name) {
-		$this->name = $name;
+		$this->name = rtrim($name);
 	}
 	public function get_name() {
 		return $this->name;
