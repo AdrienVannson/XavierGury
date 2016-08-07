@@ -11,20 +11,20 @@ function show_project($project) {
 	
 <!DOCTYPE HTML>
 <html lang="fr">
-<?php show_head($project->get_name(), array("/styles/project.css")); ?>
+<?php show_head($project->getName(), array("/styles/project.css")); ?>
 <body>
 
-<?php show_left_menu($project->get_id()); ?>
+<?php show_left_menu($project->getId()); ?>
 
 
 <div id="contents">
 
-	<h1><?php echo $project->get_name();?></h1>
+	<h1><?php echo $project->getName();?></h1>
 
 
 	<?php
 
-	$children = $project->get_children();
+	$children = $project->getChildren();
 
 	if (sizeof($children)) {
 
@@ -32,8 +32,8 @@ function show_project($project) {
 			?>
 
 				<div class="under-project">
-					<h2><a href="<?php echo $child->get_url();?>"><?php echo $child->get_name();?></a></h2>
-					<p><?php echo $child->get_description();?></p>
+					<h2><a href="<?php echo $child->getUrl();?>"><?php echo $child->getName();?></a></h2>
+					<p><?php echo $child->getDescription();?></p>
 				</div>
 
 			<?php
@@ -45,21 +45,21 @@ function show_project($project) {
 
 	<p id="pictures">
 		<?php
-		$pictures = $project->get_pictures();
+		$pictures = $project->getPictures();
 		
 		foreach($pictures as $index=>$picture) {
 			
-			if ($picture->get_type() == 'youtube') {
-				echo $picture->get_html();
+			if ($picture->getType() == 'youtube') {
+				echo $picture->getHtml();
 			}
 			else {
 			?>
 				<img 
-					 src="<?php echo $picture->get_url_resource("medium");?>"
+					 src="<?php echo $picture->getUrlResource("medium");?>"
 					 class="project-picture"
 					 id="picture-<?php echo $index;?>"
-					 title="<?php echo $picture->get_name();?>"
-					 alt="<?php echo $picture->get_description();?>"
+					 title="<?php echo $picture->getName();?>"
+					 alt="<?php echo $picture->getDescription();?>"
 					 onclick="showPicture(this)"
 					 onload="toRefresh[this.id.split('-')[1]]=-1"
 				/>
@@ -69,7 +69,7 @@ function show_project($project) {
 		?>
 	</p>
 
-	<div class="description"><?php echo $project->get_description();?></div>
+	<div class="description"><?php echo $project->getDescription();?></div>
 
 </div>
 

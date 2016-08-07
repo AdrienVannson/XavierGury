@@ -34,7 +34,7 @@ function show_admin_projects($projects) {
 					foreach ($projects as $project) {
 						?>
 						<div class="col s12 m6 l4">
-							<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $project->get_id();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $project->get_color();?>;"><?php echo $project->get_name();?></a>
+							<a class="btn-large waves-effect waves-light" href="/admin/projects/<?php echo $project->getId();?>" style="width:100%;margin-bottom:20px;background-color:#<?php echo $project->getColor();?>;"><?php echo $project->getName();?></a>
 						</div>
 						<?php
 					}

@@ -2,7 +2,7 @@
 
 function show_left_menu($id_project) {
 	
-	$first_level_projects = get_first_level_projects();
+	$first_level_projects = getFirstLevelProjects();
 	$project = new Project($id_project);
 	
 	?>
@@ -11,23 +11,23 @@ function show_left_menu($id_project) {
 <div id="menu">
 	<ul>
 		<?php 
-		if ($project->get_id_parent() == 0) {
-			$projects = $project->get_children();
+		if ($project->getIdParent() == 0) {
+			$projects = $project->getChildren();
 			$parent = $project;
 		}
 		else {
-			$projects = $project->get_brothers();
-			$parent = $project->get_parent();
+			$projects = $project->getBrothers();
+			$parent = $project->getParent();
 		}
 		
 		?>
 		
 		<li style="border-bottom: 1px solid #FFF;">
 			<a
-				href="<?php echo $parent->get_url();?>"
-				<?php if($parent->get_id() == $id_project){?>class="active"<?php }?>
+				href="<?php echo $parent->getUrl();?>"
+				<?php if($parent->getId() == $id_project){?>class="active"<?php }?>
 			>
-				<?php echo mb_strtoupper($parent->get_name(), "UTF-8"); ?>
+				<?php echo mb_strtoupper($parent->getName(), "UTF-8"); ?>
 			</a>
 		</li>
 		
@@ -36,10 +36,10 @@ function show_left_menu($id_project) {
 			?>
 			<li>
 				<a 
-					href="<?php echo $currentProject->get_url();?>"
-					<?php if($currentProject->get_id()==$id_project){?>class="active"<?php }?>
+					href="<?php echo $currentProject->getUrl();?>"
+					<?php if($currentProject->getId()==$id_project){?>class="active"<?php }?>
 				>
-					<?php echo mb_strtoupper($currentProject->get_name(), "UTF-8");?>
+					<?php echo mb_strtoupper($currentProject->getName(), "UTF-8");?>
 				</a>
 			</li>
 			<?php
@@ -50,16 +50,16 @@ function show_left_menu($id_project) {
 	<div id="color_menu">
 		
 		<?php 
-		foreach(get_first_level_projects() as $currentProject) {
+		foreach(getFirstLevelProjects() as $currentProject) {
 			?>
 			<a
 				<?php
-				if($project->get_first_level_parent()->get_id() == $currentProject->get_id()) { ?>
+				if($project->getFirstLevelParent()->getId() == $currentProject->getId()) { ?>
 			   		id="color_item_activate"
 			   	<?php }?>
 				class="color_item"
-				style="background-color: #<?php echo $currentProject->get_color();?>;"
-				href="<?php echo $currentProject->get_url();?>"
+				style="background-color: #<?php echo $currentProject->getColor();?>;"
+				href="<?php echo $currentProject->getUrl();?>"
 			></a>
 			<?php
 		}

@@ -20,7 +20,7 @@ class Project {
 			$datas = $result->fetch();
 	
 			$this->id = $datas["id"];
-			$this->id_parent = $datas["id_parent"];
+			$this->idParent = $datas["id_parent"];
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
 			$this->color = $datas["color"];
@@ -33,7 +33,7 @@ class Project {
 		if($this->id == -1) {
 			$results = $db->prepare("INSERT INTO projects (id_parent, name, description, color) VALUES (?, ?, ?, ?);");
 			$results->execute(array(
-					$this->id_parent,
+					$this->idParent,
 					$this->name,
 					$this->description,
 					$this->color
@@ -46,7 +46,7 @@ class Project {
 		else {
 			$results = $db->prepare("UPDATE projects SET id_parent=?, name=?, description=?, color=? WHERE id=?;");
 			$results->execute(array(
-					$this->id_parent,
+					$this->idParent,
 					$this->name,
 					$this->description,
 					$this->color,
@@ -77,48 +77,48 @@ class Project {
 	
 	
 
-	public function get_id() {
+	public function getId() {
 		return $this->id;
 	}
 	
-	public function set_id_parent($id_parent) {
-		$this->id_parent = $id_parent;
+	public function setIdParent($idParent) {
+		$this->idParent = $idParent;
 	}
-	public function get_id_parent() {
-		return $this->id_parent;
+	public function getIdParent() {
+		return $this->idParent;
 	}
 	
-	public function set_name($name) {
+	public function setName($name) {
 		$this->name = rtrim($name);
 	}
-	public function get_name() {
+	public function getName() {
 		return $this->name;
 	}
 	
-	public function set_description($description) {
+	public function setDescription($description) {
 		$this->description = $description;
 	}
-	public function get_description() {
+	public function getDescription() {
 		return $this->description;
 	}
 	
-	public function set_color ($color) {
+	public function setColor ($color) {
 		if($color[0] == "#") {
 			$color = substr($color, 1);
 		}
 		$this->color = $color;
 	}
-	public function get_color () {
+	public function getColor () {
 		return $this->color;
 	}
 	
 	
 	// Get members of the family
-	public function get_parent () {
-		return new Project( $this->id_parent );
+	public function getParent () {
+		return new Project( $this->idParent );
 	}
 	
-	public function get_parents () {
+	public function getParents () {
 		$parents = [];
 		
 		$parent = $this;
@@ -126,17 +126,17 @@ class Project {
 		do {
 			$parents[] = $parent;
 			
-			$parent = $parent->get_parent();
-		} while ($parent->get_id() != 0);
+			$parent = $parent->getParent();
+		} while ($parent->getId() != 0);
 		
 		return array_reverse($parents);
 	}
 	
-	public function get_first_level_parent () {
-		return $this->get_parents()[0];
+	public function getFirstLevelParent () {
+		return $this->getParents()[0];
 	}
 	
-	public function get_children () {
+	public function getChildren () {
 		$request = "SELECT id FROM projects WHERE id_parent=?";
 		
 		$db = get_db();
@@ -150,12 +150,12 @@ class Project {
 		return $children;
 	}
 	
-	public function get_brothers () {
+	public function getBrothers () {
 		$request = "SELECT id FROM projects WHERE id_parent=?";
 		
 		$db = get_db();
 		$results = $db->prepare($request);
-		$results->execute(array( $this->id_parent ));
+		$results->execute(array( $this->idParent ));
 		
 		$brothers = [];
 		while($datas = $results->fetch()) {
@@ -165,7 +165,7 @@ class Project {
 	}
 	
 	
-	public function get_pictures () {
+	public function getPictures () {
 		$request = "SELECT id FROM pictures WHERE id_project=?";
 		
 		$db = get_db();
@@ -180,19 +180,19 @@ class Project {
 	}
 	
 	
-	public function get_url_admin () {
-		if ($this->get_id() == -1) {
-			return "/admin/projects/new/".$this->get_id_parent();
+	public function getUrlAdmin () {
+		if ($this->getId() == -1) {
+			return "/admin/projects/new/".$this->getIdParent();
 		}
-		return "/admin/projects/".$this->get_id();
+		return "/admin/projects/".$this->getId();
 	}
 	
-	public function get_url () {
-		$parents = $this->get_parents();
+	public function getUrl () {
+		$parents = $this->getParents();
 		$url = "";
 		
 		foreach ($parents as $parent) {
-			$url .= "/" . $parent->get_id() . "-" . $parent->get_name();
+			$url .= "/" . $parent->getId() . "-" . $parent->getName();
 		}
 		
 		return $url;
@@ -200,7 +200,7 @@ class Project {
 	
 
 	private $id;
-	private $id_parent;
+	private $idParent;
 	private $name;
 	private $description;
 	private $color;
@@ -208,7 +208,7 @@ class Project {
 
 
 // Easily get the first level projects
-function get_first_level_projects ()
+function getFirstLevelProjects ()
 {
 	$db = get_db();
 	$result = $db->query("SELECT id FROM projects WHERE id_parent=0");
@@ -223,7 +223,7 @@ function get_first_level_projects ()
 	return $projects;
 }
 
-function get_nb_first_level_projects ()
+function getNbFirstLevelProjects ()
 {
 	$db = get_db();
 	$result = $db->query("SELECT COUNT(id) FROM projects WHERE id_parent=0");

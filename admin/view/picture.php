@@ -7,19 +7,19 @@ include_once(__DIR__."/errors.php");
 
 function show_admin_picture($picture) {
 	
-	if($picture->get_id() == -1) {
+	if($picture->getId() == -1) {
 		$action = "Ajouter";
 	}
 	else {
 		$action = "Modifier";
 	}
 	
-	$project = $picture->get_project();
+	$project = $picture->getProject();
 	?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action." une ". ($picture->get_type()=="youtube" ? "vidéo" : "image"),
+	<?php show_head($action." une ". ($picture->getType()=="youtube" ? "vidéo" : "image"),
 			array(
 				"/admin/styles.css",
 				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
@@ -31,9 +31,9 @@ function show_admin_picture($picture) {
 	);?>
 	<body>
 		<?php
-		$name = $picture->get_name();
-		if($picture->get_id() == -1) {
-			if ($picture->get_type() == "youtube")  {
+		$name = $picture->getName();
+		if($picture->getId() == -1) {
+			if ($picture->getType() == "youtube")  {
 				$name = "Nouvelle vidéo";
 			}
 			else {
@@ -43,8 +43,8 @@ function show_admin_picture($picture) {
 		
 		show_admin_menus(array(
 			array("Projets", "/admin/projects/"),
-			array($project->get_name(), $project->get_url_admin()),
-			array($name, $picture->get_admin_url())
+			array($project->getName(), $project->getUrlAdmin()),
+			array($name, $picture->getAdminUrl())
 		));
 		?>
 		
@@ -56,29 +56,29 @@ function show_admin_picture($picture) {
 				<?php show_admin_errors();?>
 				
 				
-				<form method="POST" action="<?php echo $picture->get_admin_url();?>" enctype="multipart/form-data">
+				<form method="POST" action="<?php echo $picture->getAdminUrl();?>" enctype="multipart/form-data">
 					
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="id_project">Id du projet</label>
-							<input type="text" name="id_project" id="id_project" value="<?php echo $picture->get_id_project();?>"/>
+							<input type="text" name="id_project" id="id_project" value="<?php echo $picture->getIdProject();?>"/>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="name">Nom</label>
-							<input type="text" name="name" id="name" value="<?php echo $picture->get_name();?>"/>
+							<input type="text" name="name" id="name" value="<?php echo $picture->getName();?>"/>
 						</div>
 					</div>
 					
 					<p>
 						<label for="description">Description</label>
-						<textarea id="description" name="description"><?php echo $picture->get_description();?></textarea>
+						<textarea id="description" name="description"><?php echo $picture->getDescription();?></textarea>
 					</p>
 					
 					<?php
-					if ($picture->get_type() != 'youtube') {
+					if ($picture->getType() != 'youtube') {
 					?>
 						<div class="file-field input-field">
 							<div class="btn">
@@ -92,7 +92,7 @@ function show_admin_picture($picture) {
 					<?php
 					}
 					else {
-						$infos = explode("\n", $picture->get_infos());
+						$infos = explode("\n", $picture->getInfos());
 						?>
 						<div class="row">
 							<div class="input-field col s12">
@@ -118,7 +118,7 @@ function show_admin_picture($picture) {
 					}
 					?>
 					
-					<input type="hidden" name="type" value="<?php echo $picture->get_type();?>"/>
+					<input type="hidden" name="type" value="<?php echo $picture->getType();?>"/>
 					
 					
 					<button class="btn waves-effect waves-light green" type="submit" name="save">
@@ -126,7 +126,7 @@ function show_admin_picture($picture) {
 					</button>
 					
 					<?php
-					if($picture->get_id() != -1) {
+					if($picture->getId() != -1) {
 						?>
 						<button class="btn waves-effect waves-light red" type="submit" name="delete">
 							Supprimer
@@ -145,11 +145,11 @@ function show_admin_picture($picture) {
 				<div id="apercu" class="modal">
 					<div class="modal-content">
 						<?php
-						if ($picture->get_type() == "youtube") {
-							echo $picture->get_html(true);
+						if ($picture->getType() == "youtube") {
+							echo $picture->getHtml(true);
 						}
 						else {
-							echo $picture->get_html("medium");
+							echo $picture->getHtml("medium");
 						}
 						?>
 					</div>

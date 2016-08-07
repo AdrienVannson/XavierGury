@@ -7,23 +7,23 @@ include_once(__DIR__."/../view/picture.php");
 $picture = new Picture($_GET["id_picture"]);
 
 if ($_GET["id_picture"] == -1 && isset($_GET["id_parent"])) {
-	$picture->set_id_project( $_GET["id_parent"] );
+	$picture->setIdProject( $_GET["id_parent"] );
 }
 
 if (isset($_GET["type"]) && $_GET["type"] == "youtube") {
-	$picture->set_type("youtube");
-	$picture->set_infos("\n3\n4");
+	$picture->setType("youtube");
+	$picture->setInfos("\n3\n4");
 }
 
 /* Traitement du formulaire */
 if (isset($_POST["save"])) {
-	$picture->set_id_project( $_POST["id_project"] );
-	$picture->set_name( $_POST["name"] );
-	$picture->set_description( $_POST["description"] );
-	$picture->set_type($_POST["type"]);
+	$picture->setIdProject( $_POST["id_project"] );
+	$picture->setName( $_POST["name"] );
+	$picture->setDescription( $_POST["description"] );
+	$picture->setType($_POST["type"]);
 	
-	if ($picture->get_type() == 'youtube') {
-		$picture->set_infos( $_POST["url"] . "\n" . $_POST["height"] . "\n" . $_POST["width"] );
+	if ($picture->getType() == 'youtube') {
+		$picture->setInfos( $_POST["url"] . "\n" . $_POST["height"] . "\n" . $_POST["width"] );
 		$picture->save();
 	}
     else {
@@ -42,7 +42,7 @@ if (isset($_POST["save"])) {
 		}
 		if(isset($_FILES["image"]) && $_FILES["image"]["error"]==UPLOAD_ERR_OK) {
 
-			$dirName = dirname(dirname(__DIR__))."/resources/pictures/".$picture->get_id();
+			$dirName = dirname(dirname(__DIR__))."/resources/pictures/".$picture->getId();
 
 			// Création du dossier si il n'existe pas
 			if(!file_exists($dirName)) {
@@ -63,7 +63,7 @@ if (isset($_POST["save"])) {
 
 			if($_FILES["image"]["type"] == "image/jpeg") {
 				$img = imagecreatefromjpeg($tmpName);
-				$picture->set_type("JPG");
+				$picture->setType("JPG");
 
 				$infos = getimagesize($_FILES["image"]["tmp_name"]);
 				$width = $infos[0];
@@ -78,7 +78,7 @@ if (isset($_POST["save"])) {
 			}
 			elseif($_FILES["image"]["type"] == "image/gif") {
 				$img = imagecreatefromgif($tmpName);
-				$picture->set_type("GIF");
+				$picture->setType("GIF");
 
 				$infos = getimagesize($_FILES["image"]["tmp_name"]);
 				$width = $infos[0];
@@ -93,7 +93,7 @@ if (isset($_POST["save"])) {
 			}
 			elseif($_FILES["image"]["type"] == "image/png") {
 				$img = imagecreatefrompng($tmpName);
-				$picture->set_type("PNG");
+				$picture->setType("PNG");
 
 				$infos = getimagesize($_FILES["image"]["tmp_name"]);
 				$width = $infos[0];
@@ -114,9 +114,6 @@ if (isset($_POST["save"])) {
 
 				imagepng($img, $dirName."/large.png", 9);
 			}
-			elseif($_FILES["image"]["type"] == "image/svg+xml") {
-				// TODO
-			}
 			else {
 				$_SESSION["errors"][] = "Le format de fichier n'est pas pris en charge";
 				goto end;
@@ -127,13 +124,13 @@ if (isset($_POST["save"])) {
 	$picture->save();
 	
 	end:
-	header("Location: ".$picture->get_admin_url());
+	header("Location: ".$picture->getAdminUrl());
 	exit();
 }
 if(isset($_POST["delete"])) {
 	$picture->delete();
 	
-	header("Location: ".$picture->get_project()->get_url_admin());
+	header("Location: ".$picture->getProject()->getUrlAdmin());
 }
 
 show_admin_picture($picture);

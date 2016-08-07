@@ -85,69 +85,69 @@ class Picture {
 	}
 	
 	
-	public function get_id() {
+	public function getId() {
 		return $this->id;
 	}
 	
-	public function set_id_project($idProject) {
+	public function setIdProject($idProject) {
 		$this->idProject = $idProject;
 	}
-	public function get_id_project() {
+	public function getIdProject() {
 		return $this->idProject;
 	}
-	public function get_project() {
-		return new Project($this->get_id_project());
+	public function getProject() {
+		return new Project($this->getIdProject());
 	}
 	
-	public function set_type($type) {
+	public function setType($type) {
 		$this->type = $type;
 	}
-	public function get_type() {
+	public function getType() {
 		return strtolower($this->type);
 	}
 	
-	public function set_infos($infos) {
+	public function setInfos($infos) {
 		$this->infos = $infos;
 	}
-	public function get_infos() {
+	public function getInfos() {
 		return $this->infos;
 	}
 	
-	public function set_name($name) {
+	public function setName($name) {
 		$this->name = rtrim($name);
 	}
-	public function get_name() {
+	public function getName() {
 		return $this->name;
 	}
 	
-	public function set_description($description) {
+	public function setDescription($description) {
 		$this->description = $description;
 	}
-	public function get_description() {
+	public function getDescription() {
 		return $this->description;
 	}
 	
 	
-	public function get_path_resource($size) {
-		return "resources/pictures/".$this->id."/".$size.".".$this->get_type();
+	public function getPathResource($size) {
+		return "resources/pictures/".$this->id."/".$size.".".$this->getType();
 	}
-	public function get_url_resource($size) {
-		return "/ressources/".$this->id."-".$size.".".$this->get_type();
+	public function getUrlResource($size) {
+		return "/ressources/".$this->id."-".$size.".".$this->getType();
 	}
 	
-	public function get_admin_url() {
-		if ($this->get_id() == -1) {
-			return "/admin/pictures/new/".$this->get_id_project();
+	public function getAdminUrl() {
+		if ($this->getId() == -1) {
+			return "/admin/pictures/new/".$this->getIdProject();
 		}
-		return "/admin/pictures/".$this->get_id();
+		return "/admin/pictures/".$this->getId();
 	}
 	
-	public function get_html($a=0) {
+	public function getHtml($a=0) {
 		// Picture : a = (int) size
 		// Movie : a = (bool) show dimensions in px
 		
-		if ($this->get_type() != 'youtube') {
-			return '<img src="'.$this->get_url_resource($a).'"/>';
+		if ($this->getType() != 'youtube') {
+			return '<img src="'.$this->getUrlResource($a).'"/>';
 		}
 		
 		// Movie

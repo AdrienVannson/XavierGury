@@ -6,20 +6,20 @@ include_once(__DIR__."/../view/project.php");
 $project = new Project($_GET["id_project"]);
 
 if($_GET["id_project"] == -1) {
-	$project->set_id_parent( $_GET["id_parent"] );
+	$project->setIdParent( $_GET["id_parent"] );
 }
 
 
 /* Traitement du formulaire */
 if(isset($_POST["save"])) {
-	$project->set_id_parent( $_POST["id_parent"] );
-	$project->set_name( $_POST["name"] );
-	$project->set_description( $_POST["description"] );
-	$project->set_color( $_POST["color"] );
+	$project->setIdParent( $_POST["id_parent"] );
+	$project->setName( $_POST["name"] );
+	$project->setDescription( $_POST["description"] );
+	$project->setColor( $_POST["color"] );
 	
 	$project->save();
 	
-	header("Location: /admin/projects/".$project->get_id());
+	header("Location: /admin/projects/".$project->getId());
 }
 if(isset($_POST["delete"])) {
 	$project->delete();
