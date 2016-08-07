@@ -1,8 +1,8 @@
 <?php
 /* View */
 
-function show_project_scripts() {
-?>;
+header("Content-Type: text/js");
+?>
 
 /*
  * Refresh pictures
@@ -70,7 +70,4 @@ function showPicture (source)
 	picture.src = source.src.replace('medium', 'large');
 	title.innerText = source.title;
 	description.innerHTML = source.alt;
-}
-
-<?php	
 }

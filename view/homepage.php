@@ -1,22 +1,21 @@
 <?php 
 /* View */
 include_once(__DIR__."/head.php");
+?>
+
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<?php show_head("Accueil"); ?>
+
+<body style="margin:0;">
 
 
-function show_homepage($firstLevelProjects) {
-	?>
-	
-	<!DOCTYPE HTML>
-	<html lang="fr">
-		
-		<?php show_head("Accueil"); ?>
-		
-		<body style="margin:0;">
-			
-			<div style="display: flex; height:100vh;">
-				
-				<div style="margin:auto;">
-					<svg style="max-width:90vw; max-height:90vh; height:100vh; width:100vw;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 821">
+<div style="display: flex; height:100vh;">
+
+	<div style="margin:auto;">
+		<svg style="max-width:90vw; max-height:90vh; height:100vh; width:100vw;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 821">
+
 
 <defs id="defs6"/>
   <path
@@ -81,13 +80,9 @@ function show_homepage($firstLevelProjects) {
      style="opacity:1;fill:#2b2e34;fill-opacity:1;fill-rule:evenodd;stroke:#3f3f3f;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </a>
 
-			</svg>
-				</div>
-			
-			</div>
-			
-		</body>
-	</html>
-	
-	<?php
-}
+		</svg>
+	</div>
+</div>
+
+</body>
+</html>

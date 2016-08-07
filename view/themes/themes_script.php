@@ -1,8 +1,8 @@
 <?php
 /* View */
+header("Content-Type: text/js");
+?>
 
-function show_theme_script($themes) {
-	?>
 /* Comment to enable the JS coloration in IDE
 <script>
 // */
@@ -38,7 +38,7 @@ $themesShowed = [];
 
 $iTheme = 0;
 foreach($themes as $theme) {
-	$themesShowed[] = new ThemeShowed($theme->get_name(), $theme->get_url(), $theme->get_color());
+	$themesShowed[] = new ThemeShowed($theme->getName(), $theme->getUrl(), $theme->getColor());
 }
 $themesShowed[] = new ThemeShowed("", "/", "FFF");
 
@@ -201,6 +201,3 @@ $(window).resize(function() {
 	clearTimeout(timeout);
 	timeout = setTimeout(create, 100);
 });
-
-	<?php
-}

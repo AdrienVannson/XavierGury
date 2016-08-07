@@ -2,13 +2,13 @@
 /* View */
 include_once(__DIR__."/../../model/Project.class.php");
 
-function show_project_styles() {
-	$nbFirstLevelProjects = getNbFirstLevelProjects();
-	
-	$widthColorItem = 240 / $nbFirstLevelProjects;
-	$heightColorItem = 480 / $nbFirstLevelProjects;
-	?>
-/* <style> /* */
+header("Content-Type: text/css");
+
+$nbFirstLevelProjects = getNbFirstLevelProjects();
+
+$widthColorItem = 240 / $nbFirstLevelProjects;
+$heightColorItem = 480 / $nbFirstLevelProjects;
+?>
 
 body {
 	margin: 0;
@@ -366,8 +366,4 @@ ul {
 
 .under-project h2 a {
 	color: #FFF;
-}
-
-
-	<?php
 }

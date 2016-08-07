@@ -1,8 +1,8 @@
 <?php
 /* View */
+header("Content-Type: text/css");
+?>
 
-function show_themes_styles() {
-	?>
 /* <style>*/
 
 html {
@@ -37,7 +37,4 @@ body {
 .theme a {
 	color: #000;
 	text-decoration: none;
-}
-
-	<?php
 }
