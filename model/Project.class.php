@@ -13,6 +13,7 @@ class Project {
 			$this->name = "";
 			$this->description = "";
 			$this->color = "000000";
+			$this->picturesDisplayMode = "GRID";
 		}
 		else {
 			$result = $db->prepare("SELECT * FROM projects WHERE id=?");
@@ -24,6 +25,7 @@ class Project {
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
 			$this->color = $datas["color"];
+			$this->picturesDisplayMode = $datas["pictures_display_mode"];
 		}
 	}
 	
@@ -31,12 +33,13 @@ class Project {
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO projects (id_parent, name, description, color) VALUES (?, ?, ?, ?);");
+			$results = $db->prepare("INSERT INTO projects (id_parent, name, description, color, pictures_display_mode) VALUES (?, ?, ?, ?, ?);");
 			$results->execute(array(
 					$this->idParent,
 					$this->name,
 					$this->description,
-					$this->color
+					$this->color,
+					$this->picturesDisplayMode
 			));
 				
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
@@ -44,12 +47,13 @@ class Project {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE projects SET id_parent=?, name=?, description=?, color=? WHERE id=?;");
+			$results = $db->prepare("UPDATE projects SET id_parent=?, name=?, description=?, color=?, pictures_display_mode=? WHERE id=?;");
 			$results->execute(array(
 					$this->idParent,
 					$this->name,
 					$this->description,
 					$this->color,
+					$this->picturesDisplayMode,
 					$this->id
 			));
 		}
@@ -110,6 +114,13 @@ class Project {
 	}
 	public function getColor () {
 		return $this->color;
+	}
+	
+	public function setPicturesDisplayMode ($picturesDisplayMode) {
+		$this->picturesDisplayMode = $picturesDisplayMode;
+	}
+	public function getPicturesDisplayMode () {
+		return $this->picturesDisplayMode;
 	}
 	
 	
@@ -204,6 +215,7 @@ class Project {
 	private $name;
 	private $description;
 	private $color;
+	private $picturesDisplayMode;
 }
 
 
