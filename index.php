@@ -18,11 +18,17 @@ if ($size == 0) { // Homepage
 
 if ($size == 1) {
 	
-	if($request[0] == "themes") { // Page des thèmes
+	if ($request[0] == "themes") { // Page des thèmes
 		include("controller/themes.php");
 		exit();
 	}
-	if($request[0] == "robots.txt") { // Fichier robots.txt
+	
+	if ($request[0] == "journal") {
+		include("controller/log.php");
+		exit();
+	}
+	
+	if ($request[0] == "robots.txt") { // Fichier robots.txt
 		include("controller/robots_txt.php");
 		exit();
 	}
@@ -33,11 +39,12 @@ if ($size == 2) {
 	
 	if ($request[0] == "styles") { // Feuilles de styles 
 		
-		if($request[1] == "project.css") {
+		if ($request[1] == "project.css") {
 			include("controller/project/project-styles.php");
 			exit();
 		}
-		if($request[1] == "themes-styles.css") {
+		
+		if ($request[1] == "themes-styles.css") {
 			include("controller/themes/themes_styles.php");
 			exit();
 		}
@@ -45,12 +52,12 @@ if ($size == 2) {
 	}
 	if ($request[0] == "scripts") { // Scripts
 		
-		if($request[1] == "themes-scripts.js") {
+		if ($request[1] == "themes-scripts.js") {
 			include("controller/themes/themes_scripts.php");
 			exit();
 		}
 		
-		if($request[1] == "project.js") {
+		if ($request[1] == "project.js") {
 			include("controller/project/project-script.php");
 			exit();
 		}
@@ -58,7 +65,7 @@ if ($size == 2) {
 	}
 	if ($request[0] == "ressources") { // Ressources
 		
-		if( preg_match("#^[0-9]+-.*\.*$#", $request[1]) ) { // TODO : vérifier l'extension
+		if (preg_match("#^[0-9]+-.*\.*$#", $request[1])) { // TODO : vérifier l'extension
 			$datas = explode("-", $request[1]);
 			
 			$_GET["resource_id"] = $datas[0];
@@ -72,7 +79,7 @@ if ($size == 2) {
 }
 
 
-if ( preg_match("#^([0-9]+-.*)+$#", $_GET["request"]) ) { // Page de projet
+if (preg_match("#^([0-9]+-.*)+$#", $_GET["request"])) { // Page de projet
 
 	$path = [];
 	

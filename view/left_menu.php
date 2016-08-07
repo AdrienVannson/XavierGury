@@ -1,12 +1,10 @@
 <?php
 
-function show_left_menu($id_project) {
+function show_left_menu($project) {
 	
 	$first_level_projects = getFirstLevelProjects();
-	$project = new Project($id_project);
 	
 	?>
-
 
 <div id="menu">
 	<ul>
@@ -25,7 +23,7 @@ function show_left_menu($id_project) {
 		<li style="border-bottom: 1px solid #FFF;">
 			<a
 				href="<?php echo $parent->getUrl();?>"
-				<?php if($parent->getId() == $id_project){?>class="active"<?php }?>
+				<?php if($parent->getId() == $project->getId()){?>class="active"<?php }?>
 			>
 				<?php echo mb_strtoupper($parent->getName(), "UTF-8"); ?>
 			</a>
