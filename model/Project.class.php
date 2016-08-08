@@ -229,7 +229,10 @@ function getFirstLevelProjects ()
 
 	while ($datas = $result->fetch()) {
 		$id = $datas["id"];
-		$projects[] = new Project($id);
+		
+		if ($id != 10) {
+			$projects[] = new Project($id);
+		}
 	}
 
 	return $projects;
@@ -240,5 +243,5 @@ function getNbFirstLevelProjects ()
 	$db = get_db();
 	$result = $db->query("SELECT COUNT(id) FROM projects WHERE id_parent=0");
 	$datas = $result->fetch();
-	return $datas[0];
+	return $datas[0] - 1;
 }
