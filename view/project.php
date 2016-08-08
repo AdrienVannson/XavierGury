@@ -12,7 +12,7 @@ include_once(__DIR__."/left_menu.php");
 <?php show_head($project->getName(), array("/styles/project.css")); ?>
 <body>
 
-<?php show_left_menu($project->getId()); ?>
+<?php show_left_menu($project); ?>
 
 
 <div id="contents">

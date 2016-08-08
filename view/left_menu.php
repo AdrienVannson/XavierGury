@@ -35,7 +35,7 @@ function show_left_menu($project) {
 			<li>
 				<a 
 					href="<?php echo $currentProject->getUrl();?>"
-					<?php if($currentProject->getId()==$id_project){?>class="active"<?php }?>
+					<?php if($currentProject->getId()==$project->getId()){?>class="active"<?php }?>
 				>
 					<?php echo mb_strtoupper($currentProject->getName(), "UTF-8");?>
 				</a>
