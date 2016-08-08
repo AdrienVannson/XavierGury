@@ -15,6 +15,7 @@ $styles = ["/styles/project.css"];
 
 if ($project->getPicturesDisplayMode() == "CAROUSEL") {
 	$styles[] = "http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css";
+	$styles[] = "http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css";
 }
 
 show_head($project->getName(), $styles);
@@ -51,7 +52,9 @@ show_head($project->getName(), $styles);
 
 	?>
 
-	<p id="pictures">
+	<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?> <div id="carousel"> <?php }
+	else { ?> <p id="pictures"> <?php } ?>
+		
 		<?php
 		$pictures = $project->getPictures();
 		
@@ -77,7 +80,9 @@ show_head($project->getName(), $styles);
 			}
 		}
 		?>
-	</p>
+	
+	<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?> </div> <?php }
+	else { ?> </p> <?php } ?>
 
 	<div class="description"><?php echo $project->getDescription();?></div>
 
@@ -118,26 +123,16 @@ var nbPictures = <?php echo sizeof($pictures)?>;
 <?php if ($project->getPicturesDisplayMode() == "CAROUSEL") { ?>
 	<script>
 	$(document).ready(function(){
-		$('#pictures').slick({
-			centerMode: true,
-			centerPadding: '60px',
-			//infinite: false,
-			slidesToShow: 3
-			//slidesToScroll: 1
+		$('#carousel').slick({
+			//centerMode:        true,
+			focusOnSelect:     true,
+			infinite:          false,
+			slidesToScroll:    1,
+			speed:             1000,
+			variableWidth:     true,
 		});
 	});
 	</script>
-
-	<style>
-	.project-picture {
-		filter: grayscale(100%);
-		transition: filter 1s;
-	}
-
-	.slick-center {
-		filter: grayscale(0%);
-	}
-	</style>
 <?php } ?>
 
 </body>

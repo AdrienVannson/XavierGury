@@ -367,3 +367,21 @@ ul {
 .under-project h2 a {
 	color: #FFF;
 }
+
+
+/*
+ * Carousel
+ */
+
+#carousel {
+	margin: 25px;
+}
+
+/*#carousel .project-picture {
+	filter: grayscale(100%);
+	transition: filter 1s;
+}
+
+#carousel .slick-center {
+	filter: grayscale(0%);
+}*/
