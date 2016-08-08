@@ -15,6 +15,7 @@ class Picture {
 			$this->infos = "";
 			$this->name = "";
 			$this->description = "";
+			$this->creationDate = "NULL";
 		}
 		else {
 			$results = $db->prepare("SELECT * FROM pictures WHERE id=?");
@@ -27,6 +28,7 @@ class Picture {
 			$this->infos = $datas["infos"];
 			$this->name = $datas["name"];
 			$this->description = $datas["description"];
+			$this->creationDate = $datas["creation_date"];
 		}
 	}
 	
@@ -35,13 +37,14 @@ class Picture {
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description) VALUES (?, ?, ?, ?, ?);");
+			$results = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
 					$this->name,
-					$this->description
+					$this->description,
+					$this->creationDate
 			));
 				
 			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
@@ -49,13 +52,15 @@ class Picture {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=? WHERE id=?;");
+			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;");
 			$results->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
 					$this->name,
 					$this->description,
+					$this->creationDate,
+					
 					$this->id
 			));
 		}
@@ -127,6 +132,13 @@ class Picture {
 		return $this->description;
 	}
 	
+	public function setCreationDate($creationDate) {
+		$this->creationDate = $creationDate;
+	}
+	public function getCreationDate() {
+		return $this->creationDate;
+	}
+	
 	
 	public function getPathResource($size) {
 		return "resources/pictures/".$this->id."/".$size.".".$this->getType();
@@ -177,4 +189,5 @@ class Picture {
 	protected $infos;
 	protected $name;
 	protected $description;
+	protected $creationDate;
 }
