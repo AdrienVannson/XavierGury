@@ -1,22 +1,18 @@
 <?php
 /* Controller */
 include_once(__DIR__."/../model/Project.class.php");
+include_once(__DIR__."/../model/Picture.class.php");
 
-class LogProject
+
+class LogProject extends Project
 {
-	public function getId ()
-	{
-		return -1;
-	}
-	
-	public function getIdParent ()
-	{
-		return 0;
-	}
-	
-	public function getName ()
-	{
-		return "Journal";
+	public function __construct () {
+		$this->id = 10;
+		$this->idParent = 0;
+		$this->name = "Journal";
+		$this->description = "";
+		$this->color = "000000";
+		$this->picturesDisplayMode = "CAROUSEL";
 	}
 	
 	public function getUrl ()
@@ -24,22 +20,12 @@ class LogProject
 		return "/journal";
 	}
 	
-	public function getFirstLevelParent ()
-	{
-		return $this;
-	}
-	
-	public function getChildren ()
-	{
-		return array();
-	}
-	
 	public function getPictures ()
 	{
-		return array();
+		return []; // TODO : return pictures
 	}
 }
 
 $project = new LogProject();
 
-include(__DIR__."/../view/log.php");
+include(__DIR__."/../view/project.php");

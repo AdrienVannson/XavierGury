@@ -210,12 +210,12 @@ class Project {
 	}
 	
 
-	private $id;
-	private $idParent;
-	private $name;
-	private $description;
-	private $color;
-	private $picturesDisplayMode;
+	protected $id;
+	protected $idParent;
+	protected $name;
+	protected $description;
+	protected $color;
+	protected $picturesDisplayMode;
 }
 
 

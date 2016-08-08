@@ -98,7 +98,7 @@ include_once(__DIR__."/left_menu.php");
 var nbPictures = <?php echo sizeof($pictures)?>;
 </script>
 
-<script type="text/javascript" src="/scripts/project.js"> </script>
+<script type="text/javascript" src="/scripts/project.js"></script>
 
 </body>
 </html>
