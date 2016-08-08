@@ -20,7 +20,7 @@ if (isset($_POST["save"])) {
 	$picture->setIdProject($_POST["id_project"]);
 	$picture->setName($_POST["name"] );
 	$picture->setDescription($_POST["description"]);
-	$picture->setCreationDate( $_POST["creation-date"]=="" ? "NULL" : $_POST["creation-date"] );
+	$picture->setCreationDate( $_POST["creation-date"]=="" ? "" : $_POST["creation-date"] );
 	$picture->setType($_POST["type"]);
 	
 	if ($picture->getType() == 'youtube') {

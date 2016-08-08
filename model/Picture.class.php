@@ -15,7 +15,7 @@ class Picture {
 			$this->infos = "";
 			$this->name = "";
 			$this->description = "";
-			$this->creationDate = "NULL";
+			$this->creationDate = "";
 		}
 		else {
 			$results = $db->prepare("SELECT * FROM pictures WHERE id=?");
@@ -65,7 +65,7 @@ class Picture {
 			));
 		}
 		
-		if ($this->creationDate == "NULL") {
+		if ($this->creationDate == "") {
 			$request = $db->prepare("UPDATE pictures SET creation_date = NULL WHERE id = ?");
 			$request->execute(array($this->id));
 		}
