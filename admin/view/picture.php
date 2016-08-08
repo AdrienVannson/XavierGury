@@ -72,6 +72,13 @@ function show_admin_picture($picture) {
 						</div>
 					</div>
 					
+					<div class="row">
+						<div class="input-field col s12">
+							<div style="color:#9e9e9e;">Date de réalisation</div>
+							<input type="date" name="creation-date" id="creation-date" value="<?php echo $picture->getCreationDate();?>"/>
+						</div>
+					</div>
+					
 					<p>
 						<label for="description">Description</label>
 						<textarea id="description" name="description"><?php echo $picture->getDescription();?></textarea>
@@ -160,9 +167,15 @@ function show_admin_picture($picture) {
 				
 				<script>
 				$(document).ready(function(){
-					$('.modal-trigger').leanModal();
 					CKEDITOR.replace("description");
-					$(".button-collapse").sideNav();
+					
+					$('.modal-trigger').leanModal();
+					$('.button-collapse').sideNav();
+					
+					$('#creation-date').pickadate({
+						selectMonths: true,
+						selectYears: 25
+					});
 				});
 				</script>
 				
