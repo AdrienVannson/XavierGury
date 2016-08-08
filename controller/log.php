@@ -22,7 +22,17 @@ class LogProject extends Project
 	
 	public function getPictures ()
 	{
-		return []; // TODO : return pictures
+		$request = "SELECT id FROM pictures WHERE date IS NOT NULL ORDER BY date";
+		
+		$db = get_db();
+		$results = $db->prepare($request);
+		$results->execute(array($this->id));
+		
+		$pictures = [];
+		while($datas = $results->fetch()) {
+			$pictures[] = new Picture($datas["id"]);
+		}
+		return $pictures;
 	}
 }
 
