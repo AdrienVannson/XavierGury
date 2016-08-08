@@ -9,7 +9,17 @@ include_once(__DIR__."/left_menu.php");
 
 <!DOCTYPE HTML>
 <html lang="fr">
-<?php show_head($project->getName(), array("/styles/project.css")); ?>
+<?php
+
+$styles = ["/styles/project.css"];
+
+if ($project->getPicturesDisplayMode() == "CAROUSEL") {
+	$styles[] = "http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css";
+}
+
+show_head($project->getName(), $styles);
+
+?>
 <body>
 
 <?php show_left_menu($project); ?>
@@ -53,13 +63,15 @@ include_once(__DIR__."/left_menu.php");
 			else {
 			?>
 				<img 
-					 src="<?php echo $picture->getUrlResource("medium");?>"
-					 class="project-picture"
-					 id="picture-<?php echo $index;?>"
-					 title="<?php echo $picture->getName();?>"
-					 alt="<?php echo $picture->getDescription();?>"
-					 onclick="showPicture(this)"
-					 onload="toRefresh[this.id.split('-')[1]]=-1"
+					src="<?php echo $picture->getUrlResource("medium");?>"
+					class="project-picture"
+					id="picture-<?php echo $index;?>"
+					title="<?php echo $picture->getName();?>"
+					alt="<?php echo $picture->getDescription();?>"
+					<?php if ($project->getPicturesDisplayMode() != "CAROUSEL") { ?>
+						onclick="showPicture(this)"
+					<?php } ?>
+					onload="toRefresh[this.id.split('-')[1]]=-1"
 				/>
 			<?php
 			}
@@ -98,7 +110,35 @@ include_once(__DIR__."/left_menu.php");
 var nbPictures = <?php echo sizeof($pictures)?>;
 </script>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script type="text/javascript" src="/scripts/project.js"></script>
+
+<?php if ($project->getPicturesDisplayMode() == "CAROUSEL") { ?>
+	<script>
+	$(document).ready(function(){
+		$('#pictures').slick({
+			centerMode: true,
+			centerPadding: '60px',
+			//infinite: false,
+			slidesToShow: 3
+			//slidesToScroll: 1
+		});
+	});
+	</script>
+
+	<style>
+	.project-picture {
+		filter: grayscale(100%);
+		transition: filter 1s;
+	}
+
+	.slick-center {
+		filter: grayscale(0%);
+	}
+	</style>
+<?php } ?>
 
 </body>
 </html>
