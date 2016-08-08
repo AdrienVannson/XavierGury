@@ -171,10 +171,10 @@ class Picture {
 		return $code;
 	}
 	
-	private $id;
-	private $idProject;
-	private $type;
-	private $infos;
-	private $name;
-	private $description;
+	protected $id;
+	protected $idProject;
+	protected $type;
+	protected $infos;
+	protected $name;
+	protected $description;
 }
