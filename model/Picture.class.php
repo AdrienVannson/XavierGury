@@ -36,9 +36,9 @@ class Picture {
 	public function save() {
 		$db = get_db();
 		
-		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);");
-			$results->execute(array(
+		if ($this->id == -1) {
+			$request = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);");
+			$request->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
@@ -52,8 +52,8 @@ class Picture {
 			$this->id = $datas["id"];
 		}
 		else {
-			$results = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;");
-			$results->execute(array(
+			$request = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;");
+			$request->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
@@ -63,6 +63,11 @@ class Picture {
 					
 					$this->id
 			));
+		}
+		
+		if ($this->creationDate == "NULL") {
+			$request = $db->prepare("UPDATE pictures SET creation_date = NULL WHERE id = ?");
+			$request->execute(array($this->id));
 		}
 	}
 	

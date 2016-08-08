@@ -173,6 +173,15 @@ function show_admin_picture($picture) {
 					$('.button-collapse').sideNav();
 					
 					$('#creation-date').pickadate({
+						
+						monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+						monthsShort: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+						
+						weekdaysFull: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+						weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+						
+						format: 'yyyy-mm-dd',
+						
 						selectMonths: true,
 						selectYears: 25
 					});
