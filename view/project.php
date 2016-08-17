@@ -124,11 +124,11 @@ var nbPictures = <?php echo sizeof($pictures)?>;
 	<script>
 	$(document).ready(function(){
 		$('#carousel').slick({
-			//centerMode:        true,
+			centerMode:        true,
 			focusOnSelect:     true,
 			infinite:          false,
 			slidesToScroll:    1,
-			speed:             1000,
+			speed:             500,
 			variableWidth:     true,
 		});
 	});
