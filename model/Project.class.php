@@ -65,11 +65,11 @@ class Project {
 			return;
 		}
 		
-		foreach ($this->get_children() as $child) {
+		foreach ($this->getChildren() as $child) {
 			$child->delete();
 		}
 		
-		foreach ($this->get_pictures() as $picture) {
+		foreach ($this->getPictures() as $picture) {
 			$picture->delete();
 		}
 		
