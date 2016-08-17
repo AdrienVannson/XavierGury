@@ -63,21 +63,19 @@ if ($size == 2) {
 		}
 		
 	}
-	if ($request[0] == "ressources") { // Ressources
-		
-		if (preg_match("#^[0-9]+-.*\.*$#", $request[1])) { // TODO : vérifier l'extension
-			$datas = explode("-", $request[1]);
-			
-			$_GET["resource_id"] = $datas[0];
-			$_GET["resource_size"] = substr($datas[1], 0, sizeof($datas[1])-5);
-			include("controller/picture.php");
-			exit();
-		}
-		
-	}
 	
 }
 
+
+$regexPictures = "#^([0-9]+-.*/)+ressources/([0-9]+)(s|m|l|r)-.*\.(png|jpg|gif)$#";
+if (preg_match($regexPictures, $_GET["request"])) {
+	$infos = explode('\n', preg_replace($regexPictures, '$2\n$3', $_GET["request"]));
+
+	$_GET["resource_id"] = $infos[0];
+	$_GET["resource_size"] = $infos[1];
+	include("controller/picture.php");
+	exit();
+}
 
 if (preg_match("#^([0-9]+-.*)+$#", $_GET["request"])) { // Page de projet
 

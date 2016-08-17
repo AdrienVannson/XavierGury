@@ -3,6 +3,13 @@
 include_once(__DIR__."/connect.php");
 include_once(__DIR__."/Project.class.php");
 
+$WHOLE_SIZES = [
+	's' => 'small',
+	'm' => 'medium',
+	'l' => 'large',
+	'r' => 'real'
+];
+
 class Picture {
 	
 	public function __construct($id) {
@@ -146,10 +153,11 @@ class Picture {
 	
 	
 	public function getPathResource($size) {
-		return "resources/pictures/".$this->id."/".$size.".".$this->getType();
+		global $WHOLE_SIZES;
+		return "resources/pictures/".$this->id."/".$WHOLE_SIZES[$size].".".$this->getType();
 	}
 	public function getUrlResource($size) {
-		return "/ressources/".$this->id."-".$size.".".$this->getType();
+		return $this->getProject()->getUrl() . '/ressources/' . $this->id . $size[0] . '-' . $this->name . '.' . $this->getType();
 	}
 	
 	public function getAdminUrl() {
