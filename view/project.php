@@ -1,9 +1,9 @@
 <?php
 /* View */
-include_once(__DIR__."/../model/Project.class.php");
-include_once(__DIR__."/../model/Picture.class.php");
-include_once(__DIR__."/head.php");
-include_once(__DIR__."/left_menu.php");
+include_once(__DIR__.'/../model/Project.class.php');
+include_once(__DIR__.'/../model/Picture.class.php');
+include_once(__DIR__.'/head.php');
+include_once(__DIR__.'/left_menu.php');
 
 ?>
 
@@ -11,11 +11,11 @@ include_once(__DIR__."/left_menu.php");
 <html lang="fr">
 <?php
 
-$styles = ["/styles/project.css"];
+$styles = ['/styles/project.css'];
 
-if ($project->getPicturesDisplayMode() == "CAROUSEL") {
-	$styles[] = "http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css";
-	$styles[] = "http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css";
+if ($project->getPicturesDisplayMode() == 'CAROUSEL') {
+	$styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css';
+	$styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
 }
 
 show_head($project->getName(), $styles);
@@ -66,12 +66,12 @@ show_head($project->getName(), $styles);
 			else {
 			?>
 				<img 
-					src="<?php echo $picture->getUrlResource("medium");?>"
+					src="<?php echo $picture->getUrlResource('medium');?>"
 					class="project-picture"
 					id="picture-<?php echo $index;?>"
 					title="<?php echo $picture->getName();?>"
 					alt="<?php echo $picture->getDescription();?>"
-					<?php if ($project->getPicturesDisplayMode() != "CAROUSEL") { ?>
+					<?php if ($project->getPicturesDisplayMode() != 'CAROUSEL') { ?>
 						onclick="showPicture(this)"
 					<?php } ?>
 					onload="toRefresh[this.id.split('-')[1]]=-1"
@@ -120,7 +120,7 @@ var nbPictures = <?php echo sizeof($pictures)?>;
 <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script type="text/javascript" src="/scripts/project.js"></script>
 
-<?php if ($project->getPicturesDisplayMode() == "CAROUSEL") { ?>
+<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>
 	<script>
 	$(document).ready(function(){
 		$('#carousel').slick({

@@ -1,8 +1,8 @@
 <?php
 /* View */
-include_once(__DIR__."/../../model/Project.class.php");
+include_once(__DIR__.'/../../model/Project.class.php');
 
-header("Content-Type: text/css");
+header('Content-Type: text/css');
 
 $nbFirstLevelProjects = getNbFirstLevelProjects();
 

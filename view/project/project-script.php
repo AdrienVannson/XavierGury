@@ -1,7 +1,7 @@
 <?php
 /* View */
 
-header("Content-Type: text/js");
+header('Content-Type: text/js');
 ?>
 
 /*
@@ -14,8 +14,8 @@ toRefresh.fill(0, 0, nbPictures);
 
 var urls = [];
 for (var iPicture=0; iPicture<nbPictures; iPicture++) {
-	if (document.getElementById("picture-"+iPicture)) {
-		urls[iPicture] = document.getElementById("picture-"+iPicture).src;
+	if (document.getElementById('picture-'+iPicture)) {
+		urls[iPicture] = document.getElementById('picture-'+iPicture).src;
 	}
 	else {
 		toRefresh[iPicture] = -1;
@@ -30,7 +30,7 @@ function refresh ()
 		if (toRefresh[iPicture] != -1) { // Need a refresh
 			succes = false;
 			toRefresh[iPicture]++;
-			document.getElementById("picture-"+iPicture).src = urls[iPicture] + "?refresh=" + toRefresh[iPicture];
+			document.getElementById('picture-'+iPicture).src = urls[iPicture] + '?refresh=' + toRefresh[iPicture];
 		}
 	}
 	

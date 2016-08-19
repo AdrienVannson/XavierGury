@@ -1,6 +1,6 @@
 <?php
 /* View */
-header("Content-Type: text/css");
+header('Content-Type: text/css');
 ?>
 
 /* <style>*/

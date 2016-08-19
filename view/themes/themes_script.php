@@ -1,6 +1,6 @@
 <?php
 /* View */
-header("Content-Type: text/js");
+header('Content-Type: text/js');
 ?>
 
 /* Comment to enable the JS coloration in IDE
@@ -40,13 +40,13 @@ $iTheme = 0;
 foreach($themes as $theme) {
 	$themesShowed[] = new ThemeShowed($theme->getName(), $theme->getUrl(), $theme->getColor());
 }
-$themesShowed[] = new ThemeShowed("", "/", "FFF");
+$themesShowed[] = new ThemeShowed('', '/', 'FFF');
 
 foreach($themesShowed as $theme) {
-	echo "new Theme('".str_replace("'", "\\'", mb_strtoupper($theme->name, "UTF-8"))."', '".$theme->url."', '#".$theme->color."')";
+	echo 'new Theme(\''.str_replace('\'', '\\\'', mb_strtoupper($theme->name, 'UTF-8')).'\', \''.$theme->url.'\', \'#'.$theme->color.'\')';
 
 	if($iTheme < sizeof($themesShowed)-1) {
-		echo ",";
+		echo ',';
 	}
 	$iTheme++;
 }

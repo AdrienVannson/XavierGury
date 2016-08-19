@@ -25,7 +25,7 @@ function show_left_menu($project) {
 				href="<?php echo $parent->getUrl();?>"
 				<?php if($parent->getId() == $project->getId()){?>class="active"<?php }?>
 			>
-				<?php echo mb_strtoupper($parent->getName(), "UTF-8"); ?>
+				<?php echo mb_strtoupper($parent->getName(), 'UTF-8'); ?>
 			</a>
 		</li>
 		
@@ -37,7 +37,7 @@ function show_left_menu($project) {
 					href="<?php echo $currentProject->getUrl();?>"
 					<?php if($currentProject->getId()==$project->getId()){?>class="active"<?php }?>
 				>
-					<?php echo mb_strtoupper($currentProject->getName(), "UTF-8");?>
+					<?php echo mb_strtoupper($currentProject->getName(), 'UTF-8');?>
 				</a>
 			</li>
 			<?php
