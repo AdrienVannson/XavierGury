@@ -1,3 +1,3 @@
 <?php
 /* Controller */
-include(__DIR__."/../view/robots-txt.php");
+include(__DIR__.'/../view/robots-txt.php');

@@ -1,3 +1,3 @@
 <?php
 /* Controller */
-include(__DIR__."/../view/themes.php");
+include(__DIR__.'/../view/themes.php');
