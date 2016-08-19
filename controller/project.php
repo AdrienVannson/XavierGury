@@ -1,12 +1,10 @@
 <?php
 /* Controller */
-include_once(__DIR__."/../model/Project.class.php");
+include_once(__DIR__.'/../model/ProjectFactory.class.php');
 
+$project = ProjectFactory::getInstance()->getProject($PROJECT_ID);
 
-$project_id = $_GET["project_id"];
-$project = new Project($project_id);
-
-if($_GET["url"] == $project->getUrl()) {
+if ($URL == $project->getUrl()) {
 	include(__DIR__."/../view/project.php");
 }
 else {

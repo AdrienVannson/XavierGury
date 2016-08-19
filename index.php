@@ -24,7 +24,10 @@ if ($size == 1) {
 	}
 	
 	if ($request[0] == "journal") {
-		include("controller/log.php");
+		$PROJECT_ID = 10;
+		$URL = '/journal';
+		
+		include("controller/project.php");
 		exit();
 	}
 	
@@ -85,8 +88,8 @@ if (preg_match("#^([0-9]+-.*)+$#", $_GET["request"])) { // Page de projet
 		$path[] = explode("-", $level);
 	}
 
-	$_GET["project_id"] = end($path)[0];
-	$_GET["url"] = "/".implode("/", $request);
+	$PROJECT_ID = end($path)[0];
+	$URL = "/".implode("/", $request);
 
 	include("controller/project.php");
 	exit();
