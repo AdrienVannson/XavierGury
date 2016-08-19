@@ -29,7 +29,7 @@ if ($size == 1) {
 	}
 	
 	if ($request[0] == "robots.txt") { // Fichier robots.txt
-		include("controller/robots_txt.php");
+		include("controller/robots-txt.php");
 		exit();
 	}
 	
