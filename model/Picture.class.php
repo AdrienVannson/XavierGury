@@ -1,7 +1,8 @@
 <?php
 /* Model */
-include_once(__DIR__."/connect.php");
-include_once(__DIR__."/Project.class.php");
+include_once(__DIR__.'/connect.php');
+include_once(__DIR__.'/ProjectFactory.class.php');
+include_once(__DIR__.'/PictureFactory.class.php');
 
 $WHOLE_SIZES = [
 	's' => 'small',
@@ -113,7 +114,7 @@ class Picture {
 		return $this->idProject;
 	}
 	public function getProject() {
-		return new Project($this->getIdProject());
+		return ProjectFactory::getInstance()->getProject($this->getIdProject());
 	}
 	
 	public function setType($type) {

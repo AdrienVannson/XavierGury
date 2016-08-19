@@ -1,10 +1,12 @@
 <?php
 /* Model */
-include_once(__DIR__."/connect.php");
-include_once(__DIR__."/Picture.class.php");
+include_once(__DIR__.'/connect.php');
+include_once(__DIR__.'/ProjectFactory.class.php');
+include_once(__DIR__.'/PictureFactory.class.php');
 
 
-class Project {
+class Project
+{
 
 	public function __construct($id) {
 		$db = get_db();
@@ -127,7 +129,7 @@ class Project {
 	
 	// Get members of the family
 	public function getParent () {
-		return new Project( $this->idParent );
+		return ProjectFactory::getInstance()->getProject($this->idParent);
 	}
 	
 	public function getParents () {
@@ -157,7 +159,7 @@ class Project {
 		
 		$children = [];
 		while($datas = $results->fetch()) {
-			$children[] = new Project($datas["id"]);
+			$children[] = ProjectFactory::getInstance()->getProject($datas["id"]);
 		}
 		return $children;
 	}
@@ -171,7 +173,7 @@ class Project {
 		
 		$brothers = [];
 		while($datas = $results->fetch()) {
-			$brothers[] = new Project($datas["id"]);
+			$brothers[] = ProjectFactory::getInstance()->getProject($datas["id"]);
 		}
 		return $brothers;
 	}
@@ -186,7 +188,7 @@ class Project {
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = new Picture($datas["id"]);
+			$pictures[] = PictureFactory::getInstance()->getPicture($datas["id"]);
 		}
 		return $pictures;
 	}
@@ -222,11 +224,6 @@ class Project {
 
 class LogProject extends Project
 {
-	public function getUrl ()
-	{
-		return "/journal";
-	}
-	
 	public function getPictures ()
 	{
 		$request = "SELECT id FROM pictures WHERE creation_date IS NOT NULL ORDER BY creation_date ASC, id ASC";
@@ -237,7 +234,7 @@ class LogProject extends Project
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = new Picture($datas["id"]);
+			$pictures[] = PictureFactory::getInstance()->getPicture($datas["id"]);
 		}
 		return $pictures;
 	}
@@ -256,7 +253,7 @@ function getFirstLevelProjects ()
 		$id = $datas["id"];
 		
 		if ($id != 10) {
-			$projects[] = new Project($id);
+			$projects[] = ProjectFactory::getInstance()->getProject($id);
 		}
 	}
 

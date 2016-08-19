@@ -23,14 +23,6 @@ if ($size == 1) {
 		exit();
 	}
 	
-	if ($request[0] == "journal") {
-		$PROJECT_ID = 10;
-		$URL = '/journal';
-		
-		include("controller/project.php");
-		exit();
-	}
-	
 	if ($request[0] == "robots.txt") { // Fichier robots.txt
 		include("controller/robots-txt.php");
 		exit();
