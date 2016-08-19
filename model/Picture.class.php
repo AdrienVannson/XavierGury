@@ -19,24 +19,24 @@ class Picture {
 		if($id == -1) {
 			$this->id = -1;
 			$this->idProject;
-			$this->type = "JPG";
-			$this->infos = "";
-			$this->name = "";
-			$this->description = "";
-			$this->creationDate = "";
+			$this->type = 'JPG';
+			$this->infos = '';
+			$this->name = '';
+			$this->description = '';
+			$this->creationDate = '';
 		}
 		else {
-			$results = $db->prepare("SELECT * FROM pictures WHERE id=?");
+			$results = $db->prepare('SELECT * FROM pictures WHERE id=?');
 			$results->execute(array($id));
 			$datas = $results->fetch();
 			
-			$this->id = $datas["id"];
-			$this->idProject = $datas["id_project"];
-			$this->type = $datas["type"];
-			$this->infos = $datas["infos"];
-			$this->name = $datas["name"];
-			$this->description = $datas["description"];
-			$this->creationDate = $datas["creation_date"];
+			$this->id = $datas['id'];
+			$this->idProject = $datas['id_project'];
+			$this->type = $datas['type'];
+			$this->infos = $datas['infos'];
+			$this->name = $datas['name'];
+			$this->description = $datas['description'];
+			$this->creationDate = $datas['creation_date'];
 		}
 	}
 	
@@ -45,7 +45,7 @@ class Picture {
 		$db = get_db();
 		
 		if ($this->id == -1) {
-			$request = $db->prepare("INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);");
+			$request = $db->prepare('INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);');
 			$request->execute(array(
 					$this->idProject,
 					$this->type,
@@ -55,12 +55,12 @@ class Picture {
 					$this->creationDate
 			));
 				
-			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
+			$results = $db->query('SELECT LAST_INSERT_ID() AS id');
 			$datas = $results->fetch();
-			$this->id = $datas["id"];
+			$this->id = $datas['id'];
 		}
 		else {
-			$request = $db->prepare("UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;");
+			$request = $db->prepare('UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;');
 			$request->execute(array(
 					$this->idProject,
 					$this->type,
@@ -73,8 +73,8 @@ class Picture {
 			));
 		}
 		
-		if ($this->creationDate == "") {
-			$request = $db->prepare("UPDATE pictures SET creation_date = NULL WHERE id = ?");
+		if ($this->creationDate == '') {
+			$request = $db->prepare('UPDATE pictures SET creation_date = NULL WHERE id = ?');
 			$request->execute(array($this->id));
 		}
 	}
@@ -85,11 +85,11 @@ class Picture {
 		}
 		
 		// Delete folder
-		$dirName = dirname(__DIR__)."/resources/pictures/".$this->id."/";
+		$dirName = dirname(__DIR__).'/resources/pictures/'.$this->id.'/';
 		$dir = opendir($dirName);
 		while($file = readdir($dir)) {
-			if($file != "." && $file != "..") {
-				$toDel = $dirName."/".$file;
+			if($file != '.' && $file != '..') {
+				$toDel = $dirName.'/'.$file;
 				unlink($toDel);
 			}
 		}
@@ -98,7 +98,7 @@ class Picture {
 		
 		$db = get_db();
 	
-		$results = $db->prepare("DELETE FROM pictures WHERE id=?");
+		$results = $db->prepare('DELETE FROM pictures WHERE id=?');
 		$results->execute(array($this->id));
 	}
 	
@@ -155,7 +155,7 @@ class Picture {
 	
 	public function getPathResource($size) {
 		global $WHOLE_SIZES;
-		return "resources/pictures/".$this->id."/".$WHOLE_SIZES[$size].".".$this->getType();
+		return 'resources/pictures/'.$this->id.'/'.$WHOLE_SIZES[$size].'.'.$this->getType();
 	}
 	public function getUrlResource($size) {
 		return $this->getProject()->getUrl() . '/ressources/' . $this->id . $size[0] . '-' . $this->name . '.' . $this->getType();
@@ -163,9 +163,9 @@ class Picture {
 	
 	public function getAdminUrl() {
 		if ($this->getId() == -1) {
-			return "/admin/pictures/new/".$this->getIdProject();
+			return '/admin/pictures/new/'.$this->getIdProject();
 		}
-		return "/admin/pictures/".$this->getId();
+		return '/admin/pictures/'.$this->getId();
 	}
 	
 	public function getHtml($a=0) {
@@ -177,7 +177,7 @@ class Picture {
 		}
 		
 		// Movie
-		$infos = explode("\n", $this->infos);
+		$infos = explode('\n', $this->infos);
 		$infos[1] = intval($infos[1]);
 		$infos[2] = intval($infos[2]);
 

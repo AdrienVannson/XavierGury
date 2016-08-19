@@ -13,22 +13,22 @@ class Project
 		
 		if($id == -1) {
 			$this->id = -1;
-			$this->name = "";
-			$this->description = "";
-			$this->color = "000000";
-			$this->picturesDisplayMode = "GRID";
+			$this->name = '';
+			$this->description = '';
+			$this->color = '000000';
+			$this->picturesDisplayMode = 'GRID';
 		}
 		else {
-			$result = $db->prepare("SELECT * FROM projects WHERE id=?");
+			$result = $db->prepare('SELECT * FROM projects WHERE id=?');
 			$result->execute(array($id));
 			$datas = $result->fetch();
 	
-			$this->id = $datas["id"];
-			$this->idParent = $datas["id_parent"];
-			$this->name = $datas["name"];
-			$this->description = $datas["description"];
-			$this->color = $datas["color"];
-			$this->picturesDisplayMode = $datas["pictures_display_mode"];
+			$this->id = $datas['id'];
+			$this->idParent = $datas['id_parent'];
+			$this->name = $datas['name'];
+			$this->description = $datas['description'];
+			$this->color = $datas['color'];
+			$this->picturesDisplayMode = $datas['pictures_display_mode'];
 		}
 	}
 	
@@ -36,7 +36,7 @@ class Project
 		$db = get_db();
 		
 		if($this->id == -1) {
-			$results = $db->prepare("INSERT INTO projects (id_parent, name, description, color, pictures_display_mode) VALUES (?, ?, ?, ?, ?);");
+			$results = $db->prepare('INSERT INTO projects (id_parent, name, description, color, pictures_display_mode) VALUES (?, ?, ?, ?, ?);');
 			$results->execute(array(
 					$this->idParent,
 					$this->name,
@@ -45,12 +45,12 @@ class Project
 					$this->picturesDisplayMode
 			));
 				
-			$results = $db->query("SELECT LAST_INSERT_ID() AS id");
+			$results = $db->query('SELECT LAST_INSERT_ID() AS id');
 			$datas = $results->fetch();
-			$this->id = $datas["id"];
+			$this->id = $datas['id'];
 		}
 		else {
-			$results = $db->prepare("UPDATE projects SET id_parent=?, name=?, description=?, color=?, pictures_display_mode=? WHERE id=?;");
+			$results = $db->prepare('UPDATE projects SET id_parent=?, name=?, description=?, color=?, pictures_display_mode=? WHERE id=?;');
 			$results->execute(array(
 					$this->idParent,
 					$this->name,
@@ -78,7 +78,7 @@ class Project
 		
 		$db = get_db();
 		
-		$results = $db->prepare("DELETE FROM projects WHERE id=?");
+		$results = $db->prepare('DELETE FROM projects WHERE id=?');
 		$results->execute(array($this->id));
 	}
 	
@@ -110,7 +110,7 @@ class Project
 	}
 	
 	public function setColor ($color) {
-		if($color[0] == "#") {
+		if($color[0] == '#') {
 			$color = substr($color, 1);
 		}
 		$this->color = $color;
@@ -151,7 +151,7 @@ class Project
 	}
 	
 	public function getChildren () {
-		$request = "SELECT id FROM projects WHERE id_parent=?";
+		$request = 'SELECT id FROM projects WHERE id_parent=?';
 		
 		$db = get_db();
 		$results = $db->prepare($request);
@@ -159,13 +159,13 @@ class Project
 		
 		$children = [];
 		while($datas = $results->fetch()) {
-			$children[] = ProjectFactory::getInstance()->getProject($datas["id"]);
+			$children[] = ProjectFactory::getInstance()->getProject($datas['id']);
 		}
 		return $children;
 	}
 	
 	public function getBrothers () {
-		$request = "SELECT id FROM projects WHERE id_parent=?";
+		$request = 'SELECT id FROM projects WHERE id_parent=?';
 		
 		$db = get_db();
 		$results = $db->prepare($request);
@@ -173,14 +173,14 @@ class Project
 		
 		$brothers = [];
 		while($datas = $results->fetch()) {
-			$brothers[] = ProjectFactory::getInstance()->getProject($datas["id"]);
+			$brothers[] = ProjectFactory::getInstance()->getProject($datas['id']);
 		}
 		return $brothers;
 	}
 	
 	
 	public function getPictures () {
-		$request = "SELECT id FROM pictures WHERE id_project=?";
+		$request = 'SELECT id FROM pictures WHERE id_project=?';
 		
 		$db = get_db();
 		$results = $db->prepare($request);
@@ -188,7 +188,7 @@ class Project
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = PictureFactory::getInstance()->getPicture($datas["id"]);
+			$pictures[] = PictureFactory::getInstance()->getPicture($datas['id']);
 		}
 		return $pictures;
 	}
@@ -196,17 +196,17 @@ class Project
 	
 	public function getUrlAdmin () {
 		if ($this->getId() == -1) {
-			return "/admin/projects/new/".$this->getIdParent();
+			return '/admin/projects/new/'.$this->getIdParent();
 		}
-		return "/admin/projects/".$this->getId();
+		return '/admin/projects/'.$this->getId();
 	}
 	
 	public function getUrl () {
 		$parents = $this->getParents();
-		$url = "";
+		$url = '';
 		
 		foreach ($parents as $parent) {
-			$url .= "/" . $parent->getId() . "-" . $parent->getName();
+			$url .= '/' . $parent->getId() . '-' . $parent->getName();
 		}
 		
 		return $url;
@@ -226,7 +226,7 @@ class LogProject extends Project
 {
 	public function getPictures ()
 	{
-		$request = "SELECT id FROM pictures WHERE creation_date IS NOT NULL ORDER BY creation_date ASC, id ASC";
+		$request = 'SELECT id FROM pictures WHERE creation_date IS NOT NULL ORDER BY creation_date ASC, id ASC';
 		
 		$db = get_db();
 		$results = $db->prepare($request);
@@ -234,7 +234,7 @@ class LogProject extends Project
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = PictureFactory::getInstance()->getPicture($datas["id"]);
+			$pictures[] = PictureFactory::getInstance()->getPicture($datas['id']);
 		}
 		return $pictures;
 	}
@@ -245,12 +245,12 @@ class LogProject extends Project
 function getFirstLevelProjects ()
 {
 	$db = get_db();
-	$result = $db->query("SELECT id FROM projects WHERE id_parent=0");
+	$result = $db->query('SELECT id FROM projects WHERE id_parent=0');
 
 	$projects = [];
 
 	while ($datas = $result->fetch()) {
-		$id = $datas["id"];
+		$id = $datas['id'];
 		
 		if ($id != 10) {
 			$projects[] = ProjectFactory::getInstance()->getProject($id);
@@ -263,7 +263,7 @@ function getFirstLevelProjects ()
 function getNbFirstLevelProjects ()
 {
 	$db = get_db();
-	$result = $db->query("SELECT COUNT(id) FROM projects WHERE id_parent=0");
+	$result = $db->query('SELECT COUNT(id) FROM projects WHERE id_parent=0');
 	$datas = $result->fetch();
 	return $datas[0] - 1;
 }
