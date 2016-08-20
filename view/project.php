@@ -65,17 +65,20 @@ show_head($project->getName(), $styles);
 			}
 			else {
 			?>
-				<img 
-					src="<?php echo $picture->getUrlResource('medium');?>"
-					class="project-picture"
-					id="picture-<?php echo $index;?>"
-					title="<?php echo $picture->getName();?>"
-					alt="<?php echo $picture->getDescription();?>"
-					<?php if ($project->getPicturesDisplayMode() != 'CAROUSEL') { ?>
-						onclick="showPicture(this)"
-					<?php } ?>
-					onload="toRefresh[this.id.split('-')[1]]=-1"
-				/>
+				<div>
+					<img 
+						<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
+						else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
+						class="project-picture"
+						id="picture-<?php echo $index;?>"
+						title="<?php echo $picture->getName();?>"
+						alt="<?php echo $picture->getDescription();?>"
+						<?php if ($project->getPicturesDisplayMode() != 'CAROUSEL') { ?>
+							onclick="showPicture(this)"
+						<?php } ?>
+						onload="toRefresh[this.id.split('-')[1]]=-1"
+					/>
+				</div>
 			<?php
 			}
 		}
@@ -127,9 +130,12 @@ var nbPictures = <?php echo sizeof($pictures)?>;
 			centerMode:        true,
 			focusOnSelect:     true,
 			infinite:          false,
+			lazyLoad:          'ondemand',
 			slidesToScroll:    1,
 			speed:             500,
+			swipeToSlide:      false,
 			variableWidth:     true,
+			waitForAnimate:    false
 		});
 	});
 	</script>
