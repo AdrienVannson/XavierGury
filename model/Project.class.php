@@ -8,7 +8,23 @@ include_once(__DIR__.'/PictureFactory.class.php');
 class Project
 {
 
-	public function __construct($id) {
+	private function __construct () {}
+	private function __clone () {}
+	
+	
+	public static function getProject ($id)
+	{
+		if (!isset(self::$projectsInstances[$id])) {
+			self::$projectsInstances[$id] = new self;
+			self::$projectsInstances[$id]->init($id);
+		}
+		
+		return self::$projectsInstances[$id];
+	}
+	
+	
+	protected function init ($id)
+	{
 		$db = get_db();
 		
 		if($id == -1) {
@@ -129,7 +145,7 @@ class Project
 	
 	// Get members of the family
 	public function getParent () {
-		return ProjectFactory::getInstance()->getProject($this->idParent);
+		return ProjectFactory::getProject($this->idParent);
 	}
 	
 	public function getParents () {
@@ -159,7 +175,7 @@ class Project
 		
 		$children = [];
 		while($datas = $results->fetch()) {
-			$children[] = ProjectFactory::getInstance()->getProject($datas['id']);
+			$children[] = ProjectFactory::getProject($datas['id']);
 		}
 		return $children;
 	}
@@ -173,7 +189,7 @@ class Project
 		
 		$brothers = [];
 		while($datas = $results->fetch()) {
-			$brothers[] = ProjectFactory::getInstance()->getProject($datas['id']);
+			$brothers[] = ProjectFactory::getProject($datas['id']);
 		}
 		return $brothers;
 	}
@@ -188,7 +204,7 @@ class Project
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = PictureFactory::getInstance()->getPicture($datas['id']);
+			$pictures[] = PictureFactory::getPicture($datas['id']);
 		}
 		return $pictures;
 	}
@@ -219,6 +235,8 @@ class Project
 	protected $description;
 	protected $color;
 	protected $picturesDisplayMode;
+	
+	protected static $projectsInstances;
 }
 
 
@@ -234,7 +252,7 @@ class LogProject extends Project
 		
 		$pictures = [];
 		while($datas = $results->fetch()) {
-			$pictures[] = PictureFactory::getInstance()->getPicture($datas['id']);
+			$pictures[] = PictureFactory::getPicture($datas['id']);
 		}
 		return $pictures;
 	}
@@ -253,7 +271,7 @@ function getFirstLevelProjects ()
 		$id = $datas['id'];
 		
 		if ($id != 10) {
-			$projects[] = ProjectFactory::getInstance()->getProject($id);
+			$projects[] = ProjectFactory::getProject($id);
 		}
 	}
 

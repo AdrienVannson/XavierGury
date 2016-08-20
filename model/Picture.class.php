@@ -114,7 +114,7 @@ class Picture {
 		return $this->idProject;
 	}
 	public function getProject() {
-		return ProjectFactory::getInstance()->getProject($this->getIdProject());
+		return ProjectFactory::getProject($this->getIdProject());
 	}
 	
 	public function setType($type) {
