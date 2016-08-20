@@ -1,21 +1,21 @@
 <?php
 /* View */
-include_once(__DIR__."/../../view/head.php");
-include_once(__DIR__."/menus.php");
+include_once(__DIR__.'/../../view/head.php');
+include_once(__DIR__.'/menus.php');
 
 function show_admin_homepage() {
 	?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head("Administration",
+	<?php show_head('Administration',
 			array(
-				"/admin/styles.css",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
+				'/admin/styles.css',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
 			
 			array(
-				"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+				'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
 	);?>
 	
 	<body>
@@ -65,7 +65,7 @@ function show_admin_homepage() {
 		
 		
 		<script>
-		$(".button-collapse").sideNav();
+		$('.button-collapse').sideNav();
 		</script>
 		
 	</body>

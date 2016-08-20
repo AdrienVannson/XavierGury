@@ -3,11 +3,11 @@
 
 function show_admin_errors() {
 	
-	if(!isset($_SESSION["errors"])) {
+	if (!isset($_SESSION['errors'])) {
 		return;
 	}
 	
-	foreach($_SESSION["errors"] as $message) {
+	foreach ($_SESSION['errors'] as $message) {
 	?>
 
 		<div class="row">
@@ -23,5 +23,5 @@ function show_admin_errors() {
 
 	<?php
 	}
-	$_SESSION["errors"] = array();
+	$_SESSION['errors'] = array();
 }

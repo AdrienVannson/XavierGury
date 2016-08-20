@@ -1,17 +1,17 @@
 <?php
 /* View */
-include_once(__DIR__."/../../view/head.php");
-include_once(__DIR__."/menus.php");
-include_once(__DIR__."/errors.php");
+include_once(__DIR__.'/../../view/head.php');
+include_once(__DIR__.'/menus.php');
+include_once(__DIR__.'/errors.php');
 
 
 function show_admin_picture($picture) {
 	
 	if($picture->getId() == -1) {
-		$action = "Ajouter";
+		$action = 'Ajouter';
 	}
 	else {
-		$action = "Modifier";
+		$action = 'Modifier';
 	}
 	
 	$project = $picture->getProject();
@@ -19,30 +19,30 @@ function show_admin_picture($picture) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action." une ". ($picture->getType()=="youtube" ? "vidéo" : "image"),
+	<?php show_head($action.' une '. ($picture->getType()=='youtube' ? 'vidéo' : 'image'),
 			array(
-				"/admin/styles.css",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
+				'/admin/styles.css',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
 			
 			array(
-				"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js",
-				"/ckeditor/ckeditor.js")
+				'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js',
+				'/ckeditor/ckeditor.js')
 	);?>
 	<body>
 		<?php
 		$name = $picture->getName();
 		if($picture->getId() == -1) {
-			if ($picture->getType() == "youtube")  {
-				$name = "Nouvelle vidéo";
+			if ($picture->getType() == 'youtube')  {
+				$name = 'Nouvelle vidéo';
 			}
 			else {
-				$name = "Nouvelle image";
+				$name = 'Nouvelle image';
 			}	
 		}
 		
 		show_admin_menus(array(
-			array("Projets", "/admin/projects/"),
+			array('Projets', '/admin/projects/'),
 			array($project->getName(), $project->getUrlAdmin()),
 			array($name, $picture->getAdminUrl())
 		));
@@ -152,11 +152,11 @@ function show_admin_picture($picture) {
 				<div id="apercu" class="modal">
 					<div class="modal-content">
 						<?php
-						if ($picture->getType() == "youtube") {
+						if ($picture->getType() == 'youtube') {
 							echo $picture->getHtml(true);
 						}
 						else {
-							echo $picture->getHtml("medium");
+							echo $picture->getHtml('medium');
 						}
 						?>
 					</div>
@@ -167,7 +167,7 @@ function show_admin_picture($picture) {
 				
 				<script>
 				$(document).ready(function(){
-					CKEDITOR.replace("description");
+					CKEDITOR.replace('description');
 					
 					$('.modal-trigger').leanModal();
 					$('.button-collapse').sideNav();

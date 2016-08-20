@@ -1,20 +1,20 @@
 <?php
 /* View */
 
-include_once(__DIR__."/../../view/head.php");
-include_once(__DIR__."/menus.php");
+include_once(__DIR__.'/../../view/head.php');
+include_once(__DIR__.'/menus.php');
 ?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head("Aide - Administration",
+	<?php show_head('Aide - Administration',
 			array(
-				"/admin/styles.css",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
+				'/admin/styles.css',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
 			
 			array(
-				"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js",
-				"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+				'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
 	);?>
 	
 	<body>
@@ -38,7 +38,7 @@ include_once(__DIR__."/menus.php");
 		
 		
 		<script>
-		$(".button-collapse").sideNav();
+		$('.button-collapse').sideNav();
 		</script>
 		
 	</body>

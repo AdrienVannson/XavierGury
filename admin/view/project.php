@@ -1,40 +1,40 @@
 <?php
 /* View */
-include_once(__DIR__."/../../view/head.php");
-include_once(__DIR__."/menus.php");
+include_once(__DIR__.'/../../view/head.php');
+include_once(__DIR__.'/menus.php');
 
 
 function show_admin_project($project) {
 	
 	if($project->getId() == -1) {
-		$action = "Ajouter";
+		$action = 'Ajouter';
 	}
 	else {
-		$action = "Modifier";
+		$action = 'Modifier';
 	}
 	?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-<?php show_head($action." un projet",
+<?php show_head($action.' un projet',
 		array(
-			"/admin/styles.css",
-			"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"),
+			'/admin/styles.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
 
 		array(
-			"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js",
-			"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js",
-			"/ckeditor/ckeditor.js")
+			'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js',
+			'/ckeditor/ckeditor.js')
 );?>
 <body>
 
 <?php
 $name = $project->getName();
 if($project->getId() == -1) {
-	$name = "Nouveau projet";
+	$name = 'Nouveau projet';
 }
 
-$parents = [ array("Projets", "/admin/projects/") ];
+$parents = [ array('Projets', '/admin/projects/') ];
 
 foreach ($project->getParents() as $parent) {
 	$parents[] = array($parent->getName(), $parent->getUrlAdmin());
@@ -179,8 +179,8 @@ show_admin_menus($parents);
 
 
 		<script>
-			CKEDITOR.replace("description");
-			$(".button-collapse").sideNav();
+			CKEDITOR.replace('description');
+			$('.button-collapse').sideNav();
 		</script>
 
 	</div>
