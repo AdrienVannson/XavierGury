@@ -8,22 +8,7 @@ include_once(__DIR__.'/PictureFactory.class.php');
 class Project
 {
 
-	private function __construct () {}
-	private function __clone () {}
-	
-	
-	public static function getProject ($id)
-	{
-		if (!isset(self::$projectsInstances[$id])) {
-			self::$projectsInstances[$id] = new self;
-			self::$projectsInstances[$id]->init($id);
-		}
-		
-		return self::$projectsInstances[$id];
-	}
-	
-	
-	protected function init ($id)
+	private function __construct ($id)
 	{
 		$db = get_db();
 		
@@ -47,6 +32,19 @@ class Project
 			$this->picturesDisplayMode = $datas['pictures_display_mode'];
 		}
 	}
+	
+	private function __clone () {}
+	
+	
+	public static function getProject ($id)
+	{
+		if (!isset(self::$projectsInstances[$id])) {
+			self::$projectsInstances[$id] = new self($id);
+		}
+		
+		return self::$projectsInstances[$id];
+	}
+	
 	
 	public function save() {
 		$db = get_db();

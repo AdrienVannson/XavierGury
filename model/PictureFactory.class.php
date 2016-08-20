@@ -9,31 +9,9 @@ include_once('Picture.class.php');
 class PictureFactory
 {
 	
-	public function __construct () {
-		$this->pictures = [];
-	}
-	
-	public function __clone () {}
-	
-	public static function getInstance ()
+	public static function getPicture ($id)
 	{
-		if (!isset(self::$instance)) {
-			self::$instance = new self;
-		}
-		return self::$instance;
+		return Picture::getPicture($id);
 	}
-	
-	public function getPicture ($id)
-	{
-		if (!isset($pictures[$id])) {
-			$pictures[$id] = new Picture($id);
-		}
-		return $pictures[$id];
-	}
-	
-	
-	private static $instance;
-	
-	private $pictures;
 	
 }

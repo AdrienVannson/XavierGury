@@ -13,7 +13,8 @@ $WHOLE_SIZES = [
 
 class Picture {
 	
-	public function __construct($id) {
+	private function __construct ($id)
+	{
 		$db = get_db();
 		
 		if($id == -1) {
@@ -38,6 +39,18 @@ class Picture {
 			$this->description = $datas['description'];
 			$this->creationDate = $datas['creation_date'];
 		}
+	}
+	
+	private function __clone () {}
+	
+	
+	public static function getPicture ($id)
+	{
+		if (!isset(self::$picturesInstances[$id])) {
+			self::$picturesInstances[$id] = new self($id);
+		}
+		
+		return self::$picturesInstances[$id];
 	}
 	
 	
@@ -204,4 +217,6 @@ class Picture {
 	protected $name;
 	protected $description;
 	protected $creationDate;
+	
+	protected static $picturesInstances;
 }
