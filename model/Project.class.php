@@ -8,7 +8,7 @@ include_once(__DIR__.'/PictureFactory.class.php');
 class Project
 {
 
-	private function __construct ($id)
+	protected function __construct ($id)
 	{
 		$db = get_db();
 		
@@ -240,6 +240,16 @@ class Project
 
 class LogProject extends Project
 {
+	
+	public static function getProject ($id)
+	{
+		if (!isset(self::$logProjectsInstance)) {
+			self::$logProjectsInstance = new self($id);
+		}
+		
+		return self::$logProjectsInstance;
+	}
+	
 	public function getPictures ()
 	{
 		$request = 'SELECT id FROM pictures WHERE creation_date IS NOT NULL ORDER BY creation_date ASC, id ASC';
@@ -254,6 +264,8 @@ class LogProject extends Project
 		}
 		return $pictures;
 	}
+	
+	protected static $logProjectsInstance;
 }
 
 
