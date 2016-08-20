@@ -49,10 +49,13 @@ function show_left_menu($project) {
 		
 		<?php 
 		foreach(getFirstLevelProjects() as $currentProject) {
+			if ($currentProject->getId() == 10) {
+				continue;
+			}
 			?>
 			<a
 				<?php
-				if($project->getFirstLevelParent()->getId() == $currentProject->getId()) { ?>
+				if ($project->getFirstLevelParent()->getId() == $currentProject->getId()) { ?>
 			   		id="color_item_activate"
 			   	<?php }?>
 				class="color_item"

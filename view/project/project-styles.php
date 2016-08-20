@@ -4,7 +4,7 @@ include_once(__DIR__.'/../../model/Project.class.php');
 
 header('Content-Type: text/css');
 
-$nbFirstLevelProjects = getNbFirstLevelProjects();
+$nbFirstLevelProjects = getNbFirstLevelProjects() - 1;
 
 $widthColorItem = 240 / $nbFirstLevelProjects;
 $heightColorItem = 480 / $nbFirstLevelProjects;
