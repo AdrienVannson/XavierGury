@@ -377,11 +377,6 @@ ul {
 	margin: 25px;
 }
 
-/*#carousel .project-picture {
-	filter: grayscale(100%);
-	transition: filter 1s;
+#carousel .slick-slide {
+	outline-style: none;
 }
-
-#carousel .slick-center {
-	filter: grayscale(0%);
-}*/
