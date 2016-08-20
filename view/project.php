@@ -86,6 +86,30 @@ show_head($project->getName(), $styles);
 	
 	<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?> </div> <?php }
 	else { ?> </p> <?php } ?>
+	
+	<?php
+	// Noscript, because of the lazy-loading
+	if ($project->getPicturesDisplayMode() == 'CAROUSEL') {
+	?>
+	<noscript>
+		<?php
+		$pictures = $project->getPictures();
+		
+		foreach($pictures as $index=>$picture) {
+			?>
+				<img
+					src="<?php echo $picture->getUrlResource('medium');?>"
+					class="project-picture"
+					title="<?php echo $picture->getName();?>"
+					alt="<?php echo $picture->getName();?>"
+				/>
+			<?php
+		}
+		?>
+	</noscript>
+	<?php
+	}
+	?>
 
 	<div class="description"><?php echo $project->getDescription();?></div>
 
