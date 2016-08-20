@@ -160,7 +160,7 @@ var nbPictures = <?php echo sizeof($pictures)?>;
 			swipeToSlide:      false,
 			variableWidth:     true,
 			waitForAnimate:    false
-		});
+		}).slick('slickGoTo', 0, false);
 	});
 	</script>
 <?php } ?>
