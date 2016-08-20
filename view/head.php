@@ -1,7 +1,7 @@
 <?php
 /* View */
 
-function show_head($title, $styles=array(), $scripts=array()) {
+function show_head($title, $styles=array(), $scripts=array(), $code="") {
 	?>
 
 <head>
@@ -20,6 +20,8 @@ function show_head($title, $styles=array(), $scripts=array()) {
 		<script type="text/javascript" src="<?php echo $script;?>"> </script>
 		<?php
 	}
+	
+	echo $code;
 	?>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
