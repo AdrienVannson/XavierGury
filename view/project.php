@@ -109,10 +109,13 @@ show_head($project->getName(), $styles);
 	</noscript>
 	<?php
 	}
+	
+	$description = $project->getDescription();
+	if ($description != '') {
+		echo "<div class=\"description\">$description</div>";
+	}
 	?>
-
-	<div class="description"><?php echo $project->getDescription();?></div>
-
+	
 </div>
 
 
