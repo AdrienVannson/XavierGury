@@ -72,7 +72,7 @@ show_head($project->getName(), $styles);
 						class="project-picture"
 						id="picture-<?php echo $index;?>"
 						title="<?php echo $picture->getName();?>"
-						alt="<?php echo $picture->getDescription();?>"
+						alt="<?php echo $picture->getName();?>"
 						<?php if ($project->getPicturesDisplayMode() != 'CAROUSEL') { ?>
 							onclick="showPicture(this)"
 						<?php } ?>
@@ -95,10 +95,10 @@ show_head($project->getName(), $styles);
 		<?php
 		$pictures = $project->getPictures();
 		
-		foreach($pictures as $index=>$picture) {
+		foreach ($pictures as $picture) {
 			?>
 				<img
-					src="<?php echo $picture->getUrlResource('medium');?>"
+					src="<?php echo $picture->getUrlResource('m');?>"
 					class="project-picture"
 					title="<?php echo $picture->getName();?>"
 					alt="<?php echo $picture->getName();?>"
@@ -140,6 +140,19 @@ show_head($project->getName(), $styles);
 
 <script>
 var nbPictures = <?php echo sizeof($pictures)?>;
+
+var infosPictures = [
+<?php
+foreach ($pictures as $key=>$picture) {
+	$datas = json_encode([
+		'name' => $picture->getName(),
+		'description' => $picture->getDescription(),
+		'urlLarge' => $picture->getUrlResource('l')
+	]);
+	echo "$datas,";
+}
+?>
+];
 </script>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>

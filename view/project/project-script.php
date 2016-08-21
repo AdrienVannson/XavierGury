@@ -51,13 +51,13 @@ var close = document.getElementById('close');
 var title = document.getElementById('title');
 var description = document.getElementById('description');
 
-	
+
 function closePreview ()
 {
 	picturePreview.style.opacity = '0';
 	setTimeout(function(){
 		picturePreview.style.display = 'none';
-	}, 1000);
+	}, 500);
 }
 
 function showPicture (source)
@@ -67,7 +67,9 @@ function showPicture (source)
 		picturePreview.style.opacity = '1';
 	}, 50);
 	
-	picture.src = source.src.replace('medium', 'large');
-	title.innerText = source.title;
-	description.innerHTML = source.alt;
+	var id = parseInt(source.id.split('-')[1]);
+	
+	picture.src = infosPictures[id].urlLarge;
+	title.innerText = infosPictures[id].name;
+	description.innerHTML = infosPictures[id].description;
 }
