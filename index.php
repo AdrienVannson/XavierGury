@@ -10,6 +10,8 @@ if ($request[$size-1] == '') {
 	$size = count($request);
 }
 
+$urlRequest = '/' . implode('/', $request);
+
 
 if ($size == 0) { // Homepage
 	include('controller/homepage.php');
@@ -62,17 +64,18 @@ if ($size == 2) {
 }
 
 
-$regexPictures = '#^([0-9]+-.*/)+ressources/([0-9]+)(s|m|l|r)-.*\.(png|jpg|gif)$#';
-if (preg_match($regexPictures, $_GET['request'])) {
-	$infos = explode('\n', preg_replace($regexPictures, '$2\n$3', $_GET['request']));
+$regexPictures = '#^/([0-9]+-.*/)+ressources/([0-9]+)(s|m|l|r)-.*\.(png|jpg|gif)$#';
+if (preg_match($regexPictures, $urlRequest)) {
+	$infos = explode('\n', preg_replace($regexPictures, '$2\n$3', $urlRequest));
 
-	$_GET['resource_id'] = $infos[0];
-	$_GET['resource_size'] = $infos[1];
+	$URL = $urlRequest;
+	$RESOURCE_ID = $infos[0];
+	$RESOURCE_SIZE = $infos[1];
 	include('controller/picture.php');
 	exit();
 }
 
-if (preg_match('#^([0-9]+-.*)+$#', $_GET['request'])) { // Page de projet
+if (preg_match('#^/([0-9]+-.*)+$#', $urlRequest)) { // Page de projet
 
 	$path = [];
 	
@@ -81,12 +84,11 @@ if (preg_match('#^([0-9]+-.*)+$#', $_GET['request'])) { // Page de projet
 	}
 
 	$PROJECT_ID = end($path)[0];
-	$URL = '/'.implode('/', $request);
+	$URL = $urlRequest;
 
 	include('controller/project.php');
 	exit();
 }
-
 
 // La page n'existe pas
 include_once('controller/errors/404.php');

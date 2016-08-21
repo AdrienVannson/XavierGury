@@ -215,12 +215,19 @@ class Project
 		return '/admin/projects/'.$this->getId();
 	}
 	
-	public function getUrl () {
+	public function getUrl ($encode=true) {
 		$parents = $this->getParents();
 		$url = '';
 		
 		foreach ($parents as $parent) {
-			$url .= '/' . $parent->getId() . '-' . $parent->getName();
+			$url .= '/' . $parent->getId() . '-';
+			
+			if ($encode) {
+				$url .= urlencode($parent->getName());
+			}
+			else {
+				$url .= $parent->getName();
+			}
 		}
 		
 		return $url;

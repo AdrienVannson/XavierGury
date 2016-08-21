@@ -170,8 +170,19 @@ class Picture {
 		global $WHOLE_SIZES;
 		return 'resources/pictures/'.$this->id.'/'.$WHOLE_SIZES[$size].'.'.$this->getType();
 	}
-	public function getUrlResource($size) {
-		return $this->getProject()->getUrl() . '/ressources/' . $this->id . $size[0] . '-' . $this->name . '.' . $this->getType();
+	public function getUrlResource($size, $encode=true) {
+		$url = $this->getProject()->getUrl($encode) . '/ressources/' . $this->id . $size[0] . '-';
+		
+		if ($encode) {
+			$url .= urlencode($this->name);
+		}
+		else {
+			$url .= $this->name;
+		}
+		
+		$url .= '.' . $this->getType();
+		
+		return $url;
 	}
 	
 	public function getAdminUrl() {

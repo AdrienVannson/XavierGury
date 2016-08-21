@@ -2,8 +2,14 @@
 /* Controller */
 include_once(__DIR__.'/../model/PictureFactory.class.php');
 
-$picture = PictureFactory::getPicture($_GET['resource_id']);
-$file = fopen($picture->getPathResource($_GET['resource_size']), 'rb');
+$picture = PictureFactory::getPicture($RESOURCE_ID);
 
-header('Content-Type: image/'.$picture->getType());
-fpassthru($file);
+if ($picture->getUrlResource($RESOURCE_SIZE, false) != $URL) {
+	include('errors/404.php');
+}
+else {
+	$file = fopen($picture->getPathResource($RESOURCE_SIZE), 'rb');
+	
+	header('Content-Type: image/'.$picture->getType());
+	fpassthru($file);
+}
