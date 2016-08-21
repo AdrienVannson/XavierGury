@@ -201,7 +201,9 @@ class Picture {
 		}
 		
 		// Movie
-		$infos = explode('\n', $this->infos);
+		$infos = explode(PHP_EOL, $this->infos);
+		
+		$infos[0] = rtrim($infos[0]);
 		$infos[1] = intval($infos[1]);
 		$infos[2] = intval($infos[2]);
 
