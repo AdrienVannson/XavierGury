@@ -46,10 +46,12 @@ setTimeout(refresh, 10*1000);
  */
 
 var picturePreview = document.getElementById('picture-preview');
-var picture = document.getElementById('picture');
+var frame = document.getElementById('frame');
 var close = document.getElementById('close');
-var title = document.getElementById('title');
-var description = document.getElementById('description');
+
+var picture;
+var title;
+var description;
 
 
 function closePreview ()
@@ -62,6 +64,14 @@ function closePreview ()
 
 function showPicture (source)
 {
+	if (frame.innerText == '') {
+		frame.innerHTML = '<div id="picture-container"><div><img id="picture"/></div></div><div id="informations"><h1 id="title"></h1><p id="description"></p></div>';
+
+		title = document.getElementById('title');
+		description = document.getElementById('description');
+		picture = document.getElementById('picture');
+	}
+	
 	picturePreview.style.display = 'block';
 	setTimeout(function(){
 		picturePreview.style.opacity = '1';
