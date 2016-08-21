@@ -11,5 +11,6 @@ else {
 	$file = fopen($picture->getPathResource($RESOURCE_SIZE), 'rb');
 	
 	header('Content-Type: image/'.$picture->getType());
+	header('Cache-Control: max-age=604800'); // Cache pictures for 7 days
 	fpassthru($file);
 }
