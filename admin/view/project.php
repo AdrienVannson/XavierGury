@@ -130,8 +130,8 @@ show_admin_menus($parents);
 					foreach ($pictures as $key => $picture) {
 						?>
 						<div
-							class="col s3"
-							<?php if ($key % 4 == 0) {?>
+							class="col l3 m6 s12"
+							<?php if ($key % 4 == 0) { ?>
 								style="clear:left;"
 							<?php } ?>
 							
