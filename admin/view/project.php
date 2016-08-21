@@ -127,9 +127,15 @@ show_admin_menus($parents);
 				?>
 				<div class="row">
 					<?php
-					foreach ($pictures as $picture) {
+					foreach ($pictures as $key => $picture) {
 						?>
-						<div class="col s3">
+						<div
+							class="col s3"
+							<?php if ($key % 4 == 0) {?>
+								style="clear:left;"
+							<?php } ?>
+							
+						>
 
 							<div class="card hoverable">
 								<?php
