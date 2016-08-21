@@ -52,8 +52,8 @@ show_head($project->getName(), $styles);
 
 	?>
 
-	<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?> <div id="carousel"> <?php }
-	else { ?> <p id="pictures"> <?php } ?>
+	<div <?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>id="carousel"<?php }
+	else { ?>id="pictures"<?php } ?> >
 		
 		<?php
 		$pictures = $project->getPictures();
@@ -84,8 +84,7 @@ show_head($project->getName(), $styles);
 		}
 		?>
 	
-	<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?> </div> <?php }
-	else { ?> </p> <?php } ?>
+	</div>
 	
 	<?php
 	// Noscript, because of the lazy-loading
