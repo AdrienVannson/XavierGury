@@ -145,7 +145,7 @@ class Picture {
 	}
 	
 	public function setName($name) {
-		$this->name = rtrim($name);
+		$this->name = str_replace('/', '-', rtrim($name));
 	}
 	public function getName() {
 		return $this->name;
