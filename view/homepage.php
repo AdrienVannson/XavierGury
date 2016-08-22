@@ -5,8 +5,15 @@ include_once(__DIR__.'/head.php');
 
 <!DOCTYPE HTML>
 <html lang="fr">
+<?php
 
-<?php show_head('Accueil', array(), array(), '<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">' ); ?>
+$codeHead = '<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">';
+
+$codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+
+show_head('Accueil', array(), array(), $codeHead);
+
+?>
 
 <body style="margin:0;">
 
@@ -18,14 +25,16 @@ include_once(__DIR__.'/head.php');
 <div style="
 			position: absolute;
 			top: 0;
-			right: 80%;
-			margin: 10px;
+			left: 0;
+			width: 20%;
+			padding: 10px;
 			
 			text-align: justify;
 			text-indent: 15px;
 			font-size: 1.2em;
+			font-family: 'Roboto', sans-serif;
 ">
-	<h1 style="margin:0;">Xavier Gury</h1>
+	<h1 style="margin:0; font-weight:normal;">Xavier Gury</h1>
 	
 	<p>Diplômé de l’école de l’image d’Epinal (DNAP en 1999 et DNSEP en 2001), je suis professeur certifié d’Arts plastiques. Je vis à Moriville et enseigne au collège de Darney-Monthureux dans les Vosges.</p>
 	
