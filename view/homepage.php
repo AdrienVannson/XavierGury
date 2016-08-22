@@ -11,10 +11,34 @@ include_once(__DIR__.'/head.php');
 <body style="margin:0;">
 
 
+<div style="position:absolute; margin: 15px;">
+	
+</div>
+
+<div style="
+			position: absolute;
+			top: 0;
+			right: 80%;
+			margin: 10px;
+			
+			text-align: justify;
+			text-indent: 15px;
+			font-size: 1.2em;
+">
+	<h1 style="margin:0;">Xavier Gury</h1>
+	
+	<p>Diplômé de l’école de l’image d’Epinal (DNAP en 1999 et DNSEP en 2001), je suis professeur certifié d’Arts plastiques. Je vis à Moriville et enseigne au collège de Darney-Monthureux dans les Vosges.</p>
+	
+	<p>Mon travail mêle illustrations, dessins et peintures que je pratique sur des supports qui vont du livre, à la toile en passant par le rouleau de papier et des supports de récupération (cartes, planches, etc…).
+	Ma production, essentiellement figurative, s’organise à travers des séries (les 100 je me sens, corps à corps, l’image qui parle, déchirés, le dessin du jour…) afin de développer et d’explorer pour chaque série un sujet, un style, une méthode ou une situation plastique.</p>
+	
+	<p>Dans un déploiement tout azimuts et à travers des dispositifs sérielles, je dévoile mon corps, mes pensées, mes émotions, mes sentiments,  mes rêves et mes cauchemars en amenant le spectateur à s’interroger sur le sens produit tout en distillant de façon implicite de multiples références artistiques qui me sont chères.</p>
+</div>
+
 <div style="display: flex; height:100vh;">
 
 	<div style="margin:auto;">
-		<svg style="max-width:90vw; max-height:90vh; height:100vh; width:100vw;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 821">
+		<svg style="margin-left: 20vw; max-width:70vw; max-height:90vh; height:100vh; width:100vw;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 821">
 
 
 <defs id="defs6"/>
