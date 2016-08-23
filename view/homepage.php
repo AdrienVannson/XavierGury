@@ -18,10 +18,6 @@ show_head('Accueil', array(), array(), $codeHead);
 <body style="margin:0;">
 
 
-<div style="position:absolute; margin: 15px;">
-	
-</div>
-
 <div id="infos"
 	 style="position: absolute;
 			top: 0;
@@ -31,7 +27,9 @@ show_head('Accueil', array(), array(), $codeHead);
 			text-align: justify;
 			text-indent: 15px;
 			font-size: 1.2em;
-			font-family: 'Roboto', sans-serif;">
+			font-family: 'Roboto', sans-serif;
+			
+			color: #212121;">
 	<h1 style="margin:0; font-weight:normal;">Xavier Gury</h1>
 	
 	<div id="description">
