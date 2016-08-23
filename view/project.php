@@ -18,7 +18,13 @@ if ($project->getPicturesDisplayMode() == 'CAROUSEL') {
 	$styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
 }
 
-show_head($project->getName(), $styles);
+$head = '';
+
+if ($project->getDescription() != '') {
+	$head .= '<meta name="description" content="' . strip_tags($project->getDescription()) . '">';
+}
+
+show_head($project->getName(), $styles, array(), $head);
 
 ?>
 <body>
