@@ -11,6 +11,60 @@ $codeHead = '<meta name="keywords" content="xavier gury, art, peinture, illustra
 
 $codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
 
+$codeHead .= "<style>
+
+body {
+	margin: 0;
+}
+
+#title {
+	margin:0;
+	font-weight:normal;
+}
+
+#infos {
+	position: absolute;
+	width: 360px;
+	top: 0;
+	left: 0;
+	padding: 10px;
+
+	background-color: #FFF;
+
+	text-align: justify;
+	text-indent: 16px;
+	font-size: 1.2em;
+	font-family: 'Roboto', sans-serif;
+	color: #212121;
+}
+
+#description {
+	position: absolute;
+	left: -100%;
+	right: 100%;
+
+	padding: 20px;
+
+	background-color: #FFF;
+
+	transition: right 1s, left 1s;
+}
+
+#infos:hover #description {
+	left: 0;
+	right: 0;
+}
+
+
+@media (max-width: 992px) {
+
+	#infos {
+		width: 240px;
+	}
+
+}
+</style>";
+
 show_head('Accueil', array(), array(), $codeHead);
 
 ?>
@@ -101,61 +155,6 @@ show_head('Accueil', array(), array(), $codeHead);
 		</svg>
 	</div>
 </div>
-
-
-<style>
-
-body {
-	margin: 0;
-}
-
-#title {
-	margin:0;
-	font-weight:normal;
-}
-
-#infos {
-	position: absolute;
-	width: 360px;
-	top: 0;
-	left: 0;
-	padding: 10px;
-
-	background-color: #FFF;
-
-	text-align: justify;
-	text-indent: 16px;
-	font-size: 1.2em;
-	font-family: 'Roboto', sans-serif;
-	color: #212121;
-}
-
-#description {
-	position: absolute;
-	left: -100%;
-	right: 100%;
-
-	padding: 20px;
-
-	background-color: #FFF;
-
-	transition: right 1s, left 1s;
-}
-
-#infos:hover #description {
-	left: 0;
-	right: 0;
-}
-
-
-@media (max-width: 992px) {
-
-	#infos {
-		width: 240px;
-	}
-
-}
-</style>
 
 </body>
 </html>
