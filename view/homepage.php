@@ -14,23 +14,10 @@ $codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="s
 show_head('Accueil', array(), array(), $codeHead);
 
 ?>
+<body>
 
-<body style="margin:0;">
-
-
-<div id="infos"
-	 style="position: absolute;
-			top: 0;
-			left: 0;
-			padding: 10px;
-			
-			text-align: justify;
-			text-indent: 15px;
-			font-size: 1.2em;
-			font-family: 'Roboto', sans-serif;
-			
-			color: #212121;">
-	<h1 style="margin:0; font-weight:normal;">Xavier Gury</h1>
+<div id="infos">
+	<h1 id="title">Xavier Gury</h1>
 	
 	<div id="description">
 		<p>Diplômé de l’école de l’image d’Epinal (DNAP en 1999 et DNSEP en 2001), je suis professeur certifié d’Arts plastiques. Je vis à Moriville et enseigne au collège de Darney-Monthureux dans les Vosges.</p>
@@ -42,40 +29,8 @@ show_head('Accueil', array(), array(), $codeHead);
 	</div>
 </div>
 
-<style>
-#infos {
-	width: 360px;
-	
-	background-color: #FFF;
-}
-
-#description {
-	position: absolute;
-	left: -100%;
-	right: 100%;
-	transition: right 1s, left 1s;
-	
-	padding: 20px;
-	
-	background-color: #FFF;
-}
-
-#infos:hover #description {
-	left: 0;
-	right: 0;
-}
-
-@media (max-width: 992px) {
-	
-	#infos {
-		width: 240px;
-	}
-	
-}
-</style>
 
 <div style="display: flex; height:100vh;">
-
 	<div style="margin:auto;">
 		<svg style="max-width:90vw; max-height:90vh; height:100vh; width:100vw;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 836 821">
 
@@ -146,6 +101,61 @@ show_head('Accueil', array(), array(), $codeHead);
 		</svg>
 	</div>
 </div>
+
+
+<style>
+
+body {
+	margin: 0;
+}
+
+#title {
+	margin:0;
+	font-weight:normal;
+}
+
+#infos {
+	position: absolute;
+	width: 360px;
+	top: 0;
+	left: 0;
+	padding: 10px;
+
+	background-color: #FFF;
+
+	text-align: justify;
+	text-indent: 16px;
+	font-size: 1.2em;
+	font-family: 'Roboto', sans-serif;
+	color: #212121;
+}
+
+#description {
+	position: absolute;
+	left: -100%;
+	right: 100%;
+
+	padding: 20px;
+
+	background-color: #FFF;
+
+	transition: right 1s, left 1s;
+}
+
+#infos:hover #description {
+	left: 0;
+	right: 0;
+}
+
+
+@media (max-width: 992px) {
+
+	#infos {
+		width: 240px;
+	}
+
+}
+</style>
 
 </body>
 </html>
