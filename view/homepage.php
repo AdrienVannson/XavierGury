@@ -7,9 +7,14 @@ include_once(__DIR__.'/head.php');
 <html lang="fr">
 <?php
 
-$codeHead = '<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">';
+$description = '<p>Diplômé de l’école de l’image d’Epinal (DNAP en 1999 et DNSEP en 2001), je suis professeur certifié d’Arts plastiques. Je vis à Moriville et enseigne au collège de Darney-Monthureux dans les Vosges.</p><p>Mon travail mêle illustrations, dessins et peintures que je pratique sur des supports qui vont du livre, à la toile en passant par le rouleau de papier et des supports de récupération (cartes, planches, etc…). Ma production, essentiellement figurative, s’organise à travers des séries (les 100 je me sens, corps à corps, l’image qui parle, déchirés, le dessin du jour…) afin de développer et d’explorer pour chaque série un sujet, un style, une méthode ou une situation plastique.</p><p>Dans un déploiement tout azimuts et à travers des dispositifs sérielles, je dévoile mon corps, mes pensées, mes émotions, mes sentiments,  mes rêves et mes cauchemars en amenant le spectateur à s’interroger sur le sens produit tout en distillant de façon implicite de multiples références artistiques qui me sont chères.</p>';
 
-$codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+$codeHead = '';
+
+$codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">' . PHP_EOL;
+
+$codeHead .= '<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">' . PHP_EOL;
+$codeHead .= '<meta name="description" content="' . strip_tags($description) . '">' . PHP_EOL;
 
 $codeHead .= "<style>
 
@@ -72,15 +77,7 @@ show_head('Accueil', array(), array(), $codeHead);
 
 <div id="infos">
 	<h1 id="title">Xavier Gury</h1>
-	
-	<div id="description">
-		<p>Diplômé de l’école de l’image d’Epinal (DNAP en 1999 et DNSEP en 2001), je suis professeur certifié d’Arts plastiques. Je vis à Moriville et enseigne au collège de Darney-Monthureux dans les Vosges.</p>
-
-		<p>Mon travail mêle illustrations, dessins et peintures que je pratique sur des supports qui vont du livre, à la toile en passant par le rouleau de papier et des supports de récupération (cartes, planches, etc…).
-		Ma production, essentiellement figurative, s’organise à travers des séries (les 100 je me sens, corps à corps, l’image qui parle, déchirés, le dessin du jour…) afin de développer et d’explorer pour chaque série un sujet, un style, une méthode ou une situation plastique.</p>
-
-		<p>Dans un déploiement tout azimuts et à travers des dispositifs sérielles, je dévoile mon corps, mes pensées, mes émotions, mes sentiments,  mes rêves et mes cauchemars en amenant le spectateur à s’interroger sur le sens produit tout en distillant de façon implicite de multiples références artistiques qui me sont chères.</p>
-	</div>
+	<div id="description"><?php echo $description; ?></div>
 </div>
 
 
