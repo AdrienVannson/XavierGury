@@ -19,7 +19,7 @@ body {
 }
 
 a {
-	color: #000;
+	color: #FFF;
 	text-decoration: none;
 }
 
