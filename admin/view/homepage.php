@@ -46,6 +46,7 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements principaux récents</span>
 								<ul>
+									<li>24 août 2016 : Modification des polices de caractères et amélioration de l'aperçu des images</li>
 									<li>8 août 2016 : Ajout du journal</li>
 									<li>19 juillet 2016 : Possibilité d'envoyer des vidéos</li>
 									<li>10 juillet 2016 : Possibilité de définir des sous-projets</li>
