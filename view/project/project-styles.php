@@ -293,12 +293,12 @@ p {
 
 #frame {
 	position: fixed;
-	top: 120px;
-	bottom: 120px;
-	left: 120px;
-	right: 120px;
+	top: 60px;
+	bottom: 60px;
+	left: 60px;
+	right: 60px;
 
-	background-color: #E9E9EA;
+	background-color: #000;
 }
 
 #close {
@@ -306,7 +306,7 @@ p {
 	height: 48px;
 	width: 48px;
 	right: 0;
-	
+
 	color: #FFF;
 	cursor: pointer;
 }
@@ -337,7 +337,7 @@ p {
 	top: 0;
 	height: 100%;
 	
-	border-left: 2px solid #000;
+	background-color: #FFF;
 }
 
 #title {
