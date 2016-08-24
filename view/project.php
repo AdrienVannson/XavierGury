@@ -49,7 +49,7 @@ show_head($project->getName(), $styles, array(), $head);
 
 				<div class="under-project">
 					<h2><a href="<?php echo $child->getUrl();?>"><?php echo $child->getName();?></a></h2>
-					<p><?php echo $child->getDescription();?></p>
+					<div><?php echo $child->getDescription();?></div>
 				</div>
 
 			<?php

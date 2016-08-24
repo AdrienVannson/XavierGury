@@ -350,10 +350,9 @@ p {
  */
 
 .under-project {
-	width: 46%;
+	width: 48%;
 	float: left;
 	margin: 1%;
-	padding: 1%;
 	
 	background-color: #414349;
 	border-radius: 16px;
@@ -367,6 +366,28 @@ p {
 
 .under-project h2 a {
 	color: #FFF;
+}
+
+.under-project h2, .under-project p {
+	margin: 16px;
+}
+
+.under-project h2 {
+	margin-top: 24px;
+}
+
+.under-project p {
+	margin-bottom: 32px;
+	margin-top: 0;
+}
+
+
+@media (max-width: 992px) { /* Smalls and mediums screens */
+	
+	.under-project {
+		width: 98%;
+	}
+	
 }
 
 
