@@ -331,8 +331,7 @@ p {
 
 #informations {
 	position: absolute;
-	
-	padding-left: 4px;
+
 	width: 360px;
 	right: 0;
 	top: 0;
@@ -341,8 +340,8 @@ p {
 	background-color: #FFF;
 }
 
-#title {
-	margin: 0;
+#title, #description {
+	margin: 16px;
 }
 
 
