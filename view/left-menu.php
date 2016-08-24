@@ -45,7 +45,7 @@ function show_left_menu($project) {
 		?>
 	</ul>
 
-	<div id="color_menu">
+	<div id="colored-menu">
 		
 		<?php 
 		foreach(getFirstLevelProjects() as $currentProject) {
@@ -56,9 +56,9 @@ function show_left_menu($project) {
 			<a
 				<?php
 				if ($project->getFirstLevelParent()->getId() == $currentProject->getId()) { ?>
-			   		id="color_item_activate"
+			   		id="colored-item-activated"
 			   	<?php }?>
-				class="color_item"
+				class="colored-item"
 				style="background-color: #<?php echo $currentProject->getColor();?>;"
 				href="<?php echo $currentProject->getUrl();?>"
 			></a>
@@ -74,13 +74,13 @@ function show_left_menu($project) {
 <div class="line" id="line-white-item-1"></div>
 <div class="line" id="line-white-item-2"></div>
 
-<div id="separator-bottom"></div>
-
 <a id="white-item" href="/"></a>
+
+<div id="separator-bottom"></div>
 
 <div id="menu-btn" onclick="
 	if(document.body.id=='') {
-		document.body.id = 'deplie';
+		document.body.id = 'unfloded';
 	}
 	else {
 		document.body.id = '';

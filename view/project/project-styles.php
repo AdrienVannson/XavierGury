@@ -14,7 +14,7 @@ body {
 	margin: 0;
 	padding-bottom: <?php echo 20 + $heightColorItem;?>px;
 	padding-right: 20px;
-	
+
 	background-color: #2B2E34;
 }
 
@@ -34,23 +34,35 @@ p {
 
 
 /*
+ * Contents
+ */
+
+#contents {
+	margin-left: 270px;
+	color: #EEE;
+}
+
+
+/*
  * Left menu
  */
 
 #menu {
 	position: fixed;
 	z-index: 100;
-    overflow: hidden;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	color: #FFF;
 	width: 240px;
-	
+	overflow: hidden;
+
+	color: #FFF;
+
 	transition: left .5s;
 }
 
 #menu ul {
+	/* Scrolling the menu */
 	max-height: calc(100% - <?php echo 20 + 2*$heightColorItem;?>px);
 	overflow: auto;
 }
@@ -58,71 +70,71 @@ p {
 #menu-btn {
 	position: fixed;
     z-index: 100;
-	cursor: pointer;
 	top: 0;
-	left: -128px;
-	
+	display: none;
+
+	cursor: pointer;
 	color: #FFF;
 }
 
-#contents {
-	margin-left: 270px;
-	color: #EEE;
-}
-
-li a {
-	color: #FFF;
-	text-decoration: none;
-	
+#menu li a {
 	display: block;
 	padding: 20px;
-	
+
+	text-decoration: none;
+	color: #FFF;
+
 	transition: background-color .3s;
 }
-li a:hover {
-	background-color: #000;
+
+#menu li a:hover {
 	text-decoration: none;
-}
-ul {
-	list-style-type: none;
-	padding-left: 0;
+	background-color: #000;
 }
 
-.active {
+#menu ul {
+	padding-left: 0;
+	list-style-type: none;
+}
+
+#menu .active {
 	background-color: #000;
 }
 
 
-/* Menu coloré */
+/* Colored menu */
 
-#color_menu {
+#colored-menu {
 	position: absolute;
 	z-index: 10;
 	bottom: 0;
 }
 
-.color_item {
+.colored-item {
 	display: block;
 	margin-top: <?php echo $heightColorItem;?>px;
 	float: left;
 	width: <?php echo $widthColorItem;?>px;
 	height: <?php echo $heightColorItem;?>px;
-	
+
 	transition: height .5s, margin-top .5s;
 }
-.color_item:hover {
+
+.colored-item:hover {
 	height: <?php echo 1.5 * $heightColorItem;?>px;
 	margin-top: <?php echo $widthColorItem;?>px;
 }
-.color_item:focus {
+
+.colored-item:focus {
 	height: <?php echo 2 * $heightColorItem;?>px;
 	margin-top: 0;
 }
 
-#color_item_activate {
+#colored-item-activated {
 	margin-top: 0;
 }
-#color_item_activate:hover {
+
+#colored-item-activated:hover {
 	height: <?php echo 2 * $heightColorItem;?>px;
 }
 
@@ -131,15 +143,16 @@ ul {
     z-index: 5;
 	left: 480px;
 	bottom: 0;
-	
+
 	display: block;
 	width: <?php echo $widthColorItem;?>px;
 	height: <?php echo $heightColorItem?>px;
+	
 	background-color: #FFF;
 }
 
 
-/* Traits */
+/* Lines */
 
 .line {
 	position: fixed;
@@ -155,6 +168,7 @@ ul {
 	
 	width: 1px;
 }
+
 #line-bottom {
 	left: 0;
 	bottom: <?php echo $heightColorItem;?>px;
@@ -162,6 +176,7 @@ ul {
 	width: <?php echo 500 + $widthColorItem;?>px;
 	height: 1px;
 }
+
 #line-white-item-1 {
 	left: 480px;
 	bottom: 0;
@@ -169,6 +184,7 @@ ul {
 	width: 1px;
 	height: <?php echo 10 + $heightColorItem;?>px;
 }
+
 #line-white-item-2 {
 	left: <?php echo 480 + $widthColorItem;?>px;
 	bottom: 0;
@@ -188,29 +204,25 @@ ul {
 	background-color: #2B2E34;
 }
 
-@media (max-width: 992px) { /* Petits et moyens écrans */
-	
+@media (max-width: 992px) { /* Smalls and mediums screens */
+
 	body {
+		padding: 10px;
 		padding-top: 25px;
-        
-        padding-left: 10px;
-        padding-right: 10px;
-        
-        padding-bottom: 10px;
 	}
-    
+
     #contents {
         margin-left: 0;
     }
-	
+
 	#menu-btn {
-		left: 0;
+		display: block;
 	}
-	
+
 	.line {
-		display:none;
+		display: none;
 	}
-	
+
 	#menu {
 		left: -250px;
 		width: 240px;
@@ -219,38 +231,20 @@ ul {
 		border-right: 1px solid #FFF;
         background-color: #2B2E34;
 	}
-	
+
 	#white-item {
 		display: none;
 	}
 	
 	/* Menu déplié */
-	#deplie #menu {
+	#unfloded #menu {
 		left: 0;
-	}
-	
-	.color_item {
-		margin-top: <?php echo $heightColorItem;?>px;
-		width: <?php echo $widthColorItem;?>px;
-		height: <?php echo $heightColorItem;?>px;
-	}
-	.color_item:hover {
-		height: <?php echo 1.5 * $heightColorItem;?>px;
-		margin-top: <?php echo $widthColorItem;?>px;
-	}
-	.color_item:focus {
-		height: <?php echo 2 * $heightColorItem;?>px;
-		margin-top: 0;
-	}
-	
-	#color_item_activate:hover {
-		height: <?php echo 2 * $heightColorItem;?>px;
 	}
     
     #separator-bottom {
         display: none;
     }
-	
+
 }
 
 
@@ -264,7 +258,7 @@ ul {
 
 
 /*
- *Image
+ * Pictures and movies
  */
 
 .project-picture, #pictures iframe {
@@ -272,13 +266,14 @@ ul {
 	height: 33vh;
 	float: left;
 }
+
 .project-picture:hover {
 	cursor: pointer;
 }
 
 
 /*
- * Aperçu
+ * Preview
  */
 
 #picture-preview {
@@ -289,10 +284,10 @@ ul {
 	left: 0;
 	right: 0;
 	z-index: 100;
-	
+
 	background-color: rgba(0, 0, 0, .5);
 	opacity: 0;
-	
+
 	transition: opacity .5s;
 }
 
@@ -302,7 +297,7 @@ ul {
 	bottom: 120px;
 	left: 120px;
 	right: 120px;
-	
+
 	background-color: #E9E9EA;
 }
 
@@ -360,7 +355,7 @@ ul {
 	margin: 1%;
 	padding: 1%;
 	
-	background-color: rgba(255, 255, 255, .1);
+	background-color: #414349;
 	border-radius: 16px;
 	
 	transition: box-shadow .3s;
