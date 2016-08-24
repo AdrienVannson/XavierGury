@@ -10,13 +10,15 @@ html {
 }
 
 body {
-	background-color: #2B2E34;
 	margin: 8px;
+
+	background-color: #2B2E34;
+	font-family: 'Roboto', sans-serif;
 }
 
 #themes {
 	width: 100%;
-	
+
 	table-layout: fixed;
 	border-collapse: collapse;
 }

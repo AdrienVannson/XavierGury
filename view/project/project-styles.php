@@ -16,6 +16,7 @@ body {
 	padding-right: 20px;
 
 	background-color: #2B2E34;
+	font-family: 'Roboto', sans-serif;
 }
 
 a {
