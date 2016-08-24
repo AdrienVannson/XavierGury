@@ -37,7 +37,7 @@ body {
 	background-color: #FFF;
 
 	text-align: justify;
-	text-indent: 16px;
+	text-indent: 2em;
 	font-size: 1.2em;
 	font-family: 'Roboto', sans-serif;
 	color: #212121;

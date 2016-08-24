@@ -28,7 +28,7 @@ a:hover {
 }
 
 p {
-	text-indent: 3em;
+	text-indent: 2em;
 	text-align: justify;
 }
 
