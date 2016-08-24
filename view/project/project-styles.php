@@ -33,6 +33,10 @@ p {
 }
 
 
+/*
+ * Left menu
+ */
+
 #menu {
 	position: fixed;
 	z-index: 100;
@@ -89,9 +93,8 @@ ul {
 }
 
 
-/*
- * Menu coloré
- */
+/* Menu coloré */
+
 #color_menu {
 	position: absolute;
 	z-index: 10;
@@ -136,9 +139,8 @@ ul {
 }
 
 
-/*
- * Traits
- */
+/* Traits */
+
 .line {
 	position: fixed;
 	background-color: #FFF;
@@ -255,6 +257,7 @@ ul {
 /* 
  * Description
  */
+
 .description {
 	clear: left;
 }
@@ -263,6 +266,7 @@ ul {
 /*
  *Image
  */
+
 .project-picture, #pictures iframe {
 	margin: 1vw;
 	height: 33vh;
@@ -272,9 +276,11 @@ ul {
 	cursor: pointer;
 }
 
+
 /*
  * Aperçu
  */
+
 #picture-preview {
 	display: none;
 	position: fixed;
