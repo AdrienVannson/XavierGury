@@ -312,14 +312,20 @@ p {
 }
 
 #picture-container {
+	position: relative;
 	height: 100%;
-	padding-right: 362px;
+	margin-right: 362px;
 }
 
 #picture {
-	height: 100%;
 	display: block;
-	margin: auto;
+	position: absolute;
+	max-height: 100%;
+	max-width: 100%;
+	
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
 }
 
 #informations {
