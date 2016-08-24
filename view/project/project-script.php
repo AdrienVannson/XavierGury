@@ -65,7 +65,7 @@ function closePreview ()
 function showPicture (source)
 {
 	if (frame.innerText == '') {
-		frame.innerHTML = '<div id="picture-container"><div><img id="picture"/></div></div><div id="informations"><h1 id="title"></h1><p id="description"></p></div>';
+		frame.innerHTML = '<div id="picture-container"><img id="picture"/></div><div id="informations"><h1 id="title"></h1><p id="description"></p></div>';
 
 		title = document.getElementById('title');
 		description = document.getElementById('description');

@@ -313,13 +313,7 @@ p {
 
 #picture-container {
 	height: 100%;
-	width: 100%;
 	padding-right: 362px;
-}
-
-#picture-container div {
-	padding-right: 360px;
-	height: 100%;
 }
 
 #picture {
