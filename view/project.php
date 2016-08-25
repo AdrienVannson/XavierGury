@@ -80,9 +80,10 @@ show_head($project->getName(), $styles, array(), $head);
 						id="picture-<?php echo $index;?>"
 						title="<?php echo $picture->getName();?>"
 						alt="<?php echo $picture->getName();?>"
-						<?php if ($project->getPicturesDisplayMode() != 'CAROUSEL') { ?>
-							onclick="showPicture(this)"
-						<?php } ?>
+						<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
+						else { ?>onclick<?php } ?>="showPicture(this)"
+						
+						
 						onload="toRefresh[this.id.split('-')[1]]=-1"
 					/>
 				</div>
