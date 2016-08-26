@@ -83,7 +83,6 @@ show_head($project->getName(), $styles, array(), $head);
 						<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
 						else { ?>onclick<?php } ?>="showPicture(this)"
 						
-						
 						onload="toRefresh[this.id.split('-')[1]]=-1"
 					/>
 				</div>

@@ -285,8 +285,6 @@ p {
 	left: 0;
 	right: 0;
 	z-index: 100;
-
-	background-color: rgba(0, 0, 0, .5);
 	opacity: 0;
 
 	transition: opacity .5s;
@@ -294,54 +292,97 @@ p {
 
 #frame {
 	position: fixed;
-	top: 60px;
-	bottom: 60px;
-	left: 60px;
-	right: 60px;
-
-	background-color: #000;
 }
 
 #close {
 	position: absolute;
+	z-index: 1;
 	height: 48px;
 	width: 48px;
 	right: 0;
 
-	color: #FFF;
 	cursor: pointer;
-}
-
-#picture-container {
-	position: relative;
-	height: 100%;
-	margin-right: 362px;
 }
 
 #picture {
 	display: block;
-	position: absolute;
-	max-height: 100%;
 	max-width: 100%;
-	
-	top: 50%;
-	left: 50%;
-	transform: translateY(-50%) translateX(-50%);
 }
 
 #informations {
-	position: absolute;
-
-	width: 360px;
-	right: 0;
-	top: 0;
-	height: 100%;
-	
 	background-color: #FFF;
 }
 
 #title, #description {
 	margin: 16px;
+}
+
+@media (max-width: 992px) { /* Smalls and mediums screens */
+
+	#frame {
+		overflow: scroll;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+
+		background-color: #FFF;
+	}
+	
+	#close {
+		background-color: #000;
+	}
+
+	#picture {
+		max-height: 90vh;
+		margin: auto;
+	}
+	
+	#picture-container {
+		background-color: #000;
+	}
+
+}
+
+@media (min-width: 993px) { /* Larges screens */
+
+	#picture-preview {
+		background-color: rgba(0, 0, 0, .5);
+	}
+
+	#frame {
+		top: 60px;
+		bottom: 60px;
+		left: 60px;
+		right: 60px;
+
+		background-color: #000;
+	}
+
+	#picture-container {
+		position: relative;
+		height: 100%;
+		margin-right: 362px;
+	}
+
+	#picture {
+		position: absolute;
+		max-height: 100%;
+
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+	}
+	
+	#informations {
+		position: absolute;
+
+		width: 360px;
+		right: 0;
+		top: 0;
+		height: 100%;
+	}
+
 }
 
 
