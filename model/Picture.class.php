@@ -243,12 +243,12 @@ class Picture {
 			$height = $infos[1];
 
 			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(512*$width/$height));
-			$l = imagescale($img, floor(1024*$width/$height));
+			$m = imagescale($img, floor(384*$width/$height));
+			$l = imagescale($img, floor(768*$width/$height));
 
-			imagejpeg($s, $dirName.'/s.jpg', 75);
+			imagejpeg($s, $dirName.'/s.jpg', 80);
 			imagejpeg($m, $dirName.'/m.jpg', 80);
-			imagejpeg($l, $dirName.'/l.jpg', 90);
+			imagejpeg($l, $dirName.'/l.jpg', 80);
 		}
 		elseif ($this->getType() == 'gif') {
 			$img = imagecreatefromgif($realFileName);
@@ -258,8 +258,8 @@ class Picture {
 			$height = $infos[1];
 
 			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(512*$width/$height));
-			$l = imagescale($img, floor(1024*$width/$height));
+			$m = imagescale($img, floor(384*$width/$height));
+			$l = imagescale($img, floor(768*$width/$height));
 
 			imagegif($s, $dirName.'/s.gif');
 			imagegif($m, $dirName.'/m.gif');
@@ -273,8 +273,8 @@ class Picture {
 			$height = $infos[1];
 
 			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(512*$width/$height));
-			$l = imagescale($img, floor(1024*$width/$height));
+			$m = imagescale($img, floor(384*$width/$height));
+			$l = imagescale($img, floor(768*$width/$height));
 
 
 			imagealphablending($s, false);
@@ -285,8 +285,8 @@ class Picture {
 			imagesavealpha($m, true);
 			imagesavealpha($l, true);
 
-			imagepng($s, $dirName.'/s.png', 7);
-			imagepng($m, $dirName.'/m.png', 8);
+			imagepng($s, $dirName.'/s.png', 9);
+			imagepng($m, $dirName.'/m.png', 9);
 			imagepng($l, $dirName.'/l.png', 9);
 		}
 
