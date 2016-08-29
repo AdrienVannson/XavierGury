@@ -33,6 +33,11 @@ if ($size == 1) {
 		exit();
 	}
 	
+	if ($request[0] == 'generate-thumbnails') {
+		include("controller/generate-thumbnails.php");
+		exit();
+	}
+	
 }
 if ($size == 2) {
 	

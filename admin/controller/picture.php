@@ -66,9 +66,9 @@ if (isset($_POST['save'])) {
 			$picture->generateFiles();
 		}
 	}
-	
+
 	$picture->save();
-	
+
 	end:
 	header('Location: '.$picture->getAdminUrl());
 	exit();
