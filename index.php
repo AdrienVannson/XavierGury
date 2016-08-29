@@ -30,6 +30,11 @@ if ($size == 1) {
 		exit();
 	}
 	
+	if ($request[0] == 'rename-files') { // TODEL
+		include('rename-files.php');
+		exit();
+	}
+	
 }
 
 if ($size == 2) {

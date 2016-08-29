@@ -28,9 +28,9 @@ if (isset($_POST['save'])) {
 		$picture->save();
 	}
     else {
-		/* Envoi de l'image */
+		// Save the picture's file
 		$picture->save();
-		
+
 		$error = $_FILES['image']['error'];
 		if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE) {
 			$_SESSION['errors'][] = 'Le fichier envoyé est trop lourd.';
