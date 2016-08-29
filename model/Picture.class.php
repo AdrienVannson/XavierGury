@@ -4,12 +4,6 @@ include_once(__DIR__.'/connect.php');
 include_once(__DIR__.'/ProjectFactory.class.php');
 include_once(__DIR__.'/PictureFactory.class.php');
 
-$WHOLE_SIZES = [
-	's' => 'small',
-	'm' => 'medium',
-	'l' => 'large',
-	'r' => 'real'
-];
 
 class Picture {
 	
@@ -167,8 +161,7 @@ class Picture {
 	
 	
 	public function getPathResource($size) {
-		global $WHOLE_SIZES;
-		return 'resources/pictures/'.$this->id.'/'.$WHOLE_SIZES[$size].'.'.$this->getType();
+		return 'resources/pictures/'.$this->id.'/'.$size.'.'.$this->getType();
 	}
 	public function getUrlResource($size, $encode=true) {
 		$url = $this->getProject()->getUrl($encode) . '/ressources/' . $this->id . $size[0] . '-';
