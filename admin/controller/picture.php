@@ -54,10 +54,16 @@ if (isset($_POST['save'])) {
 				mkdir($dirName, 0777);
 			}
 			
-			if ($_FILES['image']['type'] != 'image/gif' &&
-			    $_FILES['image']['type'] != 'image/png' &&
-			    $_FILES['image']['type'] != 'image/jpeg') {
-				
+			if ($_FILES['image']['type'] == 'image/gif') {
+				$picture->setType('GIF');
+			}
+			else if ($_FILES['image']['type'] == 'image/png') {
+				$picture->setType('PNG');
+			}
+			else if ($_FILES['image']['type'] == 'image/jpeg') {
+				$picture->setType('JPG');
+			}
+			else {
 				$_SESSION['errors'][] = 'Le format de fichier n\'est pas pris en charge';
 				goto end;
 			}
