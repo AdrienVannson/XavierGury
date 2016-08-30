@@ -242,9 +242,31 @@ class Picture {
 			$width = $infos[0];
 			$height = $infos[1];
 
-			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(896*$width/$height));
+
+			$newWidth = floor(128 * $width / $height);
+			if ($newWidth < $width) {
+				$s = imagescale($img, $newWidth);
+			}
+			else {
+				$s = $img;
+			}
+
+			$newWidth = floor(384 * $width / $height);
+			if ($newWidth < $width) {
+				$m = imagescale($img, $newWidth);
+			}
+			else {
+				$m = $img;
+			}
+
+			$newWidth = floor(896 * $width / $height);
+			if ($newWidth < $width) {
+				$l = imagescale($img, $newWidth);
+			}
+			else {
+				$l = $img;
+			}
+
 
 			imagejpeg($s, $dirName.'/s.jpg', 80);
 			imagejpeg($m, $dirName.'/m.jpg', 80);
@@ -257,9 +279,31 @@ class Picture {
 			$width = $infos[0];
 			$height = $infos[1];
 
-			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(896*$width/$height));
+
+			$newWidth = floor(128 * $width / $height);
+			if ($newWidth < $width) {
+				$s = imagescale($img, $newWidth);
+			}
+			else {
+				$s = $img;
+			}
+
+			$newWidth = floor(384 * $width / $height);
+			if ($newWidth < $width) {
+				$m = imagescale($img, $newWidth);
+			}
+			else {
+				$m = $img;
+			}
+
+			$newWidth = floor(896 * $width / $height);
+			if ($newWidth < $width) {
+				$l = imagescale($img, $newWidth);
+			}
+			else {
+				$l = $img;
+			}
+
 
 			imagegif($s, $dirName.'/s.gif');
 			imagegif($m, $dirName.'/m.gif');
@@ -272,9 +316,30 @@ class Picture {
 			$width = $infos[0];
 			$height = $infos[1];
 
-			$s = imagescale($img, floor(128*$width/$height));
-			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(896*$width/$height));
+
+			$newWidth = floor(128 * $width / $height);
+			if ($newWidth < $width) {
+				$s = imagescale($img, $newWidth);
+			}
+			else {
+				$s = $img;
+			}
+
+			$newWidth = floor(384 * $width / $height);
+			if ($newWidth < $width) {
+				$m = imagescale($img, $newWidth);
+			}
+			else {
+				$m = $img;
+			}
+
+			$newWidth = floor(896 * $width / $height);
+			if ($newWidth < $width) {
+				$l = imagescale($img, $newWidth);
+			}
+			else {
+				$l = $img;
+			}
 
 
 			imagealphablending($s, false);
