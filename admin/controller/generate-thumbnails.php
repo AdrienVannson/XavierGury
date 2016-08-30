@@ -21,7 +21,7 @@ while ($datas = $result->fetch()) {
 
 
 	// Rename
-	$folder = __DIR__ . '/../resources/pictures/' . $id;
+	$folder = __DIR__ . '/../../resources/pictures/' . $id;
 
 	$oldFilename = $folder . '/large.' . $picture->getType();
 	$newFilename = $folder . '/r.' . $picture->getType();
