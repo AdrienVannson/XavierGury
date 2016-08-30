@@ -244,7 +244,7 @@ class Picture {
 
 			$s = imagescale($img, floor(128*$width/$height));
 			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(768*$width/$height));
+			$l = imagescale($img, floor(896*$width/$height));
 
 			imagejpeg($s, $dirName.'/s.jpg', 80);
 			imagejpeg($m, $dirName.'/m.jpg', 80);
@@ -259,7 +259,7 @@ class Picture {
 
 			$s = imagescale($img, floor(128*$width/$height));
 			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(768*$width/$height));
+			$l = imagescale($img, floor(896*$width/$height));
 
 			imagegif($s, $dirName.'/s.gif');
 			imagegif($m, $dirName.'/m.gif');
@@ -274,7 +274,7 @@ class Picture {
 
 			$s = imagescale($img, floor(128*$width/$height));
 			$m = imagescale($img, floor(384*$width/$height));
-			$l = imagescale($img, floor(768*$width/$height));
+			$l = imagescale($img, floor(896*$width/$height));
 
 
 			imagealphablending($s, false);
