@@ -133,7 +133,7 @@ function show_admin_picture($picture) {
 					</button>
 					
 					<?php
-					if($picture->getId() != -1) {
+					if ($picture->getId() != -1) {
 						?>
 						<button class="btn waves-effect waves-light red" type="submit" name="delete">
 							Supprimer
@@ -144,26 +144,32 @@ function show_admin_picture($picture) {
 					
 				</form>
 				
-				<hr style="margin:30px;"/>
-				
-				<a class="waves-effect waves-light btn modal-trigger" href="#apercu">Aperçu</a>
-				
-				<!-- Aperçu de l'image -->
-				<div id="apercu" class="modal">
-					<div class="modal-content">
-						<?php
-						if ($picture->getType() == 'youtube') {
-							echo $picture->getHtml(true);
-						}
-						else {
-							echo $picture->getHtml('medium');
-						}
-						?>
+				<?php
+				if ($picture->getId() != -1) {
+					?>
+					<hr style="margin:30px;"/>
+
+					<a class="waves-effect waves-light btn modal-trigger" href="#apercu">Aperçu</a>
+
+					<!-- Aperçu de l'image -->
+					<div id="apercu" class="modal">
+						<div class="modal-content">
+							<?php
+							if ($picture->getType() == 'youtube') {
+								echo $picture->getHtml(true);
+							}
+							else {
+								echo $picture->getHtml('medium');
+							}
+							?>
+						</div>
+						<div class="modal-footer">
+							<a href="#" class="modal-action modal-close waves-effect btn-flat">Fermer</a>
+						</div>
 					</div>
-					<div class="modal-footer">
-						<a href="#" class="modal-action modal-close waves-effect btn-flat">Fermer</a>
-					</div>
-				</div>
+					<?php
+				}
+				?>
 				
 				<script>
 				$(document).ready(function(){
