@@ -152,6 +152,10 @@ p {
 	background-color: #FFF;
 }
 
+#white-item-mobiles {
+	display: none;
+}
+
 
 /* Lines */
 
@@ -233,15 +237,35 @@ p {
         background-color: #2B2E34;
 	}
 
+	#menu ul {
+		max-height: calc(100% - <?php echo 20 + 2.5*$heightColorItem;?>px);
+	}
+
 	#white-item {
 		display: none;
 	}
-	
+
+	#colored-menu {
+		bottom: <?php echo $widthColorItem; ?>px;
+	}
+
+	#white-item-mobiles {
+		display: block;
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 0;
+		bottom: -<?php echo $widthColorItem; ?>px;
+		height: <?php echo $widthColorItem; ?>px;
+
+		background-color: #FFF;
+	}
+
 	/* Menu déplié */
 	#unfloded #menu {
 		left: 0;
 	}
-    
+
     #separator-bottom {
         display: none;
     }

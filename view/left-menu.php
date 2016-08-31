@@ -66,6 +66,8 @@ function show_left_menu($project) {
 		}
 		?>
 		
+		<a href="/" id="white-item-mobiles"></a>
+
 	</div>
 </div>
 
