@@ -61,7 +61,9 @@ function show_left_menu($project) {
 				class="colored-item"
 				style="background-color: #<?php echo $currentProject->getColor();?>;"
 				href="<?php echo $currentProject->getUrl();?>"
-			></a>
+			>
+				<span><?php echo $currentProject->getName(); ?></span>
+			</a>
 			<?php
 		}
 		?>

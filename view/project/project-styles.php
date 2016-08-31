@@ -121,6 +121,10 @@ p {
 	transition: height .5s, margin-top .5s;
 }
 
+.colored-item span {
+	display: none;
+}
+
 .colored-item:hover {
 	height: <?php echo 1.5 * $heightColorItem;?>px;
 	margin-top: <?php echo $widthColorItem;?>px;
