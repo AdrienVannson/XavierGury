@@ -9,6 +9,7 @@ $nbFirstLevelProjects = getNbFirstLevelProjects() - 1;
 $widthColorItem = 240 / $nbFirstLevelProjects;
 $heightColorItem = 480 / $nbFirstLevelProjects;
 ?>
+/* <style> /* */
 
 body {
 	margin: 0;
@@ -291,15 +292,28 @@ p {
  */
 
 .project-picture, #pictures iframe {
-	margin: 1vw;
-	height: 33vh;
 	float: left;
+	height: 320px;
+	max-width: 90%;
+	margin: 16px;
 }
 
 .project-picture:hover {
 	cursor: pointer;
 }
 
+@media (max-width: 600px) { /* Smalls screens */
+
+	.project-picture {
+		height: auto;
+		max-width: none;
+		width: 90%;
+		margin: 0;
+		margin-left: 4%;
+		margin-bottom: 16px;
+	}
+
+}
 
 /*
  * Preview

@@ -7,7 +7,6 @@ include_once(__DIR__.'/left-menu.php');
 
 $project = $PROJECT;
 ?>
-
 <!DOCTYPE HTML>
 <html lang="fr">
 <?php
