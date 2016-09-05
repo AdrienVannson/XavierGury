@@ -85,7 +85,7 @@ class Picture {
 			$request->execute(array($this->id));
 		}
 	}
-	
+
 	public function delete() {
 		if($this->id == -1) {
 			return;
@@ -108,8 +108,8 @@ class Picture {
 		$results = $db->prepare('DELETE FROM pictures WHERE id=?');
 		$results->execute(array($this->id));
 	}
-	
-	
+
+
 	public function getId() {
 		return $this->id;
 	}
@@ -370,6 +370,17 @@ class Picture {
 		}
 
 	}
+	
+	
+	public function getWidth ()
+	{
+		return getimagesize( $this->getPathResource('r') )[0];
+	}
+	
+	public function getHeight ()
+	{
+		return getimagesize( $this->getPathResource('r') )[1];
+	}
 
 
 	protected $id;
@@ -379,6 +390,6 @@ class Picture {
 	protected $name;
 	protected $description;
 	protected $creationDate;
-	
+
 	protected static $picturesInstances;
 }
