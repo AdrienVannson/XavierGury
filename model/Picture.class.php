@@ -113,56 +113,70 @@ class Picture {
 	public function getId() {
 		return $this->id;
 	}
-	
+
+
 	public function setIdProject($idProject) {
 		$this->idProject = $idProject;
 	}
+
 	public function getIdProject() {
 		return $this->idProject;
 	}
+
 	public function getProject() {
 		return ProjectFactory::getProject($this->getIdProject());
 	}
-	
+
+
 	public function setType($type) {
 		$this->type = $type;
 	}
+
 	public function getType() {
 		return strtolower($this->type);
 	}
-	
+
+
 	public function setInfos($infos) {
 		$this->infos = $infos;
 	}
+
 	public function getInfos() {
 		return $this->infos;
 	}
-	
+
+
 	public function setName($name) {
 		$this->name = str_replace('/', '-', rtrim($name));
 	}
+
 	public function getName() {
 		return $this->name;
 	}
-	
+
+
 	public function setDescription($description) {
 		$this->description = $description;
 	}
+
 	public function getDescription() {
 		return $this->description;
 	}
-	
+
+
 	public function setCreationDate($creationDate) {
 		$this->creationDate = $creationDate;
 	}
+
 	public function getCreationDate() {
 		return $this->creationDate;
 	}
-	
-	
+
+
 	public function getPathResource($size) {
 		return 'resources/pictures/'.$this->id.'/'.$size.'.'.$this->getType();
 	}
+
 	public function getUrlResource($size, $encode=true) {
 		$url = $this->getProject()->getUrl($encode) . '/ressources/' . $this->id . $size[0] . '-';
 		
@@ -177,14 +191,14 @@ class Picture {
 		
 		return $url;
 	}
-	
+
 	public function getAdminUrl() {
 		if ($this->getId() == -1) {
 			return '/admin/pictures/new/'.$this->getIdProject();
 		}
 		return '/admin/pictures/'.$this->getId();
 	}
-	
+
 	public function getHtml($a=0) {
 		// Picture : a = (int) size
 		// Movie : a = (bool) show dimensions in px
@@ -215,8 +229,8 @@ class Picture {
 		
 		return $code;
 	}
-	
-	
+
+
 	public function generateFiles () {
 		
 		$dirName = dirname(__DIR__).'/resources/pictures/'.$this->getId();
