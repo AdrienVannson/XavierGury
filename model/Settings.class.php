@@ -28,13 +28,29 @@ class Settings
     }
 
 
+    public function save()
+    {
+		$db = get_db();
+
+        $results = $db->prepare('UPDATE settings SET description=? WHERE id=1;');
+        $results->execute(array(
+                $this->description
+        ));
+	}
+
+
     // Getters & setters
+
     public function getDescription ()
     {
         return $this->description;
     }
 
-    
+    public function setDescription ($description)
+    {
+        $this->description = $description;
+    }
+
 
 
     protected $description;
