@@ -20,6 +20,7 @@ function show_admin_menus($path=array()) {
 <!-- Menu de gauche -->
 <ul id="slide-out" class="side-nav fixed">
 	<li><a href="/admin/projects/">Projets</a></li>
+	<li><a href="/admin/settings/">Paramètres</a></li>
 	<li><a href="/admin/help/">Aide</a></li>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse">

@@ -28,6 +28,11 @@ if ($size == 1) {
 		exit();
 	}
 	
+	if ($request[0] == 'settings') {
+		include('controller/settings.php');
+		exit();
+	}
+
 	if ($request[0] == 'help') {
 		include('controller/help.php');
 		exit();
