@@ -42,7 +42,8 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements principaux récents</span>
 								<ul>
-									<li>10 septembre 2016: Possibilité de modifier des paramètres, tels le texte de la page d'accueil</li> 
+									<li style="font-weight: bold";>10 septembre 2016: Possibilité de modifier des paramètres, tels le texte de la page d'accueil ; et
+									d'afficher les images des projets via un caroussel (sélectionner "Caroussel" au lieu de "Grille" dans la page de modification d'un projet).</li> 
 									<li>24 août 2016: Modification des polices de caractères et amélioration de l'aperçu des images</li>
 									<li>08 août 2016: Ajout du journal</li>
 									<li>19 juillet 2016: Possibilité d'envoyer des vidéos</li>
