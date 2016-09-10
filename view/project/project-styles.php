@@ -304,7 +304,7 @@ p {
 
 @media (max-width: 600px) { /* Smalls screens */
 
-	.project-picture {
+	#pictures .project-picture {
 		height: auto;
 		max-width: none;
 		width: 90%;
@@ -313,7 +313,16 @@ p {
 		margin-bottom: 16px;
 	}
 
+	#pictures .small {
+		width: 43%;
+	}
+
+	#pictures .small-left {
+		clear: left;
+	}
+
 }
+
 
 /*
  * Preview

@@ -63,8 +63,9 @@ show_head($project->getName(), $styles, array(), $head);
 		
 		<?php
 		$pictures = $project->getPictures();
-		
-		foreach($pictures as $index=>$picture) {
+		$isLeft = true;
+
+		foreach ($pictures as $index=>$picture) {
 			
 			if ($picture->getType() == 'youtube') {
 				echo $picture->getHtml();
@@ -75,7 +76,23 @@ show_head($project->getName(), $styles, array(), $head);
 					<img 
 						<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
 						else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
-						class="project-picture"
+						class="
+							project-picture
+
+							<?php
+							if ($picture->getHeight() / $picture->getWidth() >= 2) {
+								echo 'small';
+
+								if ($isLeft) {
+									echo ' small-left';
+								}
+								$isLeft = !$isLeft;
+							}
+							else {
+								$isLeft = true;
+							}
+							?>
+						"
 						id="picture-<?php echo $index;?>"
 						title="<?php echo $picture->getName();?>"
 						alt="<?php echo $picture->getName();?>"
