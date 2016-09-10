@@ -16,6 +16,7 @@ if (isset($_POST['save'])) {
 	$project->setIdParent($_POST['id_parent']);
 	$project->setName($_POST['name']);
 	$project->setDescription($_POST['description']);
+	$project->setPicturesDisplayMode($_POST['pictures-display-mode']);
 	$project->setColor($_POST['color']);
 	
 	$project->save();

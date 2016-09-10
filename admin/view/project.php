@@ -73,6 +73,16 @@ show_admin_menus($parents);
 				<textarea id="description" name="description"><?php echo $project->getDescription();?></textarea>
 			</p>
 
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<select name="pictures-display-mode">
+						<option value="GRID" <?php if ($project->getPicturesDisplayMode() == 'GRID') { echo 'selected'; } ?>>Grille</option>
+						<option value="CAROUSEL"  <?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { echo 'selected'; } ?>>Caroussel</option>
+					</select>
+					<label>Mode d'affichage des images</label>
+				</div>
+			</div>
+
 			<?php if ($project->getIdParent() == 0) { ?>
 				<p>
 					<label for="color">Couleur du projet</label>
@@ -185,8 +195,12 @@ show_admin_menus($parents);
 
 
 		<script>
-			CKEDITOR.replace('description');
-			$('.button-collapse').sideNav();
+			$(document).ready(function() {
+				CKEDITOR.replace('description');
+
+				$('select').material_select();
+				$('.button-collapse').sideNav();
+			});
 		</script>
 
 	</div>
