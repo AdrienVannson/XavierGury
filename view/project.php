@@ -24,6 +24,8 @@ if ($project->getDescription() != '') {
 	$head .= '<meta name="description" content="' . strip_tags($project->getDescription()) . '">';
 }
 
+$pictures = $project->getPictures();
+
 show_head($project->getName(), $styles, array(), $head);
 
 ?>
@@ -31,6 +33,26 @@ show_head($project->getName(), $styles, array(), $head);
 
 <?php show_left_menu($project); ?>
 
+<script>
+var nbPictures = <?php echo sizeof($pictures)?>;
+
+var infosPictures = [
+<?php
+foreach ($pictures as $key=>$picture) {
+	$datas = json_encode([
+		'name' => $picture->getName(),
+		'description' => $picture->getDescription(),
+		'urlLarge' => $picture->getUrlResource('l')
+	]);
+	echo "$datas,";
+}
+?>
+];
+
+var toRefresh = [];
+toRefresh.length = nbPictures;
+toRefresh.fill(0, 0, nbPictures);
+</script>
 
 <div id="contents">
 
@@ -62,7 +84,6 @@ show_head($project->getName(), $styles, array(), $head);
 	else { ?>id="pictures"<?php } ?> >
 		
 		<?php
-		$pictures = $project->getPictures();
 		$isLeft = true;
 
 		foreach ($pictures as $index=>$picture) {
@@ -99,7 +120,9 @@ show_head($project->getName(), $styles, array(), $head);
 						<?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
 						else { ?>onclick<?php } ?>="showPicture(this)"
 						
-						onload="toRefresh[this.id.split('-')[1]]=-1"
+						<?php if ($project->getPicturesDisplayMode() == 'GRID') { ?>
+							onload="toRefresh[this.id.split('-')[1]]=-1"
+						<?php } ?>
 					/>
 				</div>
 			<?php
@@ -152,20 +175,7 @@ show_head($project->getName(), $styles, array(), $head);
 
 
 <script>
-var nbPictures = <?php echo sizeof($pictures)?>;
-
-var infosPictures = [
-<?php
-foreach ($pictures as $key=>$picture) {
-	$datas = json_encode([
-		'name' => $picture->getName(),
-		'description' => $picture->getDescription(),
-		'urlLarge' => $picture->getUrlResource('l')
-	]);
-	echo "$datas,";
-}
-?>
-];
+var usePicturesRefresh = <?php echo intval($project->getPicturesDisplayMode() == 'GRID'); ?>;
 </script>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
