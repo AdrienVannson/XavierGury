@@ -23,7 +23,7 @@ body {
 }
 
 .line {
-	height: 256px;
+	height: 128px;
 }
 
 .cel {
@@ -32,5 +32,5 @@ body {
 
 .picture img {
 	cursor: pointer;
-	max-height: 256px;
+	max-height: 128px;
 }

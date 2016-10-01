@@ -48,11 +48,6 @@ foreach($picturesShowed as $picture) {
 ?>
 ];
 
-function clear() {
-	$('#pictures').html('');
-}
-
-
 function addLine(iLine, nbColumns) {
 	$('#pictures').append('<tr class="line" id="line-'+iLine+'"></tr>');
 
@@ -61,119 +56,60 @@ function addLine(iLine, nbColumns) {
 	}
 }
 
-function isPossible(iLine, iColumn) {
-	
-	for(var iLineNextTo=iLine-1; iLineNextTo<=iLine+1; iLineNextTo++) {
-		for(var iColumnNextTo=iColumn-1; iColumnNextTo<=iColumn+1; iColumnNextTo++) {
-			
-			if( $('#column-'+iLineNextTo+'-'+iColumnNextTo).hasClass('picture') ) {
-				return false;
-			}
-			
-		}
-	}
-	
-	return true;
-}
 
-function createGride() {
+function createGrid () {
 	
-	clear();
-	
-	var succes = false;
-	var nbFails = 0;
+	$('#pictures').html('');
 	
 	var width = $('html').width() - 17;
-	var nbColumns = Math.floor(width / 200);
+	var nbColumns = Math.floor(width / 128);
 
 	var height = $('html').height() - 17;
-	var nbLines = Math.floor(height / 256);
+	var nbLines = Math.floor(height / 128);
 	
-	if (nbColumns <= 1) {
-		return false;
-	}
 	
-	while(!succes && nbFails<10) {
-		clear();
-		
-		var pictureList = pictures.slice();
-		shuffle(pictureList);
+	var pictureList = pictures.slice();
+	shuffle(pictureList);
 
-		var nbRestingCels = nbColumns * nbLines - nbLines;
-		
-		var iLine=0;
-		while (pictureList.length > 0) {
-			addLine(iLine, nbColumns);
 
-			for (var iColumn=0; iColumn<nbColumns; iColumn++) {
+	var iLine=0;
+	while (pictureList.length > 0) {
+		addLine(iLine, nbColumns);
 
-				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(pictureList.length/nbRestingCels))) {
-					var last = pictureList.pop();
+		for (var iColumn=0; iColumn<nbColumns; iColumn++) {
 
-					$('#column-'+iLine+'-'+iColumn)
-						.addClass('picture')
-						.html('<a href="'+last.urlLink+'"><img src="'+last.urlFile+'"/></a>');	
+			if (Math.random() > 0.9) {
+				var last = pictureList.pop();
 
-					if (pictureList.length == 0) {
-						break;
-					}
+				$('#column-'+iLine+'-'+iColumn)
+					.addClass('picture')
+					.html('<a href="'+last.urlLink+'"><img src="'+last.urlFile+'"/></a>');	
+
+				if (pictureList.length == 0) {
+					break;
 				}
-
-				nbRestingCels--;
 			}
 
-			iLine++;
 		}
-		
-		if(iLine <= nbLines) {
-			succes = true;
-		}
-		else {
-			nbFails++;
-		}
-		
-		for(var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
-			addLine(iLine+iNewLine, nbColumns);
-		}
+
+		iLine++;
+	}
+	
+	for(var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
+		addLine(iLine+iNewLine, nbColumns);
 	}
 
 	$('.column').width('calc('+100/nbColumns+'% - 1px)');
 	$('.column:first-child').width('calc('+100/nbColumns+'% - 2px)');
-	
-	if (!succes) {
-		return false;
-	}
-	
-	return true;
-}
-
-
-function createList() {
-	clear();
-	
-	var list = $('#pictures');
-	
-	pictures.forEach(function(picture) {
-		list.append('<tr class="line"><td class="column picture" style="width:100%; background-color:'+picture.color+';"><a href="'+picture.url+'">'+picture.name+'</a></td></tr>');
-	});
-	
-	enableLinks();
-}
-
-
-function create() {
-	if (!createGride()) {
-		createList();
-	}
 }
 
 
 $(document).ready(function() {
-	create();
+	createGrid();
 });
 
 var timeout;
 $(window).resize(function() {
 	clearTimeout(timeout);
-	timeout = setTimeout(create, 100);
+	timeout = setTimeout(createGrid, 100);
 });
