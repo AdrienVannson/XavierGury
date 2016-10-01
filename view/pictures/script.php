@@ -3,9 +3,7 @@
 header('Content-Type: text/js');
 ?>
 
-/* Comment to enable the JS coloration in IDE
-<script>
-// */
+/* <script>// */
 
 // Shuffle function
 function shuffle(array) {
@@ -18,64 +16,45 @@ function shuffle(array) {
     return array;
 }
 
-var Theme = function (_name, _url, _color) {
-	this.name = _name;
-	this.url = _url;
-    this.color = _color;
+var Picture = function (_urlFile, _urlLink) {
+	this.urlFile = _urlFile;
+    this.urlLink = _urlLink;
 }
 
-var themes = [
+var pictures = [
 <?php
-class ThemeShowed {
-	public function __construct($name, $url, $color) {
-		$this->name = $name;
-		$this->url = $url;
-		$this->color = $color;
+class PictureShowed {
+	public function __construct($urlFile, $urlLink) {
+		$this->urlFile = $urlFile;
+		$this->urlLink = $urlLink;
 	}
-	public $name, $url, $color;
+	public $urlFile, $urlLink;
 }
-$themesShowed = [];
+$picturesShowed = [];
 
-$iTheme = 0;
-foreach($themes as $theme) {
-	$themesShowed[] = new ThemeShowed($theme->getName(), $theme->getUrl(), $theme->getColor());
-}
-$themesShowed[] = new ThemeShowed('', '/', 'FFF');
+$picturesShowed[] = new PictureShowed('http://localhost/1-Peintures/21-Les+100+je+me+sens/ressources/18m-Le+renard.jpg', 'http://localhost/1-Peintures/21-Les+100+je+me+sens');
+$picturesShowed[] = new PictureShowed('http://localhost/1-Peintures/22-R%C3%AAveries/ressources/4m-D%C3%A9crocher+la+lune.jpg', 'http://localhost/1-Peintures/22-R%C3%AAveries');
 
-foreach($themesShowed as $theme) {
-	echo 'new Theme(\''.str_replace('\'', '\\\'', mb_strtoupper($theme->name, 'UTF-8')).'\', \''.$theme->url.'\', \'#'.$theme->color.'\')';
+$iPicture = 0;
 
-	if($iTheme < sizeof($themesShowed)-1) {
+foreach($picturesShowed as $picture) {
+	echo "new Picture('" . $picture->urlFile . "', '" . $picture->urlLink."')";
+
+	if($iPicture < sizeof($picturesShowed)-1) {
 		echo ',';
 	}
-	$iTheme++;
+	$iPicture++;
 }
 ?>
 ];
 
 function clear() {
-	$('#themes').html('');
-}
-
-function enableLinks() {
-	
-	$('.theme').click( function(event) {
-    	event.preventDefault();
-		
-		var target = $(event.target);
-		if(event.target.nodeName == 'TD') {
-			target = target.children().last();
-		}
-    	
-		var location = $(target).attr('href');
-		window.location = location;
-    });
-	
+	$('#pictures').html('');
 }
 
 
 function addLine(iLine, nbColumns) {
-	$('#themes').append('<tr class="line" id="line-'+iLine+'"></tr>');
+	$('#pictures').append('<tr class="line" id="line-'+iLine+'"></tr>');
 
 	for(var iColumn=0; iColumn<nbColumns; iColumn++) {
 		$('#line-'+iLine).append('<td class="cel" id="column-'+iLine+'-'+iColumn+'"></td>');
@@ -87,7 +66,7 @@ function isPossible(iLine, iColumn) {
 	for(var iLineNextTo=iLine-1; iLineNextTo<=iLine+1; iLineNextTo++) {
 		for(var iColumnNextTo=iColumn-1; iColumnNextTo<=iColumn+1; iColumnNextTo++) {
 			
-			if( $('#column-'+iLineNextTo+'-'+iColumnNextTo).hasClass('theme') ) {
+			if( $('#column-'+iLineNextTo+'-'+iColumnNextTo).hasClass('picture') ) {
 				return false;
 			}
 			
@@ -108,7 +87,7 @@ function createGride() {
 	var nbColumns = Math.floor(width / 200);
 
 	var height = $('html').height() - 17;
-	var nbLines = Math.floor(height / 70);
+	var nbLines = Math.floor(height / 256);
 	
 	if (nbColumns <= 1) {
 		return false;
@@ -117,26 +96,25 @@ function createGride() {
 	while(!succes && nbFails<10) {
 		clear();
 		
-		var themeList = themes.slice();
-		shuffle(themeList);
+		var pictureList = pictures.slice();
+		shuffle(pictureList);
 
 		var nbRestingCels = nbColumns * nbLines - nbLines;
 		
 		var iLine=0;
-		while (themeList.length > 0) {
+		while (pictureList.length > 0) {
 			addLine(iLine, nbColumns);
 
 			for (var iColumn=0; iColumn<nbColumns; iColumn++) {
 
-				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(themeList.length/nbRestingCels))) {
-					var last = themeList.pop();
+				if (isPossible(iLine, iColumn) && (nbRestingCels<=0 ? true : Math.random()<(pictureList.length/nbRestingCels))) {
+					var last = pictureList.pop();
 
 					$('#column-'+iLine+'-'+iColumn)
-						.addClass('theme')
-						.css('backgroundColor', last.color)
-						.html('<a href="'+last.url+'">'+last.name+'</a>');	
+						.addClass('picture')
+						.html('<a href="'+last.urlLink+'"><img src="'+last.urlFile+'"/></a>');	
 
-					if (themeList.length == 0) {
+					if (pictureList.length == 0) {
 						break;
 					}
 				}
@@ -166,8 +144,6 @@ function createGride() {
 		return false;
 	}
 	
-	enableLinks();
-	
 	return true;
 }
 
@@ -175,10 +151,10 @@ function createGride() {
 function createList() {
 	clear();
 	
-	var list = $('#themes');
+	var list = $('#pictures');
 	
-	themes.forEach(function(theme) {
-		list.append('<tr class="line"><td class="column theme" style="width:100%; background-color:'+theme.color+';"><a href="'+theme.url+'">'+theme.name+'</a></td></tr>');
+	pictures.forEach(function(picture) {
+		list.append('<tr class="line"><td class="column picture" style="width:100%; background-color:'+picture.color+';"><a href="'+picture.url+'">'+picture.name+'</a></td></tr>');
 	});
 	
 	enableLinks();

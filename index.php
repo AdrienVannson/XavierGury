@@ -20,8 +20,8 @@ if ($size == 0) { // Homepage
 
 if ($size == 1) {
 	
-	if ($request[0] == 'themes') { // Page des thèmes
-		include('controller/themes.php');
+	if ($request[0] == 'pictures') { // Page des thèmes
+		include('controller/pictures/pictures.php');
 		exit();
 	}
 	
@@ -41,21 +41,21 @@ if ($size == 2) {
 			exit();
 		}
 		
-		if ($request[1] == 'themes-styles.css') {
-			include('controller/themes/themes_styles.php');
+		if ($request[1] == 'pictures-styles.css') {
+			include('controller/pictures/styles.php');
 			exit();
 		}
 		
 	}
 	if ($request[0] == 'scripts') { // Scripts
 		
-		if ($request[1] == 'themes-scripts.js') {
-			include('controller/themes/themes_scripts.php');
+		if ($request[1] == 'project.js') {
+			include('controller/project/project-script.php');
 			exit();
 		}
 		
-		if ($request[1] == 'project.js') {
-			include('controller/project/project-script.php');
+		if ($request[1] == 'pictures-scripts.js') {
+			include('controller/pictures/scripts.php');
 			exit();
 		}
 		
