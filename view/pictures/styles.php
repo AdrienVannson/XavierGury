@@ -30,7 +30,15 @@ body {
 	border: 1px solid #FFF;
 }
 
+.picture {
+	overflow: hidden;
+}
+
 .picture img {
+	display: block;
+	margin: auto;
+	min-height: 128px;
+	min-width: 128px;
+
 	cursor: pointer;
-	max-height: 128px;
 }
