@@ -17,10 +17,10 @@ function shuffle(array) {
 }
 
 function addLine(iLine, nbColumns) {
-	$('#pictures').append('<tr class="line" id="line-'+iLine+'"></tr>');
+	$('#pictures').append('<tr id="line-'+iLine+'"></tr>');
 
 	for(var iColumn=0; iColumn<nbColumns; iColumn++) {
-		$('#line-'+iLine).append('<td class="cel" id="column-'+iLine+'-'+iColumn+'"></td>');
+		$('#line-'+iLine).append('<td id="column-'+iLine+'-'+iColumn+'"></td>');
 	}
 }
 

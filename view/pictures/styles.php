@@ -3,7 +3,7 @@
 header('Content-Type: text/css');
 ?>
 
-/* <style>*/
+/* <style> /**/
 
 html {
 	height: 100%;
@@ -22,23 +22,30 @@ body {
 	border-collapse: collapse;
 }
 
-.line {
+tr {
 	height: 128px;
 }
 
-.cel {
+td {
 	border: 1px solid #FFF;
+	padding: 0;
 }
 
 .picture {
+	height: 128px;
 	overflow: hidden;
 }
 
-.picture img {
+.picture a {
+	display: block;
+	/*margin: auto;*/
+}
+
+.picture a img {
 	display: block;
 	margin: auto;
-	min-height: 128px;
-	min-width: 128px;
+	/*min-height: 128px;
+	min-width: 128px;*/
 
 	cursor: pointer;
 }
