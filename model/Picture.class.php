@@ -6,7 +6,7 @@ include_once(__DIR__.'/PictureFactory.class.php');
 
 
 class Picture {
-	
+
 	private function __construct ($id)
 	{
 		$db = get_db();
@@ -34,10 +34,10 @@ class Picture {
 			$this->creationDate = $datas['creation_date'];
 		}
 	}
-	
+
 	private function __clone () {}
-	
-	
+
+
 	public static function getPicture ($id)
 	{
 		if (!isset(self::$picturesInstances[$id])) {
@@ -46,8 +46,8 @@ class Picture {
 		
 		return self::$picturesInstances[$id];
 	}
-	
-	
+
+
 	public function save() {
 		$db = get_db();
 		

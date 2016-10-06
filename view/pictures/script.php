@@ -5,17 +5,6 @@ header('Content-Type: text/js');
 
 /* <script>// */
 
-// Shuffle function
-function shuffle(array) {
-    for (var i=array.length-1; i>0; i--) {
-        var j = Math.floor(Math.random() * (i+1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
-
 function addLine(iLine, nbColumns) {
 	$('#pictures').append('<tr id="line-'+iLine+'"></tr>');
 
@@ -36,33 +25,27 @@ function createGrid () {
 	var nbLines = Math.floor(height / 128);
 	
 	var picturesList = pictures.slice();
-	shuffle(picturesList);
-
 
 	var iLine = 0;
-	while (picturesList.length > 0) {
+	while (picturesList.length > 0 && iLine < nbLines) {
 		addLine(iLine, nbColumns);
 
 		for (var iColumn=0; iColumn<nbColumns; iColumn++) {
+			var last = picturesList.pop();
 
-			if (Math.random() > 0.9) {
-				var last = picturesList.pop();
+			$('#column-'+iLine+'-'+iColumn)
+				.addClass('picture')
+				.html('<a href="'+last.urlLink+'" title="'+last.name+'"><img src="'+last.urlPicture+'"/></a>');	
 
-				$('#column-'+iLine+'-'+iColumn)
-					.addClass('picture')
-					.html('<a href="'+last.urlLink+'" title="'+last.name+'"><img src="'+last.urlPicture+'"/></a>');	
-
-				if (picturesList.length == 0) {
-					break;
-				}
+			if (picturesList.length == 0) {
+				break;
 			}
-
 		}
 
 		iLine++;
 	}
 	
-	for(var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
+	for (var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
 		addLine(iLine+iNewLine, nbColumns);
 	}
 

@@ -16,13 +16,7 @@ include_once(__DIR__.'/../head.php');
 		<script>
 		var pictures = [
 			<?php
-
-			$pictures = [
-				PictureFactory::getPicture(12),
-				PictureFactory::getPicture(4),
-				PictureFactory::getPicture(108)
-			];
-
+			$pictures = PictureFactory::getRandomPictures(150);
 
 			foreach ($pictures as $picture) {
 				$datas = json_encode([
