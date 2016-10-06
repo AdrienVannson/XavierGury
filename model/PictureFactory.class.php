@@ -17,7 +17,7 @@ class PictureFactory
 	public static function getRandomPictures ($nbPictures)
 	{
 		$db = get_db();
-		$results = $db->prepare('SELECT id FROM pictures ORDER BY rand() LIMIT :nbPictures');
+		$results = $db->prepare('SELECT id FROM pictures WHERE type != "YOUTUBE" ORDER BY rand() LIMIT :nbPictures');
 		$results->bindParam(':nbPictures', $nbPictures, PDO::PARAM_INT);
 
 		$results->execute();
