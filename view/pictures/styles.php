@@ -38,14 +38,18 @@ td {
 
 .picture a {
 	display: block;
-	/*margin: auto;*/
+	opacity: 0;
+
+	transition: opacity .3s;
+}
+
+.picture a:hover {
+	opacity: 1;
 }
 
 .picture a img {
 	display: block;
 	margin: auto;
-	/*min-height: 128px;
-	min-width: 128px;*/
 
 	cursor: pointer;
 }
