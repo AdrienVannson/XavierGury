@@ -20,7 +20,7 @@ if ($size == 0) { // Homepage
 
 if ($size == 1) {
 	
-	if ($request[0] == 'pictures') { // Page des thèmes
+	if ($request[0] == 'images') { // Gallerie d'images
 		include('controller/pictures/pictures.php');
 		exit();
 	}
