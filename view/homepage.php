@@ -1,6 +1,8 @@
 <?php 
 /* View */
 include_once(__DIR__.'/head.php');
+
+$description = $SETTINGS->getDescription();
 ?>
 
 <!DOCTYPE HTML>
@@ -10,7 +12,7 @@ include_once(__DIR__.'/head.php');
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	
 	<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">
-	<meta name="description" content="' . strip_tags($description) . '">
+	<meta name="description" content="<?php echo strip_tags($description);?>">
 
 	<style>
 body {
