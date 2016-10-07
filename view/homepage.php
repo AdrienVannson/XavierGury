@@ -5,26 +5,21 @@ include_once(__DIR__.'/head.php');
 
 <!DOCTYPE HTML>
 <html lang="fr">
-<?php
+<head>
+	<title>Accueil - Xavier Gury</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	
+	<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">
+	<meta name="description" content="' . strip_tags($description) . '">
 
-$description = $SETTINGS->getDescription();
-
-$codeHead = '';
-
-$codeHead .= '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">' . PHP_EOL;
-
-$codeHead .= '<meta name="keywords" content="xavier gury, art, peinture, illustration, installation, exposition, objet, animation">' . PHP_EOL;
-$codeHead .= '<meta name="description" content="' . strip_tags($description) . '">' . PHP_EOL;
-
-$codeHead .= "<style>
-
+	<style>
 body {
 	margin: 0;
 }
 
 #title {
-	margin:0;
-	font-weight:normal;
+	margin: 0;
+	font-weight: normal;
 }
 
 #infos {
@@ -68,11 +63,8 @@ body {
 	}
 
 }
-</style>";
-
-show_head('Accueil', array(), array(), $codeHead);
-
-?>
+	</style>
+</head>
 <body>
 
 <div id="infos">
