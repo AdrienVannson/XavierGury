@@ -73,6 +73,7 @@ class ProjectView
         echo '<body>';
         
         $this->sendLeftMenu();
+        $this->sendContents();
 
         echo '</body>';
     }
@@ -80,6 +81,19 @@ class ProjectView
     protected function sendLeftMenu ()
     {
         show_left_menu($this->project);
+    }
+
+    protected function sendContents ()
+    {
+        ?>
+        
+        <div id="contents">
+
+            <h1><?php echo $this->project->getName();?></h1>
+
+        </div>
+
+        <?php
     }
     
 
