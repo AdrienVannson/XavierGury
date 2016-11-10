@@ -76,15 +76,8 @@ if (preg_match($regexPictures, $urlRequest)) {
 }
 
 if (preg_match('#^/([0-9]+-.*)+$#', $urlRequest)) { // Page de projet
-
-	$path = [];
-	
-	foreach ($request as $level) {
-		$path[] = explode('-', $level);
-	}
-
-	$PROJECT_ID = end($path)[0];
 	$URL = $urlRequest;
+	$CUT_OUT_REQUEST = $request;
 
 	include('controller/project.php');
 	exit();
