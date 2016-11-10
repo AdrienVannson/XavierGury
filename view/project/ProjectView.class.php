@@ -36,13 +36,19 @@ class ProjectView
      * Displaying functions
      */
     
-    protected function showHead ()
+    public function sendHTML ()
     {
-        ?>
-        <!DOCTYPE HTML>
-        <html lang="fr">
-        <?php
+        echo '<!DOCTYPE HTML><html lang="fr">';
+        
+        $this->sendHead();
+        $this->sendBody();
 
+        echo '</html>';
+    }
+
+    // Head
+    protected function sendHead ()
+    {
         $styles = ['/styles/project.css'];
 
         if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
@@ -61,14 +67,21 @@ class ProjectView
         show_head($this->project->getName(), $styles, array(), $head);
     }
 
-
-
-    public function sendHTML ()
+    // Body
+    protected function sendBody ()
     {
-        $this->showHead();
+        echo '<body>';
+        
+        $this->sendLeftMenu();
 
-        echo "<body>Bonjour</body>";
+        echo '</body>';
     }
+
+    protected function sendLeftMenu ()
+    {
+        show_left_menu($this->project);
+    }
+    
 
 
 	protected $project;

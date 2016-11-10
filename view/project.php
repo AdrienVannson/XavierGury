@@ -1,37 +1,3 @@
-<?php
-/* View */
-include_once(__DIR__.'/../model/Project.class.php');
-include_once(__DIR__.'/../model/Picture.class.php');
-include_once(__DIR__.'/head.php');
-include_once(__DIR__.'/left-menu.php');
-
-$project = $PROJECT;
-?>
-<!DOCTYPE HTML>
-<html lang="fr">
-<?php
-
-$styles = ['/styles/project.css'];
-
-if ($project->getPicturesDisplayMode() == 'CAROUSEL') {
-	$styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css';
-	$styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
-}
-
-$head = '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
-
-if ($project->getDescription() != '') {
-	$head .= '<meta name="description" content="' . strip_tags($project->getDescription()) . '">';
-}
-
-$pictures = $project->getPictures();
-
-show_head($project->getName(), $styles, array(), $head);
-
-?>
-<body>
-
-<?php show_left_menu($project); ?>
 
 <script>
 var nbPictures = <?php echo sizeof($pictures)?>;
