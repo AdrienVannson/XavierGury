@@ -92,6 +92,8 @@ class ProjectView
             <h1><?php echo $this->project->getName();?></h1>
 
             <?php $this->sendChidren(); ?>
+            <?php $this->sendPictures(); ?>
+            <?php $this->sendDescription(); ?>
 
         </div>
 
@@ -114,6 +116,95 @@ class ProjectView
                 <?php
             }
         }
+    }
+
+    protected function sendPictures ()
+    {
+        ?>
+
+        <div <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>id="carousel"<?php }
+        else { ?>id="pictures"<?php } ?> >
+            
+            <?php
+            $isLeft = true;
+
+            foreach ($this->project->getPictures() as $index=>$picture) {
+                
+                if ($picture->getType() == 'youtube') {
+                    echo $picture->getHtml();
+                }
+                else {
+                ?>
+                    <div>
+                        <img 
+                            <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
+                            else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
+                            class="
+                                project-picture
+
+                                <?php
+                                if ($picture->getHeight() / $picture->getWidth() >= 2) {
+                                    echo 'small';
+
+                                    if ($isLeft) {
+                                        echo ' small-left';
+                                    }
+                                    $isLeft = !$isLeft;
+                                }
+                                else {
+                                    $isLeft = true;
+                                }
+                                ?>
+                            "
+                            id="picture-<?php echo $index;?>"
+                            title="<?php echo $picture->getName();?>"
+                            alt="<?php echo $picture->getName();?>"
+                            <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
+                            else { ?>onclick<?php } ?>="showPicture(this)"
+                            
+                            <?php if ($this->project->getPicturesDisplayMode() == 'GRID') { ?>
+                                onload="toRefresh[this.id.split('-')[1]]=-1"
+                            <?php } ?>
+                        />
+                    </div>
+                <?php
+                }
+            }
+            ?>
+        
+        </div>
+
+        <?php
+        // Noscript, because of the lazy-loading
+        if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
+        ?>
+            <noscript>
+                <?php
+                $pictures = $this->project->getPictures();
+
+                foreach ($pictures as $picture) {
+                    ?>
+                        <img
+                            src="<?php echo $picture->getUrlResource('m');?>"
+                            class="project-picture"
+                            title="<?php echo $picture->getName();?>"
+                            alt="<?php echo $picture->getName();?>"
+                        />
+                    <?php
+                }
+                ?>
+            </noscript>
+
+            <?php
+        }
+    }
+
+    protected function sendDescription ()
+    {
+        $description = $this->project->getDescription();
+	    if ($description != '') {
+		    echo "<div class=\"description\">$description</div>";
+	    }
     }
     
 
