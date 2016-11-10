@@ -91,9 +91,29 @@ class ProjectView
 
             <h1><?php echo $this->project->getName();?></h1>
 
+            <?php $this->sendChidren(); ?>
+
         </div>
 
         <?php
+    }
+
+    protected function sendChidren ()
+    {
+        $children = $this->project->getChildren();
+
+        if (sizeof($children)) {
+            foreach ($children as $child) {
+                ?>
+
+                    <div class="under-project">
+                        <h2><a href="<?php echo $child->getUrl();?>"><?php echo $child->getName();?></a></h2>
+                        <div><?php echo $child->getDescription();?></div>
+                    </div>
+
+                <?php
+            }
+        }
     }
     
 
