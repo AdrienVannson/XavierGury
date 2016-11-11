@@ -75,6 +75,7 @@ class ProjectView
             $this->sendLeftMenu();
             $this->sendContents();
             $this->sendPicturePreview();
+            $this->sendScripts();
 
             echo '</body>';
         }
@@ -222,6 +223,60 @@ class ProjectView
                 </div>
 
                 <?php
+            }
+
+            protected function sendScripts ()
+            {
+                ?>
+
+                <script>
+                var usePicturesRefresh = <?php echo intval($this->project->getPicturesDisplayMode() == 'GRID'); ?>;
+
+                var nbPictures = <?php echo sizeof($this->project->getPictures())?>;
+
+                var infosPictures = [
+                <?php
+                foreach ($this->project->getPictures() as $key=>$picture) {
+                    $datas = json_encode([
+                        'name' => $picture->getName(),
+                        'description' => $picture->getDescription(),
+                        'urlLarge' => $picture->getUrlResource('l')
+                    ]);
+                    echo "$datas,";
+                }
+                ?>
+                ];
+
+                var toRefresh = [];
+                toRefresh.length = nbPictures;
+                toRefresh.fill(0, 0, nbPictures);
+
+                </script>
+
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+                <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+                <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+                <script type="text/javascript" src="/scripts/project.js"></script>
+
+                <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>
+                    <script>
+                    $(document).ready(function(){
+                        $('#carousel').slick({
+                            centerMode:        true,
+                            focusOnSelect:     true,
+                            infinite:          false,
+                            lazyLoad:          'ondemand',
+                            slidesToScroll:    1,
+                            speed:             500,
+                            swipeToSlide:      false,
+                            variableWidth:     true,
+                            waitForAnimate:    false
+                        }).slick('slickGoTo', 0, false);
+                    });
+                    </script>
+                <?php
+                }
+
             }
 
 
