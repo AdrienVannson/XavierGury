@@ -23,11 +23,11 @@ class ProjectView
 	public static function getInstance (Project $project)
 	{
 		$id = $project->getId();
-    
+
         if (!isset(self::$instances[$id])) {
-			self::$instances[$id] = new self($project);
+			self::$instances[$id] = new static($project);
 		}
-	
+
 		return self::$instances[$id];
 	}
 
@@ -230,7 +230,7 @@ class ProjectView
                 ?>
 
                 <script>
-                var usePicturesRefresh = <?php echo intval($this->project->getPicturesDisplayMode() == 'GRID'); ?>;
+                var usePicturesRefresh = <?php echo intval($this->usePicturesRefresh()); ?>;
 
                 var nbPictures = <?php echo sizeof($this->project->getPictures())?>;
 
@@ -279,6 +279,15 @@ class ProjectView
 
             }
 
+
+    /*
+     * Config
+     */
+
+    protected function usePicturesRefresh ()
+    {
+        return true;
+    }
 
 
 	protected $project;
