@@ -46,184 +46,184 @@ class ProjectView
         echo '</html>';
     }
 
-    // Head
-    protected function sendHead ()
-    {
-        $styles = ['/styles/project.css'];
+        // Head
+        protected function sendHead ()
+        {
+            $styles = ['/styles/project.css'];
 
-        if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
-            $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css';
-            $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
+            if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
+                $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css';
+                $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
+            }
+
+            $head = '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+
+            if ($this->project->getDescription() != '') {
+                $head .= '<meta name="description" content="' . strip_tags($this->project->getDescription()) . '">';
+            }
+
+            $pictures = $this->project->getPictures();
+
+            show_head($this->project->getName(), $styles, array(), $head);
         }
 
-        $head = '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+        // Body
+        protected function sendBody ()
+        {
+            echo '<body>';
 
-        if ($this->project->getDescription() != '') {
-            $head .= '<meta name="description" content="' . strip_tags($this->project->getDescription()) . '">';
+            $this->sendLeftMenu();
+            $this->sendContents();
+            $this->sendPicturePreview();
+
+            echo '</body>';
         }
 
-        $pictures = $this->project->getPictures();
+            protected function sendLeftMenu ()
+            {
+                show_left_menu($this->project);
+            }
 
-        show_head($this->project->getName(), $styles, array(), $head);
-    }
-
-    // Body
-    protected function sendBody ()
-    {
-        echo '<body>';
-        
-        $this->sendLeftMenu();
-        $this->sendContents();
-        $this->sendPicturePreview();
-
-        echo '</body>';
-    }
-
-    protected function sendLeftMenu ()
-    {
-        show_left_menu($this->project);
-    }
-
-    protected function sendContents ()
-    {
-        ?>
-        
-        <div id="contents">
-
-            <h1><?php echo $this->project->getName();?></h1>
-
-            <?php $this->sendChidren(); ?>
-            <?php $this->sendPictures(); ?>
-            <?php $this->sendDescription(); ?>
-
-        </div>
-
-        <?php
-    }
-
-    protected function sendChidren ()
-    {
-        $children = $this->project->getChildren();
-
-        if (sizeof($children)) {
-            foreach ($children as $child) {
+            protected function sendContents ()
+            {
                 ?>
 
-                    <div class="under-project">
-                        <h2><a href="<?php echo $child->getUrl();?>"><?php echo $child->getName();?></a></h2>
-                        <div><?php echo $child->getDescription();?></div>
-                    </div>
+                <div id="contents">
+
+                    <h1><?php echo $this->project->getName();?></h1>
+
+                    <?php $this->sendChidren(); ?>
+                    <?php $this->sendPictures(); ?>
+                    <?php $this->sendDescription(); ?>
+
+                </div>
 
                 <?php
             }
-        }
-    }
 
-    protected function sendPictures ()
-    {
-        ?>
+                protected function sendChidren ()
+                {
+                    $children = $this->project->getChildren();
 
-        <div <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>id="carousel"<?php }
-        else { ?>id="pictures"<?php } ?> >
-            
-            <?php
-            $isLeft = true;
+                    if (sizeof($children)) {
+                        foreach ($children as $child) {
+                            ?>
 
-            foreach ($this->project->getPictures() as $index=>$picture) {
-                
-                if ($picture->getType() == 'youtube') {
-                    echo $picture->getHtml();
+                                <div class="under-project">
+                                    <h2><a href="<?php echo $child->getUrl();?>"><?php echo $child->getName();?></a></h2>
+                                    <div><?php echo $child->getDescription();?></div>
+                                </div>
+
+                            <?php
+                        }
+                    }
                 }
-                else {
-                ?>
-                    <div>
-                        <img 
-                            <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
-                            else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
-                            class="
-                                project-picture
 
-                                <?php
-                                if ($picture->getHeight() / $picture->getWidth() >= 2) {
-                                    echo 'small';
-
-                                    if ($isLeft) {
-                                        echo ' small-left';
-                                    }
-                                    $isLeft = !$isLeft;
-                                }
-                                else {
-                                    $isLeft = true;
-                                }
-                                ?>
-                            "
-                            id="picture-<?php echo $index;?>"
-                            title="<?php echo $picture->getName();?>"
-                            alt="<?php echo $picture->getName();?>"
-                            <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
-                            else { ?>onclick<?php } ?>="showPicture(this)"
-                            
-                            <?php if ($this->project->getPicturesDisplayMode() == 'GRID') { ?>
-                                onload="toRefresh[this.id.split('-')[1]]=-1"
-                            <?php } ?>
-                        />
-                    </div>
-                <?php
-                }
-            }
-            ?>
-        
-        </div>
-
-        <?php
-        // Noscript, because of the lazy-loading
-        if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
-        ?>
-            <noscript>
-                <?php
-                $pictures = $this->project->getPictures();
-
-                foreach ($pictures as $picture) {
+                protected function sendPictures ()
+                {
                     ?>
-                        <img
-                            src="<?php echo $picture->getUrlResource('m');?>"
-                            class="project-picture"
-                            title="<?php echo $picture->getName();?>"
-                            alt="<?php echo $picture->getName();?>"
-                        />
+
+                    <div <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>id="carousel"<?php }
+                    else { ?>id="pictures"<?php } ?> >
+
+                        <?php
+                        $isLeft = true;
+
+                        foreach ($this->project->getPictures() as $index=>$picture) {
+
+                            if ($picture->getType() == 'youtube') {
+                                echo $picture->getHtml();
+                            }
+                            else {
+                            ?>
+                                <div>
+                                    <img
+                                        <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
+                                        else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
+                                        class="
+                                            project-picture
+
+                                            <?php
+                                            if ($picture->getHeight() / $picture->getWidth() >= 2) {
+                                                echo 'small';
+
+                                                if ($isLeft) {
+                                                    echo ' small-left';
+                                                }
+                                                $isLeft = !$isLeft;
+                                            }
+                                            else {
+                                                $isLeft = true;
+                                            }
+                                            ?>
+                                        "
+                                        id="picture-<?php echo $index;?>"
+                                        title="<?php echo $picture->getName();?>"
+                                        alt="<?php echo $picture->getName();?>"
+                                        <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
+                                        else { ?>onclick<?php } ?>="showPicture(this)"
+
+                                        <?php if ($this->project->getPicturesDisplayMode() == 'GRID') { ?>
+                                            onload="toRefresh[this.id.split('-')[1]]=-1"
+                                        <?php } ?>
+                                    />
+                                </div>
+                            <?php
+                            }
+                        }
+                        ?>
+
+                    </div>
+
                     <?php
+                    // Noscript, because of the lazy-loading
+                    if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
+                    ?>
+                        <noscript>
+                            <?php
+                            $pictures = $this->project->getPictures();
+
+                            foreach ($pictures as $picture) {
+                                ?>
+                                    <img
+                                        src="<?php echo $picture->getUrlResource('m');?>"
+                                        class="project-picture"
+                                        title="<?php echo $picture->getName();?>"
+                                        alt="<?php echo $picture->getName();?>"
+                                    />
+                                <?php
+                            }
+                            ?>
+                        </noscript>
+
+                        <?php
+                    }
                 }
+
+                protected function sendDescription ()
+                {
+                    $description = $this->project->getDescription();
+                    if ($description != '') {
+                        echo "<div class=\"description\">$description</div>";
+                    }
+                }
+
+            protected function sendPicturePreview ()
+            {
                 ?>
-            </noscript>
 
-            <?php
-        }
-    }
+                <div id="picture-preview">
+                    <svg id="close" viewBox="0 0 24 24" fill="#FFF" onclick="closePreview();">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
 
-    protected function sendDescription ()
-    {
-        $description = $this->project->getDescription();
-	    if ($description != '') {
-		    echo "<div class=\"description\">$description</div>";
-	    }
-    }
+                    <div id="frame"></div>
+                </div>
 
-    protected function sendPicturePreview ()
-    {
-    ?>
+                <?php
+            }
 
-        <div id="picture-preview">
-            <svg id="close" viewBox="0 0 24 24" fill="#FFF" onclick="closePreview();">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-
-            <div id="frame"></div>
-        </div>
-
-    <?php
-    }
-    
 
 
 	protected $project;
