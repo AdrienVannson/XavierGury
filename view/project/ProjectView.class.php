@@ -258,25 +258,7 @@ class ProjectView
                 <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
                 <script type="text/javascript" src="/scripts/project.js"></script>
 
-                <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>
-                    <script>
-                    $(document).ready(function(){
-                        $('#carousel').slick({
-                            centerMode:        true,
-                            focusOnSelect:     true,
-                            infinite:          false,
-                            lazyLoad:          'ondemand',
-                            slidesToScroll:    1,
-                            speed:             500,
-                            swipeToSlide:      false,
-                            variableWidth:     true,
-                            waitForAnimate:    false
-                        }).slick('slickGoTo', 0, false);
-                    });
-                    </script>
                 <?php
-                }
-
             }
 
 
