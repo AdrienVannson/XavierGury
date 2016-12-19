@@ -370,10 +370,10 @@ p {
 
 /* Arrows */
 .arrow {
-	height: 128px;
-	width: 128px;
+	height: 64px;
+	width: 64px;
 	position: absolute;
-	top: calc(50% - 64px);
+	top: calc(50% - 32px);
 	z-index: 10;
 
 	opacity: 0;
