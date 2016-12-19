@@ -382,6 +382,10 @@ p {
 	transition: opacity .3s;
 }
 
+#picture-container {
+	position: relative;
+}
+
 #picture-container:hover .arrow {
 	opacity: 1;
 }
@@ -434,7 +438,6 @@ p {
 	}
 
 	#picture-container {
-		position: relative;
 		height: 100%;
 		margin-right: 362px;
 	}
