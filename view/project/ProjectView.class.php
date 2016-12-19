@@ -1,6 +1,6 @@
 <?php
 /* 
- * ProjectView (singleton) 
+ * ProjectView
  */
 
 include_once(__DIR__.'/../../model/Project.class.php');
@@ -162,7 +162,7 @@ class ProjectView
                                         title="<?php echo $picture->getName();?>"
                                         alt="<?php echo $picture->getName();?>"
                                         <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
-                                        else { ?>onclick<?php } ?>="showPicture(this)"
+                                        else { ?>onclick<?php } ?>="showPicture(parseInt(this.id.split('-')[1]))"
 
                                         <?php if ($this->project->getPicturesDisplayMode() == 'GRID') { ?>
                                             onload="toRefresh[this.id.split('-')[1]]=-1"
@@ -219,7 +219,15 @@ class ProjectView
                         <path d="M0 0h24v24H0z" fill="none"/>
                     </svg>
 
-                    <div id="frame"></div>
+                    <div id="frame">
+                        <div id="picture-container">
+                            <img id="picture"/>
+                        </div>
+                        <div id="informations">
+                            <h1 id="title"></h1>
+                            <p id="description"></p>
+                        </div>
+                    </div>
                 </div>
 
                 <?php
