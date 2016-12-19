@@ -76,3 +76,15 @@ function showPicture (id)
 	title.innerText = infosPictures[id].name;
 	description.innerHTML = infosPictures[id].description;
 }
+
+function nextPicture ()
+{
+	currentPicture = (currentPicture+1) % infosPictures.length;
+	showPicture(currentPicture);
+}
+
+function previousPicture ()
+{
+	currentPicture = (currentPicture-1 + infosPictures.length) % infosPictures.length;
+	showPicture(currentPicture);
+}

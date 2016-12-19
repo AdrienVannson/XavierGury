@@ -368,6 +368,29 @@ p {
 	margin: 16px;
 }
 
+/* Arrows */
+.arrow {
+	height: 128px;
+	width: 128px;
+	position: absolute;
+	top: calc(50% - 64px);
+	z-index: 10;
+
+	opacity: 0;
+	cursor: pointer;
+
+	transition: opacity .3s;
+}
+
+#picture-container:hover .arrow {
+	opacity: 1;
+}
+
+#arrow-right {
+	right: 0;
+}
+
+
 @media (max-width: 992px) { /* Smalls and mediums screens */
 
 	#frame {
