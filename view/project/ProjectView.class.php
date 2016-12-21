@@ -49,23 +49,35 @@ class ProjectView
         // Head
         protected function sendHead ()
         {
-            $styles = ['/styles/project.css'];
+            ?>
 
-            if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
-                $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css';
-                $styles[] = 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css';
-            }
+            <head>
+                <meta charset="utf-8">
 
-            $head = '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+                <title><?php echo $this->project->getName();?> - Xavier Gury</title>
 
-            if ($this->project->getDescription() != '') {
-                $head .= '<meta name="description" content="' . strip_tags($this->project->getDescription()) . '">';
-            }
+                <?php
+                $this->sendStyles();
+                ?>
 
-            $pictures = $this->project->getPictures();
+                <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-            show_head($this->project->getName(), $styles, array(), $head);
+                <?php
+                if ($this->project->getDescription() != '') {
+                    echo '<meta name="description" content="' . strip_tags($this->project->getDescription()) . '">';
+                }
+                ?>
+            </head>
+
+            <?php
         }
+
+            protected function sendStyles ()
+            {
+                echo '<link rel="stylesheet" type="text/css" href="/styles/project.css"/>';
+            }
+
 
         // Body
         protected function sendBody ()

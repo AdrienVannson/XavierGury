@@ -8,19 +8,25 @@ include_once('ProjectView.class.php');
 class ProjectCarouselView extends ProjectView
 {
 
-    /*
-     * Config
-     */
-
     protected function usePicturesRefresh ()
     {
         return false;
     }
 
+    protected function sendStyles ()
+    {
+        ProjectView::sendStyles();
+        ?>
+
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
+        <?php
+    }
+
     protected function sendScripts ()
     {
         ProjectView::sendScripts();
-
         ?>
 
             <script>
