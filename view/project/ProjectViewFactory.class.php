@@ -13,11 +13,13 @@ class ProjectViewFactory
 	
 	public static function getProjectView (Project $project)
 	{
-		if ($project->getPicturesDisplayMode() == 'CAROUSEL') {
-			return ProjectCarouselView::getInstance($project);
+		switch ($project->getPicturesDisplayMode()) {
+			case 'CAROUSEL':
+				return ProjectCarouselView::getInstance($project);
+
+			default:
+				return ProjectView::getInstance($project);
 		}
-		
-		return ProjectView::getInstance($project);
 	}
 	
 }
