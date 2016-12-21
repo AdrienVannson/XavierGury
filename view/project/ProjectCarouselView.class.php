@@ -51,6 +51,11 @@ class ProjectCarouselView extends ProjectView
         <?php
     }
 
+        protected function useLazyLoading ()
+        {
+            return true;
+        }
+
     protected function sendScripts ()
     {
         ?>

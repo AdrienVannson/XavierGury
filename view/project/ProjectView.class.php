@@ -150,7 +150,7 @@ class ProjectView
                             ?>
                                 <div>
                                     <img
-                                        <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>data-lazy<?php }
+                                        <?php if ($this->useLazyLoading()) { ?>data-lazy<?php }
                                         else { ?>src<?php } ?>="<?php echo $picture->getUrlResource('medium');?>"
                                         class="
                                             project-picture
@@ -187,6 +187,11 @@ class ProjectView
 
                     <?php
                 }
+
+                    protected function useLazyLoading ()
+                    {
+                        return false;
+                    }
 
                 protected function sendDescription ()
                 {
