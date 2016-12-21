@@ -53,8 +53,10 @@ class ProjectCarouselView extends ProjectView
 
     protected function sendScripts ()
     {
-        ProjectView::sendScripts();
         ?>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
             <script>
             $(document).ready(function(){
@@ -75,6 +77,7 @@ class ProjectCarouselView extends ProjectView
             </script>
         
         <?php
+        ProjectView::sendScripts();
     }
 
 }

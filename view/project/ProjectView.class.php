@@ -259,12 +259,8 @@ class ProjectView
                 var toRefresh = [];
                 toRefresh.length = nbPictures;
                 toRefresh.fill(0, 0, nbPictures);
-
                 </script>
 
-                <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-                <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
                 <script type="text/javascript" src="/scripts/project.js"></script>
 
                 <?php
