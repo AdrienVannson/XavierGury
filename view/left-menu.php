@@ -90,7 +90,7 @@ function show_left_menu($project) {
 		document.body.id = '';
 	}
 ">
-	<svg style="width:48px;height:48px" viewBox="0 0 24 24">
+	<svg style="width:48px;height:48px" viewBox="0 0 24 24" class="unselectable">
 		<path fill="#FFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
 	</svg>
 </div>

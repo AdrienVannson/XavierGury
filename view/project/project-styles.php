@@ -34,6 +34,13 @@ p {
 	text-align: justify;
 }
 
+.unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 
 /*
  * Contents
