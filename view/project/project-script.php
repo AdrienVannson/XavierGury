@@ -65,16 +65,28 @@ function showPicture (id)
 	
 	var title = document.getElementById('title');
 	var description = document.getElementById('description');
-	var picture = document.getElementById('picture');
 
 	picturePreview.style.display = 'block';
 	setTimeout(function(){
 		picturePreview.style.opacity = '1';
 	}, 50);
 	
-	picture.src = infosPictures[id].urlLarge;
 	title.innerText = infosPictures[id].name;
 	description.innerHTML = infosPictures[id].description;
+
+	// Change the picture
+	var pictureContainer = document.getElementById('picture-container');
+
+	var picture = document.getElementById('picture');
+	if (picture) {
+		pictureContainer.removeChild(picture);
+	}
+
+	picture = document.createElement('img');
+	picture.src = infosPictures[id].urlLarge;
+	picture.id = 'picture';
+
+	pictureContainer.appendChild(picture);
 }
 
 function nextPicture ()

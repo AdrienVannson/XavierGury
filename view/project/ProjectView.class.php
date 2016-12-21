@@ -228,8 +228,6 @@ class ProjectView
                                 <path d="M0 0h24v24H0z" fill="none"/>
                             </svg>
 
-                            <img id="picture"/>
-
                             <!-- Next picture -->
                             <svg fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow" id="arrow-right" onclick="nextPicture()">
                                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
