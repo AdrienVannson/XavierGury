@@ -31,7 +31,9 @@ class ProjectCarouselView extends ProjectView
 
             <script>
             $(document).ready(function(){
-                $('#carousel').slick({
+                document.getElementById('pictures').className = 'carousel';
+
+                $('#pictures').slick({
                     centerMode:        true,
                     focusOnSelect:     true,
                     infinite:          false,

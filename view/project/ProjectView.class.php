@@ -136,8 +136,7 @@ class ProjectView
                 {
                     ?>
 
-                    <div <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>id="carousel"<?php }
-                    else { ?>id="pictures"<?php } ?> >
+                    <div id="pictures">
 
                         <?php
                         $isLeft = true;

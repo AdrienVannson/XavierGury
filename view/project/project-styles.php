@@ -513,10 +513,10 @@ p {
  * Carousel
  */
 
-#carousel {
+.carousel {
 	margin: 25px;
 }
 
-#carousel .slick-slide {
+.carousel .slick-slide {
 	outline-style: none;
 }
