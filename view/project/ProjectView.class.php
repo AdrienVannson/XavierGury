@@ -188,28 +188,6 @@ class ProjectView
                     </div>
 
                     <?php
-                    // Noscript, because of the lazy-loading
-                    if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') {
-                    ?>
-                        <noscript>
-                            <?php
-                            $pictures = $this->project->getPictures();
-
-                            foreach ($pictures as $picture) {
-                                ?>
-                                    <img
-                                        src="<?php echo $picture->getUrlResource('m');?>"
-                                        class="project-picture"
-                                        title="<?php echo $picture->getName();?>"
-                                        alt="<?php echo $picture->getName();?>"
-                                    />
-                                <?php
-                            }
-                            ?>
-                        </noscript>
-
-                        <?php
-                    }
                 }
 
                 protected function sendDescription ()
