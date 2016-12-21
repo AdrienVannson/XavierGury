@@ -175,7 +175,7 @@ class ProjectView
                                         <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
                                         else { ?>onclick<?php } ?>="showPicture(parseInt(this.id.split('-')[1]))"
 
-                                        <?php if ($this->project->getPicturesDisplayMode() == 'GRID') { ?>
+                                        <?php if ($this->usePicturesRefresh()) { ?>
                                             onload="toRefresh[this.id.split('-')[1]]=-1"
                                         <?php } ?>
                                     />
