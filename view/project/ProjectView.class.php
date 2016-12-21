@@ -193,6 +193,11 @@ class ProjectView
                         return false;
                     }
 
+                    protected function usePicturesRefresh ()
+                    {
+                        return true;
+                    }
+
                 protected function sendDescription ()
                 {
                     $description = $this->project->getDescription();
@@ -268,16 +273,6 @@ class ProjectView
 
                 <?php
             }
-
-
-    /*
-     * Config
-     */
-
-    protected function usePicturesRefresh ()
-    {
-        return true;
-    }
 
 
 	protected $project;
