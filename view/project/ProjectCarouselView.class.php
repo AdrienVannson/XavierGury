@@ -74,6 +74,16 @@ class ProjectCarouselView extends ProjectView
                     waitForAnimate:    false
                 }).slick('slickGoTo', 0, false);
             });
+
+
+            var pictures = document.getElementsByClassName('project-picture');
+
+            for (var iPicture=0; iPicture<pictures.length; iPicture++) {
+                pictures[iPicture].addEventListener('dblclick', function(event) {
+                    showPicture(parseInt(event.currentTarget.id.split('-')[1]));
+                });
+            }
+
             </script>
         
         <?php

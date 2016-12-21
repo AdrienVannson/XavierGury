@@ -172,8 +172,6 @@ class ProjectView
                                         id="picture-<?php echo $index;?>"
                                         title="<?php echo $picture->getName();?>"
                                         alt="<?php echo $picture->getName();?>"
-                                        <?php if ($this->project->getPicturesDisplayMode() == 'CAROUSEL') { ?>ondblclick<?php }
-                                        else { ?>onclick<?php } ?>="showPicture(parseInt(this.id.split('-')[1]))"
 
                                         <?php if ($this->usePicturesRefresh()) { ?>
                                             onload="toRefresh[this.id.split('-')[1]]=-1"
