@@ -67,6 +67,7 @@ class ProjectCarouselView extends ProjectView
                     focusOnSelect:     true,
                     infinite:          false,
                     lazyLoad:          'ondemand',
+                    slidesToShow:      8, // Used by the lazy-loading
                     slidesToScroll:    1,
                     speed:             500,
                     swipeToSlide:      false,
