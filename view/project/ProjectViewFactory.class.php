@@ -6,6 +6,7 @@
 include_once(__DIR__.'/../../model/ProjectFactory.class.php');
 include_once('ProjectGridView.class.php');
 include_once('ProjectCarouselView.class.php');
+include_once('ProjectBookView.class.php');
 
 
 class ProjectViewFactory
@@ -19,6 +20,9 @@ class ProjectViewFactory
 
 			case 'CAROUSEL':
 				return ProjectCarouselView::getInstance($project);
+
+			case 'BOOK':
+				return ProjectBookView::getInstance($project);
 		}
 	}
 	
