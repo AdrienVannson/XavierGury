@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
 	$project->setDescription($_POST['description']);
 	$project->setPicturesDisplayMode($_POST['pictures-display-mode']);
 	$project->setColor($_POST['color']);
-	
+
 	$project->save();
 	
 	header('Location: /admin/projects/'.$project->getId());

@@ -78,6 +78,7 @@ show_admin_menus($parents);
 					<select name="pictures-display-mode">
 						<option value="GRID" <?php if ($project->getPicturesDisplayMode() == 'GRID') { echo 'selected'; } ?>>Grille</option>
 						<option value="CAROUSEL"  <?php if ($project->getPicturesDisplayMode() == 'CAROUSEL') { echo 'selected'; } ?>>Caroussel</option>
+						<option value="BOOK"  <?php if ($project->getPicturesDisplayMode() == 'BOOK') { echo 'selected'; } ?>>Livre</option>
 					</select>
 					<label>Mode d'affichage des images</label>
 				</div>
