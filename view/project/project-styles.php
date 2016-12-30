@@ -535,6 +535,8 @@ p {
 
 .book {
 	margin: auto;
+	margin-bottom: 40px;
+	margin-top: 40px;
 }
 
 .picture-container-book {
