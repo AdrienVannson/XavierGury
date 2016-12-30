@@ -527,3 +527,33 @@ p {
 .carousel .slick-slide {
 	outline-style: none;
 }
+
+
+/*
+ * Books
+ */
+
+.book {
+	margin: auto;
+}
+
+.picture-container-book {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	background-color: #2B2E34;
+}
+
+.picture-container-book img {
+	position: absolute;
+	max-height: 100%;
+	max-width: 100%;
+	margin: 0;
+
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
