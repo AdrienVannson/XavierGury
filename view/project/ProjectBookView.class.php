@@ -46,6 +46,26 @@ class ProjectBookView extends ProjectView
 
     protected function sendScripts ()
     {
+        $height = 480;
+        $width = 960;
+
+        $pictures = $this->project->getPictures();
+
+        if (sizeof($pictures)) {
+            $height = $pictures[0]->getHeight();
+            $width = $pictures[0]->getWidth();
+
+            // Resize if the picture is too large
+            $ratio = 1;
+
+            $ratio = max($ratio, $height / 360); // Divide by the max height
+            $ratio = max($ratio, $width / 480);
+
+            $height /= $ratio;
+            $width /= $ratio;
+        }
+
+        $width *= 2; // 2 pictures shown in the same time
         ?>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -53,8 +73,8 @@ class ProjectBookView extends ProjectView
 
         <script type="text/javascript">
             $("#pictures").turn({
-                width: 960,
-                height: 480
+                width: <?php echo $width; ?>,
+                height: <?php echo $height; ?>
             });
         </script>
 
