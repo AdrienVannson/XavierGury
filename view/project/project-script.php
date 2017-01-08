@@ -63,35 +63,37 @@ var hash = new (function () {
  * Refresh pictures
  */
 
-if (usePicturesRefresh) {
-	var urls = [];
-	for (var iPicture=0; iPicture<nbPictures; iPicture++) {
-		if (document.getElementById('picture-'+iPicture)) {
-			urls[iPicture] = document.getElementById('picture-'+iPicture).src;
-		}
-		else {
-			toRefresh[iPicture] = -1;
-		}
-	}
-
-	function refresh ()
-	{
-		var succes = true;
-		
+(function() {
+	if (usePicturesRefresh) {
+		var urls = [];
 		for (var iPicture=0; iPicture<nbPictures; iPicture++) {
-			if (toRefresh[iPicture] != -1) { // Need a refresh
-				succes = false;
-				toRefresh[iPicture]++;
-				document.getElementById('picture-'+iPicture).src = urls[iPicture] + '?refresh=' + toRefresh[iPicture];
+			if (document.getElementById('picture-'+iPicture)) {
+				urls[iPicture] = document.getElementById('picture-'+iPicture).src;
+			}
+			else {
+				toRefresh[iPicture] = -1;
 			}
 		}
-		
-		if (!succes) {
-			setTimeout(refresh, 32*1000);
+
+		function refresh ()
+		{
+			var succes = true;
+
+			for (var iPicture=0; iPicture<nbPictures; iPicture++) {
+				if (toRefresh[iPicture] != -1) { // Need a refresh
+					succes = false;
+					toRefresh[iPicture]++;
+					document.getElementById('picture-'+iPicture).src = urls[iPicture] + '?refresh=' + toRefresh[iPicture];
+				}
+			}
+
+			if (!succes) {
+				setTimeout(refresh, 32*1000);
+			}
 		}
+		setTimeout(refresh, 10*1000);
 	}
-	setTimeout(refresh, 10*1000);
-}
+})();
 
 
 /*
