@@ -212,4 +212,51 @@ function changeActivePicture (newId)
 		openPreview();
 	}
 	changeActivePicture(hash.idPicture());
-})()
+})();
+
+
+/*
+ * Carousels
+ */
+
+(function() {
+	if (typeof isCarousel !== 'undefined') {
+
+		$(document).ready(function(){
+			document.getElementById('pictures').className = 'carousel';
+
+			var carousel = $('#pictures')
+				.slick({
+					centerMode:        true,
+					focusOnSelect:     true,
+					infinite:          false,
+					lazyLoad:          'ondemand',
+					slidesToShow:      8, // Used by the lazy-loading
+					slidesToScroll:    1,
+					speed:             500,
+					swipeToSlide:      false,
+					variableWidth:     true,
+					waitForAnimate:    false
+				})
+				.slick('slickGoTo', hash.idPicture(), false)
+
+				.on('afterChange', function(event, slick, currentSlide) {
+					hash.setIdPicture(currentSlide);
+				});
+
+			onActivePictureChange.push(function (id) {
+				carousel.slick('slickGoTo', id, false);
+			});
+		});
+
+
+		var pictures = document.getElementsByClassName('project-picture');
+
+		for (var iPicture=0; iPicture<pictures.length; iPicture++) {
+			pictures[iPicture].addEventListener('dblclick', function(event) {
+				showPicture(parseInt(event.currentTarget.id.split('-')[1]));
+			});
+		}
+
+	}
+})();

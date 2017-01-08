@@ -58,52 +58,17 @@ class ProjectCarouselView extends ProjectView
 
     protected function sendScripts ()
     {
-        ProjectView::sendScripts();
         ?>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-            <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
-            <script>
-            $(document).ready(function(){
-                document.getElementById('pictures').className = 'carousel';
+        <script>
+        var isCarousel = true;
+        </script>
 
-                var carousel = $('#pictures')
-                    .slick({
-                        centerMode:        true,
-                        focusOnSelect:     true,
-                        infinite:          false,
-                        lazyLoad:          'ondemand',
-                        slidesToShow:      8, // Used by the lazy-loading
-                        slidesToScroll:    1,
-                        speed:             500,
-                        swipeToSlide:      false,
-                        variableWidth:     true,
-                        waitForAnimate:    false
-                    })
-                    .slick('slickGoTo', hash.idPicture(), false)
-
-                    .on('afterChange', function(event, slick, currentSlide) {
-                        hash.setIdPicture(currentSlide);
-                    });
-
-                onActivePictureChange.push(function (id) {
-                    carousel.slick('slickGoTo', id, false);
-                });
-            });
-
-
-            var pictures = document.getElementsByClassName('project-picture');
-
-            for (var iPicture=0; iPicture<pictures.length; iPicture++) {
-                pictures[iPicture].addEventListener('dblclick', function(event) {
-                    showPicture(parseInt(event.currentTarget.id.split('-')[1]));
-                });
-            }
-
-            </script>
-        
         <?php
+        ProjectView::sendScripts();
     }
 
 }
