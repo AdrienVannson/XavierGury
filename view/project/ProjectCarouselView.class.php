@@ -58,6 +58,7 @@ class ProjectCarouselView extends ProjectView
 
     protected function sendScripts ()
     {
+        ProjectView::sendScripts();
         ?>
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -67,7 +68,7 @@ class ProjectCarouselView extends ProjectView
             $(document).ready(function(){
                 document.getElementById('pictures').className = 'carousel';
 
-                $('#pictures').slick({
+                var carousel = $('#pictures').slick({
                     centerMode:        true,
                     focusOnSelect:     true,
                     infinite:          false,
@@ -79,6 +80,10 @@ class ProjectCarouselView extends ProjectView
                     variableWidth:     true,
                     waitForAnimate:    false
                 }).slick('slickGoTo', 0, false);
+
+                onActivePictureChange.push(function (id) {
+                    carousel.slick('slickGoTo', id, false);
+                });
             });
 
 
@@ -93,7 +98,6 @@ class ProjectCarouselView extends ProjectView
             </script>
         
         <?php
-        ProjectView::sendScripts();
     }
 
 }
