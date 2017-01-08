@@ -4,6 +4,60 @@
 header('Content-Type: text/js');
 ?>
 /* <script> /* */
+"use strict";
+
+/*
+ * Hash
+ */
+
+var hash = new (function () {
+
+	this.init = function () {
+		if (!/^\#\d+-[01]$/.test(window.location.hash) ) {
+			window.location.hash = '0-0';
+		}
+	}
+
+	this.regex = /^\#(\d)+-([01])$/; // Parse the hash
+
+
+	this.idPicture = function ()
+	{
+		this.init();
+		return +window.location.hash.replace(this.regex, "$1");
+	}
+
+	this.setIdPicture = function (newId)
+	{
+		this.init();
+		window.location.hash = window.location.hash.replace(this.regex, newId+"-$2");
+	}
+
+
+	this.isPreviewOpen = function ()
+	{
+		this.init();
+		return +window.location.hash.replace(this.regex, "$2");
+	}
+
+	this.setIsPreviewOpen = function (isPreviewOpen)
+	{
+		this.init();
+		window.location.hash = window.location.hash.replace(this.regex, "$1-"+(+isPreviewOpen));
+	}
+
+	this.openPreview = function ()
+	{
+		this.setIsPreviewOpen(true);
+	}
+
+	this.closePreview = function ()
+	{
+		this.setIsPreviewOpen(false);
+	}
+
+});
+
 
 /*
  * Refresh pictures
@@ -41,6 +95,20 @@ if (usePicturesRefresh) {
 
 
 /*
+ * Custom events
+ */
+
+var onActivePictureChange = []; // A list of functions called when the active picture change
+
+function changeActivePicture (newId)
+{
+	onActivePictureChange.forEach(function(functionToCall) {
+		functionToCall(newId);
+	});
+}
+
+
+/*
  * Preview
  */
 
@@ -48,8 +116,16 @@ var picturePreview = document.getElementById('picture-preview');
 var frame = document.getElementById('frame');
 var close = document.getElementById('close');
 
-var currentPicture = 0;
 
+function openPreview ()
+{
+	picturePreview.style.display = 'block';
+	setTimeout(function(){
+		picturePreview.style.opacity = '1';
+	}, 50);
+
+	hash.openPreview();
+}
 
 function closePreview ()
 {
@@ -57,19 +133,13 @@ function closePreview ()
 	setTimeout(function(){
 		picturePreview.style.display = 'none';
 	}, 500);
+
+	hash.closePreview();
 }
 
-function showPicture (id)
-{
-	currentPicture = id;
-	
+onActivePictureChange.push(function (id) {
 	var title = document.getElementById('title');
 	var description = document.getElementById('description');
-
-	picturePreview.style.display = 'block';
-	setTimeout(function(){
-		picturePreview.style.opacity = '1';
-	}, 50);
 	
 	title.innerText = infosPictures[id].name;
 	description.innerHTML = infosPictures[id].description;
@@ -87,16 +157,38 @@ function showPicture (id)
 	picture.id = 'picture';
 
 	pictureContainer.appendChild(picture);
-}
+
+	// Update the hash
+	hash.setIdPicture(id);
+});
 
 function nextPicture ()
 {
-	currentPicture = (currentPicture+1) % infosPictures.length;
-	showPicture(currentPicture);
+	changeActivePicture((hash.idPicture()+1) % infosPictures.length);
 }
 
 function previousPicture ()
 {
-	currentPicture = (currentPicture-1 + infosPictures.length) % infosPictures.length;
-	showPicture(currentPicture);
+	changeActivePicture((hash.idPicture()-1 + infosPictures.length) % infosPictures.length);
 }
+
+
+function showPicture (id)
+{
+	openPreview();
+	changeActivePicture(id);
+}
+
+
+/*
+ * After loading the page, open the preview if necessary
+ */
+
+(function (){
+	hash.init();
+
+	if (hash.isPreviewOpen()) {
+		openPreview();
+	}
+	changeActivePicture(hash.idPicture());
+})()
