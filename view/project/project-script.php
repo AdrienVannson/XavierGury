@@ -127,6 +127,7 @@ function openPreview ()
 	}, 50);
 
 	hash.openPreview();
+	changeActivePicture(hash.idPicture()); // Load the large picture
 }
 
 function closePreview ()
@@ -154,11 +155,13 @@ onActivePictureChange.push(function (id) {
 		pictureContainer.removeChild(picture);
 	}
 
-	picture = document.createElement('img');
-	picture.src = infosPictures[id].urlLarge;
-	picture.id = 'picture';
+	if (hash.isPreviewOpen()) { // Don't load the large picture while the preview is closed
+		picture = document.createElement('img');
+		picture.src = infosPictures[id].urlLarge;
+		picture.id = 'picture';
 
-	pictureContainer.appendChild(picture);
+		pictureContainer.appendChild(picture);
+	}
 
 	// Update the hash
 	hash.setIdPicture(id);
