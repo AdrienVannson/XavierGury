@@ -114,75 +114,90 @@ function changeActivePicture (newId)
  * Preview
  */
 
-var picturePreview = document.getElementById('picture-preview');
-var frame = document.getElementById('frame');
-var close = document.getElementById('close');
+(function() {
+
+	var picturePreview = document.getElementById('picture-preview');
+	var frame = document.getElementById('frame');
+	var close = document.getElementById('close');
 
 
-function openPreview ()
-{
-	picturePreview.style.display = 'block';
-	setTimeout(function(){
-		picturePreview.style.opacity = '1';
-	}, 50);
+	function openPreview ()
+	{
+		picturePreview.style.display = 'block';
+		setTimeout(function(){
+			picturePreview.style.opacity = '1';
+		}, 50);
 
-	hash.openPreview();
-	changeActivePicture(hash.idPicture()); // Load the large picture
-}
-
-function closePreview ()
-{
-	picturePreview.style.opacity = '0';
-	setTimeout(function(){
-		picturePreview.style.display = 'none';
-	}, 500);
-
-	hash.closePreview();
-}
-
-onActivePictureChange.push(function (id) {
-	var title = document.getElementById('title');
-	var description = document.getElementById('description');
-	
-	title.innerText = infosPictures[id].name;
-	description.innerHTML = infosPictures[id].description;
-
-	// Change the picture
-	var pictureContainer = document.getElementById('picture-container');
-
-	var picture = document.getElementById('picture');
-	if (picture) {
-		pictureContainer.removeChild(picture);
+		hash.openPreview();
+		changeActivePicture(hash.idPicture()); // Load the large picture
 	}
 
-	if (hash.isPreviewOpen()) { // Don't load the large picture while the preview is closed
-		picture = document.createElement('img');
-		picture.src = infosPictures[id].urlLarge;
-		picture.id = 'picture';
+	function closePreview ()
+	{
+		picturePreview.style.opacity = '0';
+		setTimeout(function(){
+			picturePreview.style.display = 'none';
+		}, 500);
 
-		pictureContainer.appendChild(picture);
+		hash.closePreview();
 	}
 
-	// Update the hash
-	hash.setIdPicture(id);
-});
+	function nextPicture ()
+	{
+		changeActivePicture((hash.idPicture()+1) % infosPictures.length);
+	}
 
-function nextPicture ()
-{
-	changeActivePicture((hash.idPicture()+1) % infosPictures.length);
-}
-
-function previousPicture ()
-{
-	changeActivePicture((hash.idPicture()-1 + infosPictures.length) % infosPictures.length);
-}
+	function previousPicture ()
+	{
+		changeActivePicture((hash.idPicture()-1 + infosPictures.length) % infosPictures.length);
+	}
 
 
-function showPicture (id)
-{
-	openPreview();
-	changeActivePicture(id);
-}
+	function showPicture (id)
+	{
+		openPreview();
+		changeActivePicture(id);
+	}
+
+
+	onActivePictureChange.push(function (id) {
+		var title = document.getElementById('title');
+		var description = document.getElementById('description');
+
+		title.innerText = infosPictures[id].name;
+		description.innerHTML = infosPictures[id].description;
+
+		// Change the picture
+		var pictureContainer = document.getElementById('picture-container');
+
+		var picture = document.getElementById('picture');
+		if (picture) {
+			pictureContainer.removeChild(picture);
+		}
+
+		if (hash.isPreviewOpen()) { // Don't load the large picture while the preview is closed
+			picture = document.createElement('img');
+			picture.src = infosPictures[id].urlLarge;
+			picture.id = 'picture';
+
+			pictureContainer.appendChild(picture);
+		}
+
+		// Update the hash
+		hash.setIdPicture(id);
+	});
+
+
+
+	window.openPreview = openPreview;
+	window.closePreview = closePreview;
+
+	window.nextPicture = nextPicture;
+	window.previousPicture = previousPicture;
+
+	window.showPicture = showPicture;
+
+})();
 
 
 /*
