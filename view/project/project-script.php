@@ -18,7 +18,7 @@ var hash = new (function () {
 		}
 	}
 
-	this.regex = /^\#(\d)+-([01])$/; // Parse the hash
+	this.regex = /^\#(\d+)-([01])$/; // Parse the hash
 
 
 	this.idPicture = function ()
@@ -45,6 +45,7 @@ var hash = new (function () {
 		this.init();
 		window.location.hash = window.location.hash.replace(this.regex, "$1-"+(+isPreviewOpen));
 	}
+
 
 	this.openPreview = function ()
 	{
