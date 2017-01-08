@@ -68,18 +68,24 @@ class ProjectCarouselView extends ProjectView
             $(document).ready(function(){
                 document.getElementById('pictures').className = 'carousel';
 
-                var carousel = $('#pictures').slick({
-                    centerMode:        true,
-                    focusOnSelect:     true,
-                    infinite:          false,
-                    lazyLoad:          'ondemand',
-                    slidesToShow:      8, // Used by the lazy-loading
-                    slidesToScroll:    1,
-                    speed:             500,
-                    swipeToSlide:      false,
-                    variableWidth:     true,
-                    waitForAnimate:    false
-                }).slick('slickGoTo', 0, false);
+                var carousel = $('#pictures')
+                    .slick({
+                        centerMode:        true,
+                        focusOnSelect:     true,
+                        infinite:          false,
+                        lazyLoad:          'ondemand',
+                        slidesToShow:      8, // Used by the lazy-loading
+                        slidesToScroll:    1,
+                        speed:             500,
+                        swipeToSlide:      false,
+                        variableWidth:     true,
+                        waitForAnimate:    false
+                    })
+                    .slick('slickGoTo', hash.idPicture(), false)
+
+                    .on('afterChange', function(event, slick, currentSlide) {
+                        hash.setIdPicture(currentSlide);
+                    });
 
                 onActivePictureChange.push(function (id) {
                     carousel.slick('slickGoTo', id, false);
