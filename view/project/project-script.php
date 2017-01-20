@@ -211,7 +211,10 @@ function changeActivePicture (newId)
 	if (hash.isPreviewOpen()) {
 		openPreview();
 	}
-	changeActivePicture(hash.idPicture());
+
+	if (nbPictures > 0) {
+		changeActivePicture(hash.idPicture());
+	}
 })();
 
 
