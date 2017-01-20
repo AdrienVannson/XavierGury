@@ -546,7 +546,7 @@ p {
 	left: 0;
 	right: 0;
 
-	background-color: #2B2E34;
+	background-color: #FFF;
 }
 
 .picture-container-book img {
