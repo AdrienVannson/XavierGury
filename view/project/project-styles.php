@@ -300,19 +300,25 @@ p {
 
 .project-picture, #pictures iframe {
 	float: left;
-	height: 320px;
+	max-height: 320px;
 	max-width: 90%;
 	margin: 16px;
 }
 
-.project-picture:hover {
+.project-picture {
 	cursor: pointer;
 }
+
+#pictures iframe {
+	height: 320px;
+}
+
 
 @media (max-width: 600px) { /* Smalls screens */
 
 	#pictures .project-picture {
 		height: auto;
+		max-height: none;
 		max-width: none;
 		width: 90%;
 		margin: 0;
