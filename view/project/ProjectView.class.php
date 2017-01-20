@@ -6,7 +6,6 @@
 include_once(__DIR__.'/../../model/Project.class.php');
 include_once(__DIR__.'/../../model/Picture.class.php');
 include_once(__DIR__.'/../head.php');
-include_once(__DIR__.'/../left-menu.php');
 
 
 class ProjectView
@@ -94,7 +93,99 @@ class ProjectView
 
             protected function sendLeftMenu ()
             {
-                show_left_menu($this->project);
+                $first_level_projects = getFirstLevelProjects();
+                ?>
+
+                <div id="menu">
+                    <ul>
+                        <?php
+                        if ($this->project->getIdParent() == 0) {
+                            $projects = $this->project->getChildren();
+                            $parent = $this->project;
+                        }
+                        else {
+                            $projects = $this->project->getBrothers();
+                            $parent = $this->project->getParent();
+                        }
+
+                        ?>
+
+                        <li style="border-bottom: 1px solid #FFF;">
+                            <a
+                                href="<?php echo $parent->getUrl();?>"
+                                <?php if($parent->getId() == $this->project->getId()){?>class="active"<?php }?>
+                            >
+                                <?php echo mb_strtoupper($parent->getName(), 'UTF-8'); ?>
+                            </a>
+                        </li>
+
+                        <?php
+                        foreach($projects as $currentProject) {
+                            ?>
+                            <li>
+                                <a
+                                    href="<?php echo $currentProject->getUrl();?>"
+                                    <?php if($currentProject->getId()==$this->project->getId()){?>class="active"<?php }?>
+                                >
+                                    <?php echo mb_strtoupper($currentProject->getName(), 'UTF-8');?>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+
+                    <div id="colored-menu">
+
+                        <?php
+                        foreach(getFirstLevelProjects() as $currentProject) {
+                            if ($currentProject->getId() == 10) {
+                                continue;
+                            }
+                            ?>
+                            <a
+                                <?php
+                                if ($this->project->getFirstLevelParent()->getId() == $currentProject->getId()) { ?>
+                                    id="colored-item-activated"
+                                <?php }?>
+                                class="colored-item"
+                                style="background-color: #<?php echo $currentProject->getColor();?>;"
+                                href="<?php echo $currentProject->getUrl();?>"
+                            >
+                                <span><?php echo $currentProject->getName(); ?></span>
+                            </a>
+                            <?php
+                        }
+                        ?>
+
+                        <a href="/" id="white-item-mobiles"></a>
+
+                    </div>
+                </div>
+
+                <div class="line" id="line-menu"></div>
+                <div class="line" id="line-bottom"></div>
+                <div class="line" id="line-white-item-1"></div>
+                <div class="line" id="line-white-item-2"></div>
+
+                <a id="white-item" href="/"></a>
+
+                <div id="separator-bottom"></div>
+
+                <div id="menu-btn" onclick="
+                    if(document.body.id=='') {
+                        document.body.id = 'unfloded';
+                    }
+                    else {
+                        document.body.id = '';
+                    }
+                ">
+                    <svg style="width:48px;height:48px" viewBox="0 0 24 24" class="unselectable">
+                        <path fill="#FFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                    </svg>
+                </div>
+
+                <?php
             }
 
             protected function sendContents ()
