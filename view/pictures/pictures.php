@@ -1,15 +1,19 @@
 <?php
 /* View */
-include_once(__DIR__.'/../head.php');
 ?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head(
-		'Images',
-		array('/styles/pictures-styles.css')
-	); ?>
-	
+	<head>
+		<meta charset="utf-8">
+
+		<title>Images - Xavier Gury</title>
+
+		<link rel="stylesheet" type="text/css" href="/styles/pictures-styles.css"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
 	<body>
 		<table id="pictures"></table>
 
