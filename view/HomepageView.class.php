@@ -5,10 +5,10 @@
 
 include_once(__DIR__.'/../model/SettingsFactory.class.php');
 include_once(__DIR__.'/../model/ProjectFactory.class.php');
-include_once('View.class.php');
+include_once('HTMLView.class.php');
 
 
-class HomepageView extends View
+class HomepageView extends HTMLView
 {
 
     protected function getHeadDescription ()
