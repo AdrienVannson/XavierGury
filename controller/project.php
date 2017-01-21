@@ -21,7 +21,7 @@ $project = ProjectFactory::getProject($projectID);
 
 if ($url == $project->getUrl(false)) {
 	$projectView = ProjectViewFactory::getProjectView($project);
-	$projectView->sendHTML();
+	$projectView->sendContents();
 }
 else {
 	include('controller/errors/404.php');

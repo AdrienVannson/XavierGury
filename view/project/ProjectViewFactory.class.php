@@ -16,13 +16,13 @@ class ProjectViewFactory
 	{
 		switch ($project->getPicturesDisplayMode()) {
 			case 'GRID':
-				return ProjectGridView::getInstance($project);
+				return new ProjectGridView($project);
 
 			case 'CAROUSEL':
-				return ProjectCarouselView::getInstance($project);
+				return new ProjectCarouselView($project);
 
 			case 'BOOK':
-				return ProjectBookView::getInstance($project);
+				return new ProjectBookView($project);
 		}
 	}
 	
