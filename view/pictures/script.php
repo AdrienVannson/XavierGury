@@ -15,15 +15,15 @@ function addLine(iLine, nbColumns) {
 
 
 function createGrid () {
-	
+
 	$('#pictures').html('');
-	
+
 	var width = $('html').width() - 17;
 	var nbColumns = Math.floor(width / 128);
 
 	var height = $('html').height() - 17;
 	var nbLines = Math.floor(height / 128);
-	
+
 	var picturesList = pictures.slice();
 
 	var iLine = 0;
@@ -44,7 +44,7 @@ function createGrid () {
 
 		iLine++;
 	}
-	
+
 	for (var iNewLine=1; iNewLine<=nbLines-iLine; iNewLine++) {
 		addLine(iLine+iNewLine, nbColumns);
 	}
