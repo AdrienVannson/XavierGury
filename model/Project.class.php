@@ -245,37 +245,6 @@ class Project
 }
 
 
-class LogProject extends Project
-{
-
-	public static function getProject ($id)
-	{
-		if (!isset(self::$logProjectsInstance)) {
-			self::$logProjectsInstance = new self($id);
-		}
-
-		return self::$logProjectsInstance;
-	}
-
-	public function getPictures ()
-	{
-		$request = 'SELECT id FROM pictures WHERE creation_date IS NOT NULL ORDER BY creation_date ASC, id ASC';
-
-		$db = get_db();
-		$results = $db->prepare($request);
-		$results->execute(array($this->id));
-
-		$pictures = [];
-		while($datas = $results->fetch()) {
-			$pictures[] = PictureFactory::getPicture($datas['id']);
-		}
-		return $pictures;
-	}
-
-	protected static $logProjectsInstance;
-}
-
-
 // Easily get the first level projects
 function getFirstLevelProjects ()
 {
