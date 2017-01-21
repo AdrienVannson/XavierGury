@@ -32,6 +32,10 @@ class Picture {
 			$this->name = $datas['name'];
 			$this->description = $datas['description'];
 			$this->creationDate = $datas['creation_date'];
+
+			if ($this->creationDate == '') {
+				$this->creationDate = 'NULL';
+			}
 		}
 	}
 
@@ -172,6 +176,24 @@ class Picture {
 		return $this->creationDate;
 	}
 
+
+	public function getUrl () {
+		$db = get_db();
+		$results = $db->prepare("SELECT COUNT(*) AS pos
+								 FROM pictures
+								 WHERE id_project = :idProject AND (creation_date < :creationDate OR
+																   (creation_date = :creationDate AND id < :id) OR
+																   (creation_date IS NULL AND (id < :id OR :creationDate != 'NULL')) )");
+
+		$results->bindParam('id', $this->id);
+		$results->bindParam('idProject', $this->idProject);
+		$results->bindParam('creationDate', $this->creationDate);
+
+		$results->execute();
+		$datas = $results->fetch();
+
+		return $this->getProject()->getUrl() . '#' . $datas['pos'] . '-1';
+	}
 
 	public function getPathResource($size) {
 		return 'resources/pictures/'.$this->id.'/'.$size.'.'.$this->getType();

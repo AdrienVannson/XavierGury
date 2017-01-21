@@ -35,7 +35,7 @@ class PicturesView extends HTMLView
                     $datas = json_encode([
                         'name' => $picture->getName(),
                         'urlPicture' => $picture->getUrlResource('s'),
-                        'urlLink' => $picture->getProject()->getUrl()
+                        'urlLink' => $picture->getUrl()
                     ]);
 
                     echo "$datas,";
