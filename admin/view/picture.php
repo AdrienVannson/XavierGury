@@ -1,6 +1,5 @@
 <?php
 /* View */
-include_once(__DIR__.'/../../view/head.php');
 include_once(__DIR__.'/menus.php');
 include_once(__DIR__.'/errors.php');
 
@@ -19,16 +18,16 @@ function show_admin_picture($picture) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head($action.' une '. ($picture->getType()=='youtube' ? 'vidéo' : 'image'),
-			array(
-				'/admin/styles.css',
-				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
-			
-			array(
-				'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js',
-				'/ckeditor/ckeditor.js')
-	);?>
+	<head>
+		<meta charset="utf-8"/>
+
+		<title><?php echo $action; ?> une <?php echo $picture->getType()=='youtube' ? 'vidéo' : 'image'; ?> - Administration - Xavier Gury</title>
+
+		<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
 	<body>
 		<?php
 		$name = $picture->getName();
@@ -170,7 +169,12 @@ function show_admin_picture($picture) {
 					<?php
 				}
 				?>
-				
+
+
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+				<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+
 				<script>
 				$(document).ready(function(){
 					CKEDITOR.replace('description');

@@ -1,21 +1,20 @@
 <?php
 /* View */
-
-include_once(__DIR__.'/../../view/head.php');
 include_once(__DIR__.'/menus.php');
 ?>
 
 <!DOCTYPE HTML>
 <html lang="fr">
-	<?php show_head('Aide - Administration',
-			array(
-				'/admin/styles.css',
-				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
-			
-			array(
-				'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
-	);?>
+	<head>
+		<meta charset="utf-8"/>
+
+		<title>Aide - Administration - Xavier Gury</title>
+
+		<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
 	
 	<body>
 		<?php show_admin_menus();?>
@@ -35,8 +34,11 @@ include_once(__DIR__.'/menus.php');
 			</div>
 			
 		</main>
-		
-		
+
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
 		<script>
 		$('.button-collapse').sideNav();
 		</script>

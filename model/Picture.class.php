@@ -32,10 +32,6 @@ class Picture {
 			$this->name = $datas['name'];
 			$this->description = $datas['description'];
 			$this->creationDate = $datas['creation_date'];
-
-			if ($this->creationDate == '') {
-				$this->creationDate = 'NULL';
-			}
 		}
 	}
 
@@ -187,6 +183,13 @@ class Picture {
 
 		$results->bindParam('id', $this->id);
 		$results->bindParam('idProject', $this->idProject);
+
+		$creationDate = $this->creationDate;
+
+		if ($creationDate == '') {
+			$creationDate = 'NULL';
+		}
+
 		$results->bindParam('creationDate', $this->creationDate);
 
 		$results->execute();

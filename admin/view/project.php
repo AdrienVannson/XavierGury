@@ -1,6 +1,5 @@
 <?php
 /* View */
-include_once(__DIR__.'/../../view/head.php');
 include_once(__DIR__.'/menus.php');
 
 
@@ -16,16 +15,16 @@ function show_admin_project($project) {
 
 <!DOCTYPE HTML>
 <html lang="fr">
-<?php show_head($action.' un projet',
-		array(
-			'/admin/styles.css',
-			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'),
+<head>
+	<meta charset="utf-8"/>
 
-		array(
-			'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js',
-			'/ckeditor/ckeditor.js')
-);?>
+	<title><?php echo $action; ?> un projet - Administration - Xavier Gury</title>
+
+	<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 <body>
 
 <?php
@@ -194,6 +193,9 @@ show_admin_menus($parents);
 		
 		<?php } ?>
 
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+		<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 
 		<script>
 			$(document).ready(function() {
