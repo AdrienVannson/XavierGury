@@ -452,6 +452,9 @@ p {
 
 	#picture-container {
 		height: 100%;
+	}
+
+	.picture-container-margin {
 		margin-right: 362px;
 	}
 

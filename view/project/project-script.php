@@ -118,6 +118,7 @@ function changeActivePicture (newId)
 (function() {
 
 	var picturePreview = document.getElementById('picture-preview');
+	var informations = document.getElementById('informations');
 	var frame = document.getElementById('frame');
 	var close = document.getElementById('close');
 
@@ -174,6 +175,16 @@ function changeActivePicture (newId)
 		var picture = document.getElementById('picture');
 		if (picture) {
 			pictureContainer.removeChild(picture);
+		}
+
+		// Hide or show the information panel
+		if (infosPictures[id].name == '' && infosPictures[id].description == '') {
+			informations.style.display = 'none';
+			pictureContainer.className = '';
+		}
+		else {
+			informations.style.display = 'block';
+			pictureContainer.className = 'picture-container-margin';
 		}
 
 		if (hash.isPreviewOpen()) { // Don't load the large picture while the preview is closed
