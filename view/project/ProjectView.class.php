@@ -75,27 +75,39 @@ class ProjectView extends HTMLView
             <div id="menu">
                 <ul>
                     <?php
-                    if ($this->project->getIdParent() == 0) {
-                        $projects = $this->project->getChildren();
-                        $parent = $this->project;
+                    if ($this->project->getIdParent() == -1) {
+                        $projects = $this->project->getBrothers();
+                        ?>
+
+                        <li style="border-bottom: 1px solid #FFF;">
+                            <a href="/">ACCUEIL</a>
+                        </li>
+
+                        <?php
                     }
                     else {
-                        $projects = $this->project->getBrothers();
-                        $parent = $this->project->getParent();
+                        if ($this->project->getIdParent() == 0) {
+                            $projects = $this->project->getChildren();
+                            $parent = $this->project;
+                        }
+                        else {
+                            $projects = $this->project->getBrothers();
+                            $parent = $this->project->getParent();
+                        }
+                        ?>
+
+                        <li style="border-bottom: 1px solid #FFF;">
+                            <a
+                                href="<?php echo $parent->getUrl();?>"
+                                <?php if($parent->getId() == $this->project->getId()){?>class="active"<?php }?>
+                            >
+                                <?php echo mb_strtoupper($parent->getName(), 'UTF-8'); ?>
+                            </a>
+                        </li>
+
+                        <?php
                     }
 
-                    ?>
-
-                    <li style="border-bottom: 1px solid #FFF;">
-                        <a
-                            href="<?php echo $parent->getUrl();?>"
-                            <?php if($parent->getId() == $this->project->getId()){?>class="active"<?php }?>
-                        >
-                            <?php echo mb_strtoupper($parent->getName(), 'UTF-8'); ?>
-                        </a>
-                    </li>
-
-                    <?php
                     foreach($projects as $currentProject) {
                         ?>
                         <li>

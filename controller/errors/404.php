@@ -1,9 +1,11 @@
 <?php
 /* Controller */
 include_once(__DIR__.'/../../model/ProjectFactory.class.php');
+include_once(__DIR__.'/../../view/project/ProjectView.class.php');
 
 header('HTTP/1.0 404 Not Found');
 
-$PROJECT = ProjectFactory::getProject(9);
+$project = ProjectFactory::getProject(9);
 
-include(__DIR__.'/../../view/project.php');
+$vue = new ProjectView ($project);
+$vue->sendContents();
