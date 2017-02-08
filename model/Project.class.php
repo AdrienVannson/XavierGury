@@ -216,9 +216,13 @@ class Project
 	}
 	
 	public function getUrl ($encode=true) {
+		if ($this->getIdParent() == -1) { // Aucun parent (y compris la racine)
+			return '/';
+		}
+
 		$parents = $this->getParents();
 		$url = '';
-		
+
 		foreach ($parents as $parent) {
 			$url .= '/' . $parent->getId() . '-';
 			
@@ -229,7 +233,7 @@ class Project
 				$url .= $parent->getName();
 			}
 		}
-		
+
 		return $url;
 	}
 	

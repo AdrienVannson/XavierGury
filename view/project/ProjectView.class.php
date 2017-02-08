@@ -97,6 +97,7 @@ class ProjectView extends HTMLView
                         ?>
 
                         <li style="border-bottom: 1px solid #FFF;">
+
                             <a
                                 href="<?php echo $parent->getUrl();?>"
                                 <?php if($parent->getId() == $this->project->getId()){?>class="active"<?php }?>
@@ -110,6 +111,7 @@ class ProjectView extends HTMLView
 
                     foreach($projects as $currentProject) {
                         ?>
+
                         <li>
                             <a
                                 href="<?php echo $currentProject->getUrl();?>"
