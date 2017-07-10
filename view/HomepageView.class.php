@@ -147,7 +147,7 @@ class HomepageView extends HTMLView
             d="m 263.61548,70.882402 c 13.13199,8.20749 24.8804,24.44055 30.55712,32.324878 4.54568,6.31345 9.97004,11.52788 21.71827,14.77348 13.05704,3.60718 27.94573,1.92324 33.20878,-10.6066 5.84692,-13.919878 16.03616,-15.657368 10.60659,-26.263958 -6.91403,-13.50651 -19.31916,-31.31473 -30.93592,-40.15357 -15.82622,-12.0417 -27.77919,-18.56155 -43.43656,-23.99112 -13.12513,-4.55146 -26.26396,-7.1973301 -31.8198,3.66181 -5.55584,10.85914 -23.63034,36.88981 -13.5108,38.63832 10.09877,1.74493 23.61232,11.61676 23.61232,11.61676 z"
             style="fill:#<?php echo $firstLevelProjects[4]->getColor();?>;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 
-            <text x=282 y=64><?php echo $firstLevelProjects[4]->getName();?></text>
+            <text style="font-size: .7em;" x=263 y=64><?php echo $firstLevelProjects[4]->getName();?></text>
         </a>
 
         <a xlink:href="<?php echo $firstLevelProjects[5]->getUrl();?>">
