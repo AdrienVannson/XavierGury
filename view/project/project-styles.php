@@ -221,7 +221,7 @@ p {
 	background-color: #2B2E34;
 }
 
-@media (max-width: 992px) { /* Smalls and mediums screens */
+@media (max-width: 992px) { /* Small and medium screens */
 
 	body {
 		padding: 10px;
@@ -314,7 +314,7 @@ p {
 }
 
 
-@media (max-width: 600px) { /* Smalls screens */
+@media (max-width: 600px) { /* Small screens */
 
 	#pictures .project-picture {
 		height: auto;
@@ -408,7 +408,7 @@ p {
 }
 
 
-@media (max-width: 992px) { /* Smalls and mediums screens */
+@media (max-width: 992px) { /* Small and medium screens */
 
 	#frame {
 		overflow: scroll;
@@ -435,7 +435,7 @@ p {
 
 }
 
-@media (min-width: 993px) { /* Larges screens */
+@media (min-width: 993px) { /* Large screens */
 
 	#picture-preview {
 		background-color: rgba(0, 0, 0, .5);
@@ -516,7 +516,7 @@ p {
 }
 
 
-@media (max-width: 992px) { /* Smalls and mediums screens */
+@media (max-width: 992px) { /* Small and medium screens */
 	
 	.under-project {
 		width: 98%;
