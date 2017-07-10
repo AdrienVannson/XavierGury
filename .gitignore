@@ -7,3 +7,4 @@ db.odb
 resources/
 resources-old/
 static/ckeditor/
+logs/
