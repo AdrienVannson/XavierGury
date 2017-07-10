@@ -483,11 +483,16 @@ p {
  * Liens vers les sous-projets
  */
 
+.childen-column {
+	width: 50%;
+	float: left;
+}
+
 .under-project {
-	width: 48%;
+	width: 98%;
 	float: left;
 	margin: 1%;
-	
+
 	background-color: #414349;
 	border-radius: 16px;
 	
@@ -518,8 +523,8 @@ p {
 
 @media (max-width: 992px) { /* Small and medium screens */
 	
-	.under-project {
-		width: 98%;
+	.childen-column {
+		width: 100%;
 	}
 	
 }

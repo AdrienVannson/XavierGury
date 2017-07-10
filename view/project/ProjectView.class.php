@@ -199,8 +199,15 @@ class ProjectView extends HTMLView
             {
                 $children = $this->project->getChildren();
 
+                echo '<div class="childen-column">';
+
                 if (sizeof($children)) {
-                    foreach ($children as $child) {
+                    foreach ($children as $index=>$child) {
+
+                        if ($index == ceil(count($children)/2)) {
+                            echo '</div><div class="childen-column">';
+                        }
+
                         ?>
 
                             <div class="under-project">
@@ -211,6 +218,8 @@ class ProjectView extends HTMLView
                         <?php
                     }
                 }
+
+                echo '</div>';
             }
 
             protected function sendPictures ()
