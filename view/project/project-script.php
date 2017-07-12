@@ -212,22 +212,6 @@ function changeActivePicture (newId)
 })();
 
 
-/*
- * After loading the page, open the preview if necessary
- */
-
-(function (){
-	hash.init();
-
-	if (hash.isPreviewOpen()) {
-		openPreview();
-	}
-
-	if (nbPictures > 0) {
-		changeActivePicture(hash.idPicture());
-	}
-})();
-
 
 /*
  * Carousels
@@ -256,10 +240,17 @@ function changeActivePicture (newId)
 
 				.on('afterChange', function(event, slick, currentSlide) {
 					hash.setIdPicture(currentSlide);
+					changeActivePicture(currentSlide);
 				});
 
 			onActivePictureChange.push(function (id) {
-				carousel.slick('slickGoTo', id, false);
+				if (id != carousel.slick('slickCurrentSlide')) {
+					carousel.slick('slickGoTo', id, false);
+				}
+			});
+
+			onActivePictureChange.push(function (id) {
+				$('#slider').slider("value", id);
 			});
 		});
 
@@ -272,5 +263,23 @@ function changeActivePicture (newId)
 			});
 		}
 
+	}
+})();
+
+
+
+/*
+ * After loading the page, show the right picture and eventually open the preview
+ */
+
+(function () {
+	hash.init();
+
+	if (hash.isPreviewOpen()) {
+		openPreview();
+	}
+
+	if (nbPictures > 0) {
+		changeActivePicture(hash.idPicture());
 	}
 })();
