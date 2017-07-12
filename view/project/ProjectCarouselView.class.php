@@ -21,6 +21,8 @@ class ProjectCarouselView extends ProjectView
         <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
         <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
         <?php
     }
 
@@ -48,6 +50,8 @@ class ProjectCarouselView extends ProjectView
             ?>
         </noscript>
 
+        <div id="slider"></div>
+
         <?php
     }
 
@@ -59,9 +63,24 @@ class ProjectCarouselView extends ProjectView
     protected function sendScripts ()
     {
         ?>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script>
+        $( function() {
+            $( "#slider" ).slider({
+                min: 0,
+                max: <?php echo count($this->project->getPictures())-1; ?>
+            });
+
+            $('#slider').on('slide', function(event, ui) {
+                changeActivePicture(ui.value);
+            } );
+
+        } );
+        </script>
 
         <script>
         var isCarousel = true;
