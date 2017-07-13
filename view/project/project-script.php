@@ -223,6 +223,8 @@ function changeActivePicture (newId)
 		$(document).ready(function(){
 			document.getElementById('pictures').className = 'carousel';
 
+			var nbChangesInProgress = 1;
+
 			var carousel = $('#pictures')
 				.slick({
 					centerMode:        true,
@@ -238,9 +240,16 @@ function changeActivePicture (newId)
 				})
 				.slick('slickGoTo', hash.idPicture(), false)
 
+				.on('beforeChange', function(event, slick, currentSlide) {
+					nbChangesInProgress += 1;
+				})
+
 				.on('afterChange', function(event, slick, currentSlide) {
-					hash.setIdPicture(currentSlide);
-					changeActivePicture(currentSlide);
+					nbChangesInProgress -= 1;
+
+					if (nbChangesInProgress == 0) {
+						changeActivePicture(currentSlide);
+					}
 				});
 
 			onActivePictureChange.push(function (id) {
