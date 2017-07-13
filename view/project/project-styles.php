@@ -573,3 +573,11 @@ p {
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
 }
+
+/*
+ * Sliders
+ */
+
+.ui-slider-handle {
+	transition: left .5s;
+}
