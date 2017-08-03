@@ -52,14 +52,13 @@ class Picture {
 		$db = get_db();
 		
 		if ($this->id == -1) {
-			$request = $db->prepare('INSERT INTO pictures (id_project, type, infos, name, description, creation_date) VALUES (?, ?, ?, ?, ?, ?);');
+			$request = $db->prepare('INSERT INTO pictures (id_project, type, infos, name, description) VALUES (?, ?, ?, ?, ?);');
 			$request->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
 					$this->name,
-					$this->description,
-					$this->creationDate
+					$this->description
 			));
 				
 			$results = $db->query('SELECT LAST_INSERT_ID() AS id');
@@ -67,15 +66,14 @@ class Picture {
 			$this->id = $datas['id'];
 		}
 		else {
-			$request = $db->prepare('UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=?, creation_date=? WHERE id=?;');
+			$request = $db->prepare('UPDATE pictures SET id_project=?, type=?, infos=?, name=?, description=? WHERE id=?;');
 			$request->execute(array(
 					$this->idProject,
 					$this->type,
 					$this->infos,
 					$this->name,
 					$this->description,
-					$this->creationDate,
-					
+
 					$this->id
 			));
 		}
@@ -83,6 +81,10 @@ class Picture {
 		if ($this->creationDate == '') {
 			$request = $db->prepare('UPDATE pictures SET creation_date = NULL WHERE id = ?');
 			$request->execute(array($this->id));
+		}
+		else {
+			$request = $db->prepare('UPDATE pictures SET creation_date = ? WHERE id = ?');
+			$request->execute(array($this->creationDate, $this->id));
 		}
 	}
 
