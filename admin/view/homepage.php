@@ -41,8 +41,9 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Changements récents</span>
 								<ul>
-									<li>10 juillet 2017 : Amélioration de l'affichage des sous-projets</li>
+									<li>03 août 2017 : Correction de bugs</li>
 									<li>12 juillet 2017 : Affichage d'un slider sur la page du journal pour faire défiler les images</li>
+									<li>10 juillet 2017 : Amélioration de l'affichage des sous-projets</li>
 								</ul>
 							</div>
 						</div>
