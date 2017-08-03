@@ -26,7 +26,7 @@ class ProjectBookView extends ProjectView
                 <div>
                     <div class="picture-container-book">
                         <img
-                            src="<?php echo $picture->getUrlResource('large');?>"
+                            src="<?php echo $picture->getUrlResource('medium');?>"
                             id="picture-<?php echo $index;?>"
                             title="<?php echo $picture->getName();?>"
                             alt="<?php echo $picture->getName();?>"
