@@ -82,9 +82,4 @@ class ProjectBookView extends ProjectView
         ProjectView::sendScripts();
     }
 
-    protected function usePicturesRefresh ()
-    {
-        return false;
-    }
-
 }

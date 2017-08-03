@@ -262,10 +262,6 @@ class ProjectView extends HTMLView
                                     id="picture-<?php echo $index;?>"
                                     title="<?php echo $picture->getName();?>"
                                     alt="<?php echo $picture->getName();?>"
-
-                                    <?php if ($this->usePicturesRefresh()) { ?>
-                                        onload="toRefresh[this.id.split('-')[1]]=-1"
-                                    <?php } ?>
                                 />
                             </div>
                         <?php
@@ -281,11 +277,6 @@ class ProjectView extends HTMLView
                 protected function useLazyLoading ()
                 {
                     return false;
-                }
-
-                protected function usePicturesRefresh ()
-                {
-                    return true;
                 }
 
             protected function sendDescription ()
@@ -337,8 +328,6 @@ class ProjectView extends HTMLView
             ?>
 
             <script>
-            var usePicturesRefresh = <?php echo intval($this->usePicturesRefresh()); ?>;
-
             var nbPictures = <?php echo sizeof($this->project->getPictures())?>;
 
             var infosPictures = [

@@ -8,11 +8,6 @@ include_once('ProjectView.class.php');
 class ProjectCarouselView extends ProjectView
 {
 
-    protected function usePicturesRefresh ()
-    {
-        return false;
-    }
-
     protected function sendStyles ()
     {
         ProjectView::sendStyles();
