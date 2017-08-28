@@ -20,6 +20,12 @@ if ($size == 0) { // Homepage
 
 if ($size == 1) {
 	
+	if ($request[0] == 'favicon.png') { // Icône
+		header('Content-Type: image/png');
+		echo file_get_contents('static/favicon.png');
+		exit();
+	}
+
 	if ($request[0] == 'images') { // Gallerie d'images
 		include('controller/pictures/pictures.php');
 		exit();

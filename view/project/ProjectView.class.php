@@ -22,36 +22,20 @@ class ProjectView extends HTMLView
      */
 
     // Head
-    protected function sendHead ()
+    protected function getTitle ()
     {
-        ?>
-
-        <head>
-            <meta charset="utf-8">
-
-            <title><?php echo $this->project->getName();?> - Xavier Gury</title>
-
-            <?php
-            $this->sendStyles();
-            ?>
-
-            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-            <?php
-            if ($this->project->getDescription() != '') {
-                echo '<meta name="description" content="' . strip_tags($this->project->getDescription()) . '">';
-            }
-            ?>
-        </head>
-
-        <?php
+        return $this->project->getName();;
     }
 
-        protected function sendStyles ()
-        {
-            echo '<link rel="stylesheet" type="text/css" href="/styles/project.css"/>';
-        }
+    protected function getHeadDescription ()
+    {
+        return strip_tags($this->project->getDescription());
+    }
+
+    protected function sendStyles ()
+    {
+        echo '<link rel="stylesheet" type="text/css" href="/styles/project.css"/>';
+    }
 
 
     // Body

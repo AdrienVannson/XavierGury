@@ -23,6 +23,7 @@ function show_admin_picture($picture) {
 
 		<title><?php echo $action; ?> une <?php echo $picture->getType()=='youtube' ? 'vidéo' : 'image'; ?> - Administration - Xavier Gury</title>
 
+		<link rel="icon" type="image/png" href="/favicon.png"/>
 		<link rel="stylesheet" type="text/css" href="/admin/styles.css"/>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
 
