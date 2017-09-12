@@ -1,6 +1,6 @@
 AuthName "Veuillez vous connecter pour acceder a l'interface d'administration"
 AuthType Basic
-AuthUserFile "/home/u138164097/public_html/admin/.htpasswd"
+AuthUserFile "/home/xavierguir/www/admin/.htpasswd"
 Require valid-user
 
 <IfModule mod_rewrite.c>
