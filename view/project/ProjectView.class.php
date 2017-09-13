@@ -297,10 +297,7 @@ class ProjectView extends HTMLView
                         </svg>
 
                     </div>
-                    <div id="informations">
-                        <h1 id="title"></h1>
-                        <p id="description"></p>
-                    </div>
+                    <div id="informations"></div>
                 </div>
             </div>
 
