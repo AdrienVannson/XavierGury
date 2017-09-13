@@ -5,4 +5,5 @@ header('Content-Type: text/plain');
 ?>
 User-agent: *
 Disallow: /
-Disallow: /themes
+Disallow: /images/
+Disallow: /static/
