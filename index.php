@@ -70,7 +70,7 @@ if ($size == 2) {
 }
 
 
-$regexPictures = '#^/([0-9]+-.*/)+ressources/([0-9]+)(s|m|l|r)-.*\.(png|jpg|gif)$#';
+$regexPictures = '#^/([0-9]+-.*/)+ressources/([0-9]+)(s|m|l|r)-?.*\.(png|jpg|gif)$#';
 if (preg_match($regexPictures, $urlRequest)) {
 	$infos = explode('\n', preg_replace($regexPictures, '$2\n$3', $urlRequest));
 

@@ -205,13 +205,17 @@ class Picture {
 	}
 
 	public function getUrlResource($size, $encode=true) {
-		$url = $this->getProject()->getUrl($encode) . '/ressources/' . $this->id . $size[0] . '-';
-		
+		$url = $this->getProject()->getUrl($encode) . '/ressources/' . $this->id . $size[0];
+
 		if ($encode) {
-			$url .= urlencode($this->name);
+			$name = urlencode($this->name);
 		}
 		else {
-			$url .= $this->name;
+			$name = $this->name;
+		}
+
+		if ($name != '') {
+			$url .= '-' . $name;
 		}
 		
 		$url .= '.' . $this->getType();
