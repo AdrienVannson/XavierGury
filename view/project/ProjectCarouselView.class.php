@@ -13,10 +13,10 @@ class ProjectCarouselView extends ProjectView
         ProjectView::sendStyles();
         ?>
 
-        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/slick-1.6.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/slick-theme-1.6.css"/>
 
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/static/jquery-ui.css">
 
         <?php
     }
@@ -59,9 +59,9 @@ class ProjectCarouselView extends ProjectView
     {
         ?>
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="/static/slick-1.6.min.js"></script>
+        <script type="text/javascript" src="/static/jquery-ui-1.12.1.min.js"></script>
 
         <script>
         $( function() {

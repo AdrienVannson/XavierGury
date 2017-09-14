@@ -68,7 +68,7 @@ class ProjectBookView extends ProjectView
         $width *= 2; // 2 pictures shown in the same time
         ?>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="/static/turnjs/turn.min.js"></script>
 
         <script type="text/javascript">
