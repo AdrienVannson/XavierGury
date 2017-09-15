@@ -30,7 +30,9 @@ class HomepageView extends View
             $projects = ProjectFactory::getAllProjects();
 
             foreach ($projects as $project) {
-                echo "<url><loc>".$domain.$project->getUrl()."</loc></url>\n";
+                if ($project->getUrl() != '/') {
+                    echo "<url><loc>".$domain.$project->getUrl()."</loc></url>\n";
+                }
             }
             ?>
 
