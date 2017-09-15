@@ -3,7 +3,7 @@
 
 	RewriteCond %{HTTPS} off [OR]
 	RewriteCond %{HTTP_HOST} !^www\. [NC]
-	RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=302,last]
+	RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=301,last]
 
 
 	RewriteCond %{REQUEST_URI} !^/?index.php(.*)?$
