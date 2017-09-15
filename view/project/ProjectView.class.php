@@ -59,12 +59,12 @@ class ProjectView extends HTMLView
             <div id="menu">
                 <ul>
                     <?php
-                    if ($this->project->getIdParent() == -1) {
+                    if ($this->project->getIdParent() == -1) { // 404
                         $projects = $this->project->getBrothers();
                         ?>
 
                         <li style="border-bottom: 1px solid #FFF;">
-                            <a href="/">ACCUEIL</a>
+                            <a href="/">Accueil</a>
                         </li>
 
                         <?php
@@ -86,7 +86,7 @@ class ProjectView extends HTMLView
                                 href="<?php echo $parent->getUrl();?>"
                                 <?php if($parent->getId() == $this->project->getId()){?>class="active"<?php }?>
                             >
-                                <?php echo mb_strtoupper($parent->getName(), 'UTF-8'); ?>
+                                <?php echo $parent->getName(); ?>
                             </a>
                         </li>
 
@@ -101,7 +101,7 @@ class ProjectView extends HTMLView
                                 href="<?php echo $currentProject->getUrl();?>"
                                 <?php if($currentProject->getId()==$this->project->getId()){?>class="active"<?php }?>
                             >
-                                <?php echo mb_strtoupper($currentProject->getName(), 'UTF-8');?>
+                                <?php echo $currentProject->getName();?>
                             </a>
                         </li>
                         <?php
