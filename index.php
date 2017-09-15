@@ -36,10 +36,10 @@ if ($size == 1) {
 		exit();
 	}
 
-	/*if ($request[0] == 'sitemap.xml') {
+	if ($request[0] == 'sitemap.xml') {
 		include('controller/sitemap.php');
 		exit();
-	}*/
+	}
 	
 }
 
