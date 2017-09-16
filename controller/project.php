@@ -4,7 +4,7 @@ include_once(__DIR__.'/../model/ProjectFactory.class.php');
 include_once(__DIR__.'/../view/project/ProjectViewFactory.class.php');
 
 $url = $URL;
-$request = $CUT_OUT_REQUEST;
+$request = $REQUEST;
 
 
 // Process the URL

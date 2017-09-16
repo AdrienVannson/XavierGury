@@ -4,22 +4,16 @@
 $request = explode('/', $_GET['request']);
 $size = count($request);
 
-// On enlève la chaine vide à la fin, si l'URL se termine par un slash
-if ($request[$size-1] == '') {
-	array_pop($request);
-	$size = count($request);
-}
-
 $urlRequest = '/' . implode('/', $request);
 
 
-if ($size == 0) { // Homepage
-	include('controller/homepage.php');
-	exit();
-}
-
 if ($size == 1) {
-	
+
+	if ($request[0] == '') { // Homepage
+		include('controller/homepage.php');
+		exit();
+	}
+
 	if ($request[0] == 'favicon.png') { // Icône
 		header('Content-Type: image/png');
 		echo file_get_contents('static/favicon.png');
@@ -88,7 +82,7 @@ if (preg_match($regexPictures, $urlRequest)) {
 
 if (preg_match('#^/([0-9]+-.*)+$#', $urlRequest)) { // Page de projet
 	$URL = $urlRequest;
-	$CUT_OUT_REQUEST = $request;
+	$REQUEST = $request;
 
 	include('controller/project.php');
 	exit();
