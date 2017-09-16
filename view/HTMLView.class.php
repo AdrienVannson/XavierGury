@@ -26,21 +26,18 @@ class HTMLView extends View
         // Head
         protected function sendHead ()
         {
+            $title = $this->getTitle();
+
+            if ($title != '') {
+                $title .= ' - ';
+            }
+
+            $title .= 'Xavier Gury';
             ?>
 
             <head>
                 <meta charset="utf-8">
-
-                <title>
-                    <?php
-                    echo $this->getTitle();
-
-                    if ($this->getTitle() != '') {
-                        echo ' - ';
-                    }
-                    ?>
-                    Xavier Gury
-                </title>
+                <title><?= $title ?></title>
 
                 <?php
                 $this->sendStyles();
