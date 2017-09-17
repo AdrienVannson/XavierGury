@@ -18,7 +18,7 @@ class HomepageView extends View
         $domain = 'https://www.xaviergury.fr';
         ?>
 
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
             <url>
                 <loc><?= $domain ?>/</loc>
@@ -30,9 +30,26 @@ class HomepageView extends View
             $projects = ProjectFactory::getAllProjects();
 
             foreach ($projects as $project) {
+
                 if ($project->getUrl() != '/') {
-                    echo "<url><loc>".$domain.$project->getUrl()."</loc></url>\n";
+                    echo "<url>";
+                    echo "<loc>".$domain.$project->getUrl()."</loc>\n";
+
+                    $pictures = $project->getPictures();
+
+                    foreach ($pictures as $picture) {
+                        echo "<image:image>";
+                        echo "<image:loc>" . $domain.$picture->getUrlResource('m') . "</image:loc>";
+
+                        if ($picture->getName() != '') {
+                            echo "<image:title>" . $picture->getName() . "</image:title>";
+                        }
+
+                        echo "</image:image>\n";
+                    }
+                    echo "</url>\n";
                 }
+
             }
             ?>
 
