@@ -13,8 +13,8 @@ class ProjectCarouselView extends ProjectView
         ProjectView::sendStyles();
         ?>
 
-        <link rel="stylesheet" type="text/css" href="/static/slick-1.6.css"/>
-        <link rel="stylesheet" type="text/css" href="/static/slick-theme-1.6.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/slick/slick-theme.css"/>
 
         <link rel="stylesheet" href="/static/jquery-ui.css">
 
@@ -60,7 +60,7 @@ class ProjectCarouselView extends ProjectView
         ?>
 
         <script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="/static/slick-1.6.min.js"></script>
+        <script type="text/javascript" src="/static/slick/slick.min.js"></script>
         <script type="text/javascript" src="/static/jquery-ui-1.12.1.min.js"></script>
 
         <script>
