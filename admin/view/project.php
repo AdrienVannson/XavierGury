@@ -154,7 +154,7 @@ show_admin_menus($parents);
 								?>
 									<div class="card-image">
 										<div style="overflow:hidden;max-height:400px;">
-											<img src="<?php echo $picture->getUrlResource("medium");?>">
+											<img src="<?php echo $picture->getUrlResource("small");?>">
 										</div>
 										<span class="card-title"><?php echo $picture->getName();?></span>
 									</div>
