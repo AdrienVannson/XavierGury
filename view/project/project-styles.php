@@ -516,8 +516,11 @@ p {
 }
 
 .under-project p {
-	margin-bottom: 32px;
 	margin-top: 0;
+}
+
+.under-project div {
+	padding-bottom: 16px;
 }
 
 
