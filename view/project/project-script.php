@@ -251,13 +251,12 @@ function changeActivePicture (newId)
 	var infos = document.getElementById('informations');
 	infos.innerHTML = '<h1 id="title"></h1><p id="description"></p>';
 
-	hash.init();
-
-	if (hash.isPreviewOpen()) {
-		openPreview();
-	}
 
 	if (nbPictures > 0) {
+		if (hash.isPreviewOpen()) {
+			openPreview();
+		}
+
 		changeActivePicture(hash.idPicture());
 	}
 })();
