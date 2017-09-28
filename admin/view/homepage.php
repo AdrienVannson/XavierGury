@@ -40,12 +40,12 @@ function show_admin_homepage() {
 					<div class="col s12 m6">
 						<div class="card green hoverable">
 							<div class="card-content white-text">
-								<span class="card-title">Changements récents</span>
-								<ul>
-									<li>03 août 2017 : Correction de bugs</li>
-									<li>12 juillet 2017 : Affichage d'un slider sur la page du journal pour faire défiler les images</li>
-									<li>10 juillet 2017 : Amélioration de l'affichage des sous-projets</li>
-								</ul>
+								<span class="card-title">Paramètres</span>
+								<p>Il est désormait possible de modifier des paramètres du site, comme par exemple le texte de la page d'accueil.</p>
+
+								<div class="card-action">
+									<a href="/admin/settings" class="white-text">Accéder aux paramètres</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -55,19 +55,6 @@ function show_admin_homepage() {
 							<div class="card-content white-text">
 								<span class="card-title">Contact</span>
 								<p>Voici mon adresse mail : <a class="red-text" href="mailto:adrien.vannson@gmail.com">adrien.vannson@gmail.com</a></p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col s12 m6">
-						<div class="card green hoverable">
-							<div class="card-content white-text">
-								<span class="card-title">Paramètres</span>
-								<p>Il est désormait possible de modifier des paramètres du site, comme par exemple le texte de la page d'accueil.</p>
-
-								<div class="card-action">
-									<a href="/admin/settings" class="white-text">Accéder aux paramètres</a>
-								</div>
 							</div>
 						</div>
 					</div>
