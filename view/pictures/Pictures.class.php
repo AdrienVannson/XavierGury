@@ -44,7 +44,7 @@ class PicturesView extends HTMLView
             ];
             </script>
 
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+            <script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
             <script type="text/javascript" src="/scripts/pictures-scripts.js"></script>
 
         </body>
