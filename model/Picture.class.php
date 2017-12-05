@@ -264,7 +264,7 @@ class Picture {
 
 	public function generateFiles () {
 		
-		$dirName = dirname(__DIR__).'/resources/pictures/'.$this->getId();
+		$dirName = dirname(__DIR__).'/resources/pictures/'.$this->getId(); // dirname : dossier parent
 
 		// Clear the folder
 		$dir = opendir($dirName);
@@ -282,111 +282,56 @@ class Picture {
 
 		if ($this->getType() == 'jpg') {
 			$img = imagecreatefromjpeg($realFileName);
+		} elseif ($this->getType() == 'gif') {
+			$img = imagecreatefromgif($realFileName);
+		} elseif ($this->getType() == 'png') {
+			$img = imagecreatefrompng($realFileName);
+		}
 
-			$infos = getimagesize($realFileName);
-			$width = $infos[0];
-			$height = $infos[1];
-
-
-			$newWidth = floor(128 * $width / $height);
-			if ($newWidth < $width) {
-				$s = imagescale($img, $newWidth);
-			}
-			else {
-				$s = $img;
-			}
-
-			$newWidth = floor(384 * $width / $height);
-			if ($newWidth < $width) {
-				$m = imagescale($img, $newWidth);
-			}
-			else {
-				$m = $img;
-			}
-
-			$newWidth = floor(896 * $width / $height);
-			if ($newWidth < $width) {
-				$l = imagescale($img, $newWidth);
-			}
-			else {
-				$l = $img;
-			}
+		$infos = getimagesize($realFileName);
+		$width = $infos[0];
+		$height = $infos[1];
 
 
+		// Small
+		$newWidth = floor(128 * $width / $height);
+		if ($newWidth < $width) {
+			$s = imagescale($img, $newWidth);
+		}
+		else {
+			$s = $img;
+		}
+
+		// Medium
+		$newWidth = floor(384 * $width / $height);
+		if ($newWidth < $width) {
+			$m = imagescale($img, $newWidth);
+		}
+		else {
+			$m = $img;
+		}
+
+		// Large
+		$newWidth = floor(896 * $width / $height);
+		if ($newWidth < $width) {
+			$l = imagescale($img, $newWidth);
+		}
+		else {
+			$l = $img;
+		}
+
+
+		if ($this->getType() == 'jpg') {
 			imagejpeg($s, $dirName.'/s.jpg', 80);
 			imagejpeg($m, $dirName.'/m.jpg', 80);
 			imagejpeg($l, $dirName.'/l.jpg', 80);
 		}
 		elseif ($this->getType() == 'gif') {
-			$img = imagecreatefromgif($realFileName);
-
-			$infos = getimagesize($realFileName);
-			$width = $infos[0];
-			$height = $infos[1];
-
-
-			$newWidth = floor(128 * $width / $height);
-			if ($newWidth < $width) {
-				$s = imagescale($img, $newWidth);
-			}
-			else {
-				$s = $img;
-			}
-
-			$newWidth = floor(384 * $width / $height);
-			if ($newWidth < $width) {
-				$m = imagescale($img, $newWidth);
-			}
-			else {
-				$m = $img;
-			}
-
-			$newWidth = floor(896 * $width / $height);
-			if ($newWidth < $width) {
-				$l = imagescale($img, $newWidth);
-			}
-			else {
-				$l = $img;
-			}
-
-
 			imagegif($s, $dirName.'/s.gif');
 			imagegif($m, $dirName.'/m.gif');
 			imagegif($l, $dirName.'/l.gif');
 		}
 		elseif ($this->getType() == 'png') {
-			$img = imagecreatefrompng($realFileName);
-
-			$infos = getimagesize($realFileName);
-			$width = $infos[0];
-			$height = $infos[1];
-
-
-			$newWidth = floor(128 * $width / $height);
-			if ($newWidth < $width) {
-				$s = imagescale($img, $newWidth);
-			}
-			else {
-				$s = $img;
-			}
-
-			$newWidth = floor(384 * $width / $height);
-			if ($newWidth < $width) {
-				$m = imagescale($img, $newWidth);
-			}
-			else {
-				$m = $img;
-			}
-
-			$newWidth = floor(896 * $width / $height);
-			if ($newWidth < $width) {
-				$l = imagescale($img, $newWidth);
-			}
-			else {
-				$l = $img;
-			}
-
-
 			imagealphablending($s, false);
 			imagealphablending($m, false);
 			imagealphablending($l, false);
@@ -401,8 +346,8 @@ class Picture {
 		}
 
 	}
-	
-	
+
+
 	public function getWidth ()
 	{
 		return getimagesize( $this->getPathResource('r') )[0];

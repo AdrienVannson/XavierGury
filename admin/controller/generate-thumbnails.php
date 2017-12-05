@@ -3,7 +3,6 @@
  * Controller
  *
  * Generate thumbnails for all the pictures
- *
  */
 
 include_once(__DIR__.'/../../model/PictureFactory.class.php');
@@ -19,23 +18,11 @@ while ($datas = $result->fetch()) {
 		continue;
 	}
 
-
-	// Rename
-	$folder = __DIR__ . '/../../resources/pictures/' . $id;
-
-	$oldFilename = $folder . '/large.' . $picture->getType();
-	$newFilename = $folder . '/r.' . $picture->getType();
-
-	if (file_exists($oldFilename)) {
-		rename($oldFilename, $newFilename);
-	}
-
-
 	// Generate the thumbnails
+	$folder = __DIR__ . '/../../resources/pictures/' . $id;
 	$picture->generateFiles();
 
-
-	echo "$id $folder <br/>";
+	echo "$id $folder<br/>";
 	ob_flush();
 	flush();
 }
