@@ -7,6 +7,8 @@
 
 include_once(__DIR__.'/../../model/PictureFactory.class.php');
 
+set_time_limit(0); // No time limit
+
 $db = get_db();
 $result = $db->query('SELECT id FROM pictures');
 
