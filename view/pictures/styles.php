@@ -31,15 +31,12 @@ td {
 	padding: 0;
 }
 
-.picture {
-	height: 128px;
-	overflow: hidden;
-}
-
 .picture a {
 	display: block;
-	opacity: 0;
+	height: 128px;
+	overflow: hidden;
 
+	opacity: 0;
 	transition: opacity .3s;
 }
 
@@ -49,7 +46,6 @@ td {
 
 .picture a img {
 	display: block;
-	margin: auto;
 
-	cursor: pointer;
+	min-width: 100%;
 }
