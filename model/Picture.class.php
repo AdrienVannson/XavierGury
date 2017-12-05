@@ -294,7 +294,7 @@ class Picture {
 
 
 		// Small
-		$newWidth = floor(128 * $width / $height);
+		$newWidth = max( floor(128 * $width / $height), 150 );
 		if ($newWidth < $width) {
 			$s = imagescale($img, $newWidth);
 		}
