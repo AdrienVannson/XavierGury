@@ -177,6 +177,27 @@ function changeActivePicture (newId)
 })();
 
 
+/*
+ * Events
+ */
+
+(function() {
+
+	var pictures = document.getElementsByClassName('project-picture');
+
+	var event = 'click';
+	if (typeof isCarousel !== 'undefined') {
+		event = 'dblclick';
+	}
+
+	for (var iPicture=0; iPicture<pictures.length; iPicture++) {
+		pictures[iPicture].addEventListener(event, function(event) {
+			showPicture(parseInt(event.currentTarget.id.split('-')[1]));
+		});
+	}
+
+})();
+
 
 /*
  * Carousels
@@ -227,15 +248,6 @@ function changeActivePicture (newId)
 				$('#slider').slider("value", id);
 			});
 		});
-
-
-		var pictures = document.getElementsByClassName('project-picture');
-
-		for (var iPicture=0; iPicture<pictures.length; iPicture++) {
-			pictures[iPicture].addEventListener('dblclick', function(event) {
-				showPicture(parseInt(event.currentTarget.id.split('-')[1]));
-			});
-		}
 
 	}
 })();
