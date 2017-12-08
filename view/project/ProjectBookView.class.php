@@ -12,7 +12,6 @@ class ProjectBookView extends ProjectView
     {
         ?>
 
-        <!-- http://www.turnjs.com -->
         <div id="pictures" class="book">
 
             <?php
