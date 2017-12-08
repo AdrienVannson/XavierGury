@@ -30,6 +30,7 @@ class ProjectBookView extends ProjectView
                             class="project-picture"
                             title="<?php echo $picture->getName();?>"
                             alt="<?php echo $picture->getName();?>"
+                            ondblclick="showPicture(<?php echo $index;?>);"
                         />
                     </div>
                 </div>
@@ -72,6 +73,8 @@ class ProjectBookView extends ProjectView
         <script type="text/javascript" src="/static/turnjs/turn.min.js"></script>
 
         <script type="text/javascript">
+            var isBook = true;
+
             $("#pictures").turn({
                 width: <?php echo $width; ?>,
                 height: <?php echo $height; ?>
