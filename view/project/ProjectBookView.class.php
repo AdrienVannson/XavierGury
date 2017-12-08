@@ -27,6 +27,7 @@ class ProjectBookView extends ProjectView
                         <img
                             src="<?php echo $picture->getUrlResource('medium');?>"
                             id="picture-<?php echo $index;?>"
+                            class="project-picture"
                             title="<?php echo $picture->getName();?>"
                             alt="<?php echo $picture->getName();?>"
                         />
@@ -75,6 +76,16 @@ class ProjectBookView extends ProjectView
                 width: <?php echo $width; ?>,
                 height: <?php echo $height; ?>
             });
+
+
+            var pictures = document.getElementsByClassName('project-picture');
+
+            for (var iPicture=0; iPicture<pictures.length; iPicture++) {
+                pictures[iPicture].addEventListener('click', function(event) {
+                    showPicture(parseInt(event.currentTarget.id.split('-')[1]));
+                });
+            }
+
         </script>
 
         <?php
