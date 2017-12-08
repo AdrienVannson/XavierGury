@@ -554,6 +554,11 @@ p {
 	margin: auto;
 	margin-bottom: 40px;
 	margin-top: 40px;
+
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .picture-container-book {
