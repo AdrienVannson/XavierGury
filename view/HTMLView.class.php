@@ -75,6 +75,7 @@ class HTMLView extends View
         // Body
         protected function sendBody ()
         {
+            echo '<body></body>';
         }
 
 

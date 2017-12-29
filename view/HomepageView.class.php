@@ -93,6 +93,7 @@ class HomepageView extends HTMLView
     {
         $firstLevelProjects = getFirstLevelProjects();
         ?>
+        <body>
 
         <div id="infos">
             <h1 id="title">Xavier Gury</h1>
@@ -182,6 +183,7 @@ class HomepageView extends HTMLView
             </div>
         </div>
 
+        </body>
         <?php
     }
 
