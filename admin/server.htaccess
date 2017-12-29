@@ -6,7 +6,10 @@ Require valid-user
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-	RewriteCond %{REQUEST_URI} !^/?admin/index.php(.*)?$
-	RewriteRule ^([^&]*)$ index.php?request=$1
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=301,last]
 
+    RewriteCond %{REQUEST_URI} !^/?admin/index.php(.*)?$
+    RewriteRule ^([^&]*)$ index.php?request=$1
 </IfModule>

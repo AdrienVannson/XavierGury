@@ -1,13 +1,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-	RewriteCond %{HTTPS} off [OR]
-	RewriteCond %{HTTP_HOST} !^www\. [NC]
-	RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=301,last]
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=301,last]
 
-
-	RewriteCond %{REQUEST_URI} !^/?index.php(.*)?$
-	RewriteCond %{REQUEST_URI} !^/?admin/(.*)?$
-	RewriteCond %{REQUEST_URI} !^/?static/(.*)?$
-	RewriteRule ^([^&]*)$ index.php?request=$1
+    RewriteCond %{REQUEST_URI} !^/?index.php(.*)?$
+    RewriteCond %{REQUEST_URI} !^/?admin/(.*)?$
+    RewriteCond %{REQUEST_URI} !^/?static/(.*)?$
+    RewriteRule ^([^&]*)$ index.php?request=$1
 </IfModule>
