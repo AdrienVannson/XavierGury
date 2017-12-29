@@ -1,13 +1,13 @@
 <?php
 /*
- * HomepageView
+ * SitemapView
  */
 
 include_once(__DIR__.'/../model/ProjectFactory.class.php');
 include_once('View.class.php');
 
 
-class HomepageView extends View
+class SitemapView extends View
 {
 
     public function sendContents ()
