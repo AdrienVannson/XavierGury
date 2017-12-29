@@ -22,7 +22,6 @@ class SitemapView extends View
 
             <url>
                 <loc><?= $domain ?>/</loc>
-                <changefreq>monthly</changefreq>
                 <priority>1.0</priority>
             </url>
 
