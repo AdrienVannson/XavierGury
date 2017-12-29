@@ -8,7 +8,7 @@ Require valid-user
 
     RewriteCond %{HTTPS} off [OR]
     RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^(.*)$ https://www.xaviergury.fr/$1 [redirect=301,last]
+    RewriteRule ^(.*)$ https://www.xaviergury.fr/admin/$1 [redirect=301,last]
 
     RewriteCond %{REQUEST_URI} !^/?admin/index.php(.*)?$
     RewriteRule ^([^&]*)$ index.php?request=$1
