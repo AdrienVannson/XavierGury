@@ -3,3 +3,4 @@ resources/
 resources-old/
 static/
 logs/
+model/connect.php
