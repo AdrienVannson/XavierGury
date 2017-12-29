@@ -41,9 +41,9 @@ show_admin_menus( array( array('Paramètres', '/admin/settings/') ));
 
 		</form>
 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-		<script type="text/javascript" src="/static/ckeditor/ckeditor.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+		<script src="/static/ckeditor/ckeditor.js"></script>
 
 		<script>
 			CKEDITOR.replace('description');

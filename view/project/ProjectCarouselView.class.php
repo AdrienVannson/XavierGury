@@ -59,9 +59,9 @@ class ProjectCarouselView extends ProjectView
     {
         ?>
 
-        <script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="/static/slick/slick.min.js"></script>
-        <script type="text/javascript" src="/static/jquery-ui-1.12.1.min.js"></script>
+        <script src="/static/jquery-3.2.1.min.js"></script>
+        <script src="/static/slick/slick.min.js"></script>
+        <script src="/static/jquery-ui-1.12.1.min.js"></script>
 
         <script>
         $( function() {

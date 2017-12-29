@@ -334,7 +334,7 @@ class ProjectView extends HTMLView
             toRefresh.fill(0, 0, nbPictures);
             </script>
 
-            <script type="text/javascript" src="/scripts/project.js"></script>
+            <script src="/scripts/project.js"></script>
 
             <?php
         }

@@ -194,9 +194,9 @@ show_admin_menus($parents);
 		
 		<?php } ?>
 
-		<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-		<script type="text/javascript" src="/static/ckeditor/ckeditor.js"></script>
+		<script src="/static/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+		<script  src="/static/ckeditor/ckeditor.js"></script>
 
 		<script>
 			$(document).ready(function() {
