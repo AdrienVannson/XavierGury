@@ -1,6 +1,18 @@
 <?php
 /* Fichier principal : inclut les controllers */
 
+
+function minimiser ($aEnvoyer)
+{
+	// Suppression des espaces inutiles
+	return preg_replace(
+		'/\s\s*/',
+		' ',
+		$aEnvoyer
+	);
+}
+
+
 $request = explode('/', $_GET['request']);
 $size = count($request);
 
@@ -10,6 +22,7 @@ $urlRequest = '/' . implode('/', $request);
 if ($size == 1) {
 
 	if ($request[0] == '') { // Homepage
+		ob_start("minimiser");
 		include('controller/homepage.php');
 		exit();
 	}
@@ -21,6 +34,7 @@ if ($size == 1) {
 	}
 
 	if ($request[0] == 'images') { // Gallerie d'images
+		ob_start("minimiser");
 		include('controller/pictures/pictures.php');
 		exit();
 	}
@@ -31,6 +45,7 @@ if ($size == 1) {
 	}
 
 	if ($request[0] == 'sitemap.xml') {
+		ob_start("minimiser");
 		include('controller/sitemap.php');
 		exit();
 	}
@@ -38,34 +53,34 @@ if ($size == 1) {
 }
 
 if ($size == 2) {
-	
+
 	if ($request[0] == 'styles') { // Feuilles de styles 
-		
+
 		if ($request[1] == 'project.css') {
 			include('controller/project/project-styles.php');
 			exit();
 		}
-		
+
 		if ($request[1] == 'pictures-styles.css') {
 			include('controller/pictures/styles.php');
 			exit();
 		}
-		
+
 	}
 	if ($request[0] == 'scripts') { // Scripts
-		
+
 		if ($request[1] == 'project.js') {
 			include('controller/project/project-script.php');
 			exit();
 		}
-		
+
 		if ($request[1] == 'pictures-scripts.js') {
 			include('controller/pictures/scripts.php');
 			exit();
 		}
-		
+
 	}
-	
+
 }
 
 
@@ -76,6 +91,7 @@ if (preg_match($regexPictures, $urlRequest)) {
 	$URL = $urlRequest;
 	$RESOURCE_ID = $infos[0];
 	$RESOURCE_SIZE = $infos[1];
+
 	include('controller/picture.php');
 	exit();
 }
@@ -84,9 +100,11 @@ if (preg_match('#^/([0-9]+-.*)+$#', $urlRequest)) { // Page de projet
 	$URL = $urlRequest;
 	$REQUEST = $request;
 
+	ob_start("minimiser");
 	include('controller/project.php');
 	exit();
 }
 
 // La page n'existe pas
-include_once('controller/errors/404.php');
+ob_start("minimiser");
+include('controller/errors/404.php');
