@@ -75,9 +75,7 @@ class ProjectCarouselView extends ProjectView
             } );
 
         } );
-        </script>
 
-        <script>
         var isCarousel = true;
         </script>
 
