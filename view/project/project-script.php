@@ -109,14 +109,25 @@ function changeActivePicture (newId)
 		hash.closePreview();
 	}
 
+	function avancer (x)
+	{
+		var nouvelId = (hash.idPicture() + x) % infosPictures.length;
+
+		if (nouvelId < 0) {
+			nouvelId += infosPictures.length;
+		}
+		
+		changeActivePicture(nouvelId);
+	}
+
 	function nextPicture ()
 	{
-		changeActivePicture((hash.idPicture()+1) % infosPictures.length);
+		avancer(1);
 	}
 
 	function previousPicture ()
 	{
-		changeActivePicture((hash.idPicture()-1 + infosPictures.length) % infosPictures.length);
+		avancer(-1);
 	}
 
 
@@ -171,6 +182,7 @@ function changeActivePicture (newId)
 
 	window.nextPicture = nextPicture;
 	window.previousPicture = previousPicture;
+	window.avancer = avancer;
 
 	window.showPicture = showPicture;
 

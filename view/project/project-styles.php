@@ -385,6 +385,9 @@ p {
 .arrow {
 	height: 64px;
 	width: 64px;
+}
+
+#picture-container .arrow {
 	position: absolute;
 	top: calc(50% - 32px);
 	z-index: 10;
@@ -394,6 +397,8 @@ p {
 
 	transition: opacity .3s;
 }
+
+
 
 #picture-container {
 	position: relative;
@@ -580,6 +585,15 @@ p {
 	top: 50%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
+}
+
+#book-container {
+	display: flex;
+	align-items: center;
+}
+
+#book-container .arrow {
+	cursor: pointer;
 }
 
 /*
