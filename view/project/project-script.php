@@ -69,8 +69,8 @@ var onActivePictureChange = []; // A list of functions called when the active pi
 
 function changeActivePicture (newId)
 {
-	onActivePictureChange.forEach(function(functionToCall) {
-		functionToCall(newId);
+	onActivePictureChange.forEach(function(callback) {
+		callback(newId);
 	});
 }
 
