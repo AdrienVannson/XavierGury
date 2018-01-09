@@ -30,17 +30,15 @@ class ProjectBookView extends ProjectView
                     }
                     ?>
 
-                    <div>
-                        <div class="picture-container-book">
-                            <img
-                                src="<?php echo $picture->getUrlResource('medium');?>"
-                                id="picture-<?php echo $index;?>"
-                                class="project-picture"
-                                title="<?php echo $picture->getName();?>"
-                                alt="<?php echo $picture->getName();?>"
-                                ondblclick="showPicture(<?php echo $index;?>);"
-                            />
-                        </div>
+                    <div class="picture-container-book">
+                        <img
+                            src="<?php echo $picture->getUrlResource('medium');?>"
+                            id="picture-<?php echo $index;?>"
+                            class="project-picture"
+                            title="<?php echo $picture->getName();?>"
+                            alt="<?php echo $picture->getName();?>"
+                            onclick="showPicture(<?php echo $index;?>);"
+                        />
                     </div>
 
                     <?php
