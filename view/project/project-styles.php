@@ -20,6 +20,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+h1, h2 {
+	font-weight: 400;
+}
+
 a {
 	color: #FFF;
 	text-decoration: none;
