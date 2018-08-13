@@ -1,18 +1,6 @@
 <?php
 /* Fichier principal : inclut les controllers */
 
-
-function minimiser ($aEnvoyer)
-{
-	// Suppression des espaces inutiles
-	return preg_replace(
-		'/\s\s*/',
-		' ',
-		$aEnvoyer
-	);
-}
-
-
 $request = explode('/', $_GET['request']);
 $size = count($request);
 
@@ -22,7 +10,6 @@ $urlRequest = '/' . implode('/', $request);
 if ($size == 1) {
 
 	if ($request[0] == '') { // Homepage
-		ob_start("minimiser");
 		include('controller/homepage.php');
 		exit();
 	}
@@ -34,27 +21,25 @@ if ($size == 1) {
 	}
 
 	if ($request[0] == 'images') { // Gallerie d'images
-		ob_start("minimiser");
 		include('controller/pictures/pictures.php');
 		exit();
 	}
-	
+
 	if ($request[0] == 'robots.txt') { // Fichier robots.txt
 		include('controller/robots-txt.php');
 		exit();
 	}
 
 	if ($request[0] == 'sitemap.xml') {
-		ob_start("minimiser");
 		include('controller/sitemap.php');
 		exit();
 	}
-	
+
 }
 
 if ($size == 2) {
 
-	if ($request[0] == 'styles') { // Feuilles de styles 
+	if ($request[0] == 'styles') { // Feuilles de styles
 
 		if ($request[1] == 'project.css') {
 			include('controller/project/project-styles.php');
@@ -100,11 +85,9 @@ if (preg_match('#^/([0-9]+-.*)+$#', $urlRequest)) { // Page de projet
 	$URL = $urlRequest;
 	$REQUEST = $request;
 
-	ob_start("minimiser");
 	include('controller/project.php');
 	exit();
 }
 
 // La page n'existe pas
-ob_start("minimiser");
 include('controller/errors/404.php');
