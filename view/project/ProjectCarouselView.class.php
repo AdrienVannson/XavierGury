@@ -25,7 +25,7 @@ class ProjectCarouselView extends ProjectView
     {
         ?>
 
-        <span id="date" style="font-style: italic;">Loading...</span>
+        <span id="date" style="font-style: italic;">Chargement...</span>
 
         <?php ProjectView::sendPictures(); ?>
 
