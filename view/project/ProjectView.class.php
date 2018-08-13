@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * ProjectView
  */
 
@@ -322,6 +322,7 @@ class ProjectView extends HTMLView
                 $datas = json_encode([
                     'name' => $picture->getName(),
                     'description' => $picture->getDescription(),
+                    'creationDate' => $picture->getCreationDate(),
                     'urlLarge' => $picture->getUrlResource('l')
                 ]);
                 echo "$datas,";

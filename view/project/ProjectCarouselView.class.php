@@ -23,12 +23,13 @@ class ProjectCarouselView extends ProjectView
 
     protected function sendPictures ()
     {
-        ProjectView::sendPictures();
-
-        // Noscript, because of the lazy-loading
         ?>
 
-        <noscript>
+        <span id="date" style="font-style: italic;">Loading...</span>
+
+        <?php ProjectView::sendPictures(); ?>
+
+        <noscript> <!--  Noscript, because of the lazy-loading -->
             <?php
             $pictures = $this->project->getPictures();
 
