@@ -23,6 +23,7 @@ class ProjectCarouselView extends ProjectView
 
     protected function sendPictures ()
     {
+        $pictures = $this->project->getPictures();
         ?>
 
         <span id="date" style="font-style: italic;">Chargement...</span>
@@ -31,8 +32,6 @@ class ProjectCarouselView extends ProjectView
 
         <noscript> <!--  Noscript, because of the lazy-loading -->
             <?php
-            $pictures = $this->project->getPictures();
-
             foreach ($pictures as $picture) {
                 ?>
                     <img
@@ -47,6 +46,26 @@ class ProjectCarouselView extends ProjectView
         </noscript>
 
         <div id="slider"></div>
+
+        <div id="years" style="text-align: center; margin-top: 10px;">
+            <?php
+            $lastYear = '';
+
+            foreach ($pictures as $indice => $picture) {
+                $year = explode('-', $picture->getCreationDate())[0];
+
+                if ($year != $lastYear) {
+
+                    if ($lastYear != '') {
+                        echo ' - ';
+                    }
+                    echo "<a href=\"#\" onclick=\"changeActivePicture($indice);\">$year</a>";
+
+                    $lastYear = $year;
+                }
+            }
+            ?>
+        </div>
 
         <?php
     }
