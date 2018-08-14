@@ -265,11 +265,11 @@ function changeActivePicture (newId)
 			});
 
 			onActivePictureChange.push(function (id) {
-				var mouths = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+				var months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 
 				var date = infosPictures[id]['creationDate'].split('-');
 
-				document.getElementById('date').innerText = parseInt(date[2]) + ' ' + mouths[ parseInt(date[1]) ] + ' ' + date[0];
+				document.getElementById('date').innerText = parseInt(date[2]) + ' ' + months[ parseInt(date[1]) ] + ' ' + date[0];
 			});
 		});
 
