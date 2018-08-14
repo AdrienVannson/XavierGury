@@ -164,7 +164,7 @@ p {
 	display: block;
 	width: <?php echo $widthColorItem;?>px;
 	height: <?php echo $heightColorItem?>px;
-	
+
 	background-color: #FFF;
 }
 
@@ -186,14 +186,14 @@ p {
 	top: 20px;
 	left: 240px;
 	bottom: 0;
-	
+
 	width: 1px;
 }
 
 #line-bottom {
 	left: 0;
 	bottom: <?php echo $heightColorItem;?>px;
-	
+
 	width: <?php echo 500 + $widthColorItem;?>px;
 	height: 1px;
 }
@@ -201,7 +201,7 @@ p {
 #line-white-item-1 {
 	left: 480px;
 	bottom: 0;
-	
+
 	width: 1px;
 	height: <?php echo 10 + $heightColorItem;?>px;
 }
@@ -209,7 +209,7 @@ p {
 #line-white-item-2 {
 	left: <?php echo 480 + $widthColorItem;?>px;
 	bottom: 0;
-	
+
 	width: 1px;
 	height: <?php echo 15 + $heightColorItem;?>px;
 }
@@ -221,7 +221,7 @@ p {
 	right: 0;
 	bottom: 0;
 	height: <?php echo $heightColorItem;?>px;
-	
+
 	background-color: #2B2E34;
 }
 
@@ -248,7 +248,7 @@ p {
 		left: -250px;
 		width: 240px;
 		padding-top: 30px;
-		
+
 		border-right: 1px solid #FFF;
         background-color: #2B2E34;
 	}
@@ -289,7 +289,7 @@ p {
 }
 
 
-/* 
+/*
  * Description
  */
 
@@ -428,7 +428,7 @@ p {
 
 		background-color: #FFF;
 	}
-	
+
 	#close {
 		background-color: #000;
 	}
@@ -437,7 +437,7 @@ p {
 		max-height: 90vh;
 		margin: auto;
 	}
-	
+
 	#picture-container {
 		background-color: #000;
 	}
@@ -475,7 +475,7 @@ p {
 		left: 50%;
 		transform: translateY(-50%) translateX(-50%);
 	}
-	
+
 	#informations {
 		position: absolute;
 
@@ -504,7 +504,7 @@ p {
 
 	background-color: #414349;
 	border-radius: 16px;
-	
+
 	transition: box-shadow .3s;
 }
 
@@ -534,11 +534,11 @@ p {
 
 
 @media (max-width: 992px) { /* Small and medium screens */
-	
+
 	.childen-column {
 		width: 100%;
 	}
-	
+
 }
 
 
