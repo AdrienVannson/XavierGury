@@ -269,7 +269,7 @@ function changeActivePicture (newId)
 
 				var date = infosPictures[id]['creationDate'].split('-');
 
-				document.getElementById('date').innerText = parseInt(date[2]) + ' ' + months[ parseInt(date[1]) ] + ' ' + date[0];
+				document.getElementById('date').innerText = parseInt(date[2]) + ' ' + months[ parseInt(date[1])-1 ] + ' ' + date[0];
 			});
 		});
 
