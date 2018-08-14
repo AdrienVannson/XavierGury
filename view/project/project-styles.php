@@ -547,7 +547,8 @@ p {
  */
 
 .carousel {
-	margin: 25px;
+	margin-left: 25px;
+	margin-right: 25px;
 }
 
 .carousel .slick-slide {
